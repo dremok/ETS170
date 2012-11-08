@@ -1,5 +1,13 @@
 Kravhantering - Grupp D
 <br><br>
+<b>Ladda modellen i Scala REPL:</b><br>
+:load model.scala<br>
+<b>Spara ner modellen igen:</b><br>
+m.toScala.save("model.scala")<br>
+<b>Generera html:</b><br>
+:load tohtml.scala<br>
+
+<br><br>
 Att göra:<br>
 Project Plan (fri W2)<br>
 Requirements Doc ver. 1 (mon W4)<br>
