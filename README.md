@@ -1,5 +1,10 @@
 Kravhantering - Grupp D
 <br><br>
+För att köra reqT i Scala REPL:<br>
+:cp reqT-v2.1.jar<br>
+import reqT._
+
+<br><br>
 <b>Ladda modellen i Scala REPL:</b><br>
 :load model.scala<br>
 <b>Spara ner modellen igen:</b><br>
