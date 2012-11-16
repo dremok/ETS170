@@ -8,8 +8,7 @@ val myTemplate = DocumentTemplate(
 	  " <a href=\"http://reqT.org\">reqT.org</a> " + 
 	  ( new java.util.Date ) ), 
 	Chapter("Context", Text(""), m => m / Context),
-	Chapter("Features", Text(""), m => m / Feature),
-	Chapter("Interfaces", Text(""), m => m / Interface)
+	Chapter("Tasks", Text(""), m => m / Task)
 )
 
 m.toHtml(myTemplate).save("reqDoc.html")
