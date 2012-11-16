@@ -1,3 +1,5 @@
+import reqT._
+
 var m = Model(
 	Product("Electronic Voting System") has
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
@@ -52,7 +54,7 @@ var m = Model(
 	),
 	
 	Task("1a. Carry out voting via the web interface - the typical case") has (
-		Label("variant1a"),
+		Label("variant1"),
 		Gist("A person without any special needs uses the web interface to place a vote for a party."),
 		Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
 			"The voter opens up this site in a web browser and logs in with the code stated on the voting card. A party " +
@@ -61,7 +63,7 @@ var m = Model(
 	),
 	
 	Task("1b. Carry out voting via the web interface - visually impaired") has (
-		Label("variant1b"),
+		Label("variant1"),
 		Gist("A person with a visual impairment uses the web interface to place a vote for a party."),
 		Example("The voter chooses to vote through the web interface. On the voting card there is a web adress in braille... bla bla bla")
 	),
@@ -69,7 +71,8 @@ var m = Model(
 	Task("2. Carry out voting via machine") has (
 		Label("maintask2"),
 		Why("Let a person place a vote on a machine. Store the vote with no connection to the voter."),
-		Trigger("A voter goes to a place with a voting machine and wants to place a vote.")
+		Trigger("A voter goes to a place with a voting machine and wants to place a vote."),
+		Frequency("The machine might be used continuously throughout the voting period.")
 	),
 	Task("2. Carry out voting via machine") owns (
 		Task("2a. Carry out voting via machine - the typical case"),
@@ -78,9 +81,8 @@ var m = Model(
 	),
 	
 	Task("2a. Carry out voting via machine - the typical case") has (
-		Label("variant2a"),
+		Label("variant2"),
 		Gist("A person without any special needs places a vote for a party using a machine at a voting place."),
-		Frequency("The machine might be used continuously throughout the voting period."),
 		Example("The voter bla bla bla")
 	),
 	
