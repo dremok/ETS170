@@ -4,8 +4,33 @@ var m = Model(
 			"The long-term goal is to fully replace the current system during the course of a twelve year period.")),
 	
 	// Stakeholders
-	Stakeholder("Swedish Valmyndigheten") has
-		(Spec("A governemt authority responsible for the parliamentary elections in Sweden.")),
+	Stakeholder("Swedish Valmyndigheten") has (
+		Spec("A governemt authority responsible for the parliamentary elections in Sweden.")
+	),
+	Stakeholder("Experts") has (
+		Spec("Thore Husfeldt is a professor at the Computer Science department at Lunds Tekniska Högskola and will provide the project with special knowledge on electronic voting systems.")
+	),
+	Stakeholder("Idlers") has (
+		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers.")
+	),
+	Stakeholder("Disabled / hospitalized") has (
+		Spec("This group includes people who may be incapable of moving to a voting place.")
+	),
+	Stakeholder("Visually impaired") has (
+		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system.")
+	),
+	Stakeholder("Voters abroad") has (
+		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote.")
+	),
+	Stakeholder("Non-swedish speaking voters") has (
+		Spec("People who don't speak Swedish but are eligible to vote.")
+	),
+	Stakeholder("Sub-contractors / Hardware suppliers") has (
+		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions) and possibly also carpenters that manufacture voting booths etc.")
+	),
+	Stakeholder("The parties") has (
+		Spec("This group includes the parties the Swedish population votes on.")
+	),
 	
 	// Goals
 	Goal("Reduce manual labour") has
