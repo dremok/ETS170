@@ -33,6 +33,38 @@ var m = Model(
 	Stakeholder("The parties") has (
 		Spec("This group includes the parties the Swedish population votes on.")
 	),
+
+	//Data Dictionary
+	Class("Voter") has (
+		Gist("Can vote in the election"),
+		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all time have a vote associated with it.The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code."),
+		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
+		),
+
+	Class("Party Verification Code") has (
+		Gist("A code that enables a voter to verify which party his/her vote was placed on."),
+		Spec("The code consists of a randomly generated number."),
+		//TODO decide if this class is too trival to have an example or not.
+		),
+
+	Class("Party") has (
+		Gist("A party which can receive a vote from the voters."),
+		Spec("Each votable party is represented with a party in the system, there must also be a “no-vote” party in order to mask the fact that some people may not have voted."),
+		Example("(1) The “no-vote” party. (2) The pirate party.")
+		),
+
+	Class("Party Candidate") has (
+		Gist("A member of a party who the voters can vote for."),
+		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
+		Example("(1) Anna Troberg of the pirate party. (2) “blank” of any party.")
+		),
+
+	Class("Vote") has (
+		Gist("A vote can be placed by a voter on a party and candidate."),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way to determine which candidate and party the vote was placed on while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
+		Exmaple("(1) A vote on pirate party and “blank” candidate. (2) A vote on “blank” party and “blank” candidate")
+		),
+
 	
 	// Goals
 	Goal("Reduce manual labour") has
