@@ -3,15 +3,23 @@ Generates HTML from model m according to the following template.
 */
 
 def mainTask(i: Int): Model = for (
-	(Key(entity,edge), nodes) <- m
+	(Key(entity,edge), nodes) <- (m / Task)
 		if nodes exists {
 			case Label(l) => l contains ("maintask"+i)
 			case _ => false
 		}
 	) yield (Key(entity,edge), nodes)
 	
+def subtasks(i: Int): Model = for (
+	(Key(entity,edge), nodes) <- (m / Task)
+		if nodes exists {
+			case Label(l) => l contains ("subtask"+i)
+			case _ => false
+		}
+	) yield (Key(entity,edge), nodes)
+
 def variants(i: Int): Model = for (
-	(Key(entity,edge), nodes) <- m
+	(Key(entity,edge), nodes) <- (m / Task)
 		if nodes exists {
 			case Label(l) => l contains ("variant"+i)
 			case _ => false
@@ -26,11 +34,19 @@ val myTemplate = DocumentTemplate(
 	Chapter("Context", Text("System context"), m => (m / Context) \ Stakeholder),
 	Chapter("Stakeholders", Text(""), m => m / Stakeholder),
 	Chapter("Goals", Text(""), m => m / Goal),
-	Chapter("Tasks", Text("<b>R1. The product shall support the following tasks:</b>"), m => m / hurts),
-	Chapter("", Text(""), m => mainTask(1) - Label(mainTask(1) !! Label)),
-	Chapter("", Text(""), m => variants(1) - Label(variants(1) !! Label)),
-	Chapter("", Text(""), m => mainTask(2) - Label(mainTask(2) !! Label)),
-	Chapter("", Text(""), m => variants(2) - Label(variants(2) !! Label))
+	Chapter("Tasks to be supported", Text("<b>R1. The product shall support the following tasks:</b>"), m => m / hurts), // Skickar in tom modell eftersom jag inte vet hur man gör rubriker
+	// Task descriptions
+	Chapter("", Text(""), m => mainTask(1)),
+	Chapter("", Text("<h3>Sub-tasks:</h3>"), m => m / hurts),
+	Chapter("", Text(""), m => subtasks(1)),
+	Chapter("", Text("<h3>Variants:</h3>"), m => m / hurts),
+	Chapter("", Text(""), m => variants(1)),
+	Chapter("", Text("<hr>"), m => m / hurts),
+	Chapter("", Text(""), m => mainTask(2)),
+	Chapter("", Text("<h3>Sub-tasks:</h3>"), m => m / hurts),
+	Chapter("", Text(""), m => subtasks(2)),
+	Chapter("", Text("<h3>Variants:</h3>"), m => m / hurts),
+	Chapter("", Text(""), m => variants(2))
 )
 
 m.toHtml(myTemplate).save("reqDoc.html")
