@@ -43,7 +43,7 @@ var m = Model(
 	// Tasks
 	Task("1. Carry out voting via the web interface") has (
 		Label("maintask1"),
-		Why("Let a person place a vote online. Store the vote with no connection to the voter."),
+		Why("Let a person place a vote online."),
 		Trigger("A voter opens up the voting website during the voting period."),
 		Critical("Worst case: the entire voting population logs in and place their votes at the same time.")
 	),
