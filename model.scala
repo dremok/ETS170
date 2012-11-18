@@ -7,7 +7,7 @@ var m = Model(
 	
 	// Stakeholders
 	Stakeholder("Swedish Valmyndigheten") has (
-		Spec("A governemt authority responsible for the parliamentary elections in Sweden.")
+		Spec("A government authority responsible for the parliamentary elections in Sweden.")
 	),
 	Stakeholder("Experts") has (
 		Spec("Thore Husfeldt is a professor at the Computer Science department at Lunds Tekniska Högskola and will provide the project with special knowledge on electronic voting systems.")
@@ -63,7 +63,7 @@ var m = Model(
 		
 		Task("1.1 Authenticate") has (
 			Label("subtask1.1"),
-			Gist("The voter enters his/her personal code on the recieved voting card in the web interface and authenticates oneself using " +
+			Gist("The voter enters his/her personal code on the recieved voting card in the web interface and authenticates him-/herself using " +
 			"electronic identification (e.g. BankID)")
 		),
 			
@@ -136,7 +136,7 @@ var m = Model(
 			
 		Task("2.2 Choose party") has (
 			Label("subtask2.2"),
-			Gist("The voter chooses the party that he/she wish to vote for in the web interface on the machine.")
+			Gist("The voter chooses the party that he/she wishes to vote for in the web interface on the machine.")
 		),
 			
 		Task("2.3 Confirm") has (
@@ -164,7 +164,7 @@ var m = Model(
 			"to the case in 1b.")
 		),
 		
-		Task("2c Carry out voting via machine - non-swedish speaking voter") has (
+		Task("2c Carry out voting via machine - non-Swedish speaking voter") has (
 			Label("variant2c"),
 			Gist("A person who doesn't understand Swedish votes using a machine at a voting place"),
 			Example("This should be identical to 1c.")
