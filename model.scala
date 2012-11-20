@@ -24,11 +24,11 @@ var m = Model(
 	Stakeholder("Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote.")
 	),
-	Stakeholder("Non-swedish speaking voters") has (
+	Stakeholder("Non-Swedish speaking voters") has (
 		Spec("People who don't speak Swedish but are eligible to vote.")
 	),
 	Stakeholder("Sub-contractors / Hardware suppliers") has (
-		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions) and possibly also carpenters that manufacture voting booths etc.")
+		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions), and possibly also carpenters who manufacture voting booths etc.")
 	),
 	Stakeholder("The parties") has (
 		Spec("This group includes the parties the Swedish population votes on.")
@@ -49,7 +49,7 @@ var m = Model(
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters."),
-		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted."),
+		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
 		Example("(1) The \"no-vote\" party. (2) The pirate party.")
 		),
 
@@ -98,13 +98,13 @@ var m = Model(
 		
 		Task("1.1 Authenticate") has (
 			Label("subtask1.1"),
-			Gist("The voter enters his/her personal code on the recieved voting card in the web interface and authenticates him-/herself using " +
+			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
 			"electronic identification (e.g. BankID)")
 		),
 			
 		Task("1.2 Choose party") has (
 			Label("subtask1.2"),
-			Gist("The voter chooses the party that he/she wish to vote for in the web interface.")
+			Gist("The voter chooses the party that he/she wishes to vote for in the web interface.")
 		),
 			
 		Task("1.3 Confirm") has (
@@ -114,7 +114,7 @@ var m = Model(
 			
 		Task("1.4 Recieve confirmation") has (
 			Label("subtask1.4"),
-			Gist("The voter recieves a personalized message confirming that the vote was counted for the correct party."),
+			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 		
@@ -123,7 +123,7 @@ var m = Model(
 			Gist("A person without any special needs uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
 				"The voter opens up this site in a web browser and logs in with the code stated on the voting card. A party " +
-				"is chosen in the web interface. The voter clicks on a 'Submit' button. One minute later, the voter recieves some kind of " +
+				"is chosen in the web interface. The voter clicks on a 'Submit' button. One minute later, the voter receives some kind of " +
 				"personalized message confirming that the vote was counted for the correct party.")
 		),	
 		
@@ -182,7 +182,7 @@ var m = Model(
 			
 		Task("2.4 Recieve confirmation") has (
 			Label("subtask2.4"),
-			Gist("The voter recieves a personalized message confirming that the vote was counted for the correct party."),
+			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 
