@@ -30,13 +30,15 @@ val myTemplate = DocumentTemplate(
 	  " <a href=\"http://reqT.org\">reqT.org</a> " + 
 	  ( new java.util.Date ) ), 
 	Chapter("Context", Text("System context"), m => (m / Context) \ Stakeholder),
-	Chapter("Stakeholders", Text(""), m => m / Stakeholder),
+	
+	// Stakeholders
+	Chapter("Stakeholders", Text("The stakeholders are prioritized on a scale from 1 to 3, where 1 is lowest priority and 3 is highest."), m => m / Stakeholder),
 	
 	// Goals
-	Chapter("Goals", Text("<b>R1. The product shall support the following goals:</b>"), m => m / Goal),
+	Chapter("Goal requirements", Text("<b>R1. The system shall support the following goals:</b>"), m => m / Goal),
 	
 	// Task descriptions
-	Chapter("Tasks to be supported", Text("<b>R2. The product shall support the following tasks:</b>"), m => mWithoutLabels(mainTask(1)) ), 
+	Chapter("Tasks to be supported", Text("<b>R2. The system shall support the following tasks:</b>"), m => mWithoutLabels(mainTask(1)) ), 
 	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(1))),
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(1))),
 	Section("", Text("<hr>"), m => m / hurts), // Tom modell
@@ -46,7 +48,10 @@ val myTemplate = DocumentTemplate(
 	
 	// Data requirements
 	Chapter("Data Requirements", Text("<b>R3. The server shall handle the following data:</b>"), m => m / hurts),
-	Section("Data dictionary", Text(""), m => m / Class)
+	Section("Data dictionary", Text(""), m => m / Class),
+	
+	// Product requirements
+	Chapter("Product Requirements", Text(""), m => m / Function)
 )
 
 m.toHtml(myTemplate).save("reqDoc.html")
