@@ -3,35 +3,55 @@ import reqT._
 var m = Model(
 	Product("Electronic Voting System") has
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
-			"The long-term goal is to fully replace the current system during the course of a twelve year period.")),
+			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
+		Image("ContextDiagram.png")),
 	
 	// Stakeholders
 	Stakeholder("Swedish Valmyndigheten") has (
-		Spec("A government authority responsible for the parliamentary elections in Sweden.")
+		Spec("A government authority responsible for the parliamentary elections in Sweden."),
+		Prio(3),
+		Comment("Goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Make it easier to vote for certain groups that have difficulties with the current system. " +
+		"Higher election turnout. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
+		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
+		"<br> Risks/costs: Identity theft. Too complicated for the voters. Security risks. Development costs.")
 	),
 	Stakeholder("Experts") has (
-		Spec("Thore Husfeldt is a professor at the Computer Science department at Lunds Tekniska Högskola and will provide the project with special knowledge on electronic voting systems.")
+		Spec("Thore Husfeldt is a professor at the Computer Science department at Lund University, Faculty of Engineering and will provide the project with special knowledge on electronic voting systems. " +
+		"He is mainly interested in the system because he thinks that it is interesting from a scientific point of view."),
+		Prio(3),
+		Comment("Goals: Good technical solutions. Minimize security risks.<br> Risks/costs: Conflicts of interest among different stakeholders.")
 	),
 	Stakeholder("Idlers") has (
-		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers.")
+		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers."),
+		Prio(3)
 	),
 	Stakeholder("Disabled / hospitalized") has (
-		Spec("This group includes people who may be incapable of moving to a voting place.")
+		Spec("This group includes people who may be incapable of moving to a voting place."),
+		Prio(2)
 	),
 	Stakeholder("Visually impaired") has (
-		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system.")
-	),
-	Stakeholder("Voters abroad") has (
-		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote.")
+		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
+		Prio(2)
 	),
 	Stakeholder("Non-Swedish speaking voters") has (
-		Spec("People who don't speak Swedish but are eligible to vote.")
+		Spec("People who don't speak Swedish but are eligible to vote."),
+		Prio(2)
+	),
+	Stakeholder("Seniors") has (
+		Spec(""),
+		Prio(2)
+	),
+	Stakeholder("Voters abroad") has (
+		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
+		Prio(2)
+	),
+	Stakeholder("Typical voters") has (
+		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions) and possibly also carpenters that manufacture voting booths etc."),
+		Prio(1)
 	),
 	Stakeholder("Sub-contractors / Hardware suppliers") has (
-		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions), and possibly also carpenters who manufacture voting booths etc.")
-	),
-	Stakeholder("The parties") has (
-		Spec("This group includes the parties the Swedish population votes on.")
+		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions) and possibly also carpenters that manufacture voting booths etc."),
+		Prio(1)
 	),
 
 	//Data Dictionary
