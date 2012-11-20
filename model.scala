@@ -10,7 +10,7 @@ var m = Model(
 		Spec("A government authority responsible for the parliamentary elections in Sweden.")
 	),
 	Stakeholder("Experts") has (
-		Spec("Thore Husfeldt is a professor at the Computer Science department at Lunds Tekniska Högskola and will provide the project with special knowledge on electronic voting systems.")
+		Spec("Thore Husfeldt is a professor at the Computer Science department at Lunds Tekniska HÃ¶gskola and will provide the project with special knowledge on electronic voting systems.")
 	),
 	Stakeholder("Idlers") has (
 		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers.")
@@ -43,50 +43,53 @@ var m = Model(
 
 	Class("Party Verification Code") has (
 		Gist("A code that enables a voter to verify which party his/her vote was placed on."),
-		Spec("The code consists of a randomly generated number."),
+		Spec("The code consists of a randomly generated number.")
 		//TODO decide if this class is too trival to have an example or not.
 		),
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters."),
-		Spec("Each votable party is represented with a party in the system, there must also be a “no-vote” party in order to mask the fact that some people may not have voted."),
-		Example("(1) The “no-vote” party. (2) The pirate party.")
+		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted."),
+		Example("(1) The \"no-vote\" party. (2) The pirate party.")
 		),
 
 	Class("Party Candidate") has (
 		Gist("A member of a party who the voters can vote for."),
 		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
-		Example("(1) Anna Troberg of the pirate party. (2) “blank” of any party.")
+		Example("(1) Anna Troberg of the pirate party. (2) \"blank\" of any party.")
 		),
 
 	Class("Vote") has (
 		Gist("A vote can be placed by a voter on a party and candidate."),
 		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way to determine which candidate and party the vote was placed on while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
-		Exmaple("(1) A vote on pirate party and “blank” candidate. (2) A vote on “blank” party and “blank” candidate")
+		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
 		),
 
 	
 	// Goals
-	Goal("Reduce manual labour") has
-		(Spec("Reduce the number of public voting places and the number of votes to be handled manually.")),
-	Goal("Facilitate voting for people who have difficulties getting to a voting place") has
-		(Spec("Make it easier for the disabled, very ill, etc. by permiting voting from where they are situated.")),
+	Goal("Reduce manual labour") has (
+		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
+	),
+	Goal("Facilitate voting for people who have difficulties getting to a voting place") has (
+		Spec("Make it easier for the disabled, very ill, etc. by permiting voting from where they are situated.")
+	),
 	
 	// Tasks
-	Task("1. Carry out voting via the web interface") has (
+	Task("1") has (
 		Label("maintask1"),
+		Gist("Carry out voting via the web interface"),
 		Why("Let a person place a vote online."),
 		Trigger("A voter opens up the voting website during the voting period."),
 		Critical("Worst case: the entire voting population logs in and place their votes at the same time.")
 	),
 	// Variants
-	Task("1. Carry out voting via the web interface") owns (
+	Task("1") owns (
 		Task("1a Carry out voting via the web interface - the typical case"),
 		Task("1b Carry out voting via the web interface - visually impaired"),
 		Task("1c Carry out voting via the web interface - non-swedish speaking voter")
 	),
 	// Subtasks
-	Task("1. Carry out voting via the web interface") owns (
+	Task("1") owns (
 			Task("1.1 Authenticate"),
 			Task("1.2 Choose party"),
 			Task("1.3 Confirm"),
@@ -140,20 +143,21 @@ var m = Model(
 			"then carried out as in 1a.")
 		),
 		
-	Task("2. Carry out voting via machine") has (
+	Task("2") has (
 		Label("maintask2"),
+		Gist("Carry out voting via machine"),
 		Why("Let a person place a vote on a machine. Store the vote with no connection to the voter."),
 		Trigger("A voter goes to a place with a voting machine and wants to place a vote."),
 		Frequency("The machine might be used continuously during open hours throughout the entire voting period.")
 		
 	),
-	Task("2. Carry out voting via machine") owns (
+	Task("2") owns (
 		Task("2a Carry out voting via machine - the typical case"),
 		Task("2b Carry out voting via machine - visually impaired"),
 		Task("2c Carry out voting via machine - non-swedish speaking voter")
 	),
 	
-	Task("2. Carry out voting via machine") owns (
+	Task("2") owns (
 		Task("2.1 Authenticate"),
 		Task("2.2 Choose party"),
 		Task("2.3 Confirm"),
