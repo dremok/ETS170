@@ -41,7 +41,7 @@ var m = Model(
 		Prio(2),
 		Comment("Goals: Higher turnout among the visually impaired.")
 	),
-	Stakeholder("Non-swedish speaking voters") has (
+	Stakeholder("Non-Swedish speaking voters") has (
 		Spec("People who don't speak Swedish but are eligible to vote."),
 		Prio(2),
 		Comment("Goals: Same opportunity to vote regardless of native language.")
@@ -89,7 +89,7 @@ var m = Model(
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters."),
-		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted."),
+		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
 		Example("(1) The \"no-vote\" party. (2) The pirate party.")
 		),
 
@@ -138,7 +138,7 @@ var m = Model(
 		
 		Task("1.1 Authenticate") has (
 			Label("subtask1.1"),
-			Gist("The voter enters his/her personal code on the recieved voting card in the web interface and authenticates him-/herself using " +
+			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
 			"electronic identification (e.g. BankID)")
 		),
 			
@@ -154,7 +154,7 @@ var m = Model(
 			
 		Task("1.4 Recieve confirmation") has (
 			Label("subtask1.4"),
-			Gist("The voter recieves a personalized message confirming that the vote was counted for the correct party."),
+			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 		
@@ -222,7 +222,7 @@ var m = Model(
 		
 		Task("2.4 Recieve confirmation") has (
 			Label("subtask2.4"),
-			Gist("The voter recieves a personalized message confirming that the vote was counted for the correct party."),
+			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 
