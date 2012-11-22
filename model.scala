@@ -310,12 +310,13 @@ var m = Model(
 		Label("security"),
 		Example("Anonymity should still be enforced <br>" + 
 			"Correct result should be obtained")
+	),
+	
 	Function("Receipt-Freeness") has (
 		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
 		Label("security")
 	),
 	
-	 Functional requirements
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
