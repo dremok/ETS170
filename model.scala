@@ -10,7 +10,7 @@ var m = Model(
 	Stakeholder("Swedish Valmyndigheten") has (
 		Spec("A government authority responsible for the parliamentary elections in Sweden."),
 		Prio(3),
-		Comment("Goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
+		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
 		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
 		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
 		"<br> Risks/costs: Identity theft. Too complicated for the voters. Security risks. Development costs.")
@@ -19,64 +19,68 @@ var m = Model(
 		Spec("Thore Husfeldt is a professor at the Computer Science department at Lund University, Faculty of Engineering and will provide the project with special knowledge on electronic voting systems. " +
 		"He is mainly interested in the system because he thinks that it is interesting from a scientific point of view."),
 		Prio(3),
-		Comment("Goals: Good technical solutions. Minimal security risks.<br> Risks/costs: Conflicts of interest among different stakeholders.")
+		Comment("Stakeholder's goals: Good technical solutions. Minimal security risks.<br> Risks/costs: Conflicts of interest among different stakeholders.")
 	),
 	Stakeholder("Idlers") has (
 		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers."),
 		Prio(3),
-		Comment("Goals: Less effort required to place a vote.")
+		Comment("Stakeholder's goals: Less effort required to place a vote.")
 	),
 	Stakeholder("Disabled / hospitalized") has (
 		Spec("This group includes people who may be incapable of moving to a voting place."),
 		Prio(2),
-		Comment("Goals: Be able to vote from where they are.")
+		Comment("Stakeholder's goals: Be able to vote from where they are.")
 	),
 	Stakeholder("Cognitive impairment") has (
 		Spec("This group includes people who may have difficulties operating any voting system. (e.g. Dementia, Alzheimer's disease, etc.)"),
 		Prio(2),
-		Comment("Goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand.")
+		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand.")
 	),
 	Stakeholder("Visually impaired / Blind") has (
 		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
 		Prio(2),
-		Comment("Goals: Higher turnout among the visually impaired.")
+		Comment("Stakeholder's goals: Higher turnout among the visually impaired.")
 	),
 	Stakeholder("Non-Swedish speaking voters") has (
 		Spec("People who don't speak Swedish but are eligible to vote."),
 		Prio(2),
-		Comment("Goals: Same opportunity to vote regardless of native language.")
+		Comment("Stakeholder's goals: Same opportunity to vote regardless of native language.")
 	),
-	Stakeholder("Seniors") has (
-		Spec("Older people who have retired. (Somewhat vague. Some seniors still work. What does older mean?)"),
+	Stakeholder("Voters with particularly low knowledge of electronic systems") has (
+		Spec("This group includes voters who have little to no computer experience and feel uncomfortable using them."),
 		Prio(2),
-		Comment("Goals: Voting should be done as smoothly as before. Risks/costs: Turnout is decreased among voters who have a tradition " +
-		"of going to a voting place to vote. Voting gets too confusing.")
+		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing.")
+	),
+	Stakeholder("Voters who are uninterested in using an electronic voting system") has (
+		Spec("This group includes voters who regards election day as a traditional event that should not change."),
+		Prio(2),
+		Comment("Stakeholder's goals: Voting process should be changed as little as possible. Risks/costs: Turnout is decreased among voters who have a tradition of going to a voting place to vote.")
 	),
 	Stakeholder("Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
 		Prio(2),
-		Comment("Goals: Easier/as easy to vote from where they are.")
+		Comment("Stakeholder's goals: Easier/as easy to vote from where they are.")
 	),
 	Stakeholder("Typical voters") has (
 		Spec("The rest of the voting population."),
 		Prio(1),
-		Comment("Goals: Save time. Be sure that my vote counts and is counted for the correct party / candidate. Be sure that no one else can vote for me. Be sure that the result is accurate. " +
+		Comment("Stakeholder's goals: Save time. Be sure that my vote counts and is counted for the correct party / candidate. Be sure that no one else can vote for me. Be sure that the result is accurate. " +
 		"Risks/costs: Too complicated. Sense of insecurity.")
 	),
 	Stakeholder("Sub-contractors / Hardware suppliers") has (
 		Spec("This group includes manufacturers of the hardware for the machines in voting places and any providers of external software (such as security functions etc.) to be used in the electronic voting system."),
 		Prio(1),
-		Comment("Goals: That we use their external software and hardware so that they can benefit from this project.")
+		Comment("Stakeholder's goals: That we use their external software and hardware so that they can benefit from this project.")
 	),
 	Stakeholder("Dyslectic / Illiterate") has (
 		Spec("People who have have difficulties understanding written text."),
 		Prio(2),
-		Comment("Goals: Easier/as easy to vote as with the current system.")
+		Comment("Stakeholder's goals: Easier/as easy to vote as with the current system.")
 	),
 	Stakeholder("Hackers") has (
 		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
 		Prio(3),
-		Comment("Goals: The system should have low security.")
+		Comment("Stakeholder's goals: The system should have low security.")
 	),
 	
 	//Data Dictionary
@@ -242,7 +246,7 @@ var m = Model(
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
 			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b."),
-			Comment("In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed (e.g. sound isolated booth or headphones). ")
+			Comment("In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed (e.g. sound isolated booth or headphones).")
 		),
 		
 		Task("2c Carry out voting via machine - non-Swedish speaking voter") has (
@@ -256,6 +260,12 @@ var m = Model(
 			Gist("A person with motor impairments votes using a machine at a voting place"),
 			Spec("The public voting machines are equipped with voice recognition functions to enable the voter to use them. The general procedure is identical to the typical case (Task 2a)."),
 			Comment("It must not be possible to conclude what was voted for from outside the voting booth. One example is to use sound isolated booths. Another way might be to construct the user interface in a way that does not encourage the voter to say out loud what (s)he is voting for.")
+		),
+
+		Task("2e Carry out voting via machine - voter has cognitive impairments") has (
+			Label("variant2e"),
+			Gist("A person with cognitive impairments votes using a machine at a voting place"),
+			Spec("TODO!")
 		),
 	
 	// Function requirements
