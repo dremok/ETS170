@@ -50,7 +50,7 @@ val myTemplate = DocumentTemplate(
 	Chapter("Data Requirements", Text("<b>R3. The server shall handle the following data:</b>"), m => m / hurts),
 	Section("Data dictionary", Text(""), m => m / Class),
 	
-	// Product requirements
+	// Function requirements
 	Chapter("Product Requirements", Text(""), m => m / Function)
 )
 
