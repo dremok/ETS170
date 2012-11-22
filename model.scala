@@ -138,7 +138,7 @@ var m = Model(
 			Task("1.1 Authenticate"),
 			Task("1.2 Choose party and candidate"),
 			Task("1.3 Confirm"),
-			Task("1.4 Recieve confirmation")
+			Task("1.4 receive confirmation")
 	),
 		
 		Task("1.1 Authenticate") has (
@@ -157,7 +157,7 @@ var m = Model(
 			Gist("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
 		),
 			
-		Task("1.4 Recieve confirmation") has (
+		Task("1.4 Receive confirmation") has (
 			Label("subtask1.4"),
 			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
@@ -169,7 +169,7 @@ var m = Model(
 			Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
 				"The voter opens up this site in a web browser, logs in using electronic identification (e.g. bankID) and enters the personal code " +
 				"stated on the voting card. A party and a candidate is chosen in the web interface. The voter clicks on a 'Submit' button. " +
-				"After an appropriate amount of time, the voter recieves some kind of personalized message confirming that the vote was counted for the correct party.")
+				"After an appropriate amount of time, the voter receives some kind of personalized message confirming that the vote was counted for the correct party.")
 		),	
 		
 		Task("1b Carry out voting via the web interface - visually impaired") has (
@@ -206,7 +206,7 @@ var m = Model(
 		Task("2.1 Authenticate"),
 		Task("2.2 Choose party and candidate"),
 		Task("2.3 Confirm"),
-		Task("2.4 Recieve confirmation")
+		Task("2.4 Receive confirmation")
 	),
 
 		// Subtasks	
@@ -225,7 +225,7 @@ var m = Model(
 			Gist("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
 		),
 		
-		Task("2.4 Recieve confirmation") has (
+		Task("2.4 Receive confirmation") has (
 			Label("subtask2.4"),
 			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
