@@ -267,7 +267,7 @@ var m = Model(
 	Function("Authentication") has (
 		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>")
-	)
+	),
 
 	
 	// Relationships
