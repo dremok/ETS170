@@ -75,7 +75,7 @@ var m = Model(
 	),
 	Stakeholder("Hackers") has (
 		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
-		Prio(2),
+		Prio(3),
 		Comment("Goals: The system should have low security.")
 	),
 	
@@ -252,6 +252,18 @@ var m = Model(
 		),
 	
 	// Function requirements
+	Function("Privacy") has (
+		Spec("<b>It should be impossible for anyone extract any information about someone else's vote</b>")
+	),
+	Function("Correctness") has (
+		Spec("<b>The result of the election matches the intention of the voters.</b>")
+	),
+	Function("Individual Verifiability") has (
+		Spec("<b>It should be possible for voters to ensure that their vote was recorded as intended and included in the computation of the final result</b>")
+	),
+	Function("Universal Verifiability") has (
+		Spec("<b>It should be possible for a third party to ensure that all votes have been included in the computation of the final result and that the election was properly performed</b>")
+	),
 	Function("Authentication 1") has (
 		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>")
@@ -262,7 +274,7 @@ var m = Model(
 	Function("Vote counting") has (
 		Spec("<b>R_. The system should be able to assemble manually counted votes and the electronically registered votes.</b>")
 	),
-	
+
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
