@@ -241,21 +241,21 @@ var m = Model(
 		Task("2b Carry out voting via machine - visually impaired") has (
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
-			Example("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b. " +
-			"In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed (e.g. sound isolated booth or headphones). ")
+			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b."),
+			Comment("In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed (e.g. sound isolated booth or headphones). ")
 		),
 		
 		Task("2c Carry out voting via machine - non-Swedish speaking voter") has (
 			Label("variant2c"),
 			Gist("A person who doesn't understand Swedish votes using a machine at a voting place"),
-			Example("This should be identical to 1c.")
+			Spec("This should be identical to 1c.")
 		),
 
 		Task("2d Carry out voting via machine - voter has motor impairments") has (
 			Label("variant2d"),
 			Gist("A person with motor impairments votes using a machine at a voting place"),
-			Example("The public voting machines are equipped with voice recognition functions to enable the voter to use them. The general procedure is identical to the typical case (Task 2a)."),
-			Comment("Bajs")
+			Spec("The public voting machines are equipped with voice recognition functions to enable the voter to use them. The general procedure is identical to the typical case (Task 2a)."),
+			Comment("It must not be possible to conclude what was voted for from outside the voting booth. One example is to use sound isolated booths. Another way might be to construct the user interface in a way that does not encourage the voter to say out loud what (s)he is voting for.")
 		),
 	
 	// Product requirements
