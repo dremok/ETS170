@@ -252,10 +252,23 @@ var m = Model(
 		),
 	
 	// Product requirements
+	Function("Privacy") has (
+		Spec("<b>It should be impossible for anyone extract any information about someone else's vote</b>")
+	),
+	Function("Correctness") has (
+		Spec("<b>The result of the election matches the intention of the voters.</b>")
+	),
+	Function("Individual Verifiability") has (
+		Spec("<b>It should be possible for voters to ensure that their vote was recorded as intended and included in the computation of the final result</b>")
+	),
+	Function("Universal Verifiability") has (
+		Spec("<b>It should be possible for a third party to ensure that all votes have been included in the computation of the final result and that the election was properly performed</b>")
+	),
 	Function("Authentication") has (
 		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>")
-	),
+	)
+
 	
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
