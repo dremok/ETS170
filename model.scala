@@ -10,8 +10,8 @@ var m = Model(
 	Stakeholder("Swedish Valmyndigheten") has (
 		Spec("A government authority responsible for the parliamentary elections in Sweden."),
 		Prio(3),
-		Comment("Goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Make it easier to vote for certain groups that have difficulties with the current system. " +
-		"Higher election turnout. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
+		Comment("Goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
+		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
 		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
 		"<br> Risks/costs: Identity theft. Too complicated for the voters. Security risks. Development costs.")
 	),
@@ -19,41 +19,61 @@ var m = Model(
 		Spec("Thore Husfeldt is a professor at the Computer Science department at Lund University, Faculty of Engineering and will provide the project with special knowledge on electronic voting systems. " +
 		"He is mainly interested in the system because he thinks that it is interesting from a scientific point of view."),
 		Prio(3),
-		Comment("Goals: Good technical solutions. Minimize security risks.<br> Risks/costs: Conflicts of interest among different stakeholders.")
+		Comment("Goals: Good technical solutions. Minimal security risks.<br> Risks/costs: Conflicts of interest among different stakeholders.")
 	),
 	Stakeholder("Idlers") has (
 		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers."),
-		Prio(3)
+		Prio(3),
+		Comment("Goals: Less effort required to place a vote.")
 	),
 	Stakeholder("Disabled / hospitalized") has (
 		Spec("This group includes people who may be incapable of moving to a voting place."),
-		Prio(2)
+		Prio(2),
+		Comment("Goals: Be able to vote from where they are.")
 	),
-	Stakeholder("Visually impaired") has (
+	Stakeholder("Cognitive impairment") has (
+		Spec("This group includes people who may have difficulties operating any voting system. (e.g. Dementia, Alzheimer's disease, etc.)"),
+		Prio(2),
+		Comment("Goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand.")
+	),
+	Stakeholder("Visually impaired / Blind") has (
 		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
-		Prio(2)
+		Prio(2),
+		Comment("Goals: Higher turnout among the visually impaired.")
 	),
 	Stakeholder("Non-Swedish speaking voters") has (
 		Spec("People who don't speak Swedish but are eligible to vote."),
-		Prio(2)
+		Prio(2),
+		Comment("Goals: Same opportunity to vote regardless of native language.")
 	),
 	Stakeholder("Seniors") has (
-		Spec(""),
-		Prio(2)
+		Spec("Older people who have retired. (Somewhat vague. Some seniors still work. What does older mean?)"),
+		Prio(2),
+		Comment("Goals: Voting should be done as smoothly as before. Risks/costs: Turnout is decreased among voters who have a tradition " +
+		"of going to a voting place to vote. Voting gets too confusing.")
 	),
 	Stakeholder("Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
-		Prio(2)
+		Prio(2),
+		Comment("Goals: Easier/as easy to vote from where they are.")
 	),
 	Stakeholder("Typical voters") has (
-		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions) and possibly also carpenters that manufacture voting booths etc."),
-		Prio(1)
+		Spec("The rest of the voting population."),
+		Prio(1),
+		Comment("Goals: Save time. Be sure that my vote counts and is counted for the correct party / candidate. Be sure that no one else can vote for me. Be sure that the result is accurate. " +
+		"Risks/costs: Too complicated. Sense of insecurity.")
 	),
 	Stakeholder("Sub-contractors / Hardware suppliers") has (
-		Spec("This group includes manufacturers of the hardware for the human interfaces, any providers of external software (such as security functions) and possibly also carpenters that manufacture voting booths etc."),
-		Prio(1)
+		Spec("This group includes manufacturers of the hardware for the machines in voting places and any providers of external software (such as security functions etc.) to be used in the electronic voting system."),
+		Prio(1),
+		Comment("Goals: That we use their external software and hardware so that they can benefit from this project.")
 	),
-
+	Stakeholder("Dyslectic / Illiterate") has (
+		Spec("People who have have difficulties understanding written text."),
+		Prio(2),
+		Comment("Goals: Easier/as easy to vote as with the current system.")
+	),
+	
 	//Data Dictionary
 	Class("Voter") has (
 		Gist("Can vote in the election"),
@@ -111,7 +131,7 @@ var m = Model(
 	// Subtasks
 	Task("1") owns (
 			Task("1.1 Authenticate"),
-			Task("1.2 Choose party"),
+			Task("1.2 Choose party and candidate"),
 			Task("1.3 Confirm"),
 			Task("1.4 Recieve confirmation")
 	),
@@ -122,14 +142,14 @@ var m = Model(
 			"electronic identification (e.g. BankID)")
 		),
 			
-		Task("1.2 Choose party") has (
+		Task("1.2 Choose party and candidate") has (
 			Label("subtask1.2"),
-			Gist("The voter chooses the party that he/she wishes to vote for in the web interface.")
+			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface.")
 		),
 			
 		Task("1.3 Confirm") has (
 			Label("subtask1.3"),
-			Gist("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface.")
+			Gist("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
 		),
 			
 		Task("1.4 Recieve confirmation") has (
@@ -142,9 +162,9 @@ var m = Model(
 			Label("variant1a"),
 			Gist("A person without any special needs uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
-				"The voter opens up this site in a web browser and logs in with the code stated on the voting card. A party " +
-				"is chosen in the web interface. The voter clicks on a 'Submit' button. One minute later, the voter receives some kind of " +
-				"personalized message confirming that the vote was counted for the correct party.")
+				"The voter opens up this site in a web browser, logs in using electronic identification (e.g. bankID) and enters the personal code " +
+				"stated on the voting card. A party and a candidate is chosen in the web interface. The voter clicks on a 'Submit' button. " +
+				"After an appropriate amount of time, the voter recieves some kind of personalized message confirming that the vote was counted for the correct party.")
 		),	
 		
 		Task("1b Carry out voting via the web interface - visually impaired") has (
@@ -166,7 +186,7 @@ var m = Model(
 	Task("2") has (
 		Label("maintask2"),
 		Gist("Carry out voting via machine"),
-		Why("Let a person place a vote on a machine. Store the vote with no connection to the voter."),
+		Why("Let a person place a vote on a machine."),
 		Trigger("A voter goes to a place with a voting machine and wants to place a vote."),
 		Frequency("The machine might be used continuously during open hours throughout the entire voting period.")
 		
@@ -179,7 +199,7 @@ var m = Model(
 	
 	Task("2") owns (
 		Task("2.1 Authenticate"),
-		Task("2.2 Choose party"),
+		Task("2.2 Choose party and candidate"),
 		Task("2.3 Confirm"),
 		Task("2.4 Recieve confirmation")
 	),
@@ -190,16 +210,16 @@ var m = Model(
 			Gist("To be decided.")
 		),
 			
-		Task("2.2 Choose party") has (
+		Task("2.2 Choose party and candidate") has (
 			Label("subtask2.2"),
-			Gist("The voter chooses the party that he/she wishes to vote for in the web interface on the machine.")
+			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface on the machine.")
 		),
-			
+		
 		Task("2.3 Confirm") has (
 			Label("subtask2.3"),
 			Gist("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
 		),
-			
+		
 		Task("2.4 Recieve confirmation") has (
 			Label("subtask2.4"),
 			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
@@ -216,8 +236,8 @@ var m = Model(
 		Task("2b Carry out voting via machine - visually impaired") has (
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
-			Example("The public voting machines are equipped with text-to-speech and braille functionalities. This makes voting identical "+
-			"to the case in 1b.")
+			Example("The public voting machines are equipped with text-to-speech and braille functionalities. This makes voting identical to the case in 1b. " +
+			"In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed (e.g. sound isolated booth or headphones). ")
 		),
 		
 		Task("2c Carry out voting via machine - non-Swedish speaking voter") has (
@@ -225,6 +245,11 @@ var m = Model(
 			Gist("A person who doesn't understand Swedish votes using a machine at a voting place"),
 			Example("This should be identical to 1c.")
 		),
+	
+	Function("Authentication") has (
+		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+		"comfortable using (e.g. BankID).</b>")
+	),
 	
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
