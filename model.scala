@@ -73,6 +73,11 @@ var m = Model(
 		Prio(2),
 		Comment("Goals: Easier/as easy to vote as with the current system.")
 	),
+	Stakeholder("Hackers") has (
+		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
+		Prio(2),
+		Comment("Goals: The system should have low security.")
+	),
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -246,6 +251,7 @@ var m = Model(
 			Example("This should be identical to 1c.")
 		),
 	
+	// Product requirements
 	Function("Authentication") has (
 		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>")
