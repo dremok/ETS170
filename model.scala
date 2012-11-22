@@ -251,10 +251,16 @@ var m = Model(
 			Example("This should be identical to 1c.")
 		),
 	
-	// Product requirements
-	Function("Authentication") has (
-		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+	// Function requirements
+	Function("Authentication 1") has (
+		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>")
+	),
+	Function("Authentication 2") has (
+		Spec("<b>R_. It should be necessary for the voter to enter a personal code which the voter has received beforehand before it is possible to vote.</b>")
+	),
+	Function("Vote counting") has (
+		Spec("<b>R_. The system should be able to assemble manually counted votes and the electronically registered votes.</b>")
 	),
 	
 	// Relationships
