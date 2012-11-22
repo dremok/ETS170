@@ -270,28 +270,52 @@ var m = Model(
 	
 	// Function requirements
 	Function("Privacy") has (
-		Spec("<b>It should be impossible for anyone extract any information about someone else's vote</b>")
+		Spec("<b>It should be impossible for anyone to extract any information about someone else's vote</b>"),
+		Label("security")
 	),
 	Function("Correctness") has (
-		Spec("<b>The result of the election matches the intention of the voters.</b>")
+		Spec("<b>The result of the election matches the intention of the voters.</b>"),
+		Label("security")
 	),
 	Function("Individual Verifiability") has (
-		Spec("<b>It should be possible for voters to ensure that their vote was recorded as intended and included in the computation of the final result</b>")
+		Spec("<b>It should be possible for voters to ensure that their vote was recorded as intended and included in the computation of the final result</b>"),
+		Label("security")
 	),
 	Function("Universal Verifiability") has (
-		Spec("<b>It should be possible for a third party to ensure that all votes have been included in the computation of the final result and that the election was properly performed</b>")
+		Spec("<b>It should be possible for a third party to ensure that all votes have been included in the computation of the final result and that the election was properly performed</b>"),
+		Label("security")
 	),
-	Function("Authentication 1") has (
-		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
-		"comfortable using (e.g. BankID).</b>")
+	Function("Authentication") has (
+		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+		"comfortable using (e.g. BankID).</b>"),
+		Label("security")
 	),
-	Function("Authentication 2") has (
-		Spec("<b>R_. It should be necessary for the voter to enter a personal code which the voter has received beforehand before it is possible to vote.</b>")
-	),
-	Function("Vote counting") has (
-		Spec("<b>R_. The system should be able to assemble manually counted votes and the electronically registered votes.</b>")
+	Function("Voter Eligibility") has (
+		Spec("<b>Only voters that are allowed to vote can vote</b>"),
+		Label("security")
 	),
 
+	Function("One-Voter-One-Vote") has (
+		Spec("<b>Only one vote should go to the tallying phase of the voting</b>"),
+		Label("security")
+	),
+	
+	Function("Coercion-Resistance") has (
+		Spec("<b>It should not be possible to coerce someone to vote in a particular way</b>"),
+		Label("security")
+	),
+
+	Function("Robustness/Fault Tolerance") has (
+		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
+		Label("security"),
+		Example("Anonymity should still be enforced <br>" + 
+			"Correct result should be obtained")
+	Function("Receipt-Freeness") has (
+		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
+		Label("security")
+	),
+	
+	 Functional requirements
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
