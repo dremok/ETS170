@@ -75,7 +75,7 @@ var m = Model(
 	),
 	Stakeholder("Hackers") has (
 		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
-		Prio(2),
+		Prio(3),
 		Comment("Goals: The system should have low security.")
 	),
 	
@@ -258,7 +258,7 @@ var m = Model(
 			Comment("It must not be possible to conclude what was voted for from outside the voting booth. One example is to use sound isolated booths. Another way might be to construct the user interface in a way that does not encourage the voter to say out loud what (s)he is voting for.")
 		),
 	
-	// Product requirements
+	// Function requirements
 	Function("Privacy") has (
 		Spec("<b>It should be impossible for anyone extract any information about someone else's vote</b>")
 	),
@@ -271,12 +271,17 @@ var m = Model(
 	Function("Universal Verifiability") has (
 		Spec("<b>It should be possible for a third party to ensure that all votes have been included in the computation of the final result and that the election was properly performed</b>")
 	),
-	Function("Authentication") has (
-		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+	Function("Authentication 1") has (
+		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>")
 	),
+	Function("Authentication 2") has (
+		Spec("<b>R_. It should be necessary for the voter to enter a personal code which the voter has received beforehand before it is possible to vote.</b>")
+	),
+	Function("Vote counting") has (
+		Spec("<b>R_. The system should be able to assemble manually counted votes and the electronically registered votes.</b>")
+	),
 
-	
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
