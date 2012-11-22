@@ -75,7 +75,7 @@ var m = Model(
 	),
 	Stakeholder("Hackers") has (
 		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
-		Prio(2),
+		Prio(3),
 		Comment("Goals: The system should have low security.")
 	),
 	
