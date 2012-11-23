@@ -316,7 +316,12 @@ var m = Model(
 		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
 		Label("security")
 	),
-	
+
+	Function("Fairness") has (
+		Spec("<b>No partial results should be disclosed before the end of the voting procedure</b>"),
+		Label("security")
+	),
+
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
