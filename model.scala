@@ -88,12 +88,7 @@ var m = Model(
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all time have a vote associated with it.The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code."),
 		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
-		),
 
-	Class("Party Verification Code") has (
-		Gist("A code that enables a voter to verify which party his/her vote was placed on."),
-		Spec("The code consists of a randomly generated number.")
-		//TODO decide if this class is too trival to have an example or not.
 		),
 
 	Class("Party") has (
