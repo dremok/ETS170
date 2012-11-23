@@ -203,7 +203,7 @@ var m = Model(
 	Task("2") owns (
 		Task("2a Carry out voting via machine - the typical case"),
 		Task("2b Carry out voting via machine - visually impaired"),
-		Task("2c Carry out voting via machine - non-swedish speaking voter")
+		Task("2c Carry out voting via machine - non-Swedish speaking voter"),
 		Task("2d Carry out voting via machine - voter has motor impairments"),
 		Task("2e Carry out voting via machine - voter has cognitive impairments")
 	),
