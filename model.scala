@@ -1,4 +1,4 @@
-import reqT._
+ import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
@@ -120,7 +120,7 @@ var m = Model(
 		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
 	),
 	Goal("Facilitate voting for people who have difficulties getting to a voting place") has (
-		Spec("Make it easier for the disabled, very ill, etc. by permiting voting from where they are situated.")
+		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
 	),
 	
 	// Tasks
@@ -135,7 +135,7 @@ var m = Model(
 	Task("1") owns (
 		Task("1a Carry out voting via the web interface - the typical case"),
 		Task("1b Carry out voting via the web interface - visually impaired"),
-		Task("1c Carry out voting via the web interface - non-swedish speaking voter")
+		Task("1c Carry out voting via the web interface - non-Swedish speaking voter")
 	),
 	// Subtasks
 	Task("1") owns (
@@ -183,7 +183,7 @@ var m = Model(
 			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a fully sighted person.")
 		),
 		
-		Task("1c Carry out voting via the web interface - non-swedish speaking voter") has (
+		Task("1c Carry out voting via the web interface - non-Swedish speaking voter") has (
 			Label("variant1c"),
 			Gist("A person who doesn't understand Swedish uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. From the voting card it should be clear enough what is the web " +
@@ -204,6 +204,8 @@ var m = Model(
 		Task("2a Carry out voting via machine - the typical case"),
 		Task("2b Carry out voting via machine - visually impaired"),
 		Task("2c Carry out voting via machine - non-swedish speaking voter")
+		Task("2d Carry out voting via machine - voter has motor impairments"),
+		Task("2e Carry out voting via machine - voter has cognitive impairments")
 	),
 	
 	Task("2") owns (
@@ -265,7 +267,7 @@ var m = Model(
 		Task("2e Carry out voting via machine - voter has cognitive impairments") has (
 			Label("variant2e"),
 			Gist("A person with cognitive impairments votes using a machine at a voting place"),
-			Spec("TODO!")
+			Spec("The designers of the user interface should strive to make it as easy and efficient to use as possible.")
 		),
 	
 	// Function requirements
