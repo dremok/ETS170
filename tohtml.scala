@@ -51,7 +51,10 @@ val myTemplate = DocumentTemplate(
 	Section("Data dictionary", Text(""), m => m / Class),
 	
 	// Function requirements
-	Chapter("Function Requirements", Text(""), m => m / Function)
+	Chapter("Function Requirements", Text(""), m => m / Function),
+
+	// Quality requirements
+	Chapter("Quality Requirements", Text(""), m => m / Quality)
 )
 
 m.toHtml(myTemplate).save("reqDoc.html")
