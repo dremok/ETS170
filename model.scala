@@ -13,7 +13,7 @@ var m = Model(
 		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
 		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
 		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
-		"<br> Risks/costs: Identity theft. Too complicated for the voters. Security risks. Development costs.")
+		"<br> Risks/costs: Identity theft. Coercion. Selling of votes. Too complicated for the voters. Security risks. Development costs.")
 	),
 	Stakeholder("Experts") has (
 		Spec("Thore Husfeldt is a professor at the Computer Science department at Lund University, Faculty of Engineering and will provide the project with special knowledge on electronic voting systems. " +
@@ -33,8 +33,9 @@ var m = Model(
 	),
 	Stakeholder("Cognitive impairment") has (
 		Spec("This group includes people who may have difficulties operating any voting system. (e.g. Dementia, Alzheimer's disease, etc.)"),
-		Prio(2),
-		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand.")
+		Prio(1),
+		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand." +
+		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
 	),
 	Stakeholder("Visually impaired / Blind") has (
 		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
@@ -48,13 +49,15 @@ var m = Model(
 	),
 	Stakeholder("Voters with particularly low knowledge of electronic systems") has (
 		Spec("This group includes voters who have little to no computer experience and feel uncomfortable using them."),
-		Prio(2),
-		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing.")
+		Prio(1),
+		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing." +
+		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
 	),
 	Stakeholder("Voters who are uninterested in using an electronic voting system") has (
 		Spec("This group includes voters who regards election day as a traditional event that should not change."),
-		Prio(2),
-		Comment("Stakeholder's goals: Voting process should be changed as little as possible. Risks/costs: Turnout is decreased among voters who have a tradition of going to a voting place to vote.")
+		Prio(1),
+		Comment("Stakeholder's goals: Voting process should be changed as little as possible. Risks/costs: Turnout is decreased among voters who have a tradition of going to a voting place to vote." +
+		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
 	),
 	Stakeholder("Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
@@ -122,6 +125,10 @@ var m = Model(
 	Goal("Facilitate voting for people who have difficulties getting to a voting place") has (
 		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
 	),
+	Goal("Facilitate voting for people who have difficulties using the current manual voting system") has (
+		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
+		"so that they can vote as unhindered as the rest of the population.")
+	),
 	
 	// Tasks
 	Task("1") has (
@@ -136,6 +143,7 @@ var m = Model(
 		Task("1a Carry out voting via the web interface - the typical case"),
 		Task("1b Carry out voting via the web interface - visually impaired"),
 		Task("1c Carry out voting via the web interface - non-Swedish speaking voter")
+		Task("1d Carry out voting via the web interface - voter has motor impairments")
 	),
 	// Subtasks
 	Task("1") owns (
@@ -190,6 +198,13 @@ var m = Model(
 			"adress to the voting web site that no text on the card needs to be understood. As soon as the person enters the web site, " +
 			"there should be a clear possibility to change language to any language that is spoken by a Swedish citizen. The procedure is " +
 			"then carried out as in 1a.")
+		),
+		
+		Task("1d Carry out voting via the web interface - voter has motor impairments") has (
+			Label("variant1d"),
+			Gist("A person with motor impairments uses the web interface to vote"),
+			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
+			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a person without motor impairments.")
 		),
 		
 	Task("2") has (
@@ -321,5 +336,6 @@ var m = Model(
 	
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
-	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
+	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place"),
+	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties using the current manual voting system")
 )
