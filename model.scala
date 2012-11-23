@@ -13,7 +13,7 @@ var m = Model(
 		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
 		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
 		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
-		"<br> Risks/costs: Identity theft. Too complicated for the voters. Security risks. Development costs.")
+		"<br> Risks/costs: Identity theft. Coercion. Selling of votes. Too complicated for the voters. Security risks. Development costs.")
 	),
 	Stakeholder("Experts") has (
 		Spec("Thore Husfeldt is a professor at the Computer Science department at Lund University, Faculty of Engineering and will provide the project with special knowledge on electronic voting systems. " +
@@ -124,6 +124,10 @@ var m = Model(
 	),
 	Goal("Facilitate voting for people who have difficulties getting to a voting place") has (
 		Spec("Make it easier for the disabled, very ill, etc. by permiting voting from where they are situated.")
+	),
+	Goal("Facilitate voting for people who have difficulties using the current manual voting system") has (
+		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
+		"so that they can vote as unhindered as the rest of the population.")
 	),
 	
 	// Tasks
@@ -332,5 +336,6 @@ var m = Model(
 	
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
-	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place")
+	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place"),
+	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties using the current manual voting system")
 )
