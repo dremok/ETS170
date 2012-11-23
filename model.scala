@@ -137,7 +137,7 @@ var m = Model(
 	Task("1") owns (
 		Task("1a Carry out voting via the web interface - the typical case"),
 		Task("1b Carry out voting via the web interface - visually impaired"),
-		Task("1c Carry out voting via the web interface - non-Swedish speaking voter")
+		Task("1c Carry out voting via the web interface - non-Swedish speaking voter"),
 		Task("1d Carry out voting via the web interface - voter has motor impairments")
 	),
 	// Subtasks
