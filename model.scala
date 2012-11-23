@@ -281,6 +281,9 @@ var m = Model(
 		),
 	
 	// Function requirements
+	
+
+	  //Security requirements
 	Function("Privacy") has (
 		Spec("<b>It should be impossible for anyone to extract any information about someone else's vote</b>"),
 		Label("security")
@@ -332,6 +335,33 @@ var m = Model(
 	Function("Fairness") has (
 		Spec("<b>No partial results should be disclosed before the end of the voting procedure</b>"),
 		Label("security")
+	),
+
+	//Quality requirements
+	Quality("Maximum downtime") has (
+		Spec("The system should be possible to use _% of the voting process period."),
+		Label("Reliability / Availability")
+	),
+
+	Quality("Maximum testing time") has (
+		Spec("It should be possible to simulate a real voting process in less than _ hours."),
+		Label("Testability")
+	),
+
+	Quality("Voter interface ease of use") has (
+		Spec("_ % of randomly selected voters should be able to place a vote within 2 minutes from opening the voting site."),
+		Label("Usability")
+	),
+
+	Quality("Vote count correctness") has (
+		Spec("_ % of all votes shall be counted as the voter intended."),
+		Comment("Customer expects close to 100%."),
+		Label("Correctness")
+	),
+
+	Quality("Web browser compatibility") has (
+		Spec("_ % of voters' default browsers shall be compatible with the system."),
+		Label("Interoperability / Portability")
 	),
 
 	// Relationships
