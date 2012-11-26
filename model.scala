@@ -5,6 +5,30 @@ var m = Model(
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
 			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
 		Image("ContextDiagram.png")),
+		
+	// Features
+	Product("Electronic Voting System") owns (
+		Feature("web GUI for voting"),
+		Feature("send vote to server"),
+		Feature("send confirmation to voter"),
+		Feature("counting of electronic votes")
+	),
+	
+	Feature("web GUI for voting") has (
+		Spec("GUI that allows user to place a vote.")
+	),
+	Feature("send vote to server") has (
+		Spec("Functionality that carries out transmission of vote data from client to server.")
+	),
+	Feature("send confirmation to voter") has (
+		Spec("Functionality that sends personalized vote confirmation to a voter.")
+	),
+	Feature("counting of electronic votes") has (
+		Spec("Possibility for server to count the votes in the data recieved from clients.")
+	),
+	
+	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
+	
 	
 	// Stakeholders
 	Stakeholder("Swedish Valmyndigheten") has (
