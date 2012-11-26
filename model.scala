@@ -1,4 +1,4 @@
-import reqT._
+ import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
@@ -115,12 +115,7 @@ var m = Model(
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all time have a vote associated with it.The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code."),
 		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
-		),
 
-	Class("Party Verification Code") has (
-		Gist("A code that enables a voter to verify which party his/her vote was placed on."),
-		Spec("The code consists of a randomly generated number.")
-		//TODO decide if this class is too trival to have an example or not.
 		),
 
 	Class("Party") has (
@@ -147,7 +142,7 @@ var m = Model(
 		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
 	),
 	Goal("Facilitate voting for people who have difficulties getting to a voting place") has (
-		Spec("Make it easier for the disabled, very ill, etc. by permiting voting from where they are situated.")
+		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
 	),
 	Goal("Facilitate voting for people who have difficulties using the current manual voting system") has (
 		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
@@ -166,7 +161,7 @@ var m = Model(
 	Task("1") owns (
 		Task("1a Carry out voting via the web interface - the typical case"),
 		Task("1b Carry out voting via the web interface - visually impaired"),
-		Task("1c Carry out voting via the web interface - non-swedish speaking voter"),
+		Task("1c Carry out voting via the web interface - non-Swedish speaking voter"),
 		Task("1d Carry out voting via the web interface - voter has motor impairments")
 	),
 	// Subtasks
@@ -215,7 +210,7 @@ var m = Model(
 			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a fully sighted person.")
 		),
 		
-		Task("1c Carry out voting via the web interface - non-swedish speaking voter") has (
+		Task("1c Carry out voting via the web interface - non-Swedish speaking voter") has (
 			Label("variant1c"),
 			Gist("A person who doesn't understand Swedish uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. From the voting card it should be clear enough what is the web " +
@@ -242,7 +237,7 @@ var m = Model(
 	Task("2") owns (
 		Task("2a Carry out voting via machine - the typical case"),
 		Task("2b Carry out voting via machine - visually impaired"),
-		Task("2c Carry out voting via machine - non-swedish speaking voter"),
+		Task("2c Carry out voting via machine - non-Swedish speaking voter"),
 		Task("2d Carry out voting via machine - voter has motor impairments"),
 		Task("2e Carry out voting via machine - voter has cognitive impairments")
 	),
@@ -306,10 +301,13 @@ var m = Model(
 		Task("2e Carry out voting via machine - voter has cognitive impairments") has (
 			Label("variant2e"),
 			Gist("A person with cognitive impairments votes using a machine at a voting place"),
-			Spec("TODO!")
+			Spec("The designers of the user interface should strive to make it as easy and efficient to use as possible.")
 		),
 	
 	// Function requirements
+	
+
+	  //Security requirements
 	Function("Privacy") has (
 		Spec("<b>It should be impossible for anyone to extract any information about someone else's vote</b>"),
 		Label("security")
@@ -357,7 +355,39 @@ var m = Model(
 		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
 		Label("security")
 	),
-	
+
+	Function("Fairness") has (
+		Spec("<b>No partial results should be disclosed before the end of the voting procedure</b>"),
+		Label("security")
+	),
+
+	//Quality requirements
+	Quality("Maximum downtime") has (
+		Spec("The system should be possible to use _% of the voting process period."),
+		Label("Reliability / Availability")
+	),
+
+	Quality("Maximum testing time") has (
+		Spec("It should be possible to simulate a real voting process in less than _ hours."),
+		Label("Testability")
+	),
+
+	Quality("Voter interface ease of use") has (
+		Spec("_ % of randomly selected voters should be able to place a vote within 2 minutes from opening the voting site."),
+		Label("Usability")
+	),
+
+	Quality("Vote count correctness") has (
+		Spec("_ % of all votes shall be counted as the voter intended."),
+		Comment("Customer expects close to 100%."),
+		Label("Correctness")
+	),
+
+	Quality("Web browser compatibility") has (
+		Spec("_ % of voters' default browsers shall be compatible with the system."),
+		Label("Interoperability / Portability")
+	),
+
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place"),
