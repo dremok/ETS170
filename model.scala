@@ -131,8 +131,18 @@ var m = Model(
 	Feature("F10. Authentication") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	
-	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
+	Feature("F11. Voter eligibility check") has (
+		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
+	),
+	Function("F12. Coercion-Resistance") has (
+		Spec("It should not be possible to coerce someone to vote in a particular way.")
+	),
+	Function("F13. Receipt-Freeness") has (
+		Spec("It should not be possible for a voter to prove how he/she votes.")
+	),
+	Function("F14. Fairness") has (
+		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
+	),
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -331,50 +341,22 @@ var m = Model(
 	
 	// Function requirements
 	Function("Authentication") has (
-		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>"),
-		Label("security")
+		Label("Security")
 	),
 	Function("Send confirmation to voter") has (
-		Spec("<b>A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
+		Spec("<b>R_. A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
 		"to decipher it.</b>"),
-		Label("security")
+		Label("Security")
 	),
 	Function("GUI information") has (
-		Spec("<b>The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
+		Spec("<b>R_. The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
 		Label("GUI")
 	),
-	
-	// följande krav ska bli features...
-	Function("Correctness") has (
-		Spec("<b>The result of the election matches the intention of the voters.</b>"),
-		Label("security")
-	),
-	Function("Voter Eligibility") has (
-		Spec("<b>Only voters that are allowed to vote can vote</b>"),
-		Label("security")
-	),
 	Function("One-Voter-One-Vote") has (
-		Spec("<b>Only one vote should go to the tallying phase of the voting</b>"),
-		Label("security")
-	),
-	Function("Coercion-Resistance") has (
-		Spec("<b>It should not be possible to coerce someone to vote in a particular way</b>"),
-		Label("security")
-	),
-	Function("Robustness/Fault Tolerance") has (
-		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
-		Label("security"),
-		Example("Anonymity should still be enforced <br>" + 
-			"Correct result should be obtained")
-	),
-	Function("Receipt-Freeness") has (
-		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
-		Label("security")
-	),
-	Function("Fairness") has (
-		Spec("<b>No partial results should be disclosed before the end of the voting procedure</b>"),
-		Label("security")
+		Spec("R_. Only one vote should go to the tallying phase of the voting."),
+		Label("Security")
 	),
 
 	//Quality requirements
@@ -403,7 +385,10 @@ var m = Model(
 		Spec("_ % of voters' default browsers shall be compatible with the system."),
 		Label("Interoperability / Portability")
 	),
-	
+	Quality("Robustness/Fault Tolerance") has (
+		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
+		Example("Anonymity should still be enforced <br> Correct result should be obtained")
+	),
 	
 
 	// Relationships
