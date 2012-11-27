@@ -13,11 +13,12 @@ var m = Model(
 		Feature("F3. send vote to server"),
 		Feature("F4. send confirmation to voter"),
 		Feature("F5. counting of electronic votes"),
-		Feature("F6. Support for different languages")
+		Feature("F6. Support for different languages"),
+		Feature("F7. Assembling of manual votes")
 	),
 	
 	Feature("F1. Web GUI for voting") has (
-		Spec("GUI that allows user to place a vote.")
+		Spec("GUI that allows the user to place a vote.")
 	),
 	Feature("F2. Input from party/candidate database") has (
 		Spec("Ability for server to read party and candidate data from an external database.")
@@ -33,6 +34,9 @@ var m = Model(
 	),
 	Feature("F6. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
+	),
+	Feature("F7. Assembling of manual votes") has (
+		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
 	),
 	
 	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
@@ -395,6 +399,8 @@ var m = Model(
 		Spec("_ % of voters' default browsers shall be compatible with the system."),
 		Label("Interoperability / Portability")
 	),
+	
+	
 
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
