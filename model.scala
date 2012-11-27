@@ -1,4 +1,4 @@
- import reqT._
+import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
@@ -8,28 +8,30 @@ var m = Model(
 		
 	// Features
 	Product("Electronic Voting System") owns (
-		Feature("web GUI for voting"),
-		Feature("send vote to server"),
-		Feature("send confirmation to voter"),
-		Feature("counting of electronic votes")
+		Feature("F1. web GUI for voting"),
+		Feature("F2. Input from party/candidate database"),
+		Feature("F3. send vote to server"),
+		Feature("F4. send confirmation to voter"),
+		Feature("F5. counting of electronic votes"),
+		Feature("F6. Support for different languages")
 	),
 	
-	Feature("web GUI for voting") has (
+	Feature("F1. Web GUI for voting") has (
 		Spec("GUI that allows user to place a vote.")
 	),
-	Feature("input from party/candidate database") has (
+	Feature("F2. Input from party/candidate database") has (
 		Spec("Ability for server to read party and candidate data from an external database.")
 	),
-	Feature("send vote to server") has (
+	Feature("F3. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
-	Feature("send confirmation to voter") has (
+	Feature("F4. Send confirmation to voter") has (
 		Spec("Functionality that sends personalized vote confirmation to a voter.")
 	),
-	Feature("counting of electronic votes") has (
+	Feature("F5. Counting of electronic votes") has (
 		Spec("Possibility for server to count the votes in the data recieved from clients.")
 	),
-	Feature("support for different languages") has (
+	Feature("F6. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
 	
