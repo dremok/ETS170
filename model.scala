@@ -373,6 +373,11 @@ var m = Model(
 		Label("security")
 	),
 
+	Function("GUI information") has (
+		Spec("<b>The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
+		Label("GUI")
+	),
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
