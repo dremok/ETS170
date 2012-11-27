@@ -17,6 +17,9 @@ var m = Model(
 	Feature("web GUI for voting") has (
 		Spec("GUI that allows user to place a vote.")
 	),
+	Feature("input from party/candidate database") has (
+		Spec("Ability for server to read party and candidate data from an external database.")
+	),
 	Feature("send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
@@ -25,6 +28,9 @@ var m = Model(
 	),
 	Feature("counting of electronic votes") has (
 		Spec("Possibility for server to count the votes in the data recieved from clients.")
+	),
+	Feature("support for different languages") has (
+		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
 	
 	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
