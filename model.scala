@@ -5,42 +5,6 @@ var m = Model(
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
 			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
 		Image("ContextDiagram.png")),
-		
-	// Features
-	Product("Electronic Voting System") owns (
-		Feature("F1. web GUI for voting"),
-		Feature("F2. Input from party/candidate database"),
-		Feature("F3. send vote to server"),
-		Feature("F4. send confirmation to voter"),
-		Feature("F5. counting of electronic votes"),
-		Feature("F6. Support for different languages"),
-		Feature("F7. Assembling of manual votes")
-	),
-	
-	Feature("F1. Web GUI for voting") has (
-		Spec("GUI that allows the user to place a vote.")
-	),
-	Feature("F2. Input from party/candidate database") has (
-		Spec("Ability for server to read party and candidate data from an external database.")
-	),
-	Feature("F3. Send vote to server") has (
-		Spec("Functionality that carries out transmission of vote data from client to server.")
-	),
-	Feature("F4. Send confirmation to voter") has (
-		Spec("Functionality that sends personalized vote confirmation to a voter.")
-	),
-	Feature("F5. Counting of electronic votes") has (
-		Spec("Possibility for server to count the votes in the data recieved from clients.")
-	),
-	Feature("F6. Support for different languages") has (
-		Spec("Support for showing all output to the user in arbitrary languages.")
-	),
-	Feature("F7. Assembling of manual votes") has (
-		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
-	),
-	
-	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
-	
 	
 	// Stakeholders
 	Stakeholder("Swedish Valmyndigheten") has (
@@ -122,6 +86,54 @@ var m = Model(
 		Comment("Stakeholder's goals: The system should have low security.")
 	),
 	
+	// Features
+	Product("Electronic Voting System") owns (
+		Feature("F1. Web GUI for voting"),
+		Feature("F2. Input from party/candidate database"),
+		Feature("F3. Send vote to server"),
+		Feature("F4. Individual Verifiability"),
+		Feature("F5. Universal Verifiability"),
+		Feature("F6. Counting of electronic votes"),
+		Feature("F7. Support for different languages"),
+		Feature("F8. Assembling of manual votes"),
+		Feature("F9. Privacy"),
+		Feature("F10. Authentication")
+	),
+	
+	Feature("F1. Web GUI for voting") has (
+		Spec("GUI that allows the user to place a vote.")
+	),
+	Feature("F2. Input from party/candidate database") has (
+		Spec("Ability for server to read party and candidate data from an external database.")
+	),
+	Feature("F3. Send vote to server") has (
+		Spec("Functionality that carries out transmission of vote data from client to server.")
+	),
+	Feature("F4. Individual Verifiability") has (
+		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
+	),
+	Feature("F5. Universal Verifiability") has (
+		Spec("It should be possible for a third party to ensure that all votes have been included" +
+			"in the computation of the final result and that the election was properly performed")
+	),
+	Feature("F6. Counting of electronic votes") has (
+		Spec("Possibility for server to count the votes in the data recieved from clients.")
+	),
+	Feature("F7. Support for different languages") has (
+		Spec("Support for showing all output to the user in arbitrary languages.")
+	),
+	Feature("F8. Assembling of manual votes") has (
+		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
+	),
+	Feature("F9. Privacy") has (
+		Spec("Functionality to prohibit extraction of information about someone else's vote.")
+	),
+	Feature("F10. Authentication") has (
+		Spec("Functionality to allow for user authentication.")
+	),
+	
+	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
+	
 	//Data Dictionary
 	Class("Voter") has (
 		Gist("Can vote in the election"),
@@ -160,6 +172,7 @@ var m = Model(
 		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
 		"so that they can vote as unhindered as the rest of the population.")
 	),
+	
 	
 	// Tasks
 	Task("1") has (
@@ -319,21 +332,14 @@ var m = Model(
 	// Function requirements
 	
 
-	  //Security requirements
-	Function("Privacy") has (
-		Spec("<b>It should be impossible for anyone to extract any information about someone else's vote</b>"),
-		Label("security")
-	),
+	//Security requirements
 	Function("Correctness") has (
 		Spec("<b>The result of the election matches the intention of the voters.</b>"),
 		Label("security")
 	),
-	Function("Individual Verifiability") has (
-		Spec("<b>It should be possible for voters to ensure that their vote was recorded as intended and included in the computation of the final result</b>"),
-		Label("security")
-	),
-	Function("Universal Verifiability") has (
-		Spec("<b>It should be possible for a third party to ensure that all votes have been included in the computation of the final result and that the election was properly performed</b>"),
+	Function("Send confirmation to voter") has (
+		Spec("<b>A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
+		"to decipher it.</b>"),
 		Label("security")
 	),
 	Function("Authentication") has (
