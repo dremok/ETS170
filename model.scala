@@ -330,11 +330,9 @@ var m = Model(
 		),
 	
 	// Function requirements
-	
-
-	//Security requirements
-	Function("Correctness") has (
-		Spec("<b>The result of the election matches the intention of the voters.</b>"),
+	Function("Authentication") has (
+		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+		"comfortable using (e.g. BankID).</b>"),
 		Label("security")
 	),
 	Function("Send confirmation to voter") has (
@@ -342,46 +340,41 @@ var m = Model(
 		"to decipher it.</b>"),
 		Label("security")
 	),
-	Function("Authentication") has (
-		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
-		"comfortable using (e.g. BankID).</b>"),
+	Function("GUI information") has (
+		Spec("<b>The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
+		Label("GUI")
+	),
+	
+	// följande krav ska bli features...
+	Function("Correctness") has (
+		Spec("<b>The result of the election matches the intention of the voters.</b>"),
 		Label("security")
 	),
 	Function("Voter Eligibility") has (
 		Spec("<b>Only voters that are allowed to vote can vote</b>"),
 		Label("security")
 	),
-
 	Function("One-Voter-One-Vote") has (
 		Spec("<b>Only one vote should go to the tallying phase of the voting</b>"),
 		Label("security")
 	),
-	
 	Function("Coercion-Resistance") has (
 		Spec("<b>It should not be possible to coerce someone to vote in a particular way</b>"),
 		Label("security")
 	),
-
 	Function("Robustness/Fault Tolerance") has (
 		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
 		Label("security"),
 		Example("Anonymity should still be enforced <br>" + 
 			"Correct result should be obtained")
 	),
-	
 	Function("Receipt-Freeness") has (
 		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
 		Label("security")
 	),
-
 	Function("Fairness") has (
 		Spec("<b>No partial results should be disclosed before the end of the voting procedure</b>"),
 		Label("security")
-	),
-
-	Function("GUI information") has (
-		Spec("<b>The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
-		Label("GUI")
 	),
 
 	//Quality requirements
