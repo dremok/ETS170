@@ -1,7 +1,7 @@
 import reqT._
 
 var m = Model(
-	Product("Electronic Voting System") has
+	Product("Electronic Voting System åäö") has
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
 			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
 		Image("ContextDiagram.png")),
@@ -130,16 +130,14 @@ var m = Model(
 	Feature("F10. Voter eligibility check") has (
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
-	Feature("F11. Coercion-Resistance") has (
-		Spec("It should not be possible to coerce someone to vote in a particular way.")
+	Feature("F11. Coercion-Resistance & Receipt-Freeness") has (
+		Spec("It should not be possible for a voter to prove how he/she votes. " +
+		"Thereby, it should not be possible to coerce someone to vote in a particular way.")
 	),
-	Feature("F12. Receipt-Freeness") has (
-		Spec("It should not be possible for a voter to prove how he/she votes.")
-	),
-	Feature("F13. Fairness") has (
+	Feature("F12. Fairness") has (
 		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
 	),
-	Feature("F14. Admin interface") has (
+	Feature("F13. Admin interface") has (
 		Spec("The vote counting part of the system shall have an admin interface.")
 	),
 	
@@ -383,6 +381,13 @@ var m = Model(
 		Label("Coercion-resistance")
 	),
 	
+	Function("Manual vote overrides electronic vote") has (
+		Spec("Any manually placed vote should override any electronic votes placed by the same voter."),
+		Why("It should not be possible for a voter to prove how he/she votes. " +
+			"Thereby, it should not be possible to coerce someone to vote in a particular way."),
+		Label("Coercion-resistance & Receipt-freeness")
+	),
+	
 	Function("Language support") has (
 		Spec("The web interface must support the addition of other languages than Swedish."),
 		Why("It must be possible for non-Swedish speaking voters to vote."),
@@ -406,7 +411,19 @@ var m = Model(
 		"where each vote is counted equally."),
 		Label("Vote count")
 	),
+	
+	Function("Initiate vote count") has (
+		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>" +
+			"This should only possible after the end of the voting period."),
+		Label("Vote count")
+	),
 
+	Function("Admin warnings") has (
+		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system " +
+			"(e.g. no manual votes have been read)."),
+		Label("Vote count")
+	),
+	
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
@@ -434,7 +451,8 @@ var m = Model(
 		Label("Interoperability / Portability")
 	),
 	Quality("Robustness/Fault Tolerance") has (
-		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
+		//Difficult to verify. Should we specify what parts? And to what extent?
+		Spec("Some parts should be allowed to fail/cheat, and the system should still work."),
 		Example("Anonymity should still be enforced <br> Correct result should be obtained")
 	),
 	
