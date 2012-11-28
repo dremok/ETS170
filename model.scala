@@ -166,7 +166,7 @@ var m = Model(
 
 	Class("Vote") has (
 		Gist("A vote can be placed by a voter on a party and candidate."),
-		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way to determine which candidate and party the vote was placed on while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
 		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
 		),
 
@@ -341,6 +341,7 @@ var m = Model(
 	
 	// Function requirements
 	Function("Authentication") has (
+		//What does the R_. mean?
 		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>"),
 		Label("Security")
@@ -359,14 +360,16 @@ var m = Model(
 		Label("Security")
 	),
 
-	Function("x") has (
-		Spec(""),
-		Label("")
+	//Covered in data dictionary?
+	Function("Vote encryption") has (
+		Spec("Each vote shall be encrypted so that it is not possible for an outsider to find out what the vote is placed on or who placed the vote."),
+		Label("Privacy")
 	),
 
-	Function("y") has (
-		Spec(""),
-		Label("")
+	Function("Vote traceability") has (
+		Spec("Each vote must be connected to its voter, but not in a traceable way."),
+		Why("It must be possible to determine which of the voter's votes shall be tallied."),
+		Label("Coercion-resistance")
 	),
 
 	Function("z") has (
