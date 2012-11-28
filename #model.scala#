@@ -7,7 +7,7 @@ var m = Model(
 		Image("ContextDiagram.png")),
 	
 	// Stakeholders
-	Stakeholder("S01. Swedish Valmyndigheten") has (
+	Stakeholder("Swedish Valmyndigheten") has (
 		Spec("A government authority responsible for the parliamentary elections in Sweden."),
 		Prio(3),
 		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
@@ -15,72 +15,72 @@ var m = Model(
 		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
 		"<br> Risks/costs: Identity theft. Coercion. Selling of votes. Too complicated for the voters. Security risks. Development costs.")
 	),
-	Stakeholder("S02. Experts") has (
+	Stakeholder("Experts") has (
 		Spec("Thore Husfeldt is a professor at the Computer Science department at Lund University, Faculty of Engineering and will provide the project with special knowledge on electronic voting systems. " +
 		"He is mainly interested in the system because he thinks that it is interesting from a scientific point of view."),
 		Prio(3),
 		Comment("Stakeholder's goals: Good technical solutions. Minimal security risks.<br> Risks/costs: Conflicts of interest among different stakeholders.")
 	),
-	Stakeholder("S03. Idlers") has (
+	Stakeholder("Idlers") has (
 		Spec("There is a general interest in a democratic society to raise the election turnout. To do this, the system has to activate idlers."),
 		Prio(3),
 		Comment("Stakeholder's goals: Less effort required to place a vote.")
 	),
-	Stakeholder("S04. Disabled / hospitalized") has (
+	Stakeholder("Disabled / hospitalized") has (
 		Spec("This group includes people who may be incapable of moving to a voting place."),
 		Prio(2),
 		Comment("Stakeholder's goals: Be able to vote from where they are.")
 	),
-	Stakeholder("S05. Cognitive impairment") has (
+	Stakeholder("Cognitive impairment") has (
 		Spec("This group includes people who may have difficulties operating any voting system. (e.g. Dementia, Alzheimer's disease, etc.)"),
 		Prio(1),
 		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand." +
 		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
 	),
-	Stakeholder("S06. Visually impaired / Blind") has (
+	Stakeholder("Visually impaired / Blind") has (
 		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
 		Prio(2),
 		Comment("Stakeholder's goals: Higher turnout among the visually impaired.")
 	),
-	Stakeholder("S07. Non-Swedish speaking voters") has (
+	Stakeholder("Non-Swedish speaking voters") has (
 		Spec("People who don't speak Swedish but are eligible to vote."),
 		Prio(2),
 		Comment("Stakeholder's goals: Same opportunity to vote regardless of native language.")
 	),
-	Stakeholder("S08. Voters with particularly low knowledge of electronic systems") has (
+	Stakeholder("Voters with particularly low knowledge of electronic systems") has (
 		Spec("This group includes voters who have little to no computer experience and feel uncomfortable using them."),
 		Prio(1),
 		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing." +
 		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
 	),
-	Stakeholder("S09. Voters who are uninterested in using an electronic voting system") has (
+	Stakeholder("Voters who are uninterested in using an electronic voting system") has (
 		Spec("This group includes voters who regards election day as a traditional event that should not change."),
 		Prio(1),
 		Comment("Stakeholder's goals: Voting process should be changed as little as possible. Risks/costs: Turnout is decreased among voters who have a tradition of going to a voting place to vote." +
 		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
 	),
-	Stakeholder("S10. Voters abroad") has (
+	Stakeholder("Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
 		Prio(2),
 		Comment("Stakeholder's goals: Easier/as easy to vote from where they are.")
 	),
-	Stakeholder("S11. Typical voters") has (
+	Stakeholder("Typical voters") has (
 		Spec("The rest of the voting population."),
 		Prio(1),
 		Comment("Stakeholder's goals: Save time. Be sure that my vote counts and is counted for the correct party / candidate. Be sure that no one else can vote for me. Be sure that the result is accurate. " +
 		"Risks/costs: Too complicated. Sense of insecurity.")
 	),
-	Stakeholder("S12. Sub-contractors / Hardware suppliers") has (
+	Stakeholder("Sub-contractors / Hardware suppliers") has (
 		Spec("This group includes manufacturers of the hardware for the machines in voting places and any providers of external software (such as security functions etc.) to be used in the electronic voting system."),
 		Prio(1),
 		Comment("Stakeholder's goals: That we use their external software and hardware so that they can benefit from this project.")
 	),
-	Stakeholder("S13. Dyslectic / Illiterate") has (
+	Stakeholder("Dyslectic / Illiterate") has (
 		Spec("People who have have difficulties understanding written text."),
 		Prio(2),
 		Comment("Stakeholder's goals: Easier/as easy to vote as with the current system.")
 	),
-	Stakeholder("S14. Hackers") has (
+	Stakeholder("Hackers") has (
 		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
 		Prio(3),
 		Comment("Stakeholder's goals: The system should have low security.")
@@ -99,50 +99,40 @@ var m = Model(
 		Feature("F9. Privacy"),
 		Feature("F10. Authentication")
 	),
-	
-	Feature("F01. Web GUI for voting") has (
+
+	Feature("F1. Web GUI for voting") has (
 		Spec("GUI that allows the user to place a vote.")
 	),
-	Feature("F02. Input from party/candidate database") has (
+	Feature("F2. Input from party/candidate database") has (
 		Spec("Ability for server to read party and candidate data from an external database.")
 	),
-	Feature("F03. Send vote to server") has (
+	Feature("F3. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
-	Feature("F04. Individual Verifiability") has (
+	Feature("F4. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
-	Feature("F05. Universal Verifiability") has (
+	Feature("F5. Universal Verifiability") has (
 		Spec("It should be possible for a third party to ensure that all votes have been included" +
 			"in the computation of the final result and that the election was properly performed")
 	),
-	Feature("F06. Counting of electronic votes") has (
+	Feature("F6. Counting of electronic votes") has (
 		Spec("Possibility for server to count the votes in the data recieved from clients.")
 	),
-	Feature("F07. Support for different languages") has (
+	Feature("F7. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
-	Feature("F08. Assembling of manual votes") has (
+	Feature("F8. Assembling of manual votes") has (
 		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
 	),
-	Feature("F09. Privacy") has (
+	Feature("F9. Privacy") has (
 		Spec("Functionality to prohibit extraction of information about someone else's vote.")
 	),
 	Feature("F10. Authentication") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	Feature("F11. Voter eligibility check") has (
-		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
-	),
-	Feature("F12. Coercion-Resistance") has (
-		Spec("It should not be possible to coerce someone to vote in a particular way.")
-	),
-	Feature("F13. Receipt-Freeness") has (
-		Spec("It should not be possible for a voter to prove how he/she votes.")
-	),
-	Feature("F14. Fairness") has (
-		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
-	),
+	
+	// ...här måste vi fylla på med features att prioritera och dela upp i de 3 releaserna.
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -172,13 +162,13 @@ var m = Model(
 
 	
 	// Goals
-	Goal("G01. Reduce manual labour") has (
+	Goal("Reduce manual labour") has (
 		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
 	),
-	Goal("G02. Facilitate voting for people who have difficulties getting to a voting place") has (
+	Goal("Facilitate voting for people who have difficulties getting to a voting place") has (
 		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
 	),
-	Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system") has (
+	Goal("Facilitate voting for people who have difficulties using the current manual voting system") has (
 		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
 		"so that they can vote as unhindered as the rest of the population.")
 	),
@@ -341,42 +331,50 @@ var m = Model(
 	
 	// Function requirements
 	Function("Authentication") has (
-		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+		Spec("<b>R4. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>"),
-		Label("Security")
+		Label("security")
 	),
 	Function("Send confirmation to voter") has (
-		Spec("<b>R_. A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
+		Spec("<b>A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
 		"to decipher it.</b>"),
-		Label("Security")
+		Label("security")
 	),
 	Function("GUI information") has (
-		Spec("<b>R_. The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
+		Spec("<b>The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
 		Label("GUI")
 	),
+	
+	// följande krav ska bli features...
+	Function("Correctness") has (
+		Spec("<b>The result of the election matches the intention of the voters.</b>"),
+		Label("security")
+	),
+	Function("Voter Eligibility") has (
+		Spec("<b>Only voters that are allowed to vote can vote</b>"),
+		Label("security")
+	),
 	Function("One-Voter-One-Vote") has (
-		Spec("R_. Only one vote should go to the tallying phase of the voting."),
-		Label("Security")
+		Spec("<b>Only one vote should go to the tallying phase of the voting</b>"),
+		Label("security")
 	),
-
-	Function("x") has (
-		Spec(""),
-		Label("")
+	Function("Coercion-Resistance") has (
+		Spec("<b>It should not be possible to coerce someone to vote in a particular way</b>"),
+		Label("security")
 	),
-
-	Function("y") has (
-		Spec(""),
-		Label("")
+	Function("Robustness/Fault Tolerance") has (
+		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
+		Label("security"),
+		Example("Anonymity should still be enforced <br>" + 
+			"Correct result should be obtained")
 	),
-
-	Function("z") has (
-		Spec(""),
-		Label("")
+	Function("Receipt-Freeness") has (
+		Spec("<b>It should not be possible for a voter to prove how he/she votes</b>"),
+		Label("security")
 	),
-
-	Function("xx") has (
-		Spec(""),
-		Label("")
+	Function("Fairness") has (
+		Spec("<b>No partial results should be disclosed before the end of the voting procedure</b>"),
+		Label("security")
 	),
 
 	//Quality requirements
@@ -405,10 +403,7 @@ var m = Model(
 		Spec("_ % of voters' default browsers shall be compatible with the system."),
 		Label("Interoperability / Portability")
 	),
-	Quality("Robustness/Fault Tolerance") has (
-		Spec("<b>Some parts should be allowed to fail/cheat, and the system should still work</b>"),
-		Example("Anonymity should still be enforced <br> Correct result should be obtained")
-	),
+	
 	
 
 	// Relationships
