@@ -131,7 +131,7 @@ var m = Model(
 	Feature("F10. Authentication") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	Feature("F11. Voter eligibility check") has (
+	Feature("F11. Voter eligibility check") has ( //Enough to have this as a function? Or do we need to specify exactly how? Do we need to specify the system for printing roestkort etc.?
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
 	Feature("F12. Coercion-Resistance") has (
@@ -366,21 +366,24 @@ var m = Model(
 		Label("Privacy")
 	),
 
+	Function("Eligibility check") has (
+		Spec("Only people present in the electoral register shall be able to place a vote in the system."),
+		Label("Voter eligibility check")
+	),
+
+	Function("Support for unlimited amount of individual votes") has (
+		Spec("Each voter must be allowed to vote via the electronic system as many times as desired. Only the last vote placed shall be tallied."),
+		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
+		Label("Coercion-resistance")
+	),
+
 	Function("Vote traceability") has (
 		Spec("Each vote must be connected to its voter, but not in a traceable way."),
 		Why("It must be possible to determine which of the voter's votes shall be tallied."),
 		Label("Coercion-resistance")
 	),
 
-	Function("z") has (
-		Spec(""),
-		Label("")
-	),
 
-	Function("xx") has (
-		Spec(""),
-		Label("")
-	),
 
 	//Quality requirements
 	Quality("Maximum downtime") has (
