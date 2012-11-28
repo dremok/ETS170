@@ -140,6 +140,15 @@ var m = Model(
 	Feature("F13. Admin interface") has (
 		Spec("The vote counting part of the system shall have an admin interface.")
 	),
+	Feature("F_. Support for visually impaired voters") has (
+		Spec("The electronic voting system shall support visually impaired voters, either indirectly or with provided interfaces.")
+	),
+	Feature("F_. Support for voters with motor disabilities") has (
+		Spec("As many disabled voters as possible shall be able to use the system to place a vote without assistance from another person.")
+	),
+	Feature("F_. Support for cognitive disabilities") has (
+		Spec("The system shall support voters with cognitive impairments so that as many as possible are able to place a vote without assistance from another person.")
+	),
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -358,7 +367,7 @@ var m = Model(
 		Label("Security")
 	),
 
-	//Covered in data dictionary?
+	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
 		Spec("Each vote shall be encrypted so that it is not possible for an outsider to find out what the vote is placed on or who placed the vote."),
 		Label("Privacy")
@@ -372,13 +381,13 @@ var m = Model(
 	Function("Support for unlimited amount of individual votes") has (
 		Spec("Each voter must be allowed to vote via the electronic system as many times as desired. Only the last vote placed shall be tallied."),
 		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
-		Label("Coercion-resistance")
+		Label("Coercion-resistance & Receipt-freeness")
 	),
 
 	Function("Vote traceability") has (
 		Spec("Each vote must be connected to its voter, but not in a traceable way."),
 		Why("It must be possible to determine which of the voter's votes shall be tallied."),
-		Label("Coercion-resistance")
+		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
 	Function("Manual vote overrides electronic vote") has (
@@ -456,7 +465,6 @@ var m = Model(
 		Example("Anonymity should still be enforced <br> Correct result should be obtained")
 	),
 	
-
 	// Relationships
 	Product("Electronic voting system") helps Goal("Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place"),
