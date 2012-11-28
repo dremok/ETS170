@@ -139,6 +139,9 @@ var m = Model(
 	Feature("F13. Fairness") has (
 		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
 	),
+	Feature("F14. Admin interface") has (
+		Spec("The vote counting part of the system shall have an admin interface.")
+	),
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -379,8 +382,30 @@ var m = Model(
 		Why("It must be possible to determine which of the voter's votes shall be tallied."),
 		Label("Coercion-resistance")
 	),
-
-
+	
+	Function("Language support") has (
+		Spec("The web interface must support the addition of other languages than Swedish."),
+		Why("It must be possible for non-Swedish speaking voters to vote."),
+		Label("Language")
+	),
+	
+	Function("Change language") has (
+		Spec("The start page of the web interface should present an obvious way of changing language."),
+		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
+		Label("Language")
+	),
+	
+	Function("Read manual votes") has (
+		Spec("The admin interface must have functionality to read counted manual votes in an appropriate form of data."),
+		Why("The vote counting system must know of the manual votes to count all votes equally."),
+		Label("Vote count")
+	),
+	
+	Function("Assembling and counting of votes") has (
+		Spec("The vote counting system shall be able to assemble the input manual votes and all electronic votes and produce a result " +
+		"where each vote is counted equally."),
+		Label("Vote count")
+	),
 
 	//Quality requirements
 	Quality("Maximum downtime") has (
