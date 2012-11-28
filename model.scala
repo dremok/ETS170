@@ -131,7 +131,7 @@ var m = Model(
 	Feature("F10. Authentication") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	Feature("F11. Voter eligibility check") has ( //Enough to have this as a function? Or do we need to specify exactly how? Do we need to specify the system for printing roestkort etc.?
+	Feature("F11. Voter eligibility check") has (
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
 	Feature("F12. Coercion-Resistance") has (
@@ -147,7 +147,7 @@ var m = Model(
 	//Data Dictionary
 	Class("Voter") has (
 		Gist("Can vote in the election"),
-		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all time have a vote associated with it.The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code."),
+		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
 		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
 
 		),
@@ -341,15 +341,14 @@ var m = Model(
 	
 	// Function requirements
 	Function("Authentication") has (
-		//What does the R_. mean?
 		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>"),
-		Label("Security")
+		Label("Authentication")
 	),
 	Function("Send confirmation to voter") has (
 		Spec("<b>R_. A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
 		"to decipher it.</b>"),
-		Label("Security")
+		Label("Individual verifiability")
 	),
 	Function("GUI information") has (
 		Spec("<b>R_. The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
