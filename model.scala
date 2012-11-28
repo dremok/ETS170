@@ -139,6 +139,18 @@ var m = Model(
 	Feature("F13. Fairness") has (
 		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
 	),
+	Feature("F_. Support for visually impaired voters") has (
+		Spec("The electronic voting system shall support visually impaired voters, either indirectly or with provided interfaces.")
+	),
+	Feature("F_. Support for voters with motor disabilities") has (
+		Spec("As many disabled voters as possible shall be able to use the system to place a vote without assistance from another person.")
+	),
+	Feature("F_. Support for cognitive disabilities") has (
+		Spec("The system shall support voters with cognitive impairments so that as many as possible are able to place a vote without assistance from another person.")
+	)
+	Feature("F_. ") has (
+		Spec("")
+	)
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -357,7 +369,7 @@ var m = Model(
 		Label("Security")
 	),
 
-	//Covered in data dictionary?
+	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
 		Spec("Each vote shall be encrypted so that it is not possible for an outsider to find out what the vote is placed on or who placed the vote."),
 		Label("Privacy")
@@ -380,7 +392,7 @@ var m = Model(
 		Label("Coercion-resistance")
 	),
 
-
+	
 
 	//Quality requirements
 	Quality("Maximum downtime") has (
