@@ -112,35 +112,31 @@ var m = Model(
 	Feature("F04. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
-	Feature("F05. Universal Verifiability") has (
-		Spec("It should be possible for a third party to ensure that all votes have been included" +
-			"in the computation of the final result and that the election was properly performed")
-	),
-	Feature("F06. Counting of electronic votes") has (
+	Feature("F05. Counting of electronic votes") has (
 		Spec("Possibility for server to count the votes in the data recieved from clients.")
 	),
-	Feature("F07. Support for different languages") has (
+	Feature("F06. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
-	Feature("F08. Assembling of manual votes") has (
+	Feature("F07. Assembling of manual votes") has (
 		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
 	),
-	Feature("F09. Privacy") has (
+	Feature("F08. Privacy") has (
 		Spec("Functionality to prohibit extraction of information about someone else's vote.")
 	),
-	Feature("F10. Authentication") has (
+	Feature("F09. Authentication") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	Feature("F11. Voter eligibility check") has ( //Enough to have this as a function? Or do we need to specify exactly how? Do we need to specify the system for printing roestkort etc.?
+	Feature("F10. Voter eligibility check") has ( //Enough to have this as a function? Or do we need to specify exactly how? Do we need to specify the system for printing roestkort etc.?
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
-	Feature("F12. Coercion-Resistance") has (
+	Feature("F11. Coercion-Resistance") has (
 		Spec("It should not be possible to coerce someone to vote in a particular way.")
 	),
-	Feature("F13. Receipt-Freeness") has (
+	Feature("F12. Receipt-Freeness") has (
 		Spec("It should not be possible for a voter to prove how he/she votes.")
 	),
-	Feature("F14. Fairness") has (
+	Feature("F13. Fairness") has (
 		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
 	),
 	
@@ -342,6 +338,7 @@ var m = Model(
 	// Function requirements
 	Function("Authentication") has (
 		//What does the R_. mean?
+		//Answer: It's a placeholder for the unique ID's that every requirement needs in the final document.
 		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using (e.g. BankID).</b>"),
 		Label("Security")
