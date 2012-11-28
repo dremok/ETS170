@@ -150,10 +150,7 @@ var m = Model(
 	),
 	Feature("F_. Support for cognitive disabilities") has (
 		Spec("The system shall support voters with cognitive impairments so that as many as possible are able to place a vote without assistance from another person.")
-	)
-	Feature("F_. ") has (
-		Spec("")
-	)
+	),
 	
 	//Data Dictionary
 	Class("Voter") has (
@@ -386,13 +383,13 @@ var m = Model(
 	Function("Support for unlimited amount of individual votes") has (
 		Spec("Each voter must be allowed to vote via the electronic system as many times as desired. Only the last vote placed shall be tallied."),
 		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
-		Label("Coercion-resistance")
+		Label("Coercion-resistance & Receipt-freeness")
 	),
 
 	Function("Vote traceability") has (
 		Spec("Each vote must be connected to its voter, but not in a traceable way."),
 		Why("It must be possible to determine which of the voter's votes shall be tallied."),
-		Label("Coercion-resistance")
+		Label("Coercion-resistance & Receipt-freeness")
 	),
 
 	Function("Language support") has (
