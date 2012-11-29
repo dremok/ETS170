@@ -1,10 +1,12 @@
 import reqT._
 
 var m = Model(
-	Product("Electronic Voting System åäö") has
+	Product("Electronic Voting System") has
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
 			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
 		Image("ContextDiagram.png")),
+
+//hej
 	
 	// Stakeholders
 	Stakeholder("S01. Swedish Valmyndigheten") has (
