@@ -1,7 +1,7 @@
 import reqT._
 
 var m = Model(
-	Product("Electronic Voting System åäö") has
+	Product("Electronic Voting System") has
 		(Spec("An electronic voting system which will complement the manual system which is used today. " +
 			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
 		Image("ContextDiagram.png")),
@@ -12,7 +12,7 @@ var m = Model(
 		Prio(3),
 		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
 		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
-		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
+		"a person cannot vote for another person and no one can be forced to vote against their will. Be sure that the result is accurate." +
 		"<br> Risks/costs: Identity theft. Coercion. Selling of votes. Too complicated for the voters. Security risks. Development costs.")
 	),
 	Stakeholder("S02. Experts") has (
@@ -216,7 +216,8 @@ var m = Model(
 		Task("1.1 Authenticate") has (
 			Label("subtask1.1"),
 			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
-			"electronic identification (e.g. BankID)")
+			"electronic identification"),
+			Example("By for example using BankID")
 		),
 			
 		Task("1.2 Choose party and candidate") has (
