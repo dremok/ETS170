@@ -385,7 +385,7 @@ var m = Model(
 	),
 
 	Function("Vote traceability") has (
-		Spec("Each vote must be connected to its voter, but not in a traceable way."),
+		Spec("Each electronical vote must be connected to its voter, but not in a traceable way."),
 		Why("It must be possible to determine which of the voter's votes shall be tallied."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
