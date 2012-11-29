@@ -369,7 +369,7 @@ var m = Model(
 
 	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
-		Spec("Each vote shall be encrypted so that it is not possible for an outsider to find out what the vote is placed on or who placed the vote."),
+		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
 		Label("Privacy")
 	),
 
