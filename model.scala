@@ -90,56 +90,63 @@ var m = Model(
 	
 	// Features
 	Product("Electronic Voting System") owns (
-		Feature("F1. Web GUI for voting"),
-		Feature("F2. Input from party/candidate database"),
-		Feature("F3. Send vote to server"),
-		Feature("F4. Individual Verifiability"),
-		Feature("F5. Universal Verifiability"),
-		Feature("F6. Counting of electronic votes"),
-		Feature("F7. Support for different languages"),
-		Feature("F8. Assembling of manual votes"),
-		Feature("F9. Privacy"),
-		Feature("F10. Authentication")
+		Feature("F_. Web GUI for voting"),
+		Feature("F_. Input from party/candidate database"),
+		Feature("F_. Send vote to server"),
+		Feature("F_. Individual Verifiability"),
+		Feature("F_. Counting of electronic votes"),
+		Feature("F_. Support for different languages"),
+		Feature("F_. Assembling of manual votes"),
+		Feature("F_. Privacy"),
+		Feature("F_. Authentication"),
+		Feature("F_. Voter eligibility check"),
+		Feature("F_. Coercion-Resistance & Receipt-Freeness"),
+		Feature("F_. Fairness"),
+		Feature("F_. Admin interface"),
+		Feature("F_. Support for visually impaired voters"),
+		Feature("F_. Support for voters with motor disabilities"),
+		Feature("F_. Support for cognitive disabilities"),
+		Feature("F_. Support for the illiterate & dyslectic")
 	),
 	
-	Feature("F01. Web GUI for voting") has (
+	Feature("F_. Web GUI for voting") has (
 		Spec("GUI that allows the user to place a vote.")
 	),
-	Feature("F02. Input from party/candidate database") has (
+	Feature("F_. Input from party/candidate database") has (
 		Spec("Ability for server to read party and candidate data from an external database.")
 	),
-	Feature("F03. Send vote to server") has (
+	Feature("F_. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
-	Feature("F04. Individual Verifiability") has (
+	Feature("F_. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
-	Feature("F05. Counting of electronic votes") has (
+	Feature("F_. Counting of electronic votes") has (
 		Spec("Possibility for server to count the votes in the data recieved from clients.")
 	),
-	Feature("F06. Support for different languages") has (
+	Feature("F_. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
-	Feature("F07. Assembling of manual votes") has (
+	Feature("F_. Assembling of manual votes") has (
 		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
 	),
-	Feature("F08. Privacy") has (
+	Feature("F_. Privacy") has (
 		Spec("Functionality to prohibit extraction of information about someone else's vote.")
 	),
-	Feature("F09. Authentication") has (
+	Feature("F_. Authentication") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	Feature("F10. Voter eligibility check") has (
+	Feature("F_. Voter eligibility check") has (
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
-	Feature("F11. Coercion-Resistance & Receipt-Freeness") has (
+	Feature("F_. Coercion-Resistance & Receipt-Freeness") has (
 		Spec("It should not be possible for a voter to prove how he/she votes. " +
-		"Thereby, it should not be possible to coerce someone to vote in a particular way.")
+			"Thereby, it should not be possible to coerce someone to vote in a particular way.")
 	),
-	Feature("F12. Fairness") has (
+	Feature("F_. Fairness") has (
 		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
 	),
-	Feature("F13. Admin interface") has (
+	Feature("F_. Admin interface") has (
 		Spec("The vote counting part of the system shall have an admin interface.")
 	),
 	Feature("F_. Support for visually impaired voters") has (
@@ -150,6 +157,9 @@ var m = Model(
 	),
 	Feature("F_. Support for cognitive disabilities") has (
 		Spec("The system shall support voters with cognitive impairments so that as many as possible are able to place a vote without assistance from another person.")
+	),
+	Feature("F_. Support for the illiterate & dyslectic") has (
+		Spec("The system shall support voters who have reading problems or problems to understand written text.")
 	),
 	
 	//Data Dictionary
@@ -374,7 +384,7 @@ var m = Model(
 		Spec("It should not be possible to start tallying phase before the voting phase has terminated.")
 	),
 
-	Feature("F12. Fairness") owns Function("Voting to Tallying phase transition"),
+	Feature("F_. Fairness") owns Function("Voting to Tallying phase transition"),
 
 	Function("Envelope-Voter-Connection") has (
 		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
