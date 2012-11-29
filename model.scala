@@ -367,6 +367,19 @@ var m = Model(
 		Label("Security")
 	),
 
+	Function("Voting to Tallying phase transition") has (
+		Spec("It should not be possible to start tallying phase before the voting phase has terminated.")
+	),
+
+	Feature("F12. Fairness") owns Function("Voting to Tallying phase transition"),
+
+	Function("Envelope-Voter-Connection") has (
+		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
+		Why("To allow users to vote multiple times, where the old electronical vote is overrridden by the new one."),
+		Comment("supports F07, F10 and F11")
+	),
+
+
 	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
 		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
@@ -433,6 +446,8 @@ var m = Model(
 		Label("Vote count")
 	),
 	
+
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
