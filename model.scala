@@ -14,7 +14,7 @@ var m = Model(
 		Prio(3),
 		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
 		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
-		"a person cannot vote for another person and noone can be forced to vote against their will. Be sure that the result is accurate." +
+		"a person cannot vote for another person and no one can be forced to vote against their will. Be sure that the result is accurate." +
 		"<br> Risks/costs: Identity theft. Coercion. Selling of votes. Too complicated for the voters. Security risks. Development costs.")
 	),
 	Stakeholder("S02. Experts") has (
@@ -218,7 +218,8 @@ var m = Model(
 		Task("1.1 Authenticate") has (
 			Label("subtask1.1"),
 			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
-			"electronic identification (e.g. BankID)")
+			"electronic identification"),
+			Example("By for example using BankID")
 		),
 			
 		Task("1.2 Choose party and candidate") has (
@@ -369,9 +370,22 @@ var m = Model(
 		Label("Security")
 	),
 
+	Function("Voting to Tallying phase transition") has (
+		Spec("It should not be possible to start tallying phase before the voting phase has terminated.")
+	),
+
+	Feature("F12. Fairness") owns Function("Voting to Tallying phase transition"),
+
+	Function("Envelope-Voter-Connection") has (
+		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
+		Why("To allow users to vote multiple times, where the old electronical vote is overrridden by the new one."),
+		Comment("supports F07, F10 and F11")
+	),
+
+
 	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
-		Spec("Each vote shall be encrypted so that it is not possible for an outsider to find out what the vote is placed on or who placed the vote."),
+		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
 		Label("Privacy")
 	),
 
@@ -387,7 +401,7 @@ var m = Model(
 	),
 
 	Function("Vote traceability") has (
-		Spec("Each vote must be connected to its voter, but not in a traceable way."),
+		Spec("Each electronical vote must be connected to its voter, but not in a traceable way."),
 		Why("It must be possible to determine which of the voter's votes shall be tallied."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
@@ -411,6 +425,8 @@ var m = Model(
 		Label("Language")
 	),
 	
+	//ADMIN
+
 	Function("Read manual votes") has (
 		Spec("The admin interface must have functionality to read counted manual votes in an appropriate form of data."),
 		Why("The vote counting system must know of the manual votes to count all votes equally."),
@@ -422,7 +438,7 @@ var m = Model(
 		"where each vote is counted equally."),
 		Label("Vote count")
 	),
-	
+
 	Function("Initiate vote count") has (
 		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>" +
 			"This should only possible after the end of the voting period."),
@@ -434,7 +450,31 @@ var m = Model(
 			"(e.g. no manual votes have been read)."),
 		Label("Vote count")
 	),
+
+	Function("Start voting phase") has (
+		Spec("The admin interface must have functionality to start the voting phase."),
+		Label("Admin functionality")
+	),
+
+	Function("End voting phase") has (
+		Spec("The admin interface must have functionality to end the voting phase."),
+		Label("Admin functionality")
+	),
+
+	Function("Import party data") has (
+		Spec("The admin interface must have functionality to import party and candidate data into the system"),
+		Example("The party and candidate data may be imported from an Excel file"),
+		Label("Admin functionality")
+	),
+
+	Function("Import voter data") has (
+		Spec("The admin interface must have functionality to import voter data into the system"),
+		Example("The voter data may be imported from an Excel file"),
+		Label("Admin functionality")
+	),
 	
+
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
