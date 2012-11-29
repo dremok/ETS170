@@ -423,6 +423,8 @@ var m = Model(
 		Label("Language")
 	),
 	
+	//ADMIN
+
 	Function("Read manual votes") has (
 		Spec("The admin interface must have functionality to read counted manual votes in an appropriate form of data."),
 		Why("The vote counting system must know of the manual votes to count all votes equally."),
@@ -434,7 +436,7 @@ var m = Model(
 		"where each vote is counted equally."),
 		Label("Vote count")
 	),
-	
+
 	Function("Initiate vote count") has (
 		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>" +
 			"This should only possible after the end of the voting period."),
@@ -445,6 +447,28 @@ var m = Model(
 		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system " +
 			"(e.g. no manual votes have been read)."),
 		Label("Vote count")
+	),
+
+	Function("Start voting phase") has (
+		Spec("The admin interface must have functionality to start the voting phase."),
+		Label("Admin functionality")
+	),
+
+	Function("End voting phase") has (
+		Spec("The admin interface must have functionality to end the voting phase."),
+		Label("Admin functionality")
+	),
+
+	Function("Import party data") has (
+		Spec("The admin interface must have functionality to import party and candidate data into the system"),
+		Example("The party and candidate data may be imported from an Excel file"),
+		Label("Admin functionality")
+	),
+
+	Function("Import voter data") has (
+		Spec("The admin interface must have functionality to import voter data into the system"),
+		Example("The voter data may be imported from an Excel file"),
+		Label("Admin functionality")
 	),
 	
 
