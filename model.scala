@@ -2,8 +2,7 @@ import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
-		(Spec("An electronic voting system which will complement the manual system which is used today. " +
-			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
+		(Spec("An electronic voting system which will complement the manual system which is used today. "),
 		Image("ContextDiagram.png")),
 
 //hej
@@ -359,6 +358,8 @@ var m = Model(
 		),
 	
 	// Function requirements
+	
+	
 	Function("Authentication") has (
 		//What does the R_. mean?
 		//Answer: It's a placeholder for the unique ID's that every requirement needs in the final document.
@@ -375,16 +376,24 @@ var m = Model(
 		Spec("<b>R_. The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
 		Label("GUI")
 	),
+	Function("Party view") has (
+		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
+		"be in a separate list.</b>"),
+		Label("GUI")
+	),
+	Function("Voting machines at a voting place") has (
+		Spec("At the voting places, each voting booth should have a computer which only functionality is to run the web interface for voting."),
+		Label("GUI")
+	),
 	Function("One-Voter-One-Vote") has (
 		Spec("R_. Only one vote should go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
 	Function("Voting to Tallying phase transition") has (
-		Spec("It should not be possible to start tallying phase before the voting phase has terminated.")
+		Spec("It should not be possible to start tallying phase before the voting phase has terminated."),
+		Label("Fairness")
 	),
-
-	Feature("F_. Fairness") owns Function("Voting to Tallying phase transition"),
 
 	Function("Envelope-Voter-Connection") has (
 		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
