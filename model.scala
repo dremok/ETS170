@@ -2,8 +2,7 @@ import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
-		(Spec("An electronic voting system which will complement the manual system which is used today. " +
-			"The long-term goal is to fully replace the current system during the course of a twelve year period."),
+		(Spec("An electronic voting system which will complement the manual system which is used today. "),
 		Image("ContextDiagram.png")),
 	
 	// Stakeholders
@@ -378,6 +377,10 @@ var m = Model(
 	Function("Party view") has (
 		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
 		"be in a separate list.</b>"),
+		Label("GUI")
+	),
+	Function("Voting machines at a voting place") has (
+		Spec("At the voting places, each voting booth should have a computer which only functionality is to run the web interface for voting."),
 		Label("GUI")
 	),
 	Function("One-Voter-One-Vote") has (
