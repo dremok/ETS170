@@ -357,6 +357,8 @@ var m = Model(
 		),
 	
 	// Function requirements
+	
+	
 	Function("Authentication") has (
 		//What does the R_. mean?
 		//Answer: It's a placeholder for the unique ID's that every requirement needs in the final document.
@@ -371,6 +373,10 @@ var m = Model(
 	),
 	Function("GUI information") has (
 		Spec("<b>R_. The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law.</b>"),
+		Label("GUI")
+	),
+	Function("Party view") has (
+		Spec("<b>R_. The order that the parties are viewed in the GUI should be randomized.</b>"),
 		Label("GUI")
 	),
 	Function("One-Voter-One-Vote") has (
