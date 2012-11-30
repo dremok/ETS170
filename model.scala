@@ -4,6 +4,8 @@ var m = Model(
 	Product("Electronic Voting System") has
 		(Spec("An electronic voting system which will complement the manual system which is used today. "),
 		Image("ContextDiagram.png")),
+
+//hej
 	
 	// Stakeholders
 	Stakeholder("S01. Swedish Valmyndigheten") has (
