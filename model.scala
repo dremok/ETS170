@@ -376,7 +376,8 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("Party view") has (
-		Spec("<b>R_. The order that the parties are viewed in the GUI should be randomized.</b>"),
+		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
+		"be in a separate list.</b>"),
 		Label("GUI")
 	),
 	Function("One-Voter-One-Vote") has (
@@ -385,10 +386,9 @@ var m = Model(
 	),
 
 	Function("Voting to Tallying phase transition") has (
-		Spec("It should not be possible to start tallying phase before the voting phase has terminated.")
+		Spec("It should not be possible to start tallying phase before the voting phase has terminated."),
+		Label("Fairness")
 	),
-
-	Feature("F_. Fairness") owns Function("Voting to Tallying phase transition"),
 
 	Function("Envelope-Voter-Connection") has (
 		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
