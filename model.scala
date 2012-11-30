@@ -326,7 +326,10 @@ var m = Model(
 		Task("2a Carry out voting via machine - the typical case") has (
 			Label("variant2a"),
 			Gist("A person without any special needs votes using a machine at a voting place"),
-			Example("The voter uses a computer which is designed to only operate the web voting interface.")
+			Spec("The voter uses a computer which is designed to only operate the web voting interface. The voter shows his/her valid identification " +
+			"to at least two election inspectors and scans some kind of barcode (or similar) on the personal voting card. The voter is assigned a voting booth where a computer is situated. " +
+			"This computer has minimal functionality and can only operate the web interface for voting. Confirmation message is sent to the voter " +
+			"in the same way as in Task 1.")
 		),
 		
 		Task("2b Carry out voting via machine - visually impaired") has (
@@ -356,8 +359,6 @@ var m = Model(
 		),
 	
 	// Function requirements
-	
-	
 	Function("Authentication") has (
 		//What does the R_. mean?
 		//Answer: It's a placeholder for the unique ID's that every requirement needs in the final document.
@@ -381,6 +382,11 @@ var m = Model(
 	),
 	Function("Voting machines at a voting place") has (
 		Spec("At the voting places, each voting booth should have a computer which only functionality is to run the web interface for voting."),
+		Label("GUI")
+	),
+	Function("Authentication when voting electronically at a voting place") has (
+		Spec("To be able to use a voting machine at a voting place, the voter needs to be identified by at least two election inspectors and " +
+		"scan some kind of barcode (or similar) on the voter's voting card."),
 		Label("GUI")
 	),
 	Function("One-Voter-One-Vote") has (
@@ -490,8 +496,6 @@ var m = Model(
 		Label("Admin functionality")
 	),
 	
-
-
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
