@@ -2,8 +2,10 @@ import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
-		(Spec("An electronic voting system which will complement the manual system which is used today. "),
-		Image("ContextDiagram.png")),
+		(Gist("An electronic voting system which will complement the manual system which is used today."),
+		 Spec("The context diagram above describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote to the system directly or on paper to an electoral worker. If the voter votes electronically, he or she will receive a confirmation that the vote was received properly. The electoral workers submit parties and candidates before the election period. Paper votes are submitted to the system using a cimilar procedure as the parties and candidates. After the end of the voting phase, the system can calculate the result of the voting."),
+		Image("ContextDiagram.png")
+	),
 
 	// Stakeholders
 	Stakeholder("S01. Swedish Valmyndigheten") has (
@@ -31,7 +33,8 @@ var m = Model(
 		Comment("Stakeholder's goals: Be able to vote from where they are.")
 	),
 	Stakeholder("S05. Cognitive impairment") has (
-		Spec("This group includes people who may have difficulties operating any voting system. (e.g. Dementia, Alzheimer's disease, etc.)"),
+		Spec("This group includes people who may have difficulties operating any voting system."),
+		Example("Patients suffering from dementia, Alzheimer's disease or senility."),
 		Prio(1),
 		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand." +
 		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
@@ -336,7 +339,8 @@ var m = Model(
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
 			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b."),
-			Comment("In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed (e.g. sound isolated booth or headphones).")
+			Comment("In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed."),
+			Example("The voting machines might be placed in sound isolated booths or be equipped with headphones in order to provide text-to-speech functionality.")
 		),
 		
 		Task("2c Carry out voting via machine - non-Swedish speaking voter") has (
@@ -363,7 +367,8 @@ var m = Model(
 		//What does the R_. mean?
 		//Answer: It's a placeholder for the unique ID's that every requirement needs in the final document.
 		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
-		"comfortable using (e.g. BankID).</b>"),
+		"comfortable using.</b>"),
+		Example("A well-known example of such a system is BankID."),
 		Label("Authentication")
 	),
 	Function("Send confirmation to voter") has (
