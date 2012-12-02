@@ -206,6 +206,22 @@ var m = Model(
 	Goal("G05. Maintain democracy") has (
 		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
 	),
+
+	// PHASES
+	Phase("P01. Registration phase") has (
+		Spec("Register voters, parties and candidates"),
+		Label("Phase")
+	),
+
+	Phase("P02. Voting phase") has (
+		Spec("Voters are able to vote"),
+		Label("Phase")
+	),
+
+	Phase("P03. Tallying phase") has (
+		Spec("The votes are counted and a result is generated"),
+		Label("Phases")
+	
 	
 	// Tasks
 	Task("T1") has (
