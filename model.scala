@@ -495,7 +495,7 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Function("Assembling and counting of unnotified candidates") has (
+	Function("Assembling and counting of unregistered candidates") has (
 		Spec("The system should be able to produce a result on votes on unregistered candidates."),
 		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
@@ -580,7 +580,7 @@ var m = Model(
 	
 	Function("Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
 	Function("Send confirmation to voter") helps Goal("G05. Maintain democracy"),
-	Function("GUI information") helps Goal("G01. Reduce manual labour"),
+	Function("GUI information") helps Goal("G05. Maintain democracy"),
 	Function("Party view") helps Goal("G01. Reduce manual labour"),
 	Function("Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
 	Function("Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
