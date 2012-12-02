@@ -516,6 +516,11 @@ var m = Model(
 		Label("Usability")
 	),
 
+	Quality("Administrator interface ease of use") has (
+		Spec("_ % of the administrators shall learn to use all administrative functions in 8 hours."),
+		Label("Usability")
+	),
+
 	Quality("Vote count correctness") has (
 		Spec("_ % of all votes shall be counted as the voter intended."),
 		Comment("Customer expects close to 100%."),
