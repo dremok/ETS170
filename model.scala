@@ -470,7 +470,7 @@ var m = Model(
 	),
 	
 	Function("Change language") has (
-		Spec("The start page of the web interface should present an obvious way of changing language."),
+		Spec("The start page of the web interface should present an obvious way (for all voting stakeholders) of changing language."),
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
