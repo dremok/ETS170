@@ -580,7 +580,7 @@ var m = Model(
 	
 	Function("Authentication") helps Goal("G05. Maintain democracy"),
 	Function("Send confirmation to voter") helps Goal("G05. Maintain democracy"),
-	Function("GUI information") helps Goal("G01. Reduce manual labour"),
+	Function("GUI information") helps Goal("G05. Maintain democracy"),
 	Function("Party view") helps Goal("G01. Reduce manual labour"),
 	Function("Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
 	Function("Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
