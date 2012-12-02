@@ -90,13 +90,13 @@ var m = Model(
 	
 	// Features
 	Product("Electronic Voting System") owns (
-		Feature("F_. Web GUI for voting"),
+		Feature("F_. Web interface for voting"),
 		Feature("F_. Input from party/candidate database"),
 		Feature("F_. Send vote to server"),
 		Feature("F_. Individual Verifiability"),
 		Feature("F_. Counting of electronic votes"),
 		Feature("F_. Support for different languages"),
-		Feature("F_. Assembling of manual votes"),
+		Feature("F_. Input of paper votes"),
 		Feature("F_. Privacy"),
 		Feature("F_. Authentication"),
 		Feature("F_. Voter eligibility check"),
@@ -109,7 +109,7 @@ var m = Model(
 		Feature("F_. Support for the illiterate & dyslectic")
 	),
 	
-	Feature("F_. Web GUI for voting") has (
+	Feature("F_. Web interface for voting") has (
 		Spec("GUI that allows the user to place a vote.")
 	),
 	Feature("F_. Input from party/candidate database") has (
@@ -127,8 +127,8 @@ var m = Model(
 	Feature("F_. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
-	Feature("F_. Assembling of manual votes") has (
-		Spec("Ability to read data with manual votes and synchronize with electronic votes.")
+	Feature("F_. Input of paper votes") has (
+		Spec("Ability to read data of votes submitted on paper and store together with electronic votes.")
 	),
 	Feature("F_. Privacy") has (
 		Spec("Functionality to prohibit extraction of information about someone else's vote.")
@@ -407,7 +407,7 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("Voting machines at a voting place") has (
-		Spec("At the voting places, each voting booth should have a computer which only functionality is to run the web interface for voting."),
+		Spec("At the voting places, each voting booth should have a computer whose only functionality is to run the web interface for voting."),
 		Label("GUI")
 	),
 	Function("Authentication when voting electronically at a voting place") has (
@@ -455,10 +455,9 @@ var m = Model(
 //		Label("Coercion-resistance & Receipt-freeness")
 //	),
 	
-	Function("Manual vote overrides electronic vote") has (
-		Spec("Any manually placed vote should override any electronic votes placed by the same voter."),
-		Why("It should not be possible for a voter to prove how he/she votes. " +
-			"Thereby, it should not be possible to coerce someone to vote in a particular way."),
+	Function("Voting place overrides vote placed from home") has (
+		Spec("Any vote submitted at a public voting place (on paper or from a machine) should override any votes placed from a personal computer by the same voter."),
+		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to be free of these problems."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
@@ -483,15 +482,14 @@ var m = Model(
 	
 	//ADMIN
 
-	Function("Read manual votes") has (
-		Spec("The admin interface must have functionality to read counted manual votes in an appropriate form of data."),
-		Why("The vote counting system must know of the manual votes to count all votes equally."),
+	Function("Read paper votes") has (
+		Spec("The admin interface must have functionality to read counted paper votes in an appropriate form of data."),
+		Why("The vote counting system must know of the paper votes in order to produce a complete voting result."),
 		Label("Vote count")
 	),
 	
 	Function("Assembling and counting of votes") has (
-		Spec("The vote counting system shall be able to assemble the input manual votes and all electronic votes and produce a result " +
-		"where each vote is counted equally."),
+		Spec("The vote counting system shall be able to assemble the input paper votes and all electronic votes and produce a complete result."),
 		Label("Vote count")
 	),
 
@@ -508,7 +506,7 @@ var m = Model(
 
 	Function("Admin warnings") has (
 		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system " +
-			"(e.g. no manual votes have been read)."),
+			"(e.g. no paper votes have been read)."),
 		Label("Vote count")
 	),
 
@@ -536,12 +534,12 @@ var m = Model(
 
 	//CRUD
 	Function("CRUD Voter") has (
-		Spec("It should be possible to create, read, update and delete voters"),
+		Spec("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase, during the other phases it is only possible to read voters."),
 		Label("CRUD")
 	),
 
 	Function("CRUD Party") has (
-		Spec("It should be possible to create, read, update and delete parties"),
+		Spec("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase, during the other phases it is only possible to read parties."),
 		Label("CRUD")
 	),
 
@@ -639,10 +637,10 @@ var m = Model(
 	Function("Vote encryption") helps Goal("G05. Maintain democracy"),
 	Function("Eligibility check") helps Goal("G05. Maintain democracy"),
 	Function("Support for unlimited amount of individual votes") helps Goal("G05. Maintain democracy"),
-	Function("Manual vote overrides electronic vote") helps Goal("G05. Maintain democracy"),
+	Function("Voting place overrides vote placed from home") helps Goal("G05. Maintain democracy"),
 	Function("Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
 	Function("Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
-	Function("Read manual votes") helps Goal("G04. Maintain the current election turnout"),
+	Function("Read paper votes") helps Goal("G04. Maintain the current election turnout"),
 	Function("Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
 	Function("Initiate vote count") helps Goal("G01. Reduce manual labour"),
 	Function("Admin warnings") helps Goal("G01. Reduce manual labour"),
