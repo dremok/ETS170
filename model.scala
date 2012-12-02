@@ -457,6 +457,13 @@ var m = Model(
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
+
+	//VOTING
+	Function("Vote for an unregistered candidate") has (
+		Spec("It should be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
+		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by writing the name in a text box."),
+		Label("Voting")
+	),
 	
 	//ADMIN
 
@@ -469,6 +476,12 @@ var m = Model(
 	Function("Assembling and counting of votes") has (
 		Spec("The vote counting system shall be able to assemble the input manual votes and all electronic votes and produce a result " +
 		"where each vote is counted equally."),
+		Label("Vote count")
+	),
+
+	Function("Assembling and counting of unnotified candidates") has (
+		Spec("The system should be able to produce a result on votes on unregistered candidates."),
+		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately.");
 		Label("Vote count")
 	),
 
@@ -504,7 +517,52 @@ var m = Model(
 		Example("The voter data may be imported from an Excel file"),
 		Label("Admin functionality")
 	),
-	
+
+	//CRUD
+	Function("CRUD Voter") has (
+		Spec("It should be possible to create, read, update and delete voters"),
+		Label("CRUD")
+	),
+
+	Function("CRUD Party") has (
+		Spec("It should be possible to create, read, update and delete parties"),
+		Label("CRUD")
+	),
+
+	Function("CRUD Party Candidate") has (
+		Spec("It should be possible to create, read, update and delete party candidates"),
+		Label("CRUD")
+	),
+
+	Function("CRUD Vote") has (
+		Spec("It should only be possible to create and read votes, not delete or update them"),
+		Label("CRUD")
+	),
+
+Class("Voter") has (
+		Gist("Can vote in the election"),
+		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
+		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
+
+		),
+
+	Class("Party") has (
+		Gist("A party which can receive a vote from the voters."),
+		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
+		Example("(1) The \"no-vote\" party. (2) The pirate party.")
+		),
+
+	Class("Party Candidate") has (
+		Gist("A member of a party who the voters can vote for."),
+		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
+		Example("(1) Anna Troberg of the pirate party. (2) \"blank\" of any party.")
+		),
+
+	Class("Vote") has (
+
+
+
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
