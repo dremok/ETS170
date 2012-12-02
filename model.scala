@@ -153,10 +153,10 @@ var m = Model(
 		Spec("The electronic voting system shall support visually impaired voters, either indirectly or with provided interfaces.")
 	),
 	Feature("F_. Support for voters with motor disabilities") has (
-		Spec("As many disabled voters as possible shall be able to use the system to place a vote without assistance from another person.")
+		Spec("Functionality that facilitates for disabled voters, so that as many as possible are able to place a vote without assistance from another person.")
 	),
 	Feature("F_. Support for cognitive disabilities") has (
-		Spec("The system shall support voters with cognitive impairments so that as many as possible are able to place a vote without assistance from another person.")
+		Spec("Functionality that facilitates for voters with cognitive impairments, so that as many as possible are able to place a vote without assistance from another person.")
 	),
 	Feature("F_. Support for the illiterate & dyslectic") has (
 		Spec("The system shall support voters who have reading problems or problems to understand written text.")
@@ -403,9 +403,9 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("Party view") has (
-		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
+		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list." +
 		"be in a separate list.</b>"),
-		Why(""),
+		Why("No single party must get any special benefits from the way the list is sorted."),
 		Label("GUI")
 	),
 	Function("Voting machines at a voting place") has (
@@ -541,7 +541,7 @@ var m = Model(
 	),
 
 	Quality("Maximum testing time") has (
-		Spec("It should be possible to simulate a real voting process in less than _ hours."),
+		Spec("Assuming a test system is up and running, it should be possible to simulate a real voting process in less than _ hours."),
 		Label("Testability")
 	),
 
