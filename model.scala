@@ -217,11 +217,11 @@ var m = Model(
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates")
+		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase, during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
-		Comment("It should only be possible to create and read votes, not delete or update them")
+		Comment("It should only be possible to create and read votes, not delete or update them. Votes can only be created during the voting phase and read during the tallying phase.")
 	),
 	
 	// Tasks
@@ -495,7 +495,7 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Function("Assembling and counting of unnotified candidates") has (
+	Function("Assembling and counting of unregistered candidates") has (
 		Spec("The system should be able to produce a result on votes on unregistered candidates."),
 		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
