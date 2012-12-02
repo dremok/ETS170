@@ -506,12 +506,6 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Function("Admin warnings") has (
-		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system " +
-			"(e.g. no paper votes have been read)."),
-		Label("Vote count")
-	),
-
 	Function("Start voting phase") has (
 		Spec("The admin interface must have functionality to start the voting phase."),
 		Label("Admin functionality")
@@ -531,6 +525,18 @@ var m = Model(
 	Function("Import voter data") has (
 		Spec("The admin interface must have functionality to import voter data into the system"),
 		Example("The voter data may be imported from an Excel file"),
+		Label("Admin functionality")
+	),
+
+	Function("Admin warnings - Counting of votes") has (
+		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system "),
+		Example("(1) Notify the user that no paper votes have been read. (2) Notify the user that there are votes on unregistered candidates"),
+		Label("Admin functionality")
+	),
+
+	Function ("Admin warnings - Starting and ending a phase") has (
+		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
+		Example("Are you sure you want to end the voting phase and start tallying phase?"),
 		Label("Admin functionality")
 	),
 
