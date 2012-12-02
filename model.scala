@@ -534,6 +534,18 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
+	Design("start-page") has (
+		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
+	),
+
+	Design("vote-page") has (
+		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
+	),
+
+	Design("admin-page") has (
+		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
+	),
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
@@ -600,5 +612,10 @@ var m = Model(
 	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
-	Function("Import voter data") helps Goal("G01. Reduce manual labour")
+	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
+
+	Design("start-page") helps Goal("G04. Maintain the current election turnout"),
+	Design("vote-page") helps Goal("G05. Maintain democracy"),
+	Design("vote-page") helps Goal("G04. Maintain the current election turnout"),
+	Design("admin-page") helps Goal("G01. Reduce manual labour")
 )
