@@ -403,9 +403,9 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("Party view") has (
-		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
+		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list." +
 		"be in a separate list.</b>"),
-		Why(""),
+		Why("No single party must get any special benefits from the way the list is sorted."),
 		Label("GUI")
 	),
 	Function("Voting machines at a voting place") has (
