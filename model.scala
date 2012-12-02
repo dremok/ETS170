@@ -202,7 +202,25 @@ var m = Model(
 	),
 	Goal("G04. Maintain the current election turnout") has (
 		Spec("The new system shall not have any significant negative impact on the election turnout.")
-	),	
+	),
+	Goal("G05. Maintain democracy") has (
+		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
+	),
+
+	// PHASES
+	Phase("P01. Registration phase") has (
+		Spec("Register voters, parties and candidates"),
+		Label("Phase")
+	),
+
+	Phase("P02. Voting phase") has (
+		Spec("Voters are able to vote"),
+		Label("Phase")
+	),
+
+	Phase("P03. Tallying phase") has (
+		Spec("The votes are counted and a result is generated"),
+		Label("Phases")
 	
 	
 	// Tasks
@@ -398,7 +416,7 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("One-Voter-One-Vote") has (
-		Spec("R_. Only one vote should go to the tallying phase of the voting."),
+		Spec("R_. Only one vote per voter should go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
@@ -454,6 +472,13 @@ var m = Model(
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
+
+	//VOTING
+	Function("Vote for an unregistered candidate") has (
+		Spec("It should be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
+		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by writing the name in a text box."),
+		Label("Voting")
+	),
 	
 	//ADMIN
 
@@ -465,6 +490,12 @@ var m = Model(
 	
 	Function("Assembling and counting of votes") has (
 		Spec("The vote counting system shall be able to assemble the input paper votes and all electronic votes and produce a complete result."),
+		Label("Vote count")
+	),
+
+	Function("Assembling and counting of unnotified candidates") has (
+		Spec("The system should be able to produce a result on votes on unregistered candidates."),
+		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately.");
 		Label("Vote count")
 	),
 
@@ -500,7 +531,56 @@ var m = Model(
 		Example("The voter data may be imported from an Excel file"),
 		Label("Admin functionality")
 	),
-	
+
+	//CRUD
+	Function("CRUD Voter") has (
+		Spec("It should be possible to create, read, update and delete voters"),
+		Label("CRUD")
+	),
+
+	Function("CRUD Party") has (
+		Spec("It should be possible to create, read, update and delete parties"),
+		Label("CRUD")
+	),
+
+	Function("CRUD Party Candidate") has (
+		Spec("It should be possible to create, read, update and delete party candidates"),
+		Label("CRUD")
+	),
+
+	Function("CRUD Vote") has (
+		Spec("It should only be possible to create and read votes, not delete or update them"),
+		Label("CRUD")
+	),
+
+	Class("Voter") has (
+		Gist("Can vote in the election"),
+		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
+		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
+
+		),
+
+	Class("Party") has (
+		Gist("A party which can receive a vote from the voters."),
+		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
+		Example("(1) The \"no-vote\" party. (2) The pirate party.")
+		),
+
+	Class("Party Candidate") has (
+		Gist("A member of a party who the voters can vote for."),
+		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
+		Example("(1) Anna Troberg of the pirate party. (2) \"blank\" of any party.")
+		),
+
+	Class("Vote") has (
+		Gist("A vote can be placed by a voter on a party and candidate."),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
+		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
+		),
+
+
+
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
@@ -539,7 +619,33 @@ var m = Model(
 	),
 	
 	// Relationships
-	Product("Electronic voting system") helps Goal("Reduce manual labour"),
-	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place"),
-	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties using the current manual voting system")
+	Product("Electronic voting system") helps Goal("G01. Reduce manual labour"),
+	Product("Electronic voting system") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
+	Product("Electronic voting system") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Product("Electronic voting system") helps Goal("G04. Maintain the current election turnout"),
+	Product("Electronic voting system") helps Goal("G05. Maintain democracy"),
+	
+	Function("Authentication") helps Goal("G05. Maintain democracy"),
+	Function("Send confirmation to voter") helps Goal("G05. Maintain democracy"),
+	Function("GUI information") helps Goal("G01. Reduce manual labour"),
+	Function("Party view") helps Goal("G01. Reduce manual labour"),
+	Function("Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
+	Function("Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
+	Function("One-Voter-One-Vote") helps Goal("G05. Maintain democracy"),
+	Function("Voting to Tallying phase transition") helps Goal("G05. Maintain democracy"),
+	Function("Envelope-Voter-Connection") helps Goal("G05. Maintain democracy"),
+	Function("Vote encryption") helps Goal("G05. Maintain democracy"),
+	Function("Eligibility check") helps Goal("G05. Maintain democracy"),
+	Function("Support for unlimited amount of individual votes") helps Goal("G05. Maintain democracy"),
+	Function("Manual vote overrides electronic vote") helps Goal("G05. Maintain democracy"),
+	Function("Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("Read manual votes") helps Goal("G04. Maintain the current election turnout"),
+	Function("Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
+	Function("Initiate vote count") helps Goal("G01. Reduce manual labour"),
+	Function("Admin warnings") helps Goal("G01. Reduce manual labour"),
+	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
+	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
+	Function("Import party data") helps Goal("G01. Reduce manual labour"),
+	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
 )
