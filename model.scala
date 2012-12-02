@@ -567,7 +567,7 @@ var m = Model(
 	),
 	Quality("Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
-		Spec("Some parts should be allowed to fail/cheat, and the system should still work."),
+		Spec("Some of the servers should be allowed to fail/become compromised, and the system should still work."),
 		Example("Anonymity should still be enforced <br> Correct result should be obtained")
 	),
 	
