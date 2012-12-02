@@ -206,7 +206,7 @@ var m = Model(
 	
 	
 	// Tasks
-	Task("1") has (
+	Task("T1") has (
 		Label("maintask1"),
 		Gist("Carry out voting via the web interface"),
 		Why("Let a person place a vote online."),
@@ -214,44 +214,44 @@ var m = Model(
 		Critical("Worst case: the entire voting population logs in and place their votes at the same time.")
 	),
 	// Variants
-	Task("1") owns (
+	Task("T1") owns (
 		Task("1a Carry out voting via the web interface - the typical case"),
 		Task("1b Carry out voting via the web interface - visually impaired"),
 		Task("1c Carry out voting via the web interface - non-Swedish speaking voter"),
 		Task("1d Carry out voting via the web interface - voter has motor impairments")
 	),
 	// Subtasks
-	Task("1") owns (
-		Task("1.1 Authenticate"),
-		Task("1.2 Choose party and candidate"),
-		Task("1.3 Confirm"),
-		Task("1.4 Receive confirmation")
+	Task("T1") owns (
+		Task("T1.1 Authenticate"),
+		Task("T1.2 Choose party and candidate"),
+		Task("T1.3 Confirm"),
+		Task("T1.4 Receive confirmation")
 	),
 		
-		Task("1.1 Authenticate") has (
+		Task("T1.1 Authenticate") has (
 			Label("subtask1.1"),
 			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
 			"electronic identification"),
 			Example("By for example using BankID")
 		),
 			
-		Task("1.2 Choose party and candidate") has (
+		Task("T1.2 Choose party and candidate") has (
 			Label("subtask1.2"),
 			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface.")
 		),
 			
-		Task("1.3 Confirm") has (
+		Task("T1.3 Confirm") has (
 			Label("subtask1.3"),
 			Gist("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
 		),
 			
-		Task("1.4 Receive confirmation") has (
+		Task("T1.4 Receive confirmation") has (
 			Label("subtask1.4"),
 			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 		
-		Task("1a Carry out voting via the web interface - the typical case") has (
+		Task("T1a Carry out voting via the web interface - the typical case") has (
 			Label("variant1a"),
 			Gist("A person without any special needs uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
@@ -260,14 +260,14 @@ var m = Model(
 				"After an appropriate amount of time, the voter receives some kind of personalized message confirming that the vote was counted for the correct party.")
 		),	
 		
-		Task("1b Carry out voting via the web interface - visually impaired") has (
+		Task("T1b Carry out voting via the web interface - visually impaired") has (
 			Label("variant1b"),
 			Gist("A person with a visual impairment uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
 			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a fully sighted person.")
 		),
 		
-		Task("1c Carry out voting via the web interface - non-Swedish speaking voter") has (
+		Task("T1c Carry out voting via the web interface - non-Swedish speaking voter") has (
 			Label("variant1c"),
 			Gist("A person who doesn't understand Swedish uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. From the voting card it should be clear enough what is the web " +
@@ -276,14 +276,14 @@ var m = Model(
 			"then carried out as in 1a.")
 		),
 		
-		Task("1d Carry out voting via the web interface - voter has motor impairments") has (
+		Task("T1d Carry out voting via the web interface - voter has motor impairments") has (
 			Label("variant1d"),
 			Gist("A person with motor impairments uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
 			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a person without motor impairments.")
 		),
 		
-	Task("2") has (
+	Task("T2") has (
 		Label("maintask2"),
 		Gist("Carry out voting via machine"),
 		Why("Let a person place a vote on a machine."),
@@ -291,45 +291,45 @@ var m = Model(
 		Frequency("The machine might be used continuously during open hours throughout the entire voting period.")
 		
 	),
-	Task("2") owns (
-		Task("2a Carry out voting via machine - the typical case"),
-		Task("2b Carry out voting via machine - visually impaired"),
-		Task("2c Carry out voting via machine - non-Swedish speaking voter"),
-		Task("2d Carry out voting via machine - voter has motor impairments"),
-		Task("2e Carry out voting via machine - voter has cognitive impairments")
+	Task("T2") owns (
+		Task("T2a Carry out voting via machine - the typical case"),
+		Task("T2b Carry out voting via machine - visually impaired"),
+		Task("T2c Carry out voting via machine - non-Swedish speaking voter"),
+		Task("T2d Carry out voting via machine - voter has motor impairments"),
+		Task("T2e Carry out voting via machine - voter has cognitive impairments")
 	),
 	
-	Task("2") owns (
-		Task("2.1 Authenticate"),
-		Task("2.2 Choose party and candidate"),
-		Task("2.3 Confirm"),
-		Task("2.4 Receive confirmation")
+	Task("T2") owns (
+		Task("T2.1 Authenticate"),
+		Task("T2.2 Choose party and candidate"),
+		Task("T2.3 Confirm"),
+		Task("T2.4 Receive confirmation")
 	),
 
 		// Subtasks	
-		Task("2.1 Authenticate") has (
+		Task("T2.1 Authenticate") has (
 			Label("subtask2.1"),
-			Gist("To be decided.")
+			Gist("The voter shows an accepted identification document and scans his or her identification card.")
 		),
 			
-		Task("2.2 Choose party and candidate") has (
+		Task("T2.2 Choose party and candidate") has (
 			Label("subtask2.2"),
 			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface on the machine.")
 		),
 		
-		Task("2.3 Confirm") has (
+		Task("T2.3 Confirm") has (
 			Label("subtask2.3"),
 			Gist("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
 		),
 		
-		Task("2.4 Receive confirmation") has (
+		Task("T2.4 Receive confirmation") has (
 			Label("subtask2.4"),
 			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 
 		// Variants
-		Task("2a Carry out voting via machine - the typical case") has (
+		Task("T2a Carry out voting via machine - the typical case") has (
 			Label("variant2a"),
 			Gist("A person without any special needs votes using a machine at a voting place"),
 			Spec("The voter uses a computer which is designed to only operate the web voting interface. The voter shows his/her valid identification " +
@@ -338,7 +338,7 @@ var m = Model(
 			"in the same way as in Task 1.")
 		),
 		
-		Task("2b Carry out voting via machine - visually impaired") has (
+		Task("T2b Carry out voting via machine - visually impaired") has (
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
 			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b."),
@@ -346,25 +346,25 @@ var m = Model(
 			Example("The voting machines might be placed in sound isolated booths or be equipped with headphones in order to provide text-to-speech functionality.")
 		),
 		
-		Task("2c Carry out voting via machine - non-Swedish speaking voter") has (
+		Task("T2c Carry out voting via machine - non-Swedish speaking voter") has (
 			Label("variant2c"),
 			Gist("A person who doesn't understand Swedish votes using a machine at a voting place"),
 			Spec("This should be identical to 1c.")
 		),
 
-		Task("2d Carry out voting via machine - voter has motor impairments") has (
+		Task("T2d Carry out voting via machine - voter has motor impairments") has (
 			Label("variant2d"),
 			Gist("A person with motor impairments votes using a machine at a voting place"),
 			Spec("The public voting machines are equipped with voice recognition functions to enable the voter to use them. The general procedure is identical to the typical case (Task 2a)."),
 			Comment("It must not be possible to conclude what was voted for from outside the voting booth. One example is to use sound isolated booths. Another way might be to construct the user interface in a way that does not encourage the voter to say out loud what (s)he is voting for.")
 		),
 
-		Task("2e Carry out voting via machine - voter has cognitive impairments") has (
+		Task("T2e Carry out voting via machine - voter has cognitive impairments") has (
 			Label("variant2e"),
 			Gist("A person with cognitive impairments votes using a machine at a voting place"),
 			Spec("The designers of the user interface should strive to make it as easy and efficient to use as possible.")
 		),
-	
+
 	// Function requirements
 	Function("Authentication") has (
 		//What does the R_. mean?
@@ -516,6 +516,11 @@ var m = Model(
 
 	Quality("Voter interface ease of use") has (
 		Spec("_ % of randomly selected voters should be able to place a vote within 2 minutes from opening the voting site."),
+		Label("Usability")
+	),
+
+	Quality("Administrator interface ease of use") has (
+		Spec("_ % of the administrators shall learn to use all administrative functions in 8 hours."),
 		Label("Usability")
 	),
 
