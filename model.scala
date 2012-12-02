@@ -629,5 +629,5 @@ Class("Voter") has (
 	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
-	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
+	Function("Import voter data") helps Goal("G01. Reduce manual labour")
 )
