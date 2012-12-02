@@ -98,7 +98,7 @@ var m = Model(
 		Feature("F_. Support for different languages"),
 		Feature("F_. Input of paper votes"),
 		Feature("F_. Privacy"),
-		Feature("F_. Authentication"),
+		Feature("F_. Authentication when voting electronically from home"),
 		Feature("F_. Voter eligibility check"),
 		Feature("F_. Coercion-Resistance & Receipt-Freeness"),
 		Feature("F_. Fairness"),
@@ -208,20 +208,20 @@ var m = Model(
 	),
 
 	// PHASES
-	Phase("P01. Registration phase") has (
-		Spec("Register voters, parties and candidates"),
-		Label("Phase")
-	),
+//	Phase("P01. Registration phase") has (
+//		Spec("Register voters, parties and candidates"),
+//		Label("Phase")
+//	),
 
-	Phase("P02. Voting phase") has (
-		Spec("Voters are able to vote"),
-		Label("Phase")
-	),
+//	Phase("P02. Voting phase") has (
+//		Spec("Voters are able to vote"),
+//		Label("Phase")
+//	),
 
-	Phase("P03. Tallying phase") has (
-		Spec("The votes are counted and a result is generated"),
-		Label("Phase")
-	),
+//	Phase("P03. Tallying phase") has (
+//		Spec("The votes are counted and a result is generated"),
+//		Label("Phase")
+//	),
 	
 	// Tasks
 	Task("T1") has (
@@ -384,7 +384,7 @@ var m = Model(
 		),
 
 	// Function requirements
-	Function("Authentication") has (
+	Function("Authentication when voting electronically from home") has (
 		//What does the R_. mean?
 		//Answer: It's a placeholder for the unique ID's that every requirement needs in the final document.
 		Spec("<b>R_. Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
@@ -404,6 +404,7 @@ var m = Model(
 	Function("Party view") has (
 		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
 		"be in a separate list.</b>"),
+		Why(""),
 		Label("GUI")
 	),
 	Function("Voting machines at a voting place") has (
@@ -435,7 +436,7 @@ var m = Model(
 	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
 		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
-		Label("Priva cy")
+		Label("Privacy")
 	),
 
 	Function("Eligibility check") has (
@@ -495,7 +496,7 @@ var m = Model(
 
 	Function("Assembling and counting of unnotified candidates") has (
 		Spec("The system should be able to produce a result on votes on unregistered candidates."),
-		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately.");
+		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
 	),
 
@@ -625,7 +626,7 @@ var m = Model(
 	Product("Electronic voting system") helps Goal("G04. Maintain the current election turnout"),
 	Product("Electronic voting system") helps Goal("G05. Maintain democracy"),
 	
-	Function("Authentication") helps Goal("G05. Maintain democracy"),
+	Function("Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
 	Function("Send confirmation to voter") helps Goal("G05. Maintain democracy"),
 	Function("GUI information") helps Goal("G01. Reduce manual labour"),
 	Function("Party view") helps Goal("G01. Reduce manual labour"),
@@ -647,5 +648,5 @@ var m = Model(
 	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
-	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
+	Function("Import voter data") helps Goal("G01. Reduce manual labour")
 )
