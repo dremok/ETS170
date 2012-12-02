@@ -162,6 +162,25 @@ var m = Model(
 		Spec("The system shall support voters who have reading problems or problems to understand written text.")
 	),
 	
+	// Goals
+	Goal("G01. Reduce manual labour") has (
+		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
+	),
+	Goal("G02. Facilitate voting for people who have difficulties getting to a voting place") has (
+		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
+	),
+	Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system") has (
+		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
+		"so that they can vote as unhindered as the rest of the population.")
+	),
+	Goal("G04. Maintain the current election turnout") has (
+		Spec("The new system shall not have any significant negative impact on the election turnout.")
+	),
+	Goal("G05. Maintain democracy") has (
+		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
+	),
+	
+	
 	//Data Dictionary
 	Class("Voter") has (
 		Gist("Can vote in the election"),
@@ -187,41 +206,24 @@ var m = Model(
 		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
 		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
 		),
+		
+	//CRUD
+	Class("Voter") has (
+		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase, during the other phases it is only possible to read voters.")
+	),
 
+	Class("Party") has (
+		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase, during the other phases it is only possible to read parties.")
+	),
+
+	Class("Party Candidate") has (
+		Comment("It should be possible to create, read, update and delete party candidates")
+	),
+
+	Class("Vote") has (
+		Comment("It should only be possible to create and read votes, not delete or update them")
+	),
 	
-	// Goals
-	Goal("G01. Reduce manual labour") has (
-		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
-	),
-	Goal("G02. Facilitate voting for people who have difficulties getting to a voting place") has (
-		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
-	),
-	Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system") has (
-		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
-		"so that they can vote as unhindered as the rest of the population.")
-	),
-	Goal("G04. Maintain the current election turnout") has (
-		Spec("The new system shall not have any significant negative impact on the election turnout.")
-	),
-	Goal("G05. Maintain democracy") has (
-		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
-	),
-
-	// PHASES
-	Entity("P01. Registration phase") has (
-		Spec("Register voters, parties and candidates"),
-		Label("Phase")
-	),
-
-	Entity("P02. Voting phase") has (
-		Spec("Voters are able to vote"),
-		Label("Phase")
-	),
-
-	Entity("P03. Tallying phase") has (
-		Spec("The votes are counted and a result is generated"),
-		Label("Phase")
-	),
 	
 	// Tasks
 	Task("T1") has (
@@ -532,55 +534,6 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
-	//CRUD
-	Function("CRUD Voter") has (
-		Spec("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase, during the other phases it is only possible to read voters."),
-		Label("CRUD")
-	),
-
-	Function("CRUD Party") has (
-		Spec("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase, during the other phases it is only possible to read parties."),
-		Label("CRUD")
-	),
-
-	Function("CRUD Party Candidate") has (
-		Spec("It should be possible to create, read, update and delete party candidates"),
-		Label("CRUD")
-	),
-
-	Function("CRUD Vote") has (
-		Spec("It should only be possible to create and read votes, not delete or update them"),
-		Label("CRUD")
-	),
-
-	Class("Voter") has (
-		Gist("Can vote in the election"),
-		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
-		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
-
-		),
-
-	Class("Party") has (
-		Gist("A party which can receive a vote from the voters."),
-		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
-		Example("(1) The \"no-vote\" party. (2) The pirate party.")
-		),
-
-	Class("Party Candidate") has (
-		Gist("A member of a party who the voters can vote for."),
-		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
-		Example("(1) Anna Troberg of the pirate party. (2) \"blank\" of any party.")
-		),
-
-	Class("Vote") has (
-		Gist("A vote can be placed by a voter on a party and candidate."),
-		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
-		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
-		),
-
-
-
-
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
@@ -648,5 +601,4 @@ var m = Model(
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
 	Function("Import voter data") helps Goal("G01. Reduce manual labour")
-	)
 )
