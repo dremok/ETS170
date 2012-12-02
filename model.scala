@@ -202,8 +202,10 @@ var m = Model(
 	),
 	Goal("G04. Maintain the current election turnout") has (
 		Spec("The new system shall not have any significant negative impact on the election turnout.")
-	),	
-	
+	),
+	Goal("G05. Maintain democracy") has (
+		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
+	),
 	
 	// Tasks
 	Task("T1") has (
@@ -398,7 +400,7 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("One-Voter-One-Vote") has (
-		Spec("R_. Only one vote should go to the tallying phase of the voting."),
+		Spec("R_. Only one vote per voter should go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
@@ -541,7 +543,33 @@ var m = Model(
 	),
 	
 	// Relationships
-	Product("Electronic voting system") helps Goal("Reduce manual labour"),
-	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties getting to a voting place"),
-	Product("Electronic voting system") helps Goal("Facilitate voting for people who have difficulties using the current manual voting system")
+	Product("Electronic voting system") helps Goal("G01. Reduce manual labour"),
+	Product("Electronic voting system") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
+	Product("Electronic voting system") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Product("Electronic voting system") helps Goal("G04. Maintain the current election turnout"),
+	Product("Electronic voting system") helps Goal("G05. Maintain democracy"),
+	
+	Function("Authentication") helps Goal("G05. Maintain democracy"),
+	Function("Send confirmation to voter") helps Goal("G05. Maintain democracy"),
+	Function("GUI information") helps Goal("G01. Reduce manual labour"),
+	Function("Party view") helps Goal("G01. Reduce manual labour"),
+	Function("Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
+	Function("Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
+	Function("One-Voter-One-Vote") helps Goal("G05. Maintain democracy"),
+	Function("Voting to Tallying phase transition") helps Goal("G05. Maintain democracy"),
+	Function("Envelope-Voter-Connection") helps Goal("G05. Maintain democracy"),
+	Function("Vote encryption") helps Goal("G05. Maintain democracy"),
+	Function("Eligibility check") helps Goal("G05. Maintain democracy"),
+	Function("Support for unlimited amount of individual votes") helps Goal("G05. Maintain democracy"),
+	Function("Manual vote overrides electronic vote") helps Goal("G05. Maintain democracy"),
+	Function("Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("Read manual votes") helps Goal("G04. Maintain the current election turnout"),
+	Function("Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
+	Function("Initiate vote count") helps Goal("G01. Reduce manual labour"),
+	Function("Admin warnings") helps Goal("G01. Reduce manual labour"),
+	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
+	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
+	Function("Import party data") helps Goal("G01. Reduce manual labour"),
+	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
 )
