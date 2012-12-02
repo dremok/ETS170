@@ -206,6 +206,22 @@ var m = Model(
 	Goal("G05. Maintain democracy") has (
 		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
 	),
+
+	// PHASES
+	Phase("P01. Registration phase") has (
+		Spec("Register voters, parties and candidates"),
+		Label("Phase")
+	),
+
+	Phase("P02. Voting phase") has (
+		Spec("Voters are able to vote"),
+		Label("Phase")
+	),
+
+	Phase("P03. Tallying phase") has (
+		Spec("The votes are counted and a result is generated"),
+		Label("Phases")
+	
 	
 	// Tasks
 	Task("T1") has (
@@ -539,7 +555,7 @@ var m = Model(
 		Label("CRUD")
 	),
 
-Class("Voter") has (
+	Class("Voter") has (
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
 		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
@@ -559,6 +575,10 @@ Class("Voter") has (
 		),
 
 	Class("Vote") has (
+		Gist("A vote can be placed by a voter on a party and candidate."),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
+		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
+		),
 
 
 
