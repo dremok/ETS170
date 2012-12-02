@@ -90,75 +90,75 @@ var m = Model(
 	
 	// Features
 	Product("Electronic Voting System") owns (
-		Feature("F_. Web interface for voting"),
-		Feature("F_. Input from party/candidate database"),
-		Feature("F_. Send vote to server"),
-		Feature("F_. Individual Verifiability"),
-		Feature("F_. Counting of electronic votes"),
-		Feature("F_. Support for different languages"),
-		Feature("F_. Input of paper votes"),
-		Feature("F_. Privacy"),
-		Feature("F_. Authentication when voting electronically from home"),
-		Feature("F_. Voter eligibility check"),
-		Feature("F_. Coercion-Resistance & Receipt-Freeness"),
-		Feature("F_. Fairness"),
-		Feature("F_. Admin interface"),
-		Feature("F_. Support for visually impaired voters"),
-		Feature("F_. Support for voters with motor disabilities"),
-		Feature("F_. Support for cognitive disabilities"),
-		Feature("F_. Support for the illiterate & dyslectic")
+		Feature("F01. Web interface for voting"),
+		Feature("F02. Input from party/candidate database"),
+		Feature("F03. Send vote to server"),
+		Feature("F04. Individual Verifiability"),
+		Feature("F05. Counting of electronic votes"),
+		Feature("F06. Support for different languages"),
+		Feature("F07. Input of paper votes"),
+		Feature("F08. Privacy"),
+		Feature("F09. Authentication when voting electronically from home"),
+		Feature("F10. Voter eligibility check"),
+		Feature("F11. Coercion-Resistance & Receipt-Freeness"),
+		Feature("F12. Fairness"),
+		Feature("F13. Admin interface"),
+		Feature("F14. Support for visually impaired voters"),
+		Feature("F15. Support for voters with motor disabilities"),
+		Feature("F16. Support for cognitive disabilities"),
+		Feature("F17. Support for the illiterate & dyslectic")
 	),
 	
-	Feature("F_. Web interface for voting") has (
+	Feature("F01. Web interface for voting") has (
 		Spec("GUI that allows the user to place a vote.")
 	),
-	Feature("F_. Input from party/candidate database") has (
+	Feature("F02. Input from party/candidate database") has (
 		Spec("Ability for server to read party and candidate data from an external database.")
 	),
-	Feature("F_. Send vote to server") has (
+	Feature("F03. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
-	Feature("F_. Individual Verifiability") has (
+	Feature("F04. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
-	Feature("F_. Counting of electronic votes") has (
+	Feature("F05. Counting of electronic votes") has (
 		Spec("Possibility for server to count the votes in the data recieved from clients.")
 	),
-	Feature("F_. Support for different languages") has (
+	Feature("F06. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
 	),
-	Feature("F_. Input of paper votes") has (
+	Feature("F07. Input of paper votes") has (
 		Spec("Ability to read data of votes submitted on paper and store together with electronic votes.")
 	),
-	Feature("F_. Privacy") has (
+	Feature("F08. Privacy") has (
 		Spec("Functionality to prohibit extraction of information about someone else's vote.")
 	),
-	Feature("F_. Authentication") has (
+	Feature("F09. Authentication when voting electronically from home") has (
 		Spec("Functionality to allow for user authentication.")
 	),
-	Feature("F_. Voter eligibility check") has (
+	Feature("F10. Voter eligibility check") has (
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
-	Feature("F_. Coercion-Resistance & Receipt-Freeness") has (
+	Feature("F11. Coercion-Resistance & Receipt-Freeness") has (
 		Spec("It should not be possible for a voter to prove how he/she votes. " +
 			"Thereby, it should not be possible to coerce someone to vote in a particular way.")
 	),
-	Feature("F_. Fairness") has (
+	Feature("F12. Fairness") has (
 		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
 	),
-	Feature("F_. Admin interface") has (
+	Feature("F13. Admin interface") has (
 		Spec("The vote counting part of the system shall have an admin interface.")
 	),
-	Feature("F_. Support for visually impaired voters") has (
-		Spec("The electronic voting system shall support visually impaired voters, either indirectly or with provided interfaces.")
+	Feature("F14. Support for visually impaired voters") has (
+		Spec("The electronic voting system shall support visually impaired voters.")
 	),
-	Feature("F_. Support for voters with motor disabilities") has (
-		Spec("As many disabled voters as possible shall be able to use the system to place a vote without assistance from another person.")
+	Feature("F15. Support for voters with motor disabilities") has (
+		Spec("Ability for disabled voters to use the system to place a vote without assistance from another person.")
 	),
-	Feature("F_. Support for cognitive disabilities") has (
-		Spec("The system shall support voters with cognitive impairments so that as many as possible are able to place a vote without assistance from another person.")
+	Feature("F16. Support for cognitive disabilities") has (
+		Spec("The system shall support voters with cognitive impairments so that they can vote without assistance from another person.")
 	),
-	Feature("F_. Support for the illiterate & dyslectic") has (
+	Feature("F17. Support for the illiterate & dyslectic") has (
 		Spec("The system shall support voters who have reading problems or problems to understand written text.")
 	),
 	
