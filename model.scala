@@ -208,20 +208,20 @@ var m = Model(
 	),
 
 	// PHASES
-	Phase("P01. Registration phase") has (
+	Entity("P01. Registration phase") has (
 		Spec("Register voters, parties and candidates"),
 		Label("Phase")
 	),
 
-	Phase("P02. Voting phase") has (
+	Entity("P02. Voting phase") has (
 		Spec("Voters are able to vote"),
 		Label("Phase")
 	),
 
-	Phase("P03. Tallying phase") has (
+	Entity("P03. Tallying phase") has (
 		Spec("The votes are counted and a result is generated"),
-		Label("Phases")
-	
+		Label("Phase")
+	),
 	
 	// Tasks
 	Task("T1") has (
@@ -650,4 +650,5 @@ var m = Model(
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
 	Function("Import voter data") helps Goal("G01. Reduce manual labour")
+	)
 )
