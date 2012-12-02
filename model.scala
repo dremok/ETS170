@@ -602,9 +602,10 @@ var m = Model(
 	Function("Read paper votes") helps Goal("G04. Maintain the current election turnout"),
 	Function("Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
 	Function("Initiate vote count") helps Goal("G01. Reduce manual labour"),
-	Function("Admin warnings") helps Goal("G01. Reduce manual labour"),
 	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
-	Function("Import voter data") helps Goal("G01. Reduce manual labour")
+	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
+	Function("Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
+	Function("Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour")
 )
