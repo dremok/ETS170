@@ -200,6 +200,9 @@ var m = Model(
 		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
 		"so that they can vote as unhindered as the rest of the population.")
 	),
+	Goal("G04. Maintain the current election turnout") has (
+		Spec("The new system shall not have any significant negative impact on the election turnout.")
+	),	
 	
 	
 	// Tasks
