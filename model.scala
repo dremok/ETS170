@@ -220,8 +220,8 @@ var m = Model(
 
 	Phase("P03. Tallying phase") has (
 		Spec("The votes are counted and a result is generated"),
-		Label("Phases")
-	
+		Label("Phase")
+	),
 	
 	// Tasks
 	Task("T1") has (
@@ -536,12 +536,12 @@ var m = Model(
 
 	//CRUD
 	Function("CRUD Voter") has (
-		Spec("It should be possible to create, read, update and delete voters"),
+		Spec("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase, during the other phases it is only possible to read voters."),
 		Label("CRUD")
 	),
 
 	Function("CRUD Party") has (
-		Spec("It should be possible to create, read, update and delete parties"),
+		Spec("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase, during the other phases it is only possible to read parties."),
 		Label("CRUD")
 	),
 
