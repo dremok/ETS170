@@ -217,11 +217,11 @@ var m = Model(
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates")
+		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase, during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
-		Comment("It should only be possible to create and read votes, not delete or update them")
+		Comment("It should only be possible to create and read votes, not delete or update them. Votes can only be created during the voting phase and read during the tallying phase.")
 	),
 	
 	// Tasks
