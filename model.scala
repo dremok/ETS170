@@ -217,11 +217,11 @@ var m = Model(
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates")
+		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase, during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
-		Comment("It should only be possible to create and read votes, not delete or update them")
+		Comment("It should only be possible to create and read votes, not delete or update them. Votes can only be created during the voting phase and read during the tallying phase.")
 	),
 	
 	// Tasks
@@ -403,9 +403,9 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("Party view") has (
-		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should " +
+		Spec("<b>R_. The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list." +
 		"be in a separate list.</b>"),
-		Why(""),
+		Why("No single party must get any special benefits from the way the list is sorted."),
 		Label("GUI")
 	),
 	Function("Voting machines at a voting place") has (
@@ -470,7 +470,7 @@ var m = Model(
 	),
 	
 	Function("Change language") has (
-		Spec("The start page of the web interface should present an obvious way of changing language."),
+		Spec("The start page of the web interface should present an obvious way (for all voting stakeholders) of changing language."),
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
@@ -495,7 +495,7 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Function("Assembling and counting of unnotified candidates") has (
+	Function("Assembling and counting of unregistered candidates") has (
 		Spec("The system should be able to produce a result on votes on unregistered candidates."),
 		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
@@ -503,12 +503,6 @@ var m = Model(
 
 	Function("Initiate vote count") has (
 		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>"),
-		Label("Vote count")
-	),
-
-	Function("Admin warnings") has (
-		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system " +
-			"(e.g. no paper votes have been read)."),
 		Label("Vote count")
 	),
 
@@ -534,6 +528,18 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
+	Function("Admin warnings - Counting of votes") has (
+		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system "),
+		Example("(1) Notify the user that no paper votes have been read. (2) Notify the user that there are votes on unregistered candidates"),
+		Label("Admin functionality")
+	),
+
+	Function ("Admin warnings - Starting and ending a phase") has (
+		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
+		Example("Are you sure you want to end the voting phase and start tallying phase?"),
+		Label("Admin functionality")
+	),
+
 	//Quality requirements
 	Quality("Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
@@ -541,7 +547,7 @@ var m = Model(
 	),
 
 	Quality("Maximum testing time") has (
-		Spec("It should be possible to simulate a real voting process in less than _ hours."),
+		Spec("Assuming a test system is up and running, it should be possible to simulate a real voting process in less than _ hours."),
 		Label("Testability")
 	),
 
@@ -567,7 +573,7 @@ var m = Model(
 	),
 	Quality("Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
-		Spec("Some parts should be allowed to fail/cheat, and the system should still work."),
+		Spec("Some of the servers should be allowed to fail/become compromised, and the system should still work."),
 		Example("Anonymity should still be enforced <br> Correct result should be obtained")
 	),
 	
@@ -593,12 +599,14 @@ var m = Model(
 	Function("Voting place overrides vote placed from home") helps Goal("G05. Maintain democracy"),
 	Function("Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
 	Function("Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("Vote for an unregistered candidate") helps Goal("G01. Reduce manual labour"),
 	Function("Read paper votes") helps Goal("G04. Maintain the current election turnout"),
 	Function("Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
 	Function("Initiate vote count") helps Goal("G01. Reduce manual labour"),
-	Function("Admin warnings") helps Goal("G01. Reduce manual labour"),
 	Function("Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("End voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("Import party data") helps Goal("G01. Reduce manual labour"),
-	Function("Import voter data") helps Goal("G01. Reduce manual labour")
+	Function("Import voter data") helps Goal("G01. Reduce manual labour"),
+	Function("Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
+	Function("Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour")
 )
