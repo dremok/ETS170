@@ -455,6 +455,13 @@ var m = Model(
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
+
+	//VOTING
+	Function("Vote for an unregistered candidate") has (
+		Spec("It should be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
+		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by writing the name in a text box."),
+		Label("Voting")
+	),
 	
 	//ADMIN
 
@@ -467,6 +474,12 @@ var m = Model(
 	Function("Assembling and counting of votes") has (
 		Spec("The vote counting system shall be able to assemble the input manual votes and all electronic votes and produce a result " +
 		"where each vote is counted equally."),
+		Label("Vote count")
+	),
+
+	Function("Assembling and counting of unnotified candidates") has (
+		Spec("The system should be able to produce a result on votes on unregistered candidates."),
+		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately.");
 		Label("Vote count")
 	),
 
