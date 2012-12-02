@@ -10,7 +10,7 @@ var m = Model(
 	// Stakeholders
 	Stakeholder("S01. Swedish Valmyndigheten") has (
 		Spec("A government authority responsible for the parliamentary elections in Sweden."),
-		Prio(3),
+		Prio(4),
 		Comment("Stakeholder's goals: Reduced costs for the election process (manual labour, vote places, vote counting etc.) Higher election turnout. " +
 		"Higher turnout for certain groups that have difficulties with the current system. Be sure that democracy is maintained, which means no votes can be sold or stolen, " +
 		"a person cannot vote for another person and no one can be forced to vote against their will. Be sure that the result is accurate." +
@@ -481,7 +481,7 @@ var m = Model(
 
 	Function("Assembling and counting of unnotified candidates") has (
 		Spec("The system should be able to produce a result on votes on unregistered candidates."),
-		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately.");
+		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
 	),
 

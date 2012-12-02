@@ -32,7 +32,7 @@ val myTemplate = DocumentTemplate(
 	Chapter("Context", Text("System context"), m => (m / Context) \ Stakeholder),
 	
 	// Stakeholders
-	Chapter("Stakeholders", Text("The stakeholders are prioritized on a scale from 1 to 3, where 1 is lowest priority and 3 is highest."), m => m / Stakeholder),
+	Chapter("Stakeholders", Text("The stakeholders are prioritized on a scale from 1 to 4, where 1 is lowest priority and 4 is highest."), m => m / Stakeholder),
 	
 	// Features
 	Chapter("System Features", Text("<b>The system consists of the following features:</b>"), m => m / Feature),
