@@ -5,8 +5,6 @@ var m = Model(
 		(Spec("An electronic voting system which will complement the manual system which is used today. "),
 		Image("ContextDiagram.png")),
 
-//hej
-	
 	// Stakeholders
 	Stakeholder("S01. Swedish Valmyndigheten") has (
 		Spec("A government authority responsible for the parliamentary elections in Sweden."),
@@ -403,7 +401,7 @@ var m = Model(
 
 	Function("Envelope-Voter-Connection") has (
 		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
-		Why("To allow users to vote multiple times, where the old electronical vote is overrridden by the new one."),
+		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one."),
 		Comment("supports F07, F10 and F11")
 	),
 
@@ -411,7 +409,7 @@ var m = Model(
 	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("Vote encryption") has (
 		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
-		Label("Privacy")
+		Label("Priva cy")
 	),
 
 	Function("Eligibility check") has (
@@ -425,11 +423,11 @@ var m = Model(
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 
-	Function("Vote traceability") has (
-		Spec("Each electronical vote must be connected to its voter, but not in a traceable way."),
-		Why("It must be possible to determine which of the voter's votes shall be tallied."),
-		Label("Coercion-resistance & Receipt-freeness")
-	),
+//	Function("Vote traceability") has (
+//		Spec("Each electronical vote must be connected to its voter, but not in a traceable way."),
+//		Why("It must be possible to determine which of the voter's votes shall be tallied."),
+//		Label("Coercion-resistance & Receipt-freeness")
+//	),
 	
 	Function("Manual vote overrides electronic vote") has (
 		Spec("Any manually placed vote should override any electronic votes placed by the same voter."),
@@ -465,8 +463,7 @@ var m = Model(
 	),
 
 	Function("Initiate vote count") has (
-		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>" +
-			"This should only possible after the end of the voting period."),
+		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>"),
 		Label("Vote count")
 	),
 
