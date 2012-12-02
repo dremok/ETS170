@@ -599,6 +599,7 @@ var m = Model(
 	Function("Voting place overrides vote placed from home") helps Goal("G05. Maintain democracy"),
 	Function("Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
 	Function("Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("Vote for an unregistered candidate") helps Goal("G01. Reduce manual labour"),
 	Function("Read paper votes") helps Goal("G04. Maintain the current election turnout"),
 	Function("Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
 	Function("Initiate vote count") helps Goal("G01. Reduce manual labour"),
