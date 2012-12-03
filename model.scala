@@ -274,7 +274,7 @@ var m = Model(
 			Label("variant1a"),
 			Gist("A person without any special needs uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
-				"The voter opens up this site in a web browser, logs in using electronic identification (e.g. bankID) and enters the personal code " +
+				"The voter opens up this site in a web browser, logs in using electronic identification enters the personal code " +
 				"stated on the voting card. A party and a candidate is chosen in the web interface. The voter clicks on a 'Submit' button. " +
 				"After an appropriate amount of time, the voter receives some kind of personalized message confirming that the vote was counted for the correct party.")
 		),	
