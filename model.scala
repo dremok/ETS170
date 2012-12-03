@@ -209,15 +209,15 @@ var m = Model(
 		
 	//CRUD
 	Class("Voter") has (
-		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase, during the other phases it is only possible to read voters.")
+		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase; during the other phases it is only possible to read voters.")
 	),
 
 	Class("Party") has (
-		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase, during the other phases it is only possible to read parties.")
+		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase; during the other phases it is only possible to read parties.")
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase, during the other phases it is only possible to read party candidates.")
+		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase; during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
@@ -283,7 +283,7 @@ var m = Model(
 			Label("variant1b"),
 			Gist("A person with a visual impairment uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
-			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a fully sighted person.")
+			"without hinder, the voting should be carried out with the same ease as with the procedure in 1a for a fully sighted person.")
 		),
 		
 		Task("T1c Carry out voting via the web interface - non-Swedish speaking voter") has (
@@ -299,7 +299,7 @@ var m = Model(
 			Label("variant1d"),
 			Gist("A person with motor impairments uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
-			"without hinder, the voting should be carried out with the same ease as the procedure in 1a is for a person without motor impairments.")
+			"without hinder, the voting should be carried out with the same ease as with the procedure in 1a for a person without motor impairments.")
 		),
 		
 	Task("T2") has (
@@ -374,7 +374,7 @@ var m = Model(
 		Task("T2d Carry out voting via machine - voter has motor impairments") has (
 			Label("variant2d"),
 			Gist("A person with motor impairments votes using a machine at a voting place"),
-			Spec("The public voting machines are equipped with voice recognition functions to enable the voter to use them. The general procedure is identical to the typical case (Task 2a)."),
+			Spec("The public voting machines are equipped with voice recognition functions to enable the voter to use them. The general procedure is identical to the typical case (Task T2a)."),
 			Comment("It must not be possible to conclude what was voted for from outside the voting booth. One example is to use sound isolated booths. Another way might be to construct the user interface in a way that does not encourage the voter to say out loud what (s)he is voting for.")
 		),
 
@@ -397,12 +397,11 @@ var m = Model(
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
-		Spec("The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law."),
+		Spec("The GUI shall display the information present in the GUI mockups."),
 		Label("GUI")
 	),
 	Function("R07. Party view") has (
-		Spec("The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list." +
-		"be in a separate list."),
+		Spec("The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list."),
 		Why("No single party must get any special benefits from the way the list is sorted."),
 		Label("GUI")
 	),
@@ -416,12 +415,12 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("R10. One-Voter-One-Vote") has (
-		Spec("R_. Only one vote per voter should go to the tallying phase of the voting."),
+		Spec("Only one vote per voter should go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
 	Function("R11. Voting to Tallying phase transition") has (
-		Spec("It should not be possible to start tallying phase before the voting phase has terminated."),
+		Spec("It should not be possible to start the tallying phase before the voting phase has terminated."),
 		Label("Fairness")
 	),
 
@@ -592,7 +591,6 @@ var m = Model(
 	
 	Function("R04. Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
 	Function("R05. Send confirmation to voter") helps Goal("G05. Maintain democracy"),
-	Function("R06. GUI information") helps Goal("G05. Maintain democracy"),
 	Function("R07. Party view") helps Goal("G01. Reduce manual labour"),
 	Function("R08. Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
 	Function("R09. Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
