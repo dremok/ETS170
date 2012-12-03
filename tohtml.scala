@@ -6,7 +6,13 @@ def mWithoutLabels(mIn: Model) = mIn collect {
 		case (k,NodeSet(ns)) => (k, NodeSet(ns collect { case n if !(n <==> Label) => n }))
 	}
 
-def mainTask(i: Int): Model = ((m / Task(""+i)) \ owns)
+def mainTask(i: Int): Model = for (
+	(Key(entity,edge), nodes) <- (m / Task)
+		if nodes exists {
+			case Label(l) => l contains ("maintask"+i)
+			case _ => false
+		}
+	) yield (Key(entity,edge), nodes)
 	
 def subtasks(i: Int): Model = for (
 	(Key(entity,edge), nodes) <- (m / Task)
