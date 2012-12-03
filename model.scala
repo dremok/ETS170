@@ -385,47 +385,47 @@ var m = Model(
 		),
 
 	// Function requirements
-	Function("R01. Authentication when voting electronically from home") has (
+	Function("R04. Authentication when voting electronically from home") has (
 		Spec("Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
 		"comfortable using."),
 		Example("A well-known example of such a system is BankID."),
 		Label("Authentication")
 	),
-	Function("R02. Send confirmation to voter") has (
+	Function("R05. Send confirmation to voter") has (
 		Spec("A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
 		"to decipher it."),
 		Label("Individual verifiability")
 	),
-	Function("R03. GUI information") has (
+	Function("R06. GUI information") has (
 		Spec("The GUI should not display any information in excess of the GUI mockups and what is defined in the Swedish electoral law."),
 		Label("GUI")
 	),
-	Function("R04. Party view") has (
+	Function("R07. Party view") has (
 		Spec("The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list." +
 		"be in a separate list."),
 		Why("No single party must get any special benefits from the way the list is sorted."),
 		Label("GUI")
 	),
-	Function("R05. Voting machines at a voting place") has (
+	Function("R08. Voting machines at a voting place") has (
 		Spec("At the voting places, each voting booth should have a computer whose only functionality is to run the web interface for voting."),
 		Label("GUI")
 	),
-	Function("R06. Authentication when voting electronically at a voting place") has (
+	Function("R09. Authentication when voting electronically at a voting place") has (
 		Spec("To be able to use a voting machine at a voting place, the voter needs to be identified by at least two election inspectors and " +
 		"scan some kind of barcode (or similar) on the voter's voting card."),
 		Label("GUI")
 	),
-	Function("R07. One-Voter-One-Vote") has (
+	Function("R10. One-Voter-One-Vote") has (
 		Spec("R_. Only one vote per voter should go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
-	Function("R08. Voting to Tallying phase transition") has (
+	Function("R11. Voting to Tallying phase transition") has (
 		Spec("It should not be possible to start tallying phase before the voting phase has terminated."),
 		Label("Fairness")
 	),
 
-	Function("R09. Envelope-Voter-Connection") has (
+	Function("R12. Envelope-Voter-Connection") has (
 		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
 		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one."),
 		Comment("supports F07, F10 and F11")
@@ -433,42 +433,42 @@ var m = Model(
 
 
 	//Covered in data dictionary? Yes, but it's not that big a deal.
-	Function("R10. Vote encryption") has (
+	Function("R13. Vote encryption") has (
 		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
 		Label("Privacy")
 	),
 
-	Function("R11. Eligibility check") has (
+	Function("R14. Eligibility check") has (
 		Spec("Only people present in the electoral register shall be able to place a vote in the system."),
 		Label("Voter eligibility check")
 	),
 
-	Function("R12. Support for unlimited amount of individual votes") has (
+	Function("R15. Support for unlimited amount of individual votes") has (
 		Spec("Each voter must be allowed to vote via the electronic system as many times as desired. Only the last vote placed shall be tallied."),
 		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
-	Function("R13. Voting place overrides vote placed from home") has (
+	Function("R16. Voting place overrides vote placed from home") has (
 		Spec("Any vote submitted at a public voting place (on paper or from a machine) should override any votes placed from a personal computer by the same voter."),
 		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to be free of these problems."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
-	Function("R14. Language support") has (
+	Function("R17. Language support") has (
 		Spec("The web interface must support the addition of other languages than Swedish."),
 		Why("It must be possible for non-Swedish speaking voters to vote."),
 		Label("Language")
 	),
 	
-	Function("R15. Change language") has (
+	Function("R18. Change language") has (
 		Spec("The start page of the web interface should present an obvious way (for all voting stakeholders) of changing language."),
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
 
 	//VOTING
-	Function("R16. Vote for an unregistered candidate") has (
+	Function("R19. Vote for an unregistered candidate") has (
 		Spec("It should be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
 		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by writing the name in a text box."),
 		Label("Voting")
@@ -476,60 +476,74 @@ var m = Model(
 	
 	//ADMIN
 
-	Function("R17. Read paper votes") has (
+	Function("R20. Read paper votes") has (
 		Spec("The admin interface must have functionality to read counted paper votes in an appropriate form of data."),
 		Why("The vote counting system must know of the paper votes in order to produce a complete voting result."),
 		Label("Vote count")
 	),
 	
-	Function("R18. Assembling and counting of votes") has (
+	Function("R21. Assembling and counting of votes") has (
 		Spec("The vote counting system shall be able to assemble the input paper votes and all electronic votes and produce a complete result."),
 		Label("Vote count")
 	),
 
-	Function("R19. Assembling and counting of unregistered candidates") has (
+	Function("R22. Assembling and counting of unregistered candidates") has (
 		Spec("The system should be able to produce a result of votes on unregistered candidates."),
 		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
 	),
 
-	Function("R20. Initiate vote count") has (
+	Function("R23. Initiate vote count") has (
 		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>"),
 		Label("Vote count")
 	),
 
-	Function("R21. Start voting phase") has (
+	Function("R24. Start voting phase") has (
 		Spec("The admin interface must have functionality to start the voting phase."),
 		Label("Admin functionality")
 	),
 
-	Function("R22. End voting phase") has (
+	Function("R25. End voting phase") has (
 		Spec("The admin interface must have functionality to end the voting phase."),
 		Label("Admin functionality")
 	),
 
-	Function("R23. Import party data") has (
+	Function("R26. Import party data") has (
 		Spec("The admin interface must have functionality to import party and candidate data into the system"),
 		Example("The party and candidate data may be imported from an Excel file"),
 		Label("Admin functionality")
 	),
 
-	Function("R24. Import voter data") has (
+	Function("R27. Import voter data") has (
 		Spec("The admin interface must have functionality to import voter data into the system"),
 		Example("The voter data may be imported from an Excel file"),
 		Label("Admin functionality")
 	),
 
-	Function("R25. Admin warnings - Counting of votes") has (
+	Function("R28. Admin warnings - Counting of votes") has (
 		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system "),
 		Example("(1) Notify the user that no paper votes have been read. (2) Notify the user that there are votes on unregistered candidates"),
 		Label("Admin functionality")
 	),
 
-	Function ("R26. Admin warnings - Starting and ending a phase") has (
+	Function ("R29. Admin warnings - Starting and ending a phase") has (
 		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
 		Example("Are you sure you want to end the voting phase and start tallying phase?"),
 		Label("Admin functionality")
+
+	),
+
+	//Design-level requirements
+	Design("start-page") has (
+		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
+	),
+
+	Design("vote-page") has (
+		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
+	),
+
+	Design("admin-page") has (
+		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
 
 	//Quality requirements
@@ -576,30 +590,30 @@ var m = Model(
 	Product("Electronic voting system") helps Goal("G04. Maintain the current election turnout"),
 	Product("Electronic voting system") helps Goal("G05. Maintain democracy"),
 	
-	Function("R01. Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
-	Function("R02. Send confirmation to voter") helps Goal("G05. Maintain democracy"),
-	Function("R03. GUI information") helps Goal("G05. Maintain democracy"),
-	Function("R04. Party view") helps Goal("G01. Reduce manual labour"),
-	Function("R05. Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
-	Function("R06. Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
-	Function("R07. One-Voter-One-Vote") helps Goal("G05. Maintain democracy"),
-	Function("R08. Voting to Tallying phase transition") helps Goal("G05. Maintain democracy"),
-	Function("R09. Envelope-Voter-Connection") helps Goal("G05. Maintain democracy"),
-	Function("R10. Vote encryption") helps Goal("G05. Maintain democracy"),
-	Function("R11. Eligibility check") helps Goal("G05. Maintain democracy"),
-	Function("R12. Support for unlimited amount of individual votes") helps Goal("G05. Maintain democracy"),
-	Function("R13. Voting place overrides vote placed from home") helps Goal("G05. Maintain democracy"),
-	Function("R14. Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
-	Function("R15. Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
-	Function("R16. Vote for an unregistered candidate") helps Goal("G01. Reduce manual labour"),
-	Function("R17. Read paper votes") helps Goal("G04. Maintain the current election turnout"),
-	Function("R18. Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
-	Function("R19. Assembling and counting of unregistered candidates") helps Goal("G05. Maintain democracy"),
-	Function("R20. Initiate vote count") helps Goal("G01. Reduce manual labour"),
-	Function("R21. Start voting phase") helps Goal("G01. Reduce manual labour"),
-	Function("R22. End voting phase") helps Goal("G01. Reduce manual labour"),
-	Function("R23. Import party data") helps Goal("G01. Reduce manual labour"),
-	Function("R24. Import voter data") helps Goal("G01. Reduce manual labour"),
-	Function("R25. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
-	Function("R26. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour")
+	Function("R04. Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
+	Function("R05. Send confirmation to voter") helps Goal("G05. Maintain democracy"),
+	Function("R06. GUI information") helps Goal("G05. Maintain democracy"),
+	Function("R07. Party view") helps Goal("G01. Reduce manual labour"),
+	Function("R08. Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
+	Function("R09. Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
+	Function("R10. One-Voter-One-Vote") helps Goal("G05. Maintain democracy"),
+	Function("R11. Voting to Tallying phase transition") helps Goal("G05. Maintain democracy"),
+	Function("R12. Envelope-Voter-Connection") helps Goal("G05. Maintain democracy"),
+	Function("R13. Vote encryption") helps Goal("G05. Maintain democracy"),
+	Function("R14. Eligibility check") helps Goal("G05. Maintain democracy"),
+	Function("R15. Support for unlimited amount of individual votes") helps Goal("G05. Maintain democracy"),
+	Function("R16. Voting place overrides vote placed from home") helps Goal("G05. Maintain democracy"),
+	Function("R17. Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("R18. Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Function("R19. Vote for an unregistered candidate") helps Goal("G01. Reduce manual labour"),
+	Function("R20. Read paper votes") helps Goal("G04. Maintain the current election turnout"),
+	Function("R21. Assembling and counting of votes") helps Goal("G05. Maintain democracy"),
+	Function("R22. Assembling and counting of unregistered candidates") helps Goal("G05. Maintain democracy"),
+	Function("R23. Initiate vote count") helps Goal("G01. Reduce manual labour"),
+	Function("R24. Start voting phase") helps Goal("G01. Reduce manual labour"),
+	Function("R25. End voting phase") helps Goal("G01. Reduce manual labour"),
+	Function("R26. Import party data") helps Goal("G01. Reduce manual labour"),
+	Function("R27. Import voter data") helps Goal("G01. Reduce manual labour"),
+	Function("R28. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
+	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour")
 )

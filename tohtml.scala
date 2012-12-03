@@ -38,10 +38,10 @@ val myTemplate = DocumentTemplate(
 	Chapter("System Features", Text("<b>The system consists of the following features:</b>"), m => m / Feature),
 	
 	// Goals
-	Chapter("Goal requirements", Text("<b>R1. The system shall support the following goals:</b>"), m => m / Goal),
+	Chapter("Goal requirements", Text("<b>R01. The system shall support the following goals:</b>"), m => m / Goal),
 	
 	// Task descriptions
-	Chapter("Tasks to be supported", Text("<b>R2. The system shall support the following tasks:</b>"), m => mWithoutLabels(mainTask(1)) ), 
+	Chapter("Tasks to be supported", Text("<b>R02. The system shall support the following tasks:</b>"), m => mWithoutLabels(mainTask(1)) ), 
 	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(1))),
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(1))),
 	Section("", Text("<hr>"), m => m / hurts), // Tom modell
@@ -50,14 +50,17 @@ val myTemplate = DocumentTemplate(
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(2))),
 	
 	// Data requirements
-	Chapter("Data Requirements", Text("<b>R3. The server shall handle the following data:</b>"), m => m / hurts),
+	Chapter("Data Requirements", Text("<b>R03. The server shall handle the following data:</b>"), m => m / hurts),
 	Section("Data dictionary", Text(""), m => m / Class),
 	
 	// Function requirements
 	Chapter("Function Requirements", Text(""), m => m / Function),
 
 	// Quality requirements
-	Chapter("Quality Requirements", Text(""), m => m / Quality)
+	Chapter("Quality Requirements", Text(""), m => m / Quality),
+
+	// Design-level requirements
+	Chapter("Design Requirements", Text(""), m => m / Design)
 )
 
 m.toHtml(myTemplate).save("reqDoc.html")
