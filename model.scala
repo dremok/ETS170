@@ -416,7 +416,7 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("R10. One-Voter-One-Vote") has (
-		Spec("R_. Only one vote per voter should go to the tallying phase of the voting."),
+		Spec("Only one vote per voter should go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
@@ -533,56 +533,57 @@ var m = Model(
 
 	),
 
-	//Design-level requirements
-	Design("start-page") has (
+		//Design-level requirements
+	Design("R30. start-page") has (
 		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
 
-	Design("vote-page") has (
+	Design("R31. vote-page") has (
 		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
-	Design("admin-page") has (
+	Design("R32. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
+	
 
 	//Quality requirements
-	Quality("Maximum downtime") has (
+	Quality("Q01. Maximum downtime") has (
 		Spec("The system should be possible to use _% of the voting process period."),
 		Label("Reliability / Availability")
 	),
 
-	Quality("Maximum testing time") has (
+	Quality("Q02. Maximum testing time") has (
 		Spec("Assuming a test system is up and running, it should be possible to simulate a real voting process in less than _ hours."),
 		Label("Testability")
 	),
 
-	Quality("Voter interface ease of use") has (
+	Quality("Q03. Voter interface ease of use") has (
 		Spec("_ % of randomly selected voters should be able to place a vote within 2 minutes from opening the voting site."),
 		Label("Usability")
 	),
 
-	Quality("Administrator interface ease of use") has (
+	Quality("Q04. Administrator interface ease of use") has (
 		Spec("_ % of the administrators shall learn to use all administrative functions in 8 hours."),
 		Label("Usability")
 	),
 
-	Quality("Vote count correctness") has (
+	Quality("Q05. Vote count correctness") has (
 		Spec("_ % of all votes shall be counted as the voter intended."),
 		Comment("Customer expects close to 100%."),
 		Label("Correctness")
 	),
 
-	Quality("Web browser compatibility") has (
+	Quality("Q06. Web browser compatibility") has (
 		Spec("_ % of voters' default browsers shall be compatible with the system."),
 		Label("Interoperability / Portability")
 	),
-	Quality("Robustness/Fault Tolerance") has (
+	Quality("Q07. Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
 		Spec("Some of the servers should be allowed to fail/become compromised, and the system should still work."),
 		Example("Anonymity should still be enforced <br> Correct result should be obtained")
 	),
-	
+
 	// Relationships
 	Product("Electronic voting system") helps Goal("G01. Reduce manual labour"),
 	Product("Electronic voting system") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
