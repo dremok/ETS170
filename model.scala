@@ -196,43 +196,54 @@ var m = Model(
 	Class("Voter") has (
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
-		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
+		Example("(1) A person who has voting rights but does not vote.<br>" +
+			"(2) A person who has voting rights and does place a vote.")
 
-		),
+	),
 
 	Class("Party") has (
-		Gist("A party which can receive a vote from the voters."),
-		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
-		Example("(1) The \"no-vote\" party. (2) The pirate party.")
-		),
+		Gist("A party which can receive a vote from the voters"),
+		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party."),
+		Example("(1) The pirate party.<br>" +
+			"(2) The \"blank\" party.")
+	),
 
 	Class("Party Candidate") has (
-		Gist("A member of a party who the voters can vote for."),
-		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
-		Example("(1) Anna Troberg of the pirate party. (2) \"blank\" of any party.")
-		),
+		Gist("A member of a party who the voters can vote for"),
+		Spec("A party candidate is party appointed candidate. A party candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
+		Example("(1) Anna Troberg of the pirate party.<br>" +
+			"(2) \"blank\" of any party.")
+	),
+
+	Class("Electoral area") has (
+		Gist("A geographical area associated with a subset of the voters and party candidates"),
+		Spec("The electoral areas partition the voters, i.e. a voter belongs to one electoral area only. A party candidate can belong to any number of electoral areas."),
+		Example("(1) Stockholms kommuns valkrets<br>" +
+			"(2) Blekinge läns valkrets")
+	),
 
 	Class("Vote") has (
-		Gist("A vote can be placed by a voter on a party and candidate."),
-		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
-		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
-		),
+		Gist("A vote can be placed by a voter on a party and candidate"),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp."),
+		Example("(1) A vote on pirate party and \"blank\" candidate.<br>" +
+			"(2) A vote on \"blank\" party and \"blank\" candidate.")
+	),
 		
 	//CRUD
 	Class("Voter") has (
-		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase; during the other phases it is only possible to read voters.")
+		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
 	),
 
 	Class("Party") has (
-		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase; during the other phases it is only possible to read parties.")
+		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase; during the other phases it is only possible to read party candidates.")
+		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
-		Comment("It should only be possible to create and read votes, not delete or update them. Votes can only be created during the voting phase and read during the tallying phase.")
+		Comment("It should only be possible to create and read votes, not delete or update them, although votes are automatically deleted from the database at the end of the tallying phase. Votes can only be created during the voting phase and pre-tallying phase and only be read during the tallying phase.")
 	),
 	
 	// Tasks
@@ -541,9 +552,8 @@ var m = Model(
 
 	Function ("R29. Admin warnings - Starting and ending a phase") has (
 		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
-		Example("Are you sure you want to end the voting phase and start tallying phase?"),
-		Label("Admin functionality"),
-		Deprecated("All phases are now started and ended automatically by the system (except the tallying phase, which must be started manually.")
+		Example("\"Are you sure you want to end the pre-tallying phase and start tallying phase?\""),
+		Label("Admin functionality")
 	),
 
 	Function ("R30. Input start and end times into database") has (

@@ -40,7 +40,7 @@ def deprecatedHas(): Model = for (
 
 def deprecatedHelps(): Model =
   for ( (Key(entity,edge), nodes) <- (m / helps);
-    if deprecated1().keySet contains Key(entity,has)
+    if deprecatedHas().keySet contains Key(entity,has)
      )
   yield (Key(entity,edge), nodes)
 
