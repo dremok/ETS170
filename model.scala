@@ -541,15 +541,15 @@ var m = Model(
 	),
 
 		//Design-level requirements
-	Design("R30. start-page") has (
+	Design("R_. start-page") has (
 		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
 
-	Design("R31. vote-page") has (
+	Design("R_. vote-page") has (
 		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
-	Design("R32. admin-page") has (
+	Design("R_. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
 	
