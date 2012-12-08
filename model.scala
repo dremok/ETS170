@@ -27,7 +27,7 @@ var m = Model(
 		Prio(3),
 		Comment("Stakeholder's goals: Less effort required to place a vote.")
 	),
-	Stakeholder("S04. Disabled / hospitalized") has (
+	Stakeholder("S04. Mobility impaired / hospitalized") has (
 		Spec("This group includes people who may be incapable of moving to a voting place."),
 		Prio(2),
 		Comment("Stakeholder's goals: Be able to vote from where they are.")
@@ -37,7 +37,7 @@ var m = Model(
 		Example("Patients suffering from dementia, Alzheimer's disease or senility."),
 		Prio(1),
 		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand." +
-		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
+		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S06. Visually impaired / Blind") has (
 		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
@@ -53,13 +53,13 @@ var m = Model(
 		Spec("This group includes voters who have little to no computer experience and feel uncomfortable using them."),
 		Prio(1),
 		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing." +
-		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
+		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S09. Voters who are uninterested in using an electronic voting system") has (
 		Spec("This group includes voters who regards election day as a traditional event that should not change."),
 		Prio(1),
 		Comment("Stakeholder's goals: Voting process should be changed as little as possible. Risks/costs: Turnout is decreased among voters who have a tradition of going to a voting place to vote." +
-		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
+		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S10. Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
@@ -112,8 +112,8 @@ var m = Model(
 	Feature("F01. Web interface for voting") has (
 		Spec("GUI that allows the user to place a vote.")
 	),
-	Feature("F02. Input from party/candidate database") has (
-		Spec("Ability for server to read party and candidate data from an external database.")
+	Feature("F02. Input of election data to database") has (
+		Spec("Ability to add parties, candidates, a start time and an end time for the election to the database.")
 	),
 	Feature("F03. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
@@ -394,6 +394,7 @@ var m = Model(
 	Function("R05. Send confirmation to voter") has (
 		Spec("A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
 		"to decipher it."),
+		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance."),
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
@@ -493,18 +494,20 @@ var m = Model(
 	),
 
 	Function("R23. Initiate vote count") has (
-		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>"),
+		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface."),
 		Label("Vote count")
 	),
 
 	Function("R24. Start voting phase") has (
 		Spec("The admin interface must have functionality to start the voting phase."),
-		Label("Admin functionality")
+		Label("Admin functionality"),
+		Deprecated("The voting phase will automatically start according to a time set in the database. See R30.")
 	),
 
 	Function("R25. End voting phase") has (
 		Spec("The admin interface must have functionality to end the voting phase."),
-		Label("Admin functionality")
+		Label("Admin functionality"),
+		Deprecated("The voting phase will automatically end according to a time set in the database. See R30.")
 	),
 
 	Function("R26. Import party data") has (
@@ -529,7 +532,12 @@ var m = Model(
 		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
 		Example("Are you sure you want to end the voting phase and start tallying phase?"),
 		Label("Admin functionality")
+	),
 
+	Function ("R30. Input start and end times into database") has (
+		Spec(""),
+		Example("Are you sure you want to end the voting phase and start tallying phase?"),
+		Label("Admin functionality")
 	),
 
 		//Design-level requirements
