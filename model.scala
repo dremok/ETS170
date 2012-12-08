@@ -92,7 +92,7 @@ var m = Model(
 	Product("Electronic Voting System") owns (
 		Feature("F01. Web interface for voting"),
 		Feature("F02. Input from party/candidate database"),
-		Feature("F03. Send vote to server"),
+		//Feature("F03. Send vote to server"),
 		Feature("F04. Individual Verifiability"),
 		Feature("F05. Counting of electronic votes"),
 		Feature("F06. Support for different languages"),
@@ -115,9 +115,10 @@ var m = Model(
 	Feature("F02. Input of election data to database") has (
 		Spec("Ability to add parties, candidates, a start time and an end time for the election to the database.")
 	),
-	Feature("F03. Send vote to server") has (
+/*	Feature("F03. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
+*/
 	Feature("F04. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
@@ -131,7 +132,7 @@ var m = Model(
 		Spec("Ability to read data of votes submitted on paper and store together with electronic votes.")
 	),
 	Feature("F08. Privacy") has (
-		Spec("Functionality to prohibit extraction of information about someone else's vote.")
+		Spec("Functionality to prevent extraction of information about someone else's vote.")
 	),
 	Feature("F09. Authentication when voting electronically from home") has (
 		Spec("Functionality to allow for user authentication.")
@@ -140,11 +141,12 @@ var m = Model(
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
 	Feature("F11. Coercion-Resistance & Receipt-Freeness") has (
-		Spec("It should not be possible for a voter to prove how he/she votes. " +
-			"Thereby, it should not be possible to coerce someone to vote in a particular way.")
+		Spec("Properties of the system that prevent a voter to prove how he/she ultimately votes. " + 
+		     "These properties also counter attempts to coerce someone to vote in a particular way, " +
+		     "making it pointless since there is no way of knowing how the vote was placed.")
 	),
 	Feature("F12. Fairness") has (
-		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
+		Spec("Properties of the system that prevent any vote results from being revealed while the system is in the voting phase.")
 	),
 	Feature("F13. Admin interface") has (
 		Spec("The vote counting part of the system shall have an admin interface.")
@@ -164,20 +166,29 @@ var m = Model(
 	
 	// Goals
 	Goal("G01. Reduce manual labour") has (
-		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
+		Spec("Reduce the number of public voting places and the number of votes to be handled manually."),
+		Why("Requested by Valmyndigheten.")
 	),
 	Goal("G02. Facilitate voting for people who have difficulties getting to a voting place") has (
-		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
+		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated."),
+		Why("Requested by Valmyndigheten.")
 	),
 	Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system") has (
 		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
-		"so that they can vote as unhindered as the rest of the population.")
+		"so that they can vote as unhindered as the rest of the population."),
+		Why("Requested by Valmyndigheten.")
 	),
 	Goal("G04. Maintain the current election turnout") has (
-		Spec("The new system shall not have any significant negative impact on the election turnout.")
+		Spec("The new system shall not have any significant negative impact on the election turnout."),
+		Why("A prerequisite for introducing a new election process is that the new system is in no discernible way inferior to the old one.")
 	),
 	Goal("G05. Maintain democracy") has (
-		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
+		Spec("Any attempts at compromising the legitimacy of the election or the maintenance of democracy shall be countered by the system."),
+		Why("The system must be equally suitable or superior to the current system at maintaining democracy.")
+	),
+	Goal("G06. Counter hacking attempts, promote security") has (
+		Spec("Undermining the election process by exploiting the fact the votes are submitted electronically shall be very difficult."),
+		Why("An electronic system introduces new threats to the election process. These must be countered in order to maintain the quality of the process.")
 	),
 	
 	
@@ -531,12 +542,12 @@ var m = Model(
 	Function ("R29. Admin warnings - Starting and ending a phase") has (
 		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
 		Example("Are you sure you want to end the voting phase and start tallying phase?"),
-		Label("Admin functionality")
+		Label("Admin functionality"),
+		Deprecated("All phases are now started and ended automatically by the system (except the tallying phase, which must be started manually.")
 	),
 
 	Function ("R30. Input start and end times into database") has (
-		Spec(""),
-		Example("Are you sure you want to end the voting phase and start tallying phase?"),
+		Spec("The admin interface shall have functionality for specifying a start time and an end time for the voting phase."),
 		Label("Admin functionality")
 	),
 

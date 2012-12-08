@@ -30,7 +30,7 @@ def variants(i: Int): Model = for (
 		}
 	) yield (Key(entity,edge), nodes)
 
-def deprecated1(): Model = for (
+def deprecatedHas(): Model = for (
 	(Key(entity,edge), nodes) <- (m / Function)
 		if nodes exists {
 			case Deprecated(_) => true
@@ -38,13 +38,13 @@ def deprecated1(): Model = for (
 		}
 	) yield (Key(entity,edge), nodes)
 
-def deprecated2(): Model =
+def deprecatedHelps(): Model =
   for ( (Key(entity,edge), nodes) <- (m / helps);
     if deprecated1().keySet contains Key(entity,has)
      )
   yield (Key(entity,edge), nodes)
 
-def deprecated(): Model = deprecated1() ++ deprecated2()
+def deprecated(): Model = deprecatedHas() ++ deprecatedHelps()
 
 val myTemplate = DocumentTemplate( 
 	"Requirements Document ver. 2", 
@@ -57,7 +57,7 @@ val myTemplate = DocumentTemplate(
 	Chapter("Stakeholders", Text("The stakeholders are prioritized on a scale from 1 to 4, where 1 is lowest priority and 4 is highest."), m => m / Stakeholder),
 	
 	// Features
-	Chapter("System Features", Text("<b>The system consists of the following features:</b>"), m => m / Feature),
+	Chapter("System Features", Text("<b>The system consists of the following features. The point of these features is to partition of the requirements for better clarity. They are not requirements per se.</b>"), m => m / Feature),
 	
 	// Goals
 	Chapter("Goal requirements", Text("<b>R01. The system shall support the following goals:</b>"), m => m / Goal),
