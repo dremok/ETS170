@@ -3,7 +3,7 @@ import reqT._
 var m = Model(
 	Product("Electronic Voting System") has
 		(Gist("An electronic voting system which will complement the manual system which is used today."),
-		 Spec("The context diagram above describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote to the system directly or on paper to an electoral worker. If the voter votes electronically, he or she will receive a confirmation that the vote was received properly. The electoral workers submit parties and candidates before the election period. Paper votes are submitted to the system using a cimilar procedure as the parties and candidates. After the end of the voting phase, the system can calculate the result of the voting."),
+		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates. After the end of the voting phase, electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
 		Image("ContextDiagram.png")
 	),
 
