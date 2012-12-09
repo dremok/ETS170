@@ -443,7 +443,7 @@ var m = Model(
 	),
 
 	Function("R11. Voting to Tallying phase transition") has (
-		Spec("It should not be possible to start the tallying phase before the voting phase has terminated."),
+		Spec("The system shall prohibit the admin from starting the tallying phase before the voting phase has terminated."),
 		Label("Fairness")
 	),
 
