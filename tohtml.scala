@@ -50,7 +50,6 @@ val myTemplate = DocumentTemplate(
 	Chapter("Tasks to be supported", Text("<b>R02. The system shall support the following tasks:</b>"), m => mWithoutLabels(mainTask(1)) ), 
 	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(1))),
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(1))),
-	Section("", Text("<hr>"), m => m / hurts), // Tom modell
 	Section("", Text(""), m => mWithoutLabels(mainTask(2))),
 	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(2))),
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(2))),

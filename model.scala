@@ -397,7 +397,7 @@ var m = Model(
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
-		Spec("The GUI shall display the information present in the GUI mockups."),
+		Spec("The GUI shall display information according to the electoral laws on what information should be present on a voting paper."),
 		Label("GUI")
 	),
 	Function("R07. Party view") has (
@@ -592,6 +592,7 @@ var m = Model(
 	
 	Function("R04. Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
 	Function("R05. Send confirmation to voter") helps Goal("G05. Maintain democracy"),
+	Function("R06. GUI information") helps Goal("G05. Maintain democracy"),
 	Function("R07. Party view") helps Goal("G01. Reduce manual labour"),
 	Function("R08. Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
 	Function("R09. Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),

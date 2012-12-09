@@ -1,0 +1,2927 @@
+<!DOCTYPE html>
+<html><head>
+<link rel="stylesheet" type="text/css" href="reqT.css"> 
+<meta charset="utf-8" /><title>Requirements Document</title>
+</head>
+
+<body>
+<H1>Requirements Document</H1>
+<H2>Context</H2>
+<p></p>
+
+
+<H3>Products</H3>
+<p>The following products are modelled:</p>
+
+<div class="entity">
+<a id="Product Foorder"><H3><b>Foorder: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Goal Project goal">Goal</a></div>
+ Project goal</br>
+ <div class="destinationreqtype"><a href="#Elicitation Requirements elicitation">Elicitation</a></div>
+ Requirements elicitation</br>
+ <div class="destinationreqtype"><a href="#Specification Specification">Specification</a></div>
+ Specification</br>
+ <div class="destinationreqtype"><a href="#Prioritisation Prioritisation">Prioritisation</a></div>
+ Prioritisation</br>
+ <div class="destinationreqtype"><a href="#Validation Requirements validation">Validation</a></div>
+ Requirements validation</br>
+ <div class="destinationreqtype"><a href="#Analysis Stakeholder analysis">Analysis</a></div>
+ Stakeholder analysis  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#ContextDiagram Context diagram">ContextDiagram</a></div>
+ Context diagram</br>
+ <div class="destinationreqtype"><a href="#Feature Admin UI">Feature</a></div>
+ Admin UI</br>
+ <div class="destinationreqtype"><a href="#Feature Customer App">Feature</a></div>
+ Customer App</br>
+ <div class="destinationreqtype"><a href="#Feature Server">Feature</a></div>
+ Server</br>
+ <div class="destinationreqtype"><a href="#Quality SSL communication">Quality</a></div>
+ SSL communication</br>
+ <div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<H3>Stakeholders</H3>
+<p>The following stakeholders have interest in the requirements:</p>
+
+<div class="entity">
+<a id="Stakeholder Company D"><H3><b>Company D: </b><i>Foorder developers</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>Making it easier to find restaurants that fits the customer's needs. To help both the customers and the employees of a restaurant by improving the communication between them and by improving the experience.  </td>  </tr>
+
+  <tr>  <td class="name">Problem:  </td><td>People with different allergies/food preferences/diets may have difficulties finding a restaurant that fits them.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">helps  </td><td><div class="destinationreqtype"><a href="#Analysis Stakeholder analysis">Analysis</a></div>
+ Stakeholder analysis  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Stakeholder Restaurant customer"><H3><b>Restaurant customer: </b><i>Customer at a restaurant</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>This system helps the customer in finding food.  </td>  </tr>
+
+  <tr>  <td class="name">Problem:  </td><td>The customer have trouble knowing where he or she can find food according to his or her food preferences.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">helps  </td><td><div class="destinationreqtype"><a href="#Analysis Stakeholder analysis">Analysis</a></div>
+ Stakeholder analysis  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Stakeholder Restaurant owner"><H3><b>Restaurant owner: </b><i>Owns food restaurant</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>Wants to make it simple for the customer to find them and to try their food.  </td>  </tr>
+
+  <tr>  <td class="name">Problem:  </td><td>Needs new customers to find them.   </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">helps  </td><td><div class="destinationreqtype"><a href="#Analysis Stakeholder analysis">Analysis</a></div>
+ Stakeholder analysis  </td>  </tr>
+</table>
+</div>
+
+<H3>Goals</H3>
+<p>The following goals are set:</p>
+
+<div class="entity">
+<a id="Goal Project goal"><H3><b>Project goal: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Company D wants to develop a smartphone application that you can download from Google Play (for Android phones) that will be called Foorder. This requirements document describes the requirements for the application. The app will be used by customers at restaurants as well as the employees at said restaurant. The mission of the app is to help both the customers and the employees of a restaurant by improving the communication between them and by improving the experience. 
+<br><br>
+Company D's biggest competitors will be similar systems like Onlinepizza and Mat24 therefore their main competitive advantage will be that they will focus on users being able to have a specific user account where they can save their food preferences and allergies. 
+<br><br>
+The project is of the type 'sub-contracting' between us and Company D, we will only be making the requirements for the application. Company D will later develop this application and our goal is to help them do this with these requirements.
+  </td>  </tr>
+</table>
+</div>
+
+<H3>Elicitation</H3>
+<p></p>
+
+<div class="entity">
+<a id="Elicitation Requirements elicitation"><H3><b>Requirements elicitation: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td><h2>Elicitation methods and results</h2>
+
+Before we could start with the specification techniques and before we were able to write requirements for Foorder we made three elicitations, to help us see what product we are writing requirements for and to see which problems that could be solved with this application. The elicitation methods we choose to use was 'Group interview', 'Stakeholder analysis' and 'Prototyping'. 
+
+<h3>Group interview</h3>
+
+This technique was used to elicit what the customers of the project had in mind when they authored their project mission. This technique was used because it was the easiest way to quickly get a grip of what the customers wanted for their product and what they needed for getting the project up and running.
+
+<h3>Stakeholder analysis</h3>
+
+At the time of the stakeholder analysis there were mainly four different stakeholders to this project; company D, restaurant owners of fancy restaurants, waiters and restaurant visitors. 
+The most important part of the analysis was to ask the people with domain knowledge, restaurant owners and waiters, what goals, risks, solutions they see with Foorder.
+We also asked a couple of restaurant visitors a few questions to see what they wanted and thought about the idea. After receiving this information we had smaller meetings with all the stakeholders and the information we got out of this is available in Appendix 1.
+
+<h3>Prototyping</h3>
+
+To be able to get idéas how to get a good flow in Foorder we made a prototype in paper and then also one with a program called Fluid UI. We wanted to do this so we later on in the process could make design-level requirements. To make sure we were on the same page as our customers we showed them the prototypes and gave them the opportunity to ask questions and give us feedback.
+
+<h3>Results from elicitation</h3>
+
+After the first group interview with company D we reached the conclusion that the system was intended for fancy restaurants and the main stakeholder was the restaurant manager. 
+They wanted to make a application where the customers for the restaurants could check in to a table. They also wanted the customers to be able to order food through the app so the waiter would not have to take the order. If the waiter was needed the customer should be able to all for him/her with the app.
+The most important part was that the owner should have a good overview of the restaurant and, to give an example, be able to see how long customers had waited for their food and get statistics.
+<br><br>
+Then we did a stakeholder analysis with people working at restaurants and their guests. The result of this analysis was that the part of the system that the restaurant owner could get an overview of the restaurant was already in place and working without any flaws. 
+The people working at the restaurant was not at all interested of the reduced interaction between customer and waiter and said that these features would make their business less gainful.
+However there were some features that they thought were really interesting and these features was those that we presented to company D. We asked if they wanted to change the scope of the mission to focus on those features. 
+<br><br>
+After some compromising we, together with company D, reached the conclusion that the application should not direct to fancier restaurants but more casual and the main stakeholder is now the customer of the restaurant in contrast to the restaurant manager. The product we came up with together should focus on helping people with food preferences to find and order take out food easier.
+<br><br>
+After the prototype elicitation we come up with a good flow for the new application and we have a good start for starting to make a more realistic prototype to view the design-level requirements.  </td>  </tr>
+</table>
+</div>
+
+<H3>Specification</H3>
+<p></p>
+
+<div class="entity">
+<a id="Specification Specification"><H3><b>Specification: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td><h2>Specification techniques</h2>
+
+The specification techniques we have chosen to use is "Context diagram", "Feature requirements", "E/R-model", "Task descriptions" and "Screens & prototypes". 
+And for our quality requirements we choose "Usability requirements","Performance quality" and "Security requirements". These different techniques will be explained below. 
+<br>
+<h3>Functional requirements</h3>
+
+<h4>Context diagram</h4>
+
+A context diagram is a diagram over the product and its surroundings showing the scope of the project. It makes it easier to discuss it with a customer what is to be delivered and see the product surroundings. The diagram also makes it easier to verify that there is requirements written to all the interfaces that will be developed. 
+
+<h4>Feature requirements</h4>
+
+Feature requirements is the most common way to specify requirements. These requirements can often be directly translated into functions and is often written in the text form 'The product shall ...'. It is easy to verify feature requirements but it can be quite time-consuming if there are many requirements.
+
+<h4>E/R-model</h4>
+An E/R-model is a block diagram that visualizes the data in the system and the relationships between them. It's very useful for developers of the system but can be difficult to understand for users of the system. 
+
+<h4>Task description</h4>
+A task description is a structured text that describes a specific user task. It should be easy to understand for both developers and users. A task description is good for specifying different variations of a task.
+
+<h4>Screens & prototypes</h4>
+
+Screens and prototypes is excellent as design-level requirements, but only if they are well tested. Therefore it is important to test the prototype with potential users and see if they can perform all the tasks they are given without any help or assistance. The screens and prototypes technique is also very good to use if, as in our case, the entire system should be developed from scratch.
+<br>
+<h3>Quality requirements</h3>
+
+You shall also explicitly specify quality requirements, including the benefit of chosen quality level from a user point of view.
+
+<h4>Usability requirements</h4>
+These requirements specify how easy the system should be to use.
+
+<h4>Performance quality</h4>
+These requirements specify fast the product shall be, e.g. the response time for the different functions in the system.
+
+ <h4>Security requirements</h4>
+These requirements specify protection against abuse and unforseen disasters.  </td>  </tr>
+</table>
+</div>
+
+<H3>Prioritisation</H3>
+<p></p>
+
+<div class="entity">
+<a id="Prioritisation Prioritisation"><H3><b>Prioritisation: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td><h2>Prioritisation method and result</h2>
+
+<p>
+Prioritisation is necessary to filter out what requirements that may not be required in the system and how to divide the requirements into different releases. The methods we used for prioritisation is described below.
+</p>
+
+<p>
+After the initial elicitation with company D all the different features of Foorder were written on small pieces of paper and then sorted into different groups. There were four groups created: “Must have”, “Nice to have”, “Not important” and “Discarded”. After the stakeholder analysis it was concluded that many of the earlier functions could be thrown away, so that is why the “Discarded” group was created.
+</p>
+
+<p>
+After some further elicitation the scope of the project changed and the prioritisation had to be redone. This time every feature was ranked for importance, both by company D and us. This was weighed together with the estimates of how long the features would take to implement and the result was the release plan.
+</p>  </td>  </tr>
+</table>
+</div>
+
+<H3>Validation</H3>
+<p></p>
+
+<div class="entity">
+<a id="Validation Requirements validation"><H3><b>Requirements validation: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td><p>We choose to use the IEEE standard checklist with a few additions. This checklist is used both internally and by Company D to validate the document. Every requirement should fulfill the following points.</p>
+<h4>Correct</h4>
+
+<p>Incorrect requirements are useless and potentially dangerous! If the requirements are not correct, we risk spreading mis-information within project and to customers.</p>
+<h4>Complete</h4>
+
+<p>Specification covers all necessary reqs to describe the full scope including exceptions, error handling etc.</p>
+<h4>Unambiguous</h4>
+
+<p>Everyone understands it the same way. Can everyone read, discuss and agree on what it means?</p>
+<h4>Clear and Concise</h4>
+
+<p>Simply and clearly stated. Makes it easier for others (including pure readers) to understand.</p>
+<h4>Consistent</h4>
+
+<p>Are there requirements that contradict each other?</p>
+<h4>Modifiable</h4>
+
+<p>Modifications are easy to make, maintaining consistency of the whole specification.</p>
+<h4>Verifiable</h4>
+
+<p>If a requirement is not verifiable, determining whether it was correctly implemented is a matter of opinion.</p>
+<h4>Design and stability</h4>
+
+<p>Info needed to handle changes; why is requirement important (requirement motivation/ prioritisation / stakeholder), likely to change?</p>
+<h4>Traceable</h4>
+
+<p>What motivates this requirement? Indicates if it is needed. Useful when discussing scope and/or requirement changes.</p>  </td>  </tr>
+</table>
+</div>
+
+<H3>Releases</H3>
+<p>The following releases are planned:</p>
+
+<div class="entity">
+<a id="Release R1"><H3><b>R1: </b><i>version 0.1</i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Add menu items into shopping cart">Feature</a></div>
+ Add menu items into shopping cart</br>
+ <div class="destinationreqtype"><a href="#Feature Login to the app">Feature</a></div>
+ Login to the app</br>
+ <div class="destinationreqtype"><a href="#Feature Order items in shopping cart">Feature</a></div>
+ Order items in shopping cart</br>
+ <div class="destinationreqtype"><a href="#Feature Register in the app">Feature</a></div>
+ Register in the app</br>
+ <div class="destinationreqtype"><a href="#Feature Register new restaurant">Feature</a></div>
+ Register new restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Search for restaurants according to location">Feature</a></div>
+ Search for restaurants according to location</br>
+ <div class="destinationreqtype"><a href="#Feature See menu">Feature</a></div>
+ See menu</br>
+ <div class="destinationreqtype"><a href="#Feature See orders">Feature</a></div>
+ See orders  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Release R2"><H3><b>R2: </b><i>version 1.0</i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Accept orders">Feature</a></div>
+ Accept orders</br>
+ <div class="destinationreqtype"><a href="#Feature Change menu">Feature</a></div>
+ Change menu</br>
+ <div class="destinationreqtype"><a href="#Feature Create new food profile">Feature</a></div>
+ Create new food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Decline orders">Feature</a></div>
+ Decline orders</br>
+ <div class="destinationreqtype"><a href="#Feature Delete restaurant">Feature</a></div>
+ Delete restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Edit info about restaurant">Feature</a></div>
+ Edit info about restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Filter restaurants on food type">Feature</a></div>
+ Filter restaurants on food type</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is accepted">Feature</a></div>
+ Notification when order is accepted</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is declined">Feature</a></div>
+ Notification when order is declined</br>
+ <div class="destinationreqtype"><a href="#Feature Pay through app">Feature</a></div>
+ Pay through app</br>
+ <div class="destinationreqtype"><a href="#Feature See menu according to saved profile">Feature</a></div>
+ See menu according to saved profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Release R3"><H3><b>R3: </b><i>version 2.0</i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Change food profile">Feature</a></div>
+ Change food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Delete food profile">Feature</a></div>
+ Delete food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Edit info about restaurant">Feature</a></div>
+ Edit info about restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Get an order code">Feature</a></div>
+ Get an order code</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is ready">Feature</a></div>
+ Notification when order is ready</br>
+ <div class="destinationreqtype"><a href="#Feature Order food for specific time">Feature</a></div>
+ Order food for specific time</br>
+ <div class="destinationreqtype"><a href="#Feature See statistics">Feature</a></div>
+ See statistics  </td>  </tr>
+</table>
+</div>
+
+<H3>Context Diagram</H3>
+<p>The following context diagrams have been used:</p>
+
+<div class="entity">
+<a id="ContextDiagram Context diagram"><H3><b>Context diagram: </b><i></i></H3>
+
+<p><img src="context_diagram.png" alt="context_diagram.png"></p>
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Image:  </td><td>context_diagram.png  </td>  </tr>
+</table>
+</div>
+
+<H2>Features</H2>
+<p>A feature is a releasable characteristic of a Product.</p>
+
+<div class="entity">
+<a id="Feature Accept orders"><H3><b>Accept orders: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>15  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Accept order">Function</a></div>
+ Accept order  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Add menu items into shopping cart"><H3><b>Add menu items into shopping cart: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Add dish to order">Function</a></div>
+ Add dish to order</br>
+ <div class="destinationreqtype"><a href="#Function Remove dish from order">Function</a></div>
+ Remove dish from order  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Admin UI"><H3><b>Admin UI: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Accept orders">Feature</a></div>
+ Accept orders</br>
+ <div class="destinationreqtype"><a href="#Feature Change menu">Feature</a></div>
+ Change menu</br>
+ <div class="destinationreqtype"><a href="#Feature Decline orders">Feature</a></div>
+ Decline orders</br>
+ <div class="destinationreqtype"><a href="#Feature Edit info about restaurant">Feature</a></div>
+ Edit info about restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is accepted">Feature</a></div>
+ Notification when order is accepted</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is declined">Feature</a></div>
+ Notification when order is declined</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is ready">Feature</a></div>
+ Notification when order is ready</br>
+ <div class="destinationreqtype"><a href="#Feature See orders">Feature</a></div>
+ See orders</br>
+ <div class="destinationreqtype"><a href="#Feature See statistics">Feature</a></div>
+ See statistics  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Change food profile"><H3><b>Change food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>30  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Change food profile">Function</a></div>
+ Change food profile  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile</br>
+ <div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Change menu"><H3><b>Change menu: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>60  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Edit restaurant menu">Function</a></div>
+ Edit restaurant menu  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Create new food profile"><H3><b>Create new food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Add food profile">Function</a></div>
+ Add food profile  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile</br>
+ <div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Customer App"><H3><b>Customer App: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Add menu items into shopping cart">Feature</a></div>
+ Add menu items into shopping cart</br>
+ <div class="destinationreqtype"><a href="#Feature Change food profile">Feature</a></div>
+ Change food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Create new food profile">Feature</a></div>
+ Create new food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Delete food profile">Feature</a></div>
+ Delete food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Filter restaurants on food type">Feature</a></div>
+ Filter restaurants on food type</br>
+ <div class="destinationreqtype"><a href="#Feature Get an order code">Feature</a></div>
+ Get an order code</br>
+ <div class="destinationreqtype"><a href="#Feature Login to the app">Feature</a></div>
+ Login to the app</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is accepted">Feature</a></div>
+ Notification when order is accepted</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is declined">Feature</a></div>
+ Notification when order is declined</br>
+ <div class="destinationreqtype"><a href="#Feature Notification when order is ready">Feature</a></div>
+ Notification when order is ready</br>
+ <div class="destinationreqtype"><a href="#Feature Order food for specific time">Feature</a></div>
+ Order food for specific time</br>
+ <div class="destinationreqtype"><a href="#Feature Order items in shopping cart">Feature</a></div>
+ Order items in shopping cart</br>
+ <div class="destinationreqtype"><a href="#Feature Pay through app">Feature</a></div>
+ Pay through app</br>
+ <div class="destinationreqtype"><a href="#Feature Register in the app">Feature</a></div>
+ Register in the app</br>
+ <div class="destinationreqtype"><a href="#Feature Search for restaurants according to location">Feature</a></div>
+ Search for restaurants according to location</br>
+ <div class="destinationreqtype"><a href="#Feature See menu according to saved profile">Feature</a></div>
+ See menu according to saved profile</br>
+ <div class="destinationreqtype"><a href="#Feature See menu">Feature</a></div>
+ See menu</br>
+ <div class="destinationreqtype"><a href="#Quality Ease of understanding">Quality</a></div>
+ Ease of understanding</br>
+ <div class="destinationreqtype"><a href="#Quality Time to start">Quality</a></div>
+ Time to start  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Decline orders"><H3><b>Decline orders: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>15  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Decline order">Function</a></div>
+ Decline order  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Delete food profile"><H3><b>Delete food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>10  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Delete food profile">Function</a></div>
+ Delete food profile  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile</br>
+ <div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Delete restaurant"><H3><b>Delete restaurant: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>10  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Delete restaurant">Function</a></div>
+ Delete restaurant  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Edit info about restaurant"><H3><b>Edit info about restaurant: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>90  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Edit restaurant info">Function</a></div>
+ Edit restaurant info  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Filter restaurants on food type"><H3><b>Filter restaurants on food type: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Filter search results by food type">Function</a></div>
+ Filter search results by food type</br>
+ <div class="destinationreqtype"><a href="#Function Filter search results by profile">Function</a></div>
+ Filter search results by profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Get an order code"><H3><b>Get an order code: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>15  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Directions">Function</a></div>
+ Directions</br>
+ <div class="destinationreqtype"><a href="#Function Order list">Function</a></div>
+ Order list</br>
+ <div class="destinationreqtype"><a href="#Function Pickup code">Function</a></div>
+ Pickup code  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Login to the app"><H3><b>Login to the app: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>40  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Guest account">Function</a></div>
+ Guest account</br>
+ <div class="destinationreqtype"><a href="#Function Login">Function</a></div>
+ Login</br>
+ <div class="destinationreqtype"><a href="#Quality Hashed login">Quality</a></div>
+ Hashed login  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Notification when order is accepted"><H3><b>Notification when order is accepted: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Get notification when order is accepted">Function</a></div>
+ Get notification when order is accepted</br>
+ <div class="destinationreqtype"><a href="#Function Send notification when an order is accepted">Function</a></div>
+ Send notification when an order is accepted  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Notification when order is declined"><H3><b>Notification when order is declined: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Get notification when order is declined">Function</a></div>
+ Get notification when order is declined</br>
+ <div class="destinationreqtype"><a href="#Function Send notification when an order is declined">Function</a></div>
+ Send notification when an order is declined  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Notification when order is ready"><H3><b>Notification when order is ready: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Get notification when order is ready">Function</a></div>
+ Get notification when order is ready</br>
+ <div class="destinationreqtype"><a href="#Function Send notification when an order is ready">Function</a></div>
+ Send notification when an order is ready  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Order food for specific time"><H3><b>Order food for specific time: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Order food for specific time">Function</a></div>
+ Order food for specific time  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Order items in shopping cart"><H3><b>Order items in shopping cart: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>80  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function One order per restaurant">Function</a></div>
+ One order per restaurant</br>
+ <div class="destinationreqtype"><a href="#Function Place order">Function</a></div>
+ Place order  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Pay through app"><H3><b>Pay through app: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>80  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Cancel order money reservation">Function</a></div>
+ Cancel order money reservation</br>
+ <div class="destinationreqtype"><a href="#Function Charge order money">Function</a></div>
+ Charge order money</br>
+ <div class="destinationreqtype"><a href="#Function Reserve order money">Function</a></div>
+ Reserve order money  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Register in the app"><H3><b>Register in the app: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Create account">Function</a></div>
+ Create account</br>
+ <div class="destinationreqtype"><a href="#Function Sync profiles">Function</a></div>
+ Sync profiles  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Register new restaurant"><H3><b>Register new restaurant: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Register new restaurant">Function</a></div>
+ Register new restaurant  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Search for restaurants according to location"><H3><b>Search for restaurants according to location: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>80  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function City search">Function</a></div>
+ City search</br>
+ <div class="destinationreqtype"><a href="#Function Location search">Function</a></div>
+ Location search</br>
+ <div class="destinationreqtype"><a href="#Function Postal code search">Function</a></div>
+ Postal code search  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant search result">Class</a></div>
+ Restaurant search result  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature See menu according to saved profile"><H3><b>See menu according to saved profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>20  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function See menu according to a chosen profile">Function</a></div>
+ See menu according to a chosen profile  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Menu">Class</a></div>
+ Menu</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature See menu"><H3><b>See menu: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>50  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function See menu according to food types">Function</a></div>
+ See menu according to food types</br>
+ <div class="destinationreqtype"><a href="#Function See menu">Function</a></div>
+ See menu  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Menu">Class</a></div>
+ Menu</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature See orders"><H3><b>See orders: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>30  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function See order">Function</a></div>
+ See order  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature See statistics"><H3><b>See statistics: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Effort:  </td><td>45  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Function Graphable">Function</a></div>
+ Graphable</br>
+ <div class="destinationreqtype"><a href="#Function Restricted statistics">Function</a></div>
+ Restricted statistics</br>
+ <div class="destinationreqtype"><a href="#Function Sold statistics">Function</a></div>
+ Sold statistics  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Feature Server"><H3><b>Server: </b><i></i></H3>
+
+<p><img src="er_diagram.png" alt="er_diagram.png"></p>
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The back-end server that both the Admin UI and Customer App communicates with.  </td>  </tr>
+
+  <tr>  <td class="name">Image:  </td><td>er_diagram.png  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Delete restaurant">Feature</a></div>
+ Delete restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Edit info about restaurant">Feature</a></div>
+ Edit info about restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature Register new restaurant">Feature</a></div>
+ Register new restaurant</br>
+ <div class="destinationreqtype"><a href="#Feature See statistics">Feature</a></div>
+ See statistics</br>
+ <div class="destinationreqtype"><a href="#Quality Backup database">Quality</a></div>
+ Backup database</br>
+ <div class="destinationreqtype"><a href="#Quality Bruteforce blocking">Quality</a></div>
+ Bruteforce blocking</br>
+ <div class="destinationreqtype"><a href="#Quality Log errors">Quality</a></div>
+ Log errors</br>
+ <div class="destinationreqtype"><a href="#Quality Order time">Quality</a></div>
+ Order time</br>
+ <div class="destinationreqtype"><a href="#Quality Restart">Quality</a></div>
+ Restart</br>
+ <div class="destinationreqtype"><a href="#Quality Simultaneous users">Quality</a></div>
+ Simultaneous users</br>
+ <div class="destinationreqtype"><a href="#Quality Uptime">Quality</a></div>
+ Uptime  </td>  </tr>
+</table>
+</div>
+
+<H2>Task</H2>
+<p>These are tasks.</p>
+
+<div class="entity">
+<a id="Task 1 Order food"><H3><b>1 Order food: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>Give a customer the opportunity to make an order  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>Customer logged in to his/her account or as guest and selected an area where he/she wants to pick up the order  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>Order with more than 20 items  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Task 1.1 Search for restaurant">Task</a></div>
+ 1.1 Search for restaurant</br>
+ <div class="destinationreqtype"><a href="#Task 1.2 Browse menu">Task</a></div>
+ 1.2 Browse menu</br>
+ <div class="destinationreqtype"><a href="#Task 1.3 Select food to order">Task</a></div>
+ 1.3 Select food to order</br>
+ <div class="destinationreqtype"><a href="#Task 1.4 Pay">Task</a></div>
+ 1.4 Pay  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Add menu items into shopping cart">Feature</a></div>
+ Add menu items into shopping cart</br>
+ <div class="destinationreqtype"><a href="#Feature Filter restaurants on food type">Feature</a></div>
+ Filter restaurants on food type</br>
+ <div class="destinationreqtype"><a href="#Feature Order food for specific time">Feature</a></div>
+ Order food for specific time</br>
+ <div class="destinationreqtype"><a href="#Feature Order items in shopping cart">Feature</a></div>
+ Order items in shopping cart</br>
+ <div class="destinationreqtype"><a href="#Feature Pay through app">Feature</a></div>
+ Pay through app</br>
+ <div class="destinationreqtype"><a href="#Feature Search for restaurants according to location">Feature</a></div>
+ Search for restaurants according to location</br>
+ <div class="destinationreqtype"><a href="#Feature See menu according to saved profile">Feature</a></div>
+ See menu according to saved profile</br>
+ <div class="destinationreqtype"><a href="#Feature See menu">Feature</a></div>
+ See menu</br>
+ <div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 1.1 Search for restaurant"><H3><b>1.1 Search for restaurant: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>variants: a) Show all restaurants, b) Show restaurants according to food type, c) Show restaurants according to food profile, d) b and c combined  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 1.2 Browse menu"><H3><b>1.2 Browse menu: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>variants: a) See whole menu, b) See menu according to food profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 1.3 Select food to order"><H3><b>1.3 Select food to order: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>variants: a) Add dish to order, b) Remove dish from order c) Order food for specific time.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 1.4 Pay"><H3><b>1.4 Pay: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Submit payment information.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 2 Login to the app"><H3><b>2 Login to the app: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Task 2.1 Login is approved">Task</a></div>
+ 2.1 Login is approved</br>
+ <div class="destinationreqtype"><a href="#Task 2.2 Login is declined">Task</a></div>
+ 2.2 Login is declined  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Login to the app">Feature</a></div>
+ Login to the app  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 2.1 Login is approved"><H3><b>2.1 Login is approved: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>User wants to log in to his or hers account. 1. The user writes his or hers username. 2. The user writes his or hers password. 3. The application checks with the server and sees that the password and username is correct and matches. 4. The user is logged in to the account and the app.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>A user tries to login  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>Multiple logins at the same time/ server busy.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 2.2 Login is declined"><H3><b>2.2 Login is declined: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Task 2.2.1 Login is declined, wrong password">Task</a></div>
+ 2.2.1 Login is declined, wrong password</br>
+ <div class="destinationreqtype"><a href="#Task 2.2.2 Login is declined, no such username">Task</a></div>
+ 2.2.2 Login is declined, no such username  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 2.2.1 Login is declined, wrong password"><H3><b>2.2.1 Login is declined, wrong password: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>User wants to log in to his or hers account. 1. The user writes his or hers username. 2. The user writes his or hers password. 3. The application checks with the server and sees that the password and username does not match. 4. The user is declined to login to the account and the app.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>A user tries to login  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>Multiple logins at the same time/ server busy.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 2.2.2 Login is declined, no such username"><H3><b>2.2.2 Login is declined, no such username: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>User wants to log in to his or hers account. 1. The user writes his or hers username. 2. The user writes his or hers password. 3. The application checks with the server and sees that the username does not exist. 4. The user is declined to login to the account and the app.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>A user tries to login  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>Multiple logins at the same time/ server busy.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 3 Search for restaurants according to location"><H3><b>3 Search for restaurants according to location: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Task 3.1 Search for restaurants according to city">Task</a></div>
+ 3.1 Search for restaurants according to city</br>
+ <div class="destinationreqtype"><a href="#Task 3.2 Search for restaurants according to postal code">Task</a></div>
+ 3.2 Search for restaurants according to postal code</br>
+ <div class="destinationreqtype"><a href="#Task 3.3 Search for restaurants according to current location">Task</a></div>
+ 3.3 Search for restaurants according to current location  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Search for restaurants according to location">Feature</a></div>
+ Search for restaurants according to location  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 3.1 Search for restaurants according to city"><H3><b>3.1 Search for restaurants according to city: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>1. User chooses search by city. 2. User chooses city. 3. Restaurants in that city is shown.   </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>When user wants to search restaurant.  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>No restaurant in the chosen city.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 3.2 Search for restaurants according to postal code"><H3><b>3.2 Search for restaurants according to postal code: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>1. User choses search by postal code. 2. User writes the wanted postal code. 3. Restaurants in that postal code is shown.   </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>When user wants to search restaurant.  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>No restaurant in the chosen postal code.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 3.3 Search for restaurants according to current location"><H3><b>3.3 Search for restaurants according to current location: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>1. User choses search by current location. 2. Restaurants in reasonable distance to current location (given by phones location) is shown.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>When user wants to search restaurant.  </td>  </tr>
+
+  <tr>  <td class="name">Critical:  </td><td>No restaurant in the chosen current location.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 4 Change food profile"><H3><b>4 Change food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Task 4.1 Create new food profile">Task</a></div>
+ 4.1 Create new food profile</br>
+ <div class="destinationreqtype"><a href="#Task 4.2 Change food profile">Task</a></div>
+ 4.2 Change food profile</br>
+ <div class="destinationreqtype"><a href="#Task 4.3 Delete food profile">Task</a></div>
+ 4.3 Delete food profile  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Change food profile">Feature</a></div>
+ Change food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Create new food profile">Feature</a></div>
+ Create new food profile</br>
+ <div class="destinationreqtype"><a href="#Feature Delete food profile">Feature</a></div>
+ Delete food profile</br>
+ <div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile</br>
+ <div class="destinationreqtype"><a href="#Class User">Class</a></div>
+ User  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 4.1 Create new food profile"><H3><b>4.1 Create new food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>1. User chooses to create food profile. 2. User gives the profile a name. 3. User marks food preferences and allergies.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>When user wants to add a new food profile.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 4.2 Change food profile"><H3><b>4.2 Change food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>1. User chooses an existing food profile. 2. User changes marked food preferences and allergies.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>When user wants to change an existing food profile.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 4.3 Delete food profile"><H3><b>4.3 Delete food profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Rationale:  </td><td>1. User chooses an existing food profile. 2. User deletes that food profile.  </td>  </tr>
+
+  <tr>  <td class="name">Trigger:  </td><td>When user wants to delete an existing food profile.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 5 Edit info about restaurant"><H3><b>5 Edit info about restaurant: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>variants: a) Change restaurant name, b) Change restaurant logo, c) Change restaurant description, d) Change restaurant opening hours, e) Change restaurant’s food types f) Change restaurant’s contact info g) Change restaurant’s  menu  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Task 5.1 Change restaurant's menu">Task</a></div>
+ 5.1 Change restaurant's menu</br>
+ <div class="destinationreqtype"><a href="#Task 5.2 Change restaurant’s contact info">Task</a></div>
+ 5.2 Change restaurant’s contact info  </td>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Edit info about restaurant">Feature</a></div>
+ Edit info about restaurant</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 5.1 Change restaurant's menu"><H3><b>5.1 Change restaurant's menu: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>variants: a) Change prices, b) Add dishes, c) Delete dishes,  d) Change a specific dish’s name, e) Changes which allergies that are connected to a dish, f) Changes which food preferences that are connected to a dish  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Task 5.2 Change restaurant’s contact info"><H3><b>5.2 Change restaurant’s contact info: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>variants: a) Change address, b) Change email,  c) Change telephone number  </td>  </tr>
+</table>
+</div>
+
+<H2>Function</H2>
+<p>These are product level functions.</p>
+
+<div class="entity">
+<a id="Function Accept order"><H3><b>Accept order: </b><i>Accept a customer's order</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee must be able to accept a customer's order.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The restaurant must be able to accept an order.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Order">Class</a></div>
+ Order  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Add dish to order"><H3><b>Add dish to order: </b><i>Adding dishes</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Food dishes can be added to the order.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>For the order to mean anything, it must be possible to add food to it.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Dish">Class</a></div>
+ Dish  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Add food profile"><H3><b>Add food profile: </b><i>Create a new profile</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>After invoking the new profile function the user must add a name to the profile and save it.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user should be able to create new food profiles.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Cancel order money reservation"><H3><b>Cancel order money reservation: </b><i>No food = no money</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Cancel the money reservation when the order is declined.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If a order is declined the customer won't get any food so no money should be charged.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Decline order">Function</a></div>
+ Decline order</br>
+ <div class="destinationreqtype"><a href="#Function Reserve order money">Function</a></div>
+ Reserve order money  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Change food profile"><H3><b>Change food profile: </b><i>Change existing food profile</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user can edit their profile, picking food preferences and allergies from a predetermined list.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user should be able to change food profiles according to their preferences.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Charge order money"><H3><b>Charge order money: </b><i>Earning money</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>After an order is accepted the money reserved for that order is charged.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The restaurant needs money to operate.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Accept order">Function</a></div>
+ Accept order</br>
+ <div class="destinationreqtype"><a href="#Function Reserve order money">Function</a></div>
+ Reserve order money  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function City search"><H3><b>City search: </b><i>Restaurants in specific city</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user must be able to choose from a predetermined list of cities.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If the user wants to find a restaurant in a specific city.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Create account"><H3><b>Create account: </b><i>Create account for new users</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user must be able to create a account in the app.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>In order to login you must first create an account.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Decline order"><H3><b>Decline order: </b><i>Decline a customer's order</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee must be able to decline a customer's order.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If the restaurant employee sees a reason not to accept an order (if for example an ingredient is recently out of stock) he or she must be able to decline an order.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Delete food profile"><H3><b>Delete food profile: </b><i>Deleting unused or unwanted food profiles</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>It must be possible to remove a profile inside the application.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user should be able to delete profiles that are not used anymore.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Delete restaurant"><H3><b>Delete restaurant: </b><i>Delete a restaurant</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Company D must be able to delete a restaurant from the server.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If a restaurant do not want to be a part of Foorder any more Company D should have a way of deleting that restaurant from the server.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Deletion confirmation"><H3><b>Deletion confirmation: </b><i>Food profile deletion confirmation</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user must confirm a deletion of a food profile before the profile is deleted.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>To prevent unwanted deletion of a food profile.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Delete food profile">Function</a></div>
+ Delete food profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Directions"><H3><b>Directions: </b><i>Directions to a restaurant</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A step-by-step direction to a restaurant from the users location should be availabe through the app.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user might not know where the restaurant is or how to get there.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Edit restaurant info"><H3><b>Edit restaurant info: </b><i>Edit a restaurant’s information</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee or Company D must be able to edit the restaurant’s information.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If a restaurant changes something about their restaurant or changes address for example, the restaurant or Company D then wants to be able to change the information.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Edit restaurant menu"><H3><b>Edit restaurant menu: </b><i>Edit a restaurant’s menu</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee or Company D must be able to edit the restaurant’s menu.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If a restaurant changes something in their menu the restaurant then want to be able to change their menu visible in the user application.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Filter search results by food type"><H3><b>Filter search results by food type: </b><i>Food you like</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user can select from a collection of available pre-defined food categories and filter the restaurants according to the filters. Only restaurants matching the selected categories will be shown.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Sometimes the user want just a specific type of food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Filter search results by profile"><H3><b>Filter search results by profile: </b><i>Relevant restaurants</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user can select from a collection of available user-defined profiles and filter the restaurants according to the profile. Only restaurants with at least one dish suitable to the profile will be shown.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Restaurants without any dishes according to the user's profile are irrelephant.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Get notification when order is accepted"><H3><b>Get notification when order is accepted: </b><i>Get a notification when an order has been accepted</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A user must be able get a notification when an order is accepted.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A customer should have a way of knowing if his or her order can be made and if it was accepted. Because otherwise they will have to make a new order.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Send notification when an order is accepted">Function</a></div>
+ Send notification when an order is accepted  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Get notification when order is declined"><H3><b>Get notification when order is declined: </b><i>Get a notification when an order has been declined</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A user must be able get a notification when an order is declined.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A customer should have a way of knowing if his or her order can be made and if it was not accepted. Because then they will have to make a new order.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Send notification when an order is declined">Function</a></div>
+ Send notification when an order is declined  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Get notification when order is ready"><H3><b>Get notification when order is ready: </b><i>Get a notification when an order is ready </i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A user must be able get a notification when an order is ready.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A customer should not have to wait at the restaurant for an order to be ready.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Send notification when order is ready">Function</a></div>
+ Send notification when order is ready  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Graphable"><H3><b>Graphable: </b><i>Visualise the statistics</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Statistics over sold dishes and placed orders should be exportable to a graphical format.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>By providing visual feedback such as graphs for the restaurant and its employees it will be faster and easier for them to understand the meaning of the numbers.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Guest account"><H3><b>Guest account: </b><i>For one-time users</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The app can be accessed without having an account. All features are available except for user profiles and placing orders  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Not everyone wants or needs an account.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Location search"><H3><b>Location search: </b><i>Nearest restaurants</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user must be able to find restaurants close by. That are then listed and sorted by distance in ascending order.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Using a users phone location a list of restaurants should be presented.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Login"><H3><b>Login: </b><i>Users accounts</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user can login to Foorder using a username and password.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>TO be able to save information about the user, such as food profiles or payment information.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function One order per restaurant"><H3><b>One order per restaurant: </b><i>Food from only one place</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>When a user leaves a restaurant's menu, the cart is emptied.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>It shouldn't be possible to order food from multiple places at once. Keeping the orders seperate will prevent this.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Order food for specific time"><H3><b>Order food for specific time: </b><i>Order food for later</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>When placing a order there should be an option to order for specific time. A time later the same day may be entered, provided it is before the restaurant closes  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>To avoid having to wait for food, the user might want to order in advance. Then the restaurant will (might) have the food ready exactly when the user wants  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Place order">Function</a></div>
+ Place order  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Order list"><H3><b>Order list: </b><i>View previous orders</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A user must be able to get a list of all his or hers placed orders.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>So the user can keep track of previous orders.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Pickup code"><H3><b>Pickup code: </b><i>Anti-theft system</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>After a successful order payment the user receives a code which is used for picking up the food. The restaurant receives the same code.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>To prevent someone from picking up a food order they didn't pay for.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Get notification when order is accepted">Function</a></div>
+ Get notification when order is accepted  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Place order"><H3><b>Place order: </b><i>Submit the order</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>If money is successfully reserved from the user the order will be transferred to the restaurant.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>So that the user can order the food they want and so that the restaurant can see what food to make.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Function Reserve order money">Function</a></div>
+ Reserve order money  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Postal code search"><H3><b>Postal code search: </b><i>Search a specific postal code</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user can enter a postal code and search for restaurants located in the postal code.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>For big cities a city search covers a too large area and the search needs to be more specific.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Register new restaurant"><H3><b>Register new restaurant: </b><i>Register a new restaurant</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Company D must be able to add a new restaurant to the server.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Company D should have a way of adding a new restaurant to the server if that restaurant wants to be a part of Foorder.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Remove dish from order"><H3><b>Remove dish from order: </b><i>Removing dishes</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Food dishes can be removed from the order.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user might change his or her mind after picking a dish.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Reserve order money"><H3><b>Reserve order money: </b><i>Making sure payment will come</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Reserve a sum equal to the cost of the order when the order is placed.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Since orders don't have to be accepted by the restaurant, money can't be charged until the order is accepted. But the restaurant still want reassurance that they will get money for their food. This way they know that they will get their money and the customer knows he/she will only be charged if the order is accepted.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Restricted statistics"><H3><b>Restricted statistics: </b><i>Protecting sales data</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant can only see their own sales. Company D can see all restaurants sales.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Restaurants don't want to share their sales information to everyone.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function See menu according to a chosen profile"><H3><b>See menu according to a chosen profile: </b><i>See a restaurant's menu according to a chosen profile</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user must be able to filter the menu according to his or hers food profile of choice.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user doesn't want to eat food that isn't in his or hers food profile.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function See menu according to food types"><H3><b>See menu according to food types: </b><i>See a restaurant's menu according to a chosen profile</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A user must be able to choose if certain food types is shown or not in the menu.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A user may want to be able to see just a certain food type in the menu.  </td>  </tr>
+
+  <tr>  <td class="name">Deprecated:  </td><td>You should only be able to filter restaurants on food types. Not dishes.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function See menu"><H3><b>See menu: </b><i>See a restaurant's menu</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A user must be able to get the menus from listed restaurants.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>To be able to choose which food to order, the user must be able to see what food that restaurant has to offer.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function See order"><H3><b>See order: </b><i>See a customer's order</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee must be able to see the customers orders.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If a restaurant employee is going to make and to accept orders he or she has to be able to see the orders.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Send notification when an order is accepted"><H3><b>Send notification when an order is accepted: </b><i>Send a notification when an order has been accepted</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee must be able to notify a customer if an order is accepted.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A restaurant employee should be able to inform the customer if the order will be made.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Send notification when an order is declined"><H3><b>Send notification when an order is declined: </b><i>Send a notification when an order has been declined</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee must be able to notify a customer if an order is declined.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A restaurant employee should be able to inform the customer if the order can not be made for any reason.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Send notification when an order is ready"><H3><b>Send notification when an order is ready: </b><i>Send a notification when an order is ready </i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A restaurant employee must be able to notify a customer if an order is ready.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>A customer should not have to wait at the restaurant for an order to be ready the restaurant should therefore be able to inform the customer when the order is ready.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Send notification when order is ready"><H3><b>Send notification when order is ready: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Sold statistics"><H3><b>Sold statistics: </b><i>See statistics over sold food</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant must be able to see statistics over their sold food.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If the restaurant can see how much they are selling of a certain dish, on a certain day or at what hour it can help them to easier predict how much they will need to prepare in the future.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Function Sync profiles"><H3><b>Sync profiles: </b><i>Profile downloading</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Profiles must be stored on the server and the customer app must make sure that the profiles the app has stored are the same that the server has stored.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If you log on to another device or delete and then restore the app you want your profile information there.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile  </td>  </tr>
+</table>
+</div>
+
+<H2>Quality</H2>
+<p>These are quality requirements.</p>
+
+<div class="entity">
+<a id="Quality Backup database"><H3><b>Backup database: </b><i>How often to backup the database</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The database should be backed up at least once every 6 hour.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If something goes wrong the system should be restorable from a recent backup.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Bruteforce blocking"><H3><b>Bruteforce blocking: </b><i>Attempts to stop bruteforcing of an account</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>If the server recieves 5 failed logins to a user account in less than 5 minutes it should limit the user account to a maximum of 1 login per minute until either a successful login or 5 minutes have passed since last login attempt. Likewise if the server recieves 5 failed logins from an IP adress in less than 5 minutes it should limit the IP adress to a maximum of 1 login per minute until either a successful login or 5 minutes have passed since last login attempt.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>For safety concerns.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Ease of understanding"><H3><b>Ease of understanding: </b><i>How easy it is for new users to register and order food</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>90% of first time users should be able to start the app, register and order food from a restaurant in less than 10 minutes.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>It should be very simple for a new user to understand the app.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Hashed login"><H3><b>Hashed login: </b><i>Secure user accounts</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>User passwords must be stored as a hashed value in the server database.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>Payment information tied to the account makes it attractive to hackers.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Log errors"><H3><b>Log errors: </b><i>To track errors</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Orders, logins and menu updates that fail should be logged to a local file on the server.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If something goes wrong it is good to be able to track it.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Network error handling"><H3><b>Network error handling: </b><i>When network traffic is used</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Network traffic calls must have a timeout and notify the user if the timeout has been reached.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user needs to be informed if the action wasn't successful.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Order time"><H3><b>Order time: </b><i>How long it takes to put an order</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The time from order arrival on the server until it is registered in the system must take less than 1 second in 95% of all cases.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The system should appear fast to the end user.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Restart"><H3><b>Restart: </b><i>Be able to self-restart</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>When an irrecoverable error occurs the server software shall shutdown and restart within 5 minutes.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>If something goes wrong the server should not require human interaction.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality SSL communication"><H3><b>SSL communication: </b><i>Encrypted communication</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Communication between the application and server must be encrypted via SSL.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>To prevent sensitive information from leaking out.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Feature Server">Feature</a></div>
+ Server  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Simultaneous users"><H3><b>Simultaneous users: </b><i>How many can use the system at the same time</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The system must be able to handle at least 2000 logins or orders per minute.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The system must be able to handle multiple users at the same time.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Time to start"><H3><b>Time to start: </b><i>Time until login screen is visible</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>In 9/10 cases the app should take less than 2 seconds from startup until it is showing the login screen.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The user should not have to wait for too long.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Quality Uptime"><H3><b>Uptime: </b><i>How long the server should be responsive on average</i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>the server should have an uptime of at least 99.8% per month.  </td>  </tr>
+
+  <tr>  <td class="name">Rationale:  </td><td>The restaurants depend on the server to be able to recieve orders.  </td>  </tr>
+</table>
+</div>
+
+<H2>Class</H2>
+<p></p>
+
+<div class="entity">
+<a id="Class African"><H3><b>African: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for african food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Allergy"><H3><b>Allergy: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Abstract type for different allergies.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Atkins"><H3><b>Atkins: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for Atkins food preference.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class BBQ"><H3><b>BBQ: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for BBQ food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Beef"><H3><b>Beef: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for beef allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Chicken"><H3><b>Chicken: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for chicken allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Chinese"><H3><b>Chinese: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for chinese food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Contact info"><H3><b>Contact info: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Member Restaurant address">Member</a></div>
+ Restaurant address</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant email">Member</a></div>
+ Restaurant email</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant telephone number">Member</a></div>
+ Restaurant telephone number  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Corn"><H3><b>Corn: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for corn allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Dish"><H3><b>Dish: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy</br>
+ <div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference</br>
+ <div class="destinationreqtype"><a href="#Member Food name">Member</a></div>
+ Food name</br>
+ <div class="destinationreqtype"><a href="#Member Price">Member</a></div>
+ Price  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Eggs"><H3><b>Eggs: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for egg allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Fast food"><H3><b>Fast food: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for fast food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Fish"><H3><b>Fish: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for fish allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Food preference"><H3><b>Food preference: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Abstract type for different food preferences.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Food type"><H3><b>Food type: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Abstract type for food types.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Fruitarian"><H3><b>Fruitarian: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for fruitarian food preference.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Garlic"><H3><b>Garlic: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for garlic allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Gluten"><H3><b>Gluten: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for gluten allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Greek"><H3><b>Greek: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for greek food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Indian"><H3><b>Indian: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for indian food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Italian"><H3><b>Italian: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for italian food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Kosher"><H3><b>Kosher: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for kosher food preference.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class LCHF"><H3><b>LCHF: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for LCHF food preference.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Lactose"><H3><b>Lactose: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for lactose allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Mayonaise"><H3><b>Mayonaise: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for mayonaise allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Menu"><H3><b>Menu: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Dish">Class</a></div>
+ Dish  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Mexican"><H3><b>Mexican: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for mexican food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Onion"><H3><b>Onion: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for onion allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Oranges"><H3><b>Oranges: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for orange allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Order"><H3><b>Order: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Dish">Class</a></div>
+ Dish</br>
+ <div class="destinationreqtype"><a href="#Class Restaurant">Class</a></div>
+ Restaurant</br>
+ <div class="destinationreqtype"><a href="#Member Pickup code">Member</a></div>
+ Pickup code</br>
+ <div class="destinationreqtype"><a href="#Member Status">Member</a></div>
+ Status</br>
+ <div class="destinationreqtype"><a href="#Member Timestamp">Member</a></div>
+ Timestamp  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Other"><H3><b>Other: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for other food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Peanuts"><H3><b>Peanuts: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for peanut allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Pizza"><H3><b>Pizza: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for pizza food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Pork"><H3><b>Pork: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for pork allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Profile"><H3><b>Profile: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A food profile with allergies and food preferences.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy</br>
+ <div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Restaurant search result"><H3><b>Restaurant search result: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The information displayed for each restaurant in the search result list.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Member Restaurant distance">Member</a></div>
+ Restaurant distance</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant logo">Member</a></div>
+ Restaurant logo</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant name">Member</a></div>
+ Restaurant name</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant opening hours">Member</a></div>
+ Restaurant opening hours  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Restaurant"><H3><b>Restaurant: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">requires  </td><td><div class="destinationreqtype"><a href="#Class Contact info">Class</a></div>
+ Contact info</br>
+ <div class="destinationreqtype"><a href="#Class Menu">Class</a></div>
+ Menu</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant description">Member</a></div>
+ Restaurant description</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant distance">Member</a></div>
+ Restaurant distance</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant logo">Member</a></div>
+ Restaurant logo</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant name">Member</a></div>
+ Restaurant name</br>
+ <div class="destinationreqtype"><a href="#Member Restaurant opening hours">Member</a></div>
+ Restaurant opening hours  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Sesame seeds"><H3><b>Sesame seeds: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for sesame seed allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Shellfish"><H3><b>Shellfish: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for shellfish allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Soybeans"><H3><b>Soybeans: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for soybeans allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Spinach"><H3><b>Spinach: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for spinach allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Strawberries"><H3><b>Strawberries: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for strawberry allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Sunflower seeds"><H3><b>Sunflower seeds: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for sunflower seed allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Sushi"><H3><b>Sushi: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for sushi food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Thai"><H3><b>Thai: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for thai food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Tomatoes"><H3><b>Tomatoes: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for tomatoe allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Tree nuts"><H3><b>Tree nuts: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for tree nut allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class User"><H3><b>User: </b><i>Restaurant customer</i></H3>
+
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">owns  </td><td><div class="destinationreqtype"><a href="#Class Profile">Class</a></div>
+ Profile</br>
+ <div class="destinationreqtype"><a href="#Member Password">Member</a></div>
+ Password</br>
+ <div class="destinationreqtype"><a href="#Member Username">Member</a></div>
+ Username  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Vegan"><H3><b>Vegan: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for vegan food preference.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Vegetarian"><H3><b>Vegetarian: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for vegetarian food preference.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food preference">Class</a></div>
+ Food preference  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Vietnamese"><H3><b>Vietnamese: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for vietnamese food.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Food type">Class</a></div>
+ Food type  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Wheat"><H3><b>Wheat: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for wheat allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Class Yeast"><H3><b>Yeast: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Tag for yeast allergy.  </td>  </tr>
+</table>
+<table class="nodelist">
+  <tr><th>Relations</th><th>Destinations</th>  </tr>
+  <tr>  <td class="name">inherits  </td><td><div class="destinationreqtype"><a href="#Class Allergy">Class</a></div>
+ Allergy  </td>  </tr>
+</table>
+</div>
+
+<H2>Member</H2>
+<p></p>
+
+<div class="entity">
+<a id="Member Food name"><H3><b>Food name: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The name of the food/dish, max 40 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Password"><H3><b>Password: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Text, min 5 characters max 20 characters. Can only contain alphanumerics.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Pickup code"><H3><b>Pickup code: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Text, 5 characters. Can only contain alphanumerics  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Price"><H3><b>Price: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The price of the food/dish, max 10 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant address"><H3><b>Restaurant address: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant's address, max 500 characters  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant description"><H3><b>Restaurant description: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The description about the restaurant, max 700 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant distance"><H3><b>Restaurant distance: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The user's distance to the restaurant in kilometers with one decimal point precision, max 10 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant email"><H3><b>Restaurant email: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant's email address, max 40 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant logo"><H3><b>Restaurant logo: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant logo as an image, pixels 480x320 png.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant name"><H3><b>Restaurant name: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant name, max 40 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant opening hours"><H3><b>Restaurant opening hours: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant's opening hours for today or 'closed' if not opened, as text and with max 30 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Restaurant telephone number"><H3><b>Restaurant telephone number: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The restaurant's telephone number, max 20 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Status"><H3><b>Status: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>The status of the order. Can be 'Cooking', 'Waiting for pickup' or 'Done', max 20 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Timestamp"><H3><b>Timestamp: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>A timestamp for the order, when the order was made, max 20 characters.  </td>  </tr>
+</table>
+</div>
+
+<div class="entity">
+<a id="Member Username"><H3><b>Username: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td>Text, min 3 characters max 20 characters. Can only contain alphanumerics.  </td>  </tr>
+</table>
+</div>
+
+<H2>Analysis</H2>
+<p>These are analysis that have been done</p>
+
+<div class="entity">
+<a id="Analysis Stakeholder analysis"><H3><b>Stakeholder analysis: </b><i></i></H3>
+
+<table class="nodelist">
+  <tr><th>Attributes</th><th>Values</th>  </tr>
+  <tr>  <td class="name">Specification:  </td><td><div>
+<p>
+ <img src="stakeholder_company_d.png" style="float:left;margin:0 5px 0 0; width:7%;"/>
+ <h4>Company D</h4>
+</p>
+
+<p>
+Company D wants the system to be attractive enough to restaurant owners so that they can sell it to the system to them and make money. To ensure that the project is a success and that the system is both what they and their customers want they need to share their input with the people writing the requirements.
+</p><p>
+Company D pays for the whole development and specification of the system for a great cost. The risk is that restaurant owners don’t want to buy the system and the income of the project is smaller than the cost of the development. Restaurants already have systems similar to Foorder but company D hopes that Foorder will be able to act as an extension to these older system rather than replace them.
+</p>
+</div>
+
+<br><br>
+
+<div>
+<p>
+ <img src="stakeholder_restaurant_owner.png" style="float:left;margin:0 5px 0 0; width:7%;"/>
+ <h4>Restaurant owner</h4>
+</p>
+
+<p>
+The restaurant owner who got interviewed emphasized from the start that if there should be an app it should be a common one for all the restaurants and not a custom made for each. He says it would be good if a customer could search for different categories of restaurants in the app. In the application, he wants to have similar information available on the website such as the menu, how to get there and photos of the restaurant.
+</p><p>
+The restaurant owner says he is absolutely not interested in an application where customers can place an order which is then sent to the restaurant system. He says he would lose on this because then the restaurant would not be able to recommend the food to the customers and he believes that they would more often choose the cheapest dish on the menu.
+</p><p></p><p>
+When it comes to the booking of tables he was at first not at all interested in this. But after he had talked a while he changed his mind and could see the benefits with a booking system IF it lets the restaurant approve it or write a comment in response. He believes that if a large party books a table at the restaurant at 19.00 and then another large party books at 19:15 he wants to be able to tell them that they may come at 20.00.
+So the app would run a kind of reservation system that can easily and seamlessly  first send how many are in your party and suggest what time they will come and then the restaurant will be able to propose a new time, refuse or accept this. The customer should not be able to chose table as it may not be optimal for the restaurant and also the layout can change.
+</p><p>
+As for the booking he would like to see that there was a way that allows the customer to understand the consequences that they are not so many in the party as they said when they booked or not even show up.
+</p><p>
+In terms of an overview picture of how long customers have been waiting for, what has been ordered and the like, there is already a cash system which solves this. He sees no reason to replace this system with an app because it solved all the needs that already exists. In this system, you can also see statistics about what is being sold.
+He is not interested in ratings of the restaurant or the food in an application because there are very many pages that have this already and it's not all that sets the rating therefore there witll be no meaningful statistics in the end.
+</p><p>
+He says that he would like to be part of an application that allows customers to order takeaway food from them. Before arriving at the restaurant the customer could order their food and the time that the customer intends to come and get it (he has heard of online pizza but made no use of it). He wishes for some kind of protection if the customer does not show up.
+</p><p>
+He also mentions an application that automatically updates his inventory system would be good. However, that is more for the suppliers and the app will completely change focus from the "project mission".
+</p><p>
+He could imagine that it might be good to be able to put offers in the application if he recognises it as a revenue stream.
+He points out that the app must be well marketed and there must be many (many!) restaurants interested in the start. He has previously been involved in an application where restaurants could put offers customers could receive. There were very few restaurants that participated in the beginning, and he immediately saw that it would not turn into something and therefore never put up any offers which led to those who developed the app never receiving any money.
+He would definitely spend money on an application that is well developed, features many restaurants and puts a lot of focus on marketing.
+</p><p>
+</div>
+
+
+
+
+<div>
+<p>
+ <img src="stakeholder_restaurant_staff.png" style="float:left;margin:0 5px 0 0; width:7%;"/>
+ <h4>Restaurant staff</h4>
+</p>
+<p>
+After an interview with two waitresses we found out that they themselves couldn’t think of any system/app that would make their work easier.
+</p><p>
+They mention that they already have a POS system that keeps track of how long the visitors have been waiting and what they have ordered. They did not think that an application where the customers could order through the app would help. Because that would take away a large part of their work and the possibility for customer contact. They also believed that everything was going to be more confused if the customer had ordered what food they wanted before they got to the restaurant.
+</p><p>
+They state that they really don’t want the customer contact and their ability to provide services to be lost with this application.
+</p><p>
+They feel like they might think it is a good idea to be able to write down orders through the app and then have the order sent to the kitchen. But only if really works. They fear that if would only makes things more complicated if it’s not done properly.
+</p><p>
+After some given suggestions and a bit of discussion, they came to the conclusion that a feature that customers could use to order refills on drinks or snacks or just for "calling out" to a waiters would be a great feature. They tell us that when the customer received their food and after their waitress have checked with them that everything tastes good, they then leave the customers alone to enjoy the food. They say that it is often difficult to obtain when they are again needed at the table.
+</p><p>
+They also said that it would be really great if the customers could give tip with the application after the visit.
+</p><p>
+After a discussion we also concluded that it would be good if the customer with the app could be able to get answers to which dishes contain lactose or gluten (or other diet preferences). But what they didn’t want was the app to have recommendations on drinks to fit certain food and likewise, because that would take away a big part of their job.
+</p>
+</div>
+
+
+
+<div>
+<p>
+ <img src="stakeholder_restaurant_visitors.png" style="float:left;margin:0 5px 0 0; width:7%;"/>
+ <h4>Restaurant visitors</h4>
+</p><p>
+The potential customers and restaurant visitors we spoke to said they would love to have the opportunity to pre-order food and they also said that they wanted to be able to specify the time of the visit if that was possible. They also thought that it would be a good thing to be able to see the ingredients of the different meals in the menu and to sort foods according to different categories such as "chicken", "LCHF" or "lactose-free".
+</p><p>
+They also liked to be able to reserve a table and be able to see a map of the restaurant in the app. They preferred that the app shouldn’t be designed for a particular restaurant, that it instead should be possible to see a variety of restaurants.
+</p><p>
+The customers thought that it would have been nice to be able to get recommendations on which drinks is best suitable for a meal and would like to be able to see reviews of the various dishes, and also be able to grade the meal after the visit. And to be able to give comments on the experience.They would in this case also like to be able to see comments and ratings that other customers have set.
+</p><p>
+They thought that the customer itself should be able to decide whether they want to have an user account on the app or not. If they had an account they thought it would be nice to be able to save their allergies and such so that the menus could be adapted accordingly.
+</p><p>
+They thought that the feature to be able to "call out" to a waiter/waitress through the app would be useful but only as a complement to the "normal" way.
+</p><p>
+The customers also thought that it would be fun to be able to save their receipts so that they could remember what they ate. At last they said that a feature to split the order would be very useful. 
+</p>  </td>  </tr>
+</table>
+</div>
+
+<div class="copyright">
+<p>Generated by <a href="http://reqT.org">reqT</a> on Sun Dec 02 15:49:43 CET 2012</p>
+</div>
+</body></html>

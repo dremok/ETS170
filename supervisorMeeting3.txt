@@ -1,0 +1,71 @@
+ALLMÄNT
+=======
+"Should" på många ställen, det betyder "bör" ("shall" istället?)
+
+Introduction
+============
+Förtydliga vad i dokumentet som är krav och vad som är bakgrund/hjälp osv.
+
+Typical voter i Results from elicitation - utveckla. Kategori?
+
+Results from specification: Motiveringar. Högnivåbeskrivning.
+
+Prioritization: vad ledde det till? På högnivå.
+
+Validation: Add checklist as Appendix. Lägg till vad vi gjort åt felen granskningsgruppen upptäckt.
+
+Context diagram
+===============
+Ta bort lådan kring Electoral workers
+EN pil från Voter till Voting system
+Diskutera om vi ska ha ytterligare en Voter (via machine)
+	Ytterligare entiteter för de som kollar ID / blippar?
+Manual votes (lägga till register?)
+Valdistrikt?
+Valmyndigheten-entitet / "Sätta upp val"-pil
+Starta/Stoppa valet? (Eller ska vi ändra så att tidpunkterna sätts i systemet innan valet sätts igång?)
+Speca att kontextdiagram
+
+Stakeholders
+============
+Disabled (ändra till physically disabled lr. unable to move?)
+S05+S08+S09. Ändra varför de är lågprioriterade.
+
+Features
+========
+F02: Hur är det med databasen med partier och kandidater?
+F03: Send vote to server som feature?
+F11: Omformulera, what vote will be counted.
+F12: Generellt är negativa krav dåliga. (snarare constraint)
+
+Goals
+=====
+Motverka hackers, främja säkerhet.
+Motiveringar till goals.
+G05: Omformulera.
+
+Tasks
+=====
+Lyft "man får reda på vad man röstat" en nivå
+Klargör "voting via machine"
+
+Datakrav
+========
+Valdistrikt (Candidates ska bero på valdistrikt)
+Diskutera hur vi hanterar Unregistered Candidates.
+Class Party: Hur hanterar vi blankröster?
+Class Vote: VI MÅSTE SPECA FASER!
+
+Function requirements
+=====================
+Skriv om så att de är på produkt-nivå ist. för på domän-nivå
+R05: Realistic?
+R06: Designkrav?
+R07: helps Goal, fellänkning?
+R11: negativt krav
+R15, R03: Undo a previous vote? Possible? conflict?
+R16: Why? Det är på valdagen! Förtydliga.
+R21, R22: Ännu en pil i kontextdiagramet för de som tar reda på Unregistered Candidates?
+R26: Push eller pull? Det är push, speca.
+R28: Vad är appropriate deviations?
+Q05: Intended?

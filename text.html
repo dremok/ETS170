@@ -1,0 +1,144 @@
+﻿<html><head>
+<link rel="stylesheet" type="text/css" href="reqT.css"> 
+<title>Requirements Document</title>
+<style type="text/css">
+html{overflow-y:scroll;}
+body
+{
+font-size:12px;
+color:#000000;
+background-color:#ffffff;
+margin:12px;
+background-image:url('/images/gradientfromtop.gif');
+background-repeat:repeat-x;
+}
+
+body,p,h1,h2,h3,h4,table,td,th,ul,ol,textarea,input
+{
+font-family:verdana,helvetica,arial,sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+background-color:transparent;
+color:rgb(0,150,10);
+}
+
+h1 {font-size:190%;margin-top:0px;font-weight:normal}
+h2 {font-size:160%;margin-top:10px;margin-bottom:10px;font-weight:normal}
+h3 {font-size:120%;font-weight:normal;color:rgb(150,0,0);margin-top:4px;margin-bottom:4px;}
+h4 {font-size:100%;}
+h5 {font-size:90%;}
+h6 {font-size:80%;}
+
+div.entity {
+color:#000000;
+background-color:rgb(245,253,245);
+padding:4px;
+border:1px solid #d4d4d4;
+margin-bottom:10px;
+}
+
+table.nodelist
+{
+text-align:left;
+background-color:#ffffff;
+padding:4px;
+border:1px solid #d4d4d4;
+width:100%;
+margin-bottom:4px;
+}
+
+td.name
+{
+width:100px;
+font-style:italic;
+}
+  </style>
+</head>
+
+<H2>Introduction</H2>
+<p>
+The purpose of this document is to serve as the main Requirements Document for an electronic voting system created during the course ETS170 at Lunds Tekniska Högskola, Sweden.
+<br><br>
+Swedish Valmyndigheten was founded in 2001 in order to plan and carry out nationwide referendums in Sweden. The small authority consisting of only 15 employees is supposed to operate as reliably and effectively as possible. During an election the workforce consists mainly of volunteers and Swedish Valmyndigheten is responsible for the premises and organization. 
+<br><br>
+Now they want to give people the opportunity to vote from home and make the vote counting faster by digitizing parts of it. It should be easy, intuitive and safe to use. It is important that people can trust the system and that democracy is maintained while using it.
+<br><br>
+When the requirement specification is finished, Valmyndigheten will formulate a request for proposal and select a supplier through a tender process, as is common practice with government organisations.
+<br><br>
+At the end of the document, there is a glossary with definitions of terms used that might appear as vague or ambiguous.
+<br>
+<H2>Goals</H2>
+The main goal of the project is to deliver a Requirements Document describing a safe electronic voting system that can be used during an election arranged by Swedish Valmyndigheten. It shall be possible to vote from home using an ordinary web browser and the voting results should be stored and counted at a central server. 
+<br><br>
+Swedish Valmyndigheten has decided to introduce the electronic system to carry out the 2014 year parliamentary election and the business goals include reducing the amount of manual vote counting, paperwork and number of voting places.
+<br>
+<H2>Results from Elicitation</H2>
+The following methods were chosen for elicitation:
+<ul>
+<li>
+  Stakeholder analysis
+	<ul>
+	<li>
+    The currently specified stakeholders were found through discussions in the group, and the interview with Thore Husfeldt contributed to the process of prioritizing them.
+  <li> 
+    This elicitation method contributed especially to requirements regarding disabled voters and other voters with special needs for the user interfaces.
+	</ul>
+<li>    Interviewing
+	<ul>
+	<li> 
+    We interviewed expert Thore Husfeldt.
+  <li>
+    The interview led to the elicitation of requirements for reliable confirmation of votes, prevention of people selling their votes and prevention of coercion.
+  <li>
+    The interview also caused document studies of the Norwegian electronic election system to be carried out.
+	</ul>
+<li>    Interview with user
+  <ul>
+  <li>
+    A typical voter was interviewed.
+  <li>
+    The interview revealed concerns for “hacker attacks” and risks of a general distrust of electronic systems.
+  <li>
+    Support for the idea of activating idlers was raised.
+  </ul>
+<li>    Document studies
+	<ul>
+	<li>
+    We have studied specifications of the Norwegian election system, e-valg.
+  <li>
+    Principles of how different layers of encryption is applied in this system may be carried over to the system to be specified.
+	</ul>
+<li>    Prototyping
+  <ul>
+  <li>
+    We have implemented a prototype of the web GUI which have been tested by the customer. The received feedback was valuable for specifying GUI requirements.
+  </ul>
+</ul>
+<H2>Results from Specification</H2>
+So far, we have specified data requirements, functional requirements, design requirements and quality requirements for the system. The techniques we have used are task descriptions, a data dictionary, function requirements and a context diagram which shows an overview of the system domain. 
+<br>
+<H2>Results from Prioritization</H2>
+We have prioritized all of the stakeholders on a scale from 1 to 4. Then, for every stakeholder except the customer, we have estimated a priority for all system features. The customer prioritized the features themselves. Finally, the feature priorities were weighted against the stakeholder priorities. See the Release Plan for further clarification.
+<br>
+<H2>Results from Validation</H2>
+We have written a checklist based on the one in Sören Lauesen’s book “Software Engineering”, sec. 9.4, and borrowing parts from Joachim Karlsson’s book “Framgångsrik kravhantering”, sec. 3.6. Each member of the group reviewed the entire requirements document according to the checklist and wrote down found errors. Then we had a review meeting where we compiled the errors and decided what to fix for version 2 of the document.
+</p>
+
+<p>
+  <H2>Glossary</H2>
+  Below are the definitions of a number of terms used throughout the requirements document.
+  <h3>Coercion:</h3> The phenomenon where a voter is somehow persuaded by someone else to place a vote against their will. This includes both being forced to place a vote at all, and being forced to vote for a party and/or a candidate one does not wish to vote for.
+  <br>
+<h3>Voting machine:</h3> This refers to machines placed in a public voting place, i.e. not to personal computers in voters’ homes.
+<br>
+<h3>Web interface:</h3> The web interface is present both in the web application accessible to any personal computer and in the voting machines at the designated voting places. However, there are small differences between the two environments, such as in the authentication method used.
+<br>
+<h3>Paper vote:</h3> A vote placed on paper, i.e. through mail or a ballot paper.
+<h3>Electronic vote:</h3> A vote placed through the web interface, either from a public voting place or from a personal computer.
+</p>
+
+
+
+</body></html>
