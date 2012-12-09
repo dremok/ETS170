@@ -2,8 +2,8 @@ reqDoc.html
 RDver1.html
 RDver2.html
 *.pdf
-\Foorder
-\RD2
+Foorder/
+RD2/
 *~
 *#
 us.stackdump
