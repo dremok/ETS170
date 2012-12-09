@@ -3,7 +3,7 @@ import reqT._
 var m = Model(
 	Product("Electronic Voting System") has
 		(Gist("An electronic voting system which will complement the manual system which is used today."),
-		 Spec("The context diagram above describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote to the system directly or on paper to an electoral worker. If the voter votes electronically, he or she will receive a confirmation that the vote was received properly. The electoral workers submit parties and candidates before the election period. Paper votes are submitted to the system using a cimilar procedure as the parties and candidates. After the end of the voting phase, the system can calculate the result of the voting."),
+		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates. After the end of the voting phase, electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
 		Image("ContextDiagram.png")
 	),
 
@@ -27,7 +27,7 @@ var m = Model(
 		Prio(3),
 		Comment("Stakeholder's goals: Less effort required to place a vote.")
 	),
-	Stakeholder("S04. Disabled / hospitalized") has (
+	Stakeholder("S04. Mobility impaired / hospitalized") has (
 		Spec("This group includes people who may be incapable of moving to a voting place."),
 		Prio(2),
 		Comment("Stakeholder's goals: Be able to vote from where they are.")
@@ -37,7 +37,7 @@ var m = Model(
 		Example("Patients suffering from dementia, Alzheimer's disease or senility."),
 		Prio(1),
 		Comment("Stakeholder's goals: As many cognitively impaired as possible should be able to vote. Risks/costs: User interface too complicated to understand." +
-		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
+		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S06. Visually impaired / Blind") has (
 		Spec("This group includes every voter with some kind of visual impairment which may hinder their ability to use a voting system."),
@@ -53,13 +53,13 @@ var m = Model(
 		Spec("This group includes voters who have little to no computer experience and feel uncomfortable using them."),
 		Prio(1),
 		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing." +
-		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
+		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S09. Voters who are uninterested in using an electronic voting system") has (
 		Spec("This group includes voters who regards election day as a traditional event that should not change."),
 		Prio(1),
 		Comment("Stakeholder's goals: Voting process should be changed as little as possible. Risks/costs: Turnout is decreased among voters who have a tradition of going to a voting place to vote." +
-		"<br>This stakeholder has low priority since we can't think of any ways for the electronic system to enhance their voting abilities.")
+		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S10. Voters abroad") has (
 		Spec("Swedish citizens who are abroad during the voting period but are still eligible to vote."),
@@ -92,7 +92,7 @@ var m = Model(
 	Product("Electronic Voting System") owns (
 		Feature("F01. Web interface for voting"),
 		Feature("F02. Input from party/candidate database"),
-		Feature("F03. Send vote to server"),
+		//Feature("F03. Send vote to server"),
 		Feature("F04. Individual Verifiability"),
 		Feature("F05. Counting of electronic votes"),
 		Feature("F06. Support for different languages"),
@@ -112,12 +112,13 @@ var m = Model(
 	Feature("F01. Web interface for voting") has (
 		Spec("GUI that allows the user to place a vote.")
 	),
-	Feature("F02. Input from party/candidate database") has (
-		Spec("Ability for server to read party and candidate data from an external database.")
+	Feature("F02. Input of election data to database") has (
+		Spec("Ability to add parties, candidates, a start time and an end time for the election to the database.")
 	),
-	Feature("F03. Send vote to server") has (
+/*	Feature("F03. Send vote to server") has (
 		Spec("Functionality that carries out transmission of vote data from client to server.")
 	),
+*/
 	Feature("F04. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
@@ -131,7 +132,7 @@ var m = Model(
 		Spec("Ability to read data of votes submitted on paper and store together with electronic votes.")
 	),
 	Feature("F08. Privacy") has (
-		Spec("Functionality to prohibit extraction of information about someone else's vote.")
+		Spec("Functionality to prevent extraction of information about someone else's vote.")
 	),
 	Feature("F09. Authentication when voting electronically from home") has (
 		Spec("Functionality to allow for user authentication.")
@@ -140,11 +141,12 @@ var m = Model(
 		Spec("Functionality to ensure that only voters that are allowed to vote can vote.")
 	),
 	Feature("F11. Coercion-Resistance & Receipt-Freeness") has (
-		Spec("It should not be possible for a voter to prove how he/she votes. " +
-			"Thereby, it should not be possible to coerce someone to vote in a particular way.")
+		Spec("Properties of the system that prevent a voter to prove how he/she ultimately votes. " + 
+		     "These properties also counter attempts to coerce someone to vote in a particular way, " +
+		     "making it pointless since there is no way of knowing how the vote was placed.")
 	),
 	Feature("F12. Fairness") has (
-		Spec("No partial results should be disclosed before the end of the voting procedure</b>")
+		Spec("Properties of the system that prevent any vote results from being revealed while the system is in the voting phase.")
 	),
 	Feature("F13. Admin interface") has (
 		Spec("The vote counting part of the system shall have an admin interface.")
@@ -164,20 +166,29 @@ var m = Model(
 	
 	// Goals
 	Goal("G01. Reduce manual labour") has (
-		Spec("Reduce the number of public voting places and the number of votes to be handled manually.")
+		Spec("Reduce the number of public voting places and the number of votes to be handled manually."),
+		Why("Requested by Valmyndigheten.")
 	),
 	Goal("G02. Facilitate voting for people who have difficulties getting to a voting place") has (
-		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated.")
+		Spec("Make it easier for the disabled, very ill, etc. by permitting voting from where they are situated."),
+		Why("Requested by Valmyndigheten.")
 	),
 	Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system") has (
 		Spec("Make it easier to vote for the visually impaired and other groups who experience that the current system can be difficult, " +
-		"so that they can vote as unhindered as the rest of the population.")
+		"so that they can vote as unhindered as the rest of the population."),
+		Why("Requested by Valmyndigheten.")
 	),
 	Goal("G04. Maintain the current election turnout") has (
-		Spec("The new system shall not have any significant negative impact on the election turnout.")
+		Spec("The new system shall not have any significant negative impact on the election turnout."),
+		Why("A prerequisite for introducing a new election process is that the new system is in no discernible way inferior to the old one.")
 	),
 	Goal("G05. Maintain democracy") has (
-		Spec("The new system shall make sure that the law is followed in such a way that democracy is maintained.")
+		Spec("Any attempts at compromising the legitimacy of the election or the maintenance of democracy shall be countered by the system."),
+		Why("The system must be equally suitable or superior to the current system at maintaining democracy.")
+	),
+	Goal("G06. Counter hacking attempts, promote security") has (
+		Spec("Undermining the election process by exploiting the fact the votes are submitted electronically shall be very difficult."),
+		Why("An electronic system introduces new threats to the election process. These must be countered in order to maintain the quality of the process.")
 	),
 	
 	
@@ -185,43 +196,54 @@ var m = Model(
 	Class("Voter") has (
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
-		Example("(1) A person who has voting rights but does not vote. (2) A person who has voting rights and does place a vote.")
+		Example("(1) A person who has voting rights but does not vote.<br>" +
+			"(2) A person who has voting rights and does place a vote.")
 
-		),
+	),
 
 	Class("Party") has (
-		Gist("A party which can receive a vote from the voters."),
-		Spec("Each votable party is represented with a party in the system, there must also be a \"no-vote\" party in order to mask the fact that some people may not have voted, or may have voted blank."),
-		Example("(1) The \"no-vote\" party. (2) The pirate party.")
-		),
+		Gist("A party which can receive a vote from the voters"),
+		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party."),
+		Example("(1) The pirate party.<br>" +
+			"(2) The \"blank\" party.")
+	),
 
 	Class("Party Candidate") has (
-		Gist("A member of a party who the voters can vote for."),
-		Spec("A party candidate is party appointed candidate. A Party Candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
-		Example("(1) Anna Troberg of the pirate party. (2) \"blank\" of any party.")
-		),
+		Gist("A member of a party who the voters can vote for"),
+		Spec("A party candidate is party appointed candidate. A party candidate is eligible to receive candidate votes. Also knows which party it belongs to."),
+		Example("(1) Anna Troberg of the pirate party.<br>" +
+			"(2) \"blank\" of any party.")
+	),
+
+	Class("Electoral area") has (
+		Gist("A geographical area associated with a subset of the voters and party candidates"),
+		Spec("The electoral areas partition the voters, i.e. a voter belongs to one electoral area only. A party candidate can belong to any number of electoral areas."),
+		Example("(1) Stockholms kommuns valkrets<br>" +
+			"(2) Blekinge läns valkrets")
+	),
 
 	Class("Vote") has (
-		Gist("A vote can be placed by a voter on a party and candidate."),
-		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on."),
-		Example("(1) A vote on pirate party and \"blank\" candidate. (2) A vote on \"blank\" party and \"blank\" candidate")
-		),
+		Gist("A vote can be placed by a voter on a party and candidate"),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp."),
+		Example("(1) A vote on pirate party and \"blank\" candidate.<br>" +
+			"(2) A vote on \"blank\" party and \"blank\" candidate.")
+	),
 		
 	//CRUD
 	Class("Voter") has (
-		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the registration phase; during the other phases it is only possible to read voters.")
+		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
 	),
 
 	Class("Party") has (
-		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the registration phase; during the other phases it is only possible to read parties.")
+		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the registration phase; during the other phases it is only possible to read party candidates.")
+		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
-		Comment("It should only be possible to create and read votes, not delete or update them. Votes can only be created during the voting phase and read during the tallying phase.")
+		Comment("It should only be possible to create and read votes, not delete or update them, although votes are automatically deleted from the database at the end of the tallying phase. Votes can only be created during the voting phase and pre-tallying phase and only be read during the tallying phase.")
 	),
 	
 	// Tasks
@@ -394,6 +416,7 @@ var m = Model(
 	Function("R05. Send confirmation to voter") has (
 		Spec("A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
 		"to decipher it."),
+		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance."),
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
@@ -493,18 +516,20 @@ var m = Model(
 	),
 
 	Function("R23. Initiate vote count") has (
-		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface.<br>"),
+		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface."),
 		Label("Vote count")
 	),
 
 	Function("R24. Start voting phase") has (
 		Spec("The admin interface must have functionality to start the voting phase."),
-		Label("Admin functionality")
+		Label("Admin functionality"),
+		Deprecated("The voting phase will automatically start according to a time set in the database. See R30.")
 	),
 
 	Function("R25. End voting phase") has (
 		Spec("The admin interface must have functionality to end the voting phase."),
-		Label("Admin functionality")
+		Label("Admin functionality"),
+		Deprecated("The voting phase will automatically end according to a time set in the database. See R30.")
 	),
 
 	Function("R26. Import party data") has (
@@ -527,21 +552,25 @@ var m = Model(
 
 	Function ("R29. Admin warnings - Starting and ending a phase") has (
 		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
-		Example("Are you sure you want to end the voting phase and start tallying phase?"),
+		Example("\"Are you sure you want to end the pre-tallying phase and start tallying phase?\""),
 		Label("Admin functionality")
+	),
 
+	Function ("R30. Input start and end times into database") has (
+		Spec("The admin interface shall have functionality for specifying a start time and an end time for the voting phase."),
+		Label("Admin functionality")
 	),
 
 		//Design-level requirements
-	Design("R30. start-page") has (
+	Design("R_. start-page") has (
 		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
 
-	Design("R31. vote-page") has (
+	Design("R_. vote-page") has (
 		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
-	Design("R32. admin-page") has (
+	Design("R_. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
 	
