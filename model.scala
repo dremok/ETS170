@@ -85,7 +85,7 @@ var m = Model(
 	Stakeholder("S14. Hackers") has (
 		Spec("People who will try to influence the election and/or gather classified information from the system by hacking it."),
 		Prio(3),
-		Comment("Stakeholder's goals: The system should have low security.")
+		Comment("Risk with stakeholder: If the system has low security it might be exploited by hackers.")
 	),
 	
 	// Features
@@ -231,19 +231,19 @@ var m = Model(
 		
 	//CRUD
 	Class("Voter") has (
-		Comment("It should be possible to create, read, update and delete voters. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
+		Comment("It shall be possible to create, read, update and delete voters. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
 	),
 
 	Class("Party") has (
-		Comment("It should be possible to create, read, update and delete parties. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
+		Comment("It shall be possible to create, read, update and delete parties. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
 	),
 
 	Class("Party Candidate") has (
-		Comment("It should be possible to create, read, update and delete party candidates. CRUD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
+		Comment("It shall be possible to create, read, update and delete party candidates. CRUD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
-		Comment("It should only be possible to create and read votes, not delete or update them, although votes are automatically deleted from the database at the end of the tallying phase. Votes can only be created during the voting phase and pre-tallying phase and only be read during the tallying phase.")
+		Comment("It shall only be possible to create and read votes, not delete or update them, although votes are automatically deleted from the database at the end of the tallying phase. Votes can only be created during the voting phase and pre-tallying phase and only be read during the tallying phase.")
 	),
 	
 	// Tasks
@@ -305,15 +305,15 @@ var m = Model(
 			Label("variant1b"),
 			Gist("A person with a visual impairment uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
-			"without hinder, the voting should be carried out with the same ease as with the procedure in 1a for a fully sighted person.")
+			"without hinder, the voting is carried out with the same ease as with the procedure in 1a for a fully sighted person.")
 		),
 		
 		Task("T1c Carry out voting via the web interface - non-Swedish speaking voter") has (
 			Label("variant1c"),
 			Gist("A person who doesn't understand Swedish uses the web interface to vote"),
-			Example("The voter chooses to vote through the web interface. From the voting card it should be clear enough what is the web " +
+			Example("The voter chooses to vote through the web interface. From the voting card it is clear enough what is the web " +
 			"adress to the voting web site that no text on the card needs to be understood. As soon as the person enters the web site, " +
-			"there should be a clear possibility to change language to any language that is spoken by a Swedish citizen. The procedure is " +
+			"there shall be a clear possibility to change language to any language that is spoken by a Swedish citizen. The procedure is " +
 			"then carried out as in 1a.")
 		),
 		
@@ -321,7 +321,7 @@ var m = Model(
 			Label("variant1d"),
 			Gist("A person with motor impairments uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
-			"without hinder, the voting should be carried out with the same ease as with the procedure in 1a for a person without motor impairments.")
+			"without hinder, the voting is carried out with the same ease as with the procedure in 1a for a person without motor impairments.")
 		),
 		
 	Task("T2") has (
@@ -383,14 +383,14 @@ var m = Model(
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
 			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b."),
-			Comment("In case text-to-speech is used, it should not be possible to hear the output from outside of the booth where the machine is placed."),
+			Comment("In case text-to-speech is used, it shall not be possible to hear the output from outside of the booth where the machine is placed."),
 			Example("The voting machines might be placed in sound isolated booths or be equipped with headphones in order to provide text-to-speech functionality.")
 		),
 		
 		Task("T2c Carry out voting via machine - non-Swedish speaking voter") has (
 			Label("variant2c"),
 			Gist("A person who doesn't understand Swedish votes using a machine at a voting place"),
-			Spec("This should be identical to 1c.")
+			Spec("This is identical to 1c.")
 		),
 
 		Task("T2d Carry out voting via machine - voter has motor impairments") has (
@@ -408,28 +408,28 @@ var m = Model(
 
 	// Function requirements
 	Function("R04. Authentication when voting electronically from home") has (
-		Spec("Authentication of the voter should be done using an existing electronic identification system that the voters feel " +
+		Spec("Authentication of the voter shall be done using an existing electronic identification system that the voters feel " +
 		"comfortable using."),
 		Example("A well-known example of such a system is BankID."),
 		Label("Authentication")
 	),
 	Function("R05. Send confirmation to voter") has (
-		Spec("A personalized confirmation message should be sent to the voter after a placed vote. It should only be possible for the voter " +
+		Spec("A personalized confirmation message is sent to the voter after a placed vote. It shall only be possible for the voter " +
 		"to decipher it."),
 		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance."),
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
-		Spec("The GUI shall display information according to the electoral laws on what information should be present on a voting paper."),
+		Spec("The GUI shall display information according to the electoral laws on what information is allowed on a voting paper."),
 		Label("GUI")
 	),
 	Function("R07. Party view") has (
-		Spec("The order of the parties that are viewed in the GUI should be randomized. The parties that are in the parliament should, however, be placed above all other parties in the list."),
+		Spec("The order of the parties that are viewed in the GUI shall be randomized. The parties that are in the parliament is placed above all other parties in the list."),
 		Why("No single party must get any special benefits from the way the list is sorted."),
 		Label("GUI")
 	),
 	Function("R08. Voting machines at a voting place") has (
-		Spec("At the voting places, each voting booth should have a computer whose only functionality is to run the web interface for voting."),
+		Spec("At the voting places, each voting booth must have a computer whose only functionality is to run the web interface for voting."),
 		Label("GUI")
 	),
 	Function("R09. Authentication when voting electronically at a voting place") has (
@@ -438,7 +438,7 @@ var m = Model(
 		Label("GUI")
 	),
 	Function("R10. One-Voter-One-Vote") has (
-		Spec("Only one vote per voter should go to the tallying phase of the voting."),
+		Spec("Only one vote per voter shall go to the tallying phase of the voting."),
 		Label("Security")
 	),
 
@@ -472,7 +472,7 @@ var m = Model(
 	),
 	
 	Function("R16. Voting place overrides vote placed from home") has (
-		Spec("Any vote submitted at a public voting place (on paper or from a machine) should override any votes placed from a personal computer by the same voter."),
+		Spec("Any vote submitted at a public voting place (on paper or from a machine) must override any votes placed from a personal computer by the same voter."),
 		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to be free of these problems."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
@@ -484,14 +484,14 @@ var m = Model(
 	),
 	
 	Function("R18. Change language") has (
-		Spec("The start page of the web interface should present an obvious way (for all voting stakeholders) of changing language."),
+		Spec("The start page of the web interface must present an obvious way (for all voting stakeholders) of changing language."),
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
 		Label("Language")
 	),
 
 	//VOTING
 	Function("R19. Vote for an unregistered candidate") has (
-		Spec("It should be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
+		Spec("It must be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
 		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by writing the name in a text box."),
 		Label("Voting")
 	),
@@ -510,13 +510,13 @@ var m = Model(
 	),
 
 	Function("R22. Assembling and counting of unregistered candidates") has (
-		Spec("The system should be able to produce a result of votes on unregistered candidates."),
+		Spec("The system must be able to produce a result of votes on unregistered candidates."),
 		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
 	),
 
 	Function("R23. Initiate vote count") has (
-		Spec("It should be possible to initiate counting of all the votes received by the system, via the admin interface."),
+		Spec("It must be possible to initiate counting of all the votes received by the system, via the admin interface."),
 		Label("Vote count")
 	),
 
@@ -545,13 +545,13 @@ var m = Model(
 	),
 
 	Function("R28. Admin warnings - Counting of votes") has (
-		Spec("When initiating counting of votes, the admin interface should warn about appropriate deviations in the system "),
+		Spec("When initiating counting of votes, the admin interface must warn about appropriate deviations in the system "),
 		Example("(1) Notify the user that no paper votes have been read. (2) Notify the user that there are votes on unregistered candidates"),
 		Label("Admin functionality")
 	),
 
 	Function ("R29. Admin warnings - Starting and ending a phase") has (
-		Spec("When the admin starts or ends a phase a confirmation dialog should be shown."),
+		Spec("When the admin starts or ends a phase a confirmation dialog is shown."),
 		Example("\"Are you sure you want to end the pre-tallying phase and start tallying phase?\""),
 		Label("Admin functionality")
 	),
@@ -577,17 +577,17 @@ var m = Model(
 
 	//Quality requirements
 	Quality("Q01. Maximum downtime") has (
-		Spec("The system should be possible to use _% of the voting process period."),
+		Spec("The system must be available for use _% of the voting process period."),
 		Label("Reliability / Availability")
 	),
 
 	Quality("Q02. Maximum testing time") has (
-		Spec("Assuming a test system is up and running, it should be possible to simulate a real voting process in less than _ hours."),
+		Spec("Assuming a test system is up and running, it must be possible to simulate a real voting process in less than _ hours."),
 		Label("Testability")
 	),
 
 	Quality("Q03. Voter interface ease of use") has (
-		Spec("_ % of randomly selected voters should be able to place a vote within 2 minutes from opening the voting site."),
+		Spec("_ % of randomly selected voters must be able to place a vote within 2 minutes from opening the voting site."),
 		Label("Usability")
 	),
 
@@ -608,8 +608,8 @@ var m = Model(
 	),
 	Quality("Q07. Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
-		Spec("Some of the servers should be allowed to fail/become compromised, and the system should still work."),
-		Example("Anonymity should still be enforced <br> Correct result should be obtained")
+		Spec("The system must work even though some of the servers have failed/become compromised."),
+		Example("Anonymity shall still be enforced. <br>Correct result must be obtained.")
 	),
 
 	// Relationships

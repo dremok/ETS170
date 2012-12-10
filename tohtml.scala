@@ -57,7 +57,7 @@ val myTemplate = DocumentTemplate(
 	Chapter("Stakeholders", Text("The stakeholders are prioritized on a scale from 1 to 4, where 1 is lowest priority and 4 is highest."), m => m / Stakeholder),
 	
 	// Features
-	Chapter("System Features", Text("<b>The system consists of the following features. The point of these features is to partition of the requirements for better clarity. They are not requirements per se.</b>"), m => m / Feature),
+	Chapter("System Features", Text("<b>The system consists of the following features. The point of these features is to partition the requirements for better clarity. They are not requirements per se.</b>"), m => m / Feature),
 	
 	// Goals
 	Chapter("Goal requirements", Text("<b>R01. The system shall support the following goals:</b>"), m => m / Goal),
