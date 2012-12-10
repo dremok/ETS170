@@ -288,7 +288,7 @@ var m = Model(
 			
 		Task("T1.4 Receive confirmation") has (
 			Label("subtask1.4"),
-			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
+			Gist("The voter is able to verify how he/she voted."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 		
@@ -298,7 +298,7 @@ var m = Model(
 			Example("The voter chooses to vote through the web interface. On the voting card there is a web adress to the voting website. " +
 				"The voter opens up this site in a web browser, logs in using electronic identification enters the personal code " +
 				"stated on the voting card. A party and a candidate is chosen in the web interface. The voter clicks on a 'Submit' button. " +
-				"After an appropriate amount of time, the voter receives some kind of personalized message confirming that the vote was counted for the correct party.")
+				"The voter then receives some kind of message and is able to confirm what he/she voted for.")
 		),	
 		
 		Task("T1b Carry out voting via the web interface - visually impaired") has (
@@ -365,7 +365,7 @@ var m = Model(
 		
 		Task("T2.4 Receive confirmation") has (
 			Label("subtask2.4"),
-			Gist("The voter receives a personalized message confirming that the vote was counted for the correct party."),
+			Gist("The voter is able to verify how he/she voted."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 
@@ -408,13 +408,13 @@ var m = Model(
 
 	// Function requirements
 	Function("R04. Authentication when voting electronically from home") has (
-		Spec("Authentication of the voter shall be done using an existing electronic identification system that the voters feel " +
+		Spec("The system shall authenticate the voter using an existing electronic identification system that the voters feel " +
 		"comfortable using."),
 		Example("A well-known example of such a system is BankID."),
 		Label("Authentication")
 	),
 	Function("R05. Send confirmation to voter") has (
-		Spec("A personalized confirmation message is sent to the voter after a placed vote. It shall only be possible for the voter " +
+		Spec("After a vote is places, the system shall send a personalized confirmation message to the voter. It must only be possible for the voter " +
 		"to decipher it."),
 		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance."),
 		Label("Individual verifiability")
