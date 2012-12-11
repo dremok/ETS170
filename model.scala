@@ -472,7 +472,7 @@ var m = Model(
 	
 	Function("R16. Voting place overrides vote placed from home") has (
 		Spec("Any vote submitted at a public voting place (on paper or from a machine) must override any votes placed from a personal computer by the same voter."),
-		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to be free of these problems."),
+		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to provide privacy and be coercion-free. If a voter was coerced into voting against his/her intentions, he/she is the able to override this vote later during the voting period."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
@@ -532,7 +532,7 @@ var m = Model(
 	),
 
 	Function("R26. Import party data") has (
-		Spec("The admin interface must have functionality to import party and candidate data into the system"),
+		Spec("The admin interface must have functionality to push party and candidate data to the database."),
 		Example("The party and candidate data may be imported from an Excel file"),
 		Label("Admin functionality")
 	),
@@ -544,7 +544,10 @@ var m = Model(
 	),
 
 	Function("R28. Admin warnings - Counting of votes") has (
-		Spec("When initiating counting of votes, the admin interface must warn about appropriate deviations in the system "),
+		Spec("When initiating counting of votes, the admin interface must raise a warning if any of the following situations occur:" +
+		     "<br>No paper votes have been written to the database during the election period." +
+		     "<br>Votes placed on unregistered candidates remain in the database." +
+		     "<br>Votes placed on unregistered candidates have been extracted from the database, but the new votes have not been registered."),
 		Example("(1) Notify the user that no paper votes have been read. (2) Notify the user that there are votes on unregistered candidates"),
 		Label("Admin functionality")
 	),
@@ -557,6 +560,13 @@ var m = Model(
 
 	Function ("R30. Input start and end times into database") has (
 		Spec("The admin interface shall have functionality for specifying a start time and an end time for the voting phase."),
+		Label("Admin functionality")
+	),
+
+	Function ("R31. Process free-text candidate votes") has (
+		Spec("The admin interface shall, during the pre-tallying phase, enable administrators to extract the votes placed on free-text candidates. The votes shall be presented in a way that makes it impossible to trace them to their voters. If a candidate can not be identified, it shall be possible to remove the corresponding vote from the database. If a candidate is identified, it shall be possible to register the candidate in the database and replace the free-text vote with a vote on this candidate."),
+		Why("Free-text candididates can not be identified automatically. A human administrator must manually identify the candidates. If this is not possible, the vote is invalid and must be removed. In order to perform the tallying, all candidates that have been voted on must have a proper entry in the database."),
+		Example("The free-text votes might be exported as an Excel file. The new votes (and deletions of votes) might be imported as an Excel file, possibly with any new candidates automatically created in the database."),
 		Label("Admin functionality")
 	),
 
@@ -596,7 +606,7 @@ var m = Model(
 	),
 
 	Quality("Q05. Vote count correctness") has (
-		Spec("_ % of all votes shall be counted as the voter intended."),
+		Spec("_ % of all votes shall be counted correctly, i.e. the same party and candidate that were specified in the vote shall be counted."),
 		Comment("Customer expects close to 100%."),
 		Label("Correctness")
 	),
