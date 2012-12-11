@@ -414,9 +414,8 @@ var m = Model(
 		Label("Authentication")
 	),
 	Function("R05. Send confirmation to voter") has (
-		Spec("After a vote is places, the system shall send a personalized confirmation message to the voter. It must only be possible for the voter " +
-		"to decipher it."),
-		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance."),
+		Spec("After a vote is places, the system shall send a personalized confirmation message to the voter. It must be very difficult to decipher this message for anyone but the voter who placed the vote."),
+		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance. They codes could for example be distributed with the voting cards."),
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
@@ -467,7 +466,7 @@ var m = Model(
 
 	Function("R15. Support for unlimited amount of individual votes") has (
 		Spec("Each voter must be allowed to vote via the electronic system as many times as desired. Only the last vote placed shall be tallied."),
-		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
+		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to override a previous vote at the voter's discretion."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
@@ -622,7 +621,7 @@ var m = Model(
 	Function("R04. Authentication when voting electronically from home") helps Goal("G05. Maintain democracy"),
 	Function("R05. Send confirmation to voter") helps Goal("G05. Maintain democracy"),
 	Function("R06. GUI information") helps Goal("G05. Maintain democracy"),
-	Function("R07. Party view") helps Goal("G01. Reduce manual labour"),
+	Function("R07. Party view") helps Goal("G05. Maintain democracy"),
 	Function("R08. Voting machines at a voting place") helps Goal("G01. Reduce manual labour"),
 	Function("R09. Authentication when voting electronically at a voting place") helps Goal("G05. Maintain democracy"),
 	Function("R10. One-Voter-One-Vote") helps Goal("G05. Maintain democracy"),
