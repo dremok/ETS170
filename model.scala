@@ -414,14 +414,15 @@ var m = Model(
 		Label("Authentication")
 	),
 	Function("R05. Send confirmation to voter") has (
-		Spec("After a vote is places, the system shall send a personalized confirmation message to the voter. It must only be possible for the voter " +
+		Spec("After a vote is placed, the system shall send a personalized confirmation message to the voter. It must only be possible for the voter " +
 		"to decipher it."),
 		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance."),
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
 		Spec("The GUI shall display information according to the electoral laws on what information is allowed on a voting paper."),
-		Label("GUI")
+		Label("GUI"),
+		Deprecated("Moved to design requirements.")
 	),
 	Function("R07. Party view") has (
 		Spec("The order of the parties that are viewed in the GUI shall be randomized. The parties that are in the parliament is placed above all other parties in the list."),
@@ -570,6 +571,10 @@ var m = Model(
 		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
+	Design("R_. vote-page information") has (
+		Spec("The vote-page shall display information according to the electoral laws on what information is allowed on a voting paper.")
+	),
+	
 	Design("R_. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
