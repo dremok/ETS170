@@ -430,15 +430,16 @@ var m = Model(
 	),
 	Function("R08. Voting machines at a voting place") has (
 		Spec("At the voting places, each voting booth must have a computer whose only functionality is to run the web interface for voting."),
-		Label("GUI")
+		Label("GUI"),
+		Deprecated("This is not a function requirement. It is covered in task T2.")
 	),
 	Function("R09. Authentication when voting electronically at a voting place") has (
-		Spec("To be able to use a voting machine at a voting place, the voter needs to be identified by at least two election inspectors and " +
-		"scan some kind of barcode (or similar) on the voter's voting card."),
+		Spec("At voting places with voting machines, the system must have functionality to scan some kind of barcodes or similar frmo the voter's voting card."),
+		Why("To be able to use a voting machine at a voting place, the voter needs to be identified by at least two election inspectors and also scan the personal voting card."),
 		Label("GUI")
 	),
 	Function("R10. One-Voter-One-Vote") has (
-		Spec("Only one vote per voter shall go to the tallying phase of the voting."),
+		Spec("During the tallying phase of the system, only one vote per voter shall exist."),
 		Label("Security")
 	),
 
@@ -448,7 +449,7 @@ var m = Model(
 	),
 
 	Function("R12. Envelope-Voter-Connection") has (
-		Spec("During the voting phase, each encrypted vote must have a connection to its voter."),
+		Spec("During the voting phase of the system, each encrypted vote must have a connection to its voter."),
 		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one."),
 		Comment("supports F07, F10 and F11")
 	),
@@ -456,7 +457,8 @@ var m = Model(
 
 	//Covered in data dictionary? Yes, but it's not that big a deal.
 	Function("R13. Vote encryption") has (
-		Spec("Each vote shall be encrypted so that it is not possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
+		Spec("The system shall encrypt each vote before storing it in the database."),
+		Why("It must not be possible for anyone but the voter to find out what the vote is placed on or who placed the vote."),
 		Label("Privacy")
 	),
 
