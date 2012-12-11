@@ -2,7 +2,7 @@ import reqT._
 
 var m = Model(
 	Product("Electronic Voting System") has
-		(Gist("An electronic voting system which will complement the manual system which is used today."),
+		(Gist("An electronic voting system which will complement the manual system used today."),
 		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates. After the end of the voting phase, electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
 		Image("ContextDiagram.png")
 	),
@@ -329,8 +329,9 @@ var m = Model(
 		Gist("Carry out voting via machine"),
 		Why("Let a person place a vote on a machine."),
 		Trigger("A voter goes to a place with a voting machine and wants to place a vote."),
-		Frequency("The machine might be used continuously during open hours throughout the entire voting period.")
-		
+		Frequency("The machine might be used continuously during open hours throughout the entire voting period."),
+		Comment("The voting machine is a computer which is designed to only operate the web voting interface. It is placed in a voting booth. " +
+				"A booth with a machine is assigned to the voter after he/she is authenticated.")
 	),
 	Task("T2") owns (
 		Task("T2a Carry out voting via machine - the typical case"),
@@ -375,8 +376,7 @@ var m = Model(
 			Gist("A person without any special needs votes using a machine at a voting place"),
 			Spec("The voter uses a computer which is designed to only operate the web voting interface. The voter shows his/her valid identification " +
 			"to at least two election inspectors and scans some kind of barcode (or similar) on the personal voting card. The voter is assigned a voting booth where a computer is situated. " +
-			"This computer has minimal functionality and can only operate the web interface for voting. Confirmation message is sent to the voter " +
-			"in the same way as in Task 1.")
+			"This computer has minimal functionality and can only operate the web interface for voting. The voter shall be able to verify the placed vote, as in Task 1.")
 		),
 		
 		Task("T2b Carry out voting via machine - visually impaired") has (
@@ -466,8 +466,9 @@ var m = Model(
 		Label("Voter eligibility check")
 	),
 
-	Function("R15. Support for unlimited amount of individual votes") has (
-		Spec("Each voter must be allowed to vote via the electronic system as many times as desired. Only the last vote placed shall be tallied."),
+	Function("R15. Support for unlimited amount of electronic votes") has (
+		Spec("Each voter must be allowed to vote via the electronic system as many times as desired.<br>" +
+				"Assuming that the voter hasn't placed any overriding votes, only the last electronic vote placed shall be tallied."),
 		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
@@ -546,7 +547,7 @@ var m = Model(
 	),
 
 	Function("R28. Admin warnings - Counting of votes") has (
-		Spec("When initiating counting of votes, the admin interface must warn about appropriate deviations in the system "),
+		Spec("When initiating counting of votes, the admin interface must warn about deviations in the system. See example."),
 		Example("(1) Notify the user that no paper votes have been read. (2) Notify the user that there are votes on unregistered candidates"),
 		Label("Admin functionality")
 	),
@@ -574,7 +575,7 @@ var m = Model(
 	Design("R_. vote-page information") has (
 		Spec("The vote-page shall display information according to the electoral laws on what information is allowed on a voting paper.")
 	),
-	
+
 	Design("R_. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
@@ -583,6 +584,7 @@ var m = Model(
 	//Quality requirements
 	Quality("Q01. Maximum downtime") has (
 		Spec("The system must be available for use _% of the voting process period."),
+		Why("The electoral authority demands this."),
 		Label("Reliability / Availability")
 	),
 
@@ -613,7 +615,7 @@ var m = Model(
 	),
 	Quality("Q07. Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
-		Spec("The system must work even though some of the servers have failed/become compromised."),
+		Spec("The system must work even though _ % of the servers does not work at all."),
 		Example("Anonymity shall still be enforced. <br>Correct result must be obtained.")
 	),
 
