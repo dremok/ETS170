@@ -431,7 +431,7 @@ var m = Model(
 	Function("R08. Voting machines at a voting place") has (
 		Spec("At the voting places, each voting booth must have a computer whose only functionality is to run the web interface for voting."),
 		Label("GUI"),
-		Deprecated("This is not a function requirement. It is covered in task T2.")
+		Deprecated("This is not really a function requirement. The requirement is covered in task T2.")
 	),
 	Function("R09. Authentication when voting electronically at a voting place") has (
 		Spec("At voting places with voting machines, the system must have functionality to scan some kind of barcodes or similar frmo the voter's voting card."),
@@ -463,13 +463,13 @@ var m = Model(
 	),
 
 	Function("R14. Eligibility check") has (
-		Spec("Only people present in the electoral register shall be able to place a vote in the system."),
+		Spec("The system must prohibit anyone not present in the electoral register to place a vote."),
 		Label("Voter eligibility check")
 	),
 
-	Function("R15. Support for unlimited amount of electronic votes") has (
+	Function("R15. Support for unlimited amount of electronic votes placed from home") has (
 		Spec("Each voter must be allowed to vote via the electronic system as many times as desired.<br>" +
-				"Assuming that the voter hasn't placed any overriding votes, only the last electronic vote placed shall be tallied."),
+				"Assuming that the voter hasn't placed any overriding votes, only the last electronic vote placed from a personal computer shall be tallied."),
 		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
@@ -489,13 +489,16 @@ var m = Model(
 	Function("R18. Change language") has (
 		Spec("The start page of the web interface must present an obvious way (for all voting stakeholders) of changing language."),
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language."),
+		Deprecated("Moved to design requirements."),
 		Label("Language")
 	),
 
 	//VOTING
 	Function("R19. Vote for an unregistered candidate") has (
-		Spec("It must be possible to vote for a candidate in a party that has no notified candidates by writing a name and other information in a text box."),
-		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by writing the name in a text box."),
+		Spec("The web interface must present a way to vote for a candidate in a party that has no notified candidates."),
+		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by " +
+			"writing the name and other information that distinguishes the intended person."),
+		Example("It can be done with a text box where the voter can write a name and other information."),
 		Label("Voting")
 	),
 	
@@ -568,9 +571,14 @@ var m = Model(
 	),
 
 	Function ("R31. Process free-text candidate votes") has (
-		Spec("The admin interface shall, during the pre-tallying phase, enable administrators to extract the votes placed on free-text candidates. The votes shall be presented in a way that makes it impossible to trace them to their voters. If a candidate can not be identified, it shall be possible to remove the corresponding vote from the database. If a candidate is identified, it shall be possible to register the candidate in the database and replace the free-text vote with a vote on this candidate."),
-		Why("Free-text candididates can not be identified automatically. A human administrator must manually identify the candidates. If this is not possible, the vote is invalid and must be removed. In order to perform the tallying, all candidates that have been voted on must have a proper entry in the database."),
-		Example("The free-text votes might be exported as an Excel file. The new votes (and deletions of votes) might be imported as an Excel file, possibly with any new candidates automatically created in the database."),
+		Spec("The admin interface shall, during the pre-tallying phase, enable administrators to extract the votes placed on free-text candidates. " +
+			"The votes shall be presented in a way that makes it impossible to trace them to their voters. If a candidate can not be identified, " +
+			"it shall be possible to remove the corresponding vote from the database. If a candidate is identified, it shall be possible to register " +
+			"the candidate in the database and replace the free-text vote with a vote on this candidate."),
+		Why("Free-text candididates can not be identified automatically. A human administrator must manually identify the candidates. " +
+			"If this is not possible, the vote is invalid and must be removed. In order to perform the tallying, all candidates that have been voted on must have a proper entry in the database."),
+		Example("The free-text votes might be exported as an Excel file. The new votes (and deletions of votes) might be imported as an Excel file, " +
+			"possibly with any new candidates automatically created in the database."),
 		Label("Admin functionality")
 	),
 
@@ -578,13 +586,21 @@ var m = Model(
 	Design("R_. start-page") has (
 		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
+	Design("R_. start-page - Change language") has (
+		Spec("The start page of the web interface must present an obvious way (for all voting stakeholders) to change language."),
+		Why("It must be trivial for non-Swedish speaking voters to vote in their own language.")
+	),
 
 	Design("R_. vote-page") has (
 		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
-	Design("R_. vote-page information") has (
+	Design("R_. vote-page - Information") has (
 		Spec("The vote-page shall display information according to the electoral laws on what information is allowed on a voting paper.")
+	),
+
+	Design("R_. vote-page - Free-text") has (
+		Spec("In case a party does not have any registered candidates, the vote-page shall have a text box where the voter can insert name and other information that distinguishes a person.")
 	),
 
 	Design("R_. admin-page") has (
@@ -648,7 +664,7 @@ var m = Model(
 	Function("R12. Envelope-Voter-Connection") helps Goal("G05. Maintain democracy"),
 	Function("R13. Vote encryption") helps Goal("G05. Maintain democracy"),
 	Function("R14. Eligibility check") helps Goal("G05. Maintain democracy"),
-	Function("R15. Support for unlimited amount of individual votes") helps Goal("G05. Maintain democracy"),
+	Function("R15. Support for unlimited amount of electronic votes placed from home") helps Goal("G05. Maintain democracy"),
 	Function("R16. Voting place overrides vote placed from home") helps Goal("G05. Maintain democracy"),
 	Function("R17. Language support") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
 	Function("R18. Change language") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),

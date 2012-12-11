@@ -75,7 +75,7 @@ val myTemplate = DocumentTemplate(
 	Section("Data dictionary", Text(""), m => m / Class),
 	
 	// Function requirements
-	Chapter("Function Requirements", Text(""), m => (m / Function -- deprecated().keySet)),
+	Chapter("Function Requirements", Text(""), m => (m / Function -- deprecated().keySet) - Label),
 
 	// Design-level requirements
 	Chapter("Design Requirements", Text(""), m => m / Design),
@@ -84,7 +84,7 @@ val myTemplate = DocumentTemplate(
 	Chapter("Quality Requirements", Text(""), m => m / Quality),
 
 	//Deprecated
-	Chapter("Deprecated", Text(""), m => deprecated())
+	Chapter("Deprecated", Text(""), m => deprecated() - Label)
 )
 
 m.toHtml(myTemplate).save("reqDoc.html")
