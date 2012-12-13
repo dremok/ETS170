@@ -608,17 +608,17 @@ var m = Model(
 	),
 
 	Design("R_. vote-page - vote for party") has (
-		Spec("The voting page must have the following design"),
+		Spec("When the user enters the votie-page the user is presented with the following view."),
 		Image("vote_party.png")
 	),
 
 	Design("R_. vote-page - vote for candidate") has (
-		Spec("The voting page must have the following design"),
+		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the following view."),
 		Image("vote_candidate.png")
 	),	
 
 	Design("R_. vote-page - confirmation") has (
-		Spec("The voting page must have the following design"),
+		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the following view."),
 		Image("vote_done.png")
 	),
 	
