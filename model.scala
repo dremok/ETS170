@@ -681,7 +681,13 @@ var m = Model(
 	Quality("Q07. Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
 		Spec("The system must work even though _ % of the servers do not work at all."),
-		Example("Anonymity shall still be enforced.<br>Correct result must be obtained.")
+		Example("Anonymity shall still be enforced.<br>" +
+			"Correct result must be obtained.")
+	),
+	Quality("Q08. Stress case tolerance") has (
+		Spec("The system shall be able to receive _ (number) votes every second. Any votes that can not be received must be queued for later processing."),
+		Why("The worst case scenario is that a vote from every eligible voter arrives during the same second."),
+		Label("Reliability / Availability")
 	),
 
 	// Relationships
@@ -755,5 +761,13 @@ var m = Model(
 	Design("D08. vote-page - vote for candidate") helps Function("R32. Log out"),
 	Design("D08. vote-page - vote for candidate") helps Function("R33. Voting"),
 	Design("D09. vote-page - confirmation") helps Function("R33. Voting"),
-	Design("D10. log out") helps Function("R32. Log out")
+	Design("D10. log out") helps Function("R32. Log out"),
+
+	Quality("Q01. Maximum downtime") helps Goal(""),
+	Quality("Q02. Maximum testing time") helps Goal(""),
+	Quality("Q03. Voter interface ease of use") helps Goal(""),
+	Quality("Q04. Administrator interface ease of use") helps Goal(""),
+	Quality("Q05. Vote count correctness") helps Goal(""),
+	Quality("Q06. Web browser compatibility") helps Goal(""),
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("")
 )
