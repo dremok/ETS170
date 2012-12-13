@@ -582,6 +582,11 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
+	Function ("R32. Admin log out") has (
+		Spec("Once loged in, it must be possible to log out from the system"),
+		Label("Authentication")
+	),
+
 		//Design-level requirements
 	Design("R_. start-page") has (
 		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
@@ -620,6 +625,10 @@ var m = Model(
 	Design("R_. vote-page - confirmation") has (
 		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the following view."),
 		Image("vote_done.png")
+	),
+
+	Design("R_. log out") has (
+		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
 
@@ -693,5 +702,9 @@ var m = Model(
 	Function("R26. Import party data") helps Goal("G01. Reduce manual labour"),
 	Function("R27. Import voter data") helps Goal("G01. Reduce manual labour"),
 	Function("R28. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
-	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour")
+	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
+
+	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
+
+	Design("R_. log out") helps Function("R32. Admin log out")
 )
