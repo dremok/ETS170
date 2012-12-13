@@ -600,46 +600,46 @@ var m = Model(
 	),
 
 		//Design-level requirements
-	Design("R_. start-page") has (
+	Design("D01. start-page") has (
 		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
-	Design("R_. start-page - Change language") has (
+	Design("D02. start-page - Change language") has (
 		Spec("The start page of the web interface must present an obvious way (for all voting stakeholders) to change language."),
 		Why("It must be trivial for non-Swedish speaking voters to vote in their own language.")
 	),
 
-	Design("R_. vote-page") has (
+	Design("D03. vote-page") has (
 		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
-	Design("R_. vote-page - Information") has (
+	Design("D04. vote-page - Information") has (
 		Spec("The vote-page shall display information according to the electoral laws on what information is allowed on a voting paper.")
 	),
 
-	Design("R_. vote-page - Free-text") has (
+	Design("D05. vote-page - Free-text") has (
 		Spec("In case a party does not have any registered candidates, the vote-page shall have a text box where the voter can insert name and other information that distinguishes a person.")
 	),
 
-	Design("R_. admin-page") has (
+	Design("D06. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
 
-	Design("R_. vote-page - vote for party") has (
+	Design("D07. vote-page - vote for party") has (
 		Spec("When the user enters the vote-page the user is presented with the following view."),
 		Image("vote_party.png")
 	),
 
-	Design("R_. vote-page - vote for candidate") has (
+	Design("D08. vote-page - vote for candidate") has (
 		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the following view."),
 		Image("vote_candidate.png")
 	),	
 
-	Design("R_. vote-page - confirmation") has (
+	Design("D09. vote-page - confirmation") has (
 		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the following view."),
 		Image("vote_done.png")
 	),
 
-	Design("R_. log out") has (
+	Design("D10. log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
@@ -722,38 +722,38 @@ var m = Model(
 	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
 	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 
-	Design("R_. start-page") helps Function("R04. Authentication when voting electronically from home"),
-	Design("R_. start-page") helps Function("R17. Language support"),
-	Design("R_. start-page") helps Function("R18. Change language"),
-	Design("R_. start-page - Change language") helps Function("R17. Language support"),
-	Design("R_. start-page - Change language") helps Function("R18. Change language"),
-	Design("R_. vote-page") helps Function("R06. GUI information"),
-	Design("R_. vote-page") helps Function("R07. Party view"),
-	Design("R_. vote-page") helps Function("R08. Voting machines at a voting place"),
-	Design("R_. vote-page") helps Function("R19. Vote for an unregistered candidate"),
-	Design("R_. vote-page") helps Function("R32. Log out"),
-	Design("R_. vote-page") helps Function("R33. Voting"),
-	Design("R_. vote-page - Information") helps Function("R06. GUI information"),
-	Design("R_. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
-	Design("R_. admin-page") helps Function("R20. Read paper votes"),
-	Design("R_. admin-page") helps Function("R23. Initiate vote count"),
-	Design("R_. admin-page") helps Function("R24. Start voting phase"),
-	Design("R_. admin-page") helps Function("R25. End voting phase"),
-	Design("R_. admin-page") helps Function("R26. Import party data"),
-	Design("R_. admin-page") helps Function("R27. Import voter data"),
-	Design("R_. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
-	Design("R_. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
-	Design("R_. admin-page") helps Function("R30. Input start and end times into database"),
-	Design("R_. admin-page") helps Function("R31. Process free-text candidate votes"),
-	Design("R_. admin-page") helps Function("R32. Log out"),
-	Design("R_. vote-page - vote for party") helps Function("R06. GUI information"),
-	Design("R_. vote-page - vote for party") helps Function("R07. Party view"),
-	Design("R_. vote-page - vote for party") helps Function("R32. Log out"),
-	Design("R_. vote-page - vote for party") helps Function("R33. Voting"),
-	Design("R_. vote-page - vote for candidate") helps Function("R06. GUI information"),
-	Design("R_. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
-	Design("R_. vote-page - vote for candidate") helps Function("R32. Log out"),
-	Design("R_. vote-page - vote for candidate") helps Function("R33. Voting"),
-	Design("R_. vote-page - confirmation") helps Function("R33. Voting"),
-	Design("R_. log out") helps Function("R32. Log out")
+	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
+	Design("D01. start-page") helps Function("R17. Language support"),
+	Design("D01. start-page") helps Function("R18. Change language"),
+	Design("D02. start-page -  Change language") helps Function("R17. Language support"),
+	Design("D02. start-page -  Change language") helps Function("R18. Change language"),
+	Design("D03. vote-page") helps Function("R06. GUI information"),
+	Design("D03. vote-page") helps Function("R07. Party view"),
+	Design("D03. vote-page") helps Function("R08. Voting machines at a voting place"),
+	Design("D03. vote-page") helps Function("R19. Vote for an unregistered candidate"),
+	Design("D03. vote-page") helps Function("R32. Log out"),
+	Design("D03. vote-page") helps Function("R33. Voting"),
+	Design("D04. vote-page - Information") helps Function("R06. GUI information"),
+	Design("D05. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
+	Design("D06. admin-page") helps Function("R20. Read paper votes"),
+	Design("D06. admin-page") helps Function("R23. Initiate vote count"),
+	Design("D06. admin-page") helps Function("R24. Start voting phase"),
+	Design("D06. admin-page") helps Function("R25. End voting phase"),
+	Design("D06. admin-page") helps Function("R26. Import party data"),
+	Design("D06. admin-page") helps Function("R27. Import voter data"),
+	Design("D06. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
+	Design("D06. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
+	Design("D06. admin-page") helps Function("R30. Input start and end times into database"),
+	Design("D06. admin-page") helps Function("R31. Process free-text candidate votes"),
+	Design("D06. admin-page") helps Function("R32. Log out"),
+	Design("D07. vote-page - vote for party") helps Function("R06. GUI information"),
+	Design("D07. vote-page - vote for party") helps Function("R07. Party view"),
+	Design("D07. vote-page - vote for party") helps Function("R32. Log out"),
+	Design("D07. vote-page - vote for party") helps Function("R33. Voting"),
+	Design("D08. vote-page - vote for candidate") helps Function("R06. GUI information"),
+	Design("D08. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
+	Design("D08. vote-page - vote for candidate") helps Function("R32. Log out"),
+	Design("D08. vote-page - vote for candidate") helps Function("R33. Voting"),
+	Design("D09. vote-page - confirmation") helps Function("R33. Voting"),
+	Design("D10. log out") helps Function("R32. Log out")
 )
