@@ -31,7 +31,7 @@ def variants(i: Int): Model = for (
 	) yield (Key(entity,edge), nodes)
 
 def deprecatedHas(): Model = for (
-	(Key(entity,edge), nodes) <- (m / Function)
+	(Key(entity,edge), nodes) <- m
 		if nodes exists {
 			case Deprecated(_) => true
 			case _ => false
@@ -40,8 +40,8 @@ def deprecatedHas(): Model = for (
 
 def deprecatedHelps(): Model =
   for ( (Key(entity,edge), nodes) <- (m / helps);
-    if deprecatedHas().keySet contains Key(entity,has)
-     )
+    if deprecatedHas().keySet contains Key(entity,has
+)     )
   yield (Key(entity,edge), nodes)
 
 def deprecated(): Model = deprecatedHas() ++ deprecatedHelps()
