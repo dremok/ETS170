@@ -413,6 +413,37 @@ var m = Model(
 			Spec("The designers of the user interface shall strive to make it as easy and efficient to use as possible.")
 		),
 
+	Task("T3") has (
+		Label("maintask3"),
+		Gist("Set up election"),
+		Why("Make sure that all prerequisites for running an election, using this system, are fulfilled."),
+		Trigger("Valmyndigheten decides that an election shall be carried out, and assigns an admin to set it up.")
+	),
+	
+	Task("T2") owns (
+		Task("T3.1 Import party/candidate data"),
+		Task("T3.2 Set dates for the election"),
+		Task("T3.3 Confirm")
+	),
+
+		// Subtasks	
+		Task("T3.1 Import party/candidate data") has (
+			Label("subtask3.1"),
+			Gist("The admin uses the admin interface to choose the files to import. These files must contain party and candidate data " +
+				"in the correct format, as specified in the design requirements.")
+		),
+			
+		Task("T3.2 Set time and duration for the election") has (
+			Label("subtask3.2"),
+			Gist("The admin uses the admin interface to set start- and end date for the election.")
+		),
+		
+		Task("T3.3 Confirm") has (
+			Label("subtask3.3"),
+			Gist("The admin uses the admin interface to confirm that the party/candidate data and entered dates are correct.")
+		),
+
+
 	// Function requirements
 	Function("R04. Authentication when voting electronically from home") has (
 		Spec("The system shall authenticate the voter using an existing electronic identification system that the voters feel " +
@@ -671,6 +702,18 @@ var m = Model(
 		Image("admin.png")
 	),
 
+	Design("D_. Admin-page - Save") has (
+		Spec("The save button (\"Spara\") on the admin page saves the actions performed on the admin page. This includes: importing of party data, importing of candidate data, importing of paper votes and setting of start and end dates for the election period.")
+	),
+
+	Design("D_. Admin-page - Save party data") has (
+		Spec("Any existing data in the party database it will be erased and replaced by the imported data.")
+	),
+
+	Design("D_. Admin-page - Save candidate data") has (
+		Spec("Any existing data in the candidate database it will be erased and replaced by the imported data.")
+	),
+
 	Design("D_. Tallying procedure") has (
 		Spec("When the voting period is over and paper votes and free-text votes have been put in the database, the system shall prepare the votes for the tallying in the following way:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
@@ -809,11 +852,12 @@ var m = Model(
 
 	Design("D12. log out") helps Function("R32. Log out"),
 
-	//TODO: Q02,Q03, Q04
+	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
-	Quality("Q02. Maximum testing time") helps Goal(""),
-	Quality("Q03. Voter interface ease of use") helps Goal(""),
-	Quality("Q04. Administrator interface ease of use") helps Goal(""),
+	Quality("Q02. Maximum testing time") helps Goal("G05. Maintain democracy"),
+	Quality("Q03. Voter interface ease of use") helps Goal("G01. Reduce manual labour"),
+	Quality("Q03. Voter interface ease of use") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Quality("Q04. Administrator interface ease of use") helps Goal("G01. Reduce manual labour"),
 	Quality("Q05. Vote count correctness") helps Goal("G04. Maintain the current election turnout"),
 	Quality("Q05. Vote count correctness") helps Goal("G05. Maintain democracy"),
 	Quality("Q06. Web browser compatibility") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
