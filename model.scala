@@ -685,12 +685,18 @@ var m = Model(
 	),
 
 	Design("D11. admin-page - import candidate data") has (
-		Spec("The candidate data file must be in .csv format with exactly four rows. The first row contains the candidate names, " +
-			"the second each candidate's personal identity number, the third each candidate's electoral area and the fourth each candidate's party."),
+		Spec("The candidate data file must be in .csv format.<br>The first row contains the candidate names, " +
+			"the second each candidate's personal identity number, the third each candidate's party and " +
+			"the fourth a priority number for each candidate which is used to decide their order in the GUI and on the ballots." +
+			"Then follows one row per candidate (in the same order as they are in the first row), " +
+			"with all the electoral areas where he/she candidates."),
 		Example("Fredrik Reinfeldt,Maud Olofsson,Gudrun Schyman<br>" +
 				"19650804-1099,19550809-7887,19480609-1049<br>" +
-				"Täby Västra,Robertsfors,Simrishamn 9<br>" +
-				"Moderaterna,Centerpartiet,Feministiskt initiativ")
+				"Moderaterna,Centerpartiet,Feministiskt initiativ<br>" +
+				"1,2,1<br>" +
+				"Täby Västra,Täby Östra,...<br>" +
+				"Robertsfors,Umeå,...<br>" +
+				"Simrishamn 9,Simrishamn 8,...")
 	),
 	
 	Design("D12. log out") has (
@@ -812,7 +818,7 @@ var m = Model(
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
-	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
+	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
 	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
@@ -848,9 +854,9 @@ var m = Model(
 	Design("D09. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
 	Design("D09. admin-page") helps Function("R30. Input start and end times into database"),
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
-	Design("D09. admin-page") helps Function("R32. Log out"),
+	Design("D09. admin-page") helps Function("R32. Admin log out"),
 
-	Design("D12. log out") helps Function("R32. Log out"),
+	Design("D12. log out") helps Function("R32. Admin log out"),
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
