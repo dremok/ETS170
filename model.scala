@@ -805,11 +805,12 @@ var m = Model(
 
 	Design("D12. log out") helps Function("R32. Log out"),
 
-	//TODO: Q02,Q03, Q04
+	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
 	Quality("Q02. Maximum testing time") helps Goal(""),
-	Quality("Q03. Voter interface ease of use") helps Goal(""),
-	Quality("Q04. Administrator interface ease of use") helps Goal(""),
+	Quality("Q03. Voter interface ease of use") helps Goal("G01. Reduce manual labour"),
+	Quality("Q03. Voter interface ease of use") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
+	Quality("Q04. Administrator interface ease of use") helps Goal("G01. Reduce manual labour"),
 	Quality("Q05. Vote count correctness") helps Goal("G04. Maintain the current election turnout"),
 	Quality("Q05. Vote count correctness") helps Goal("G05. Maintain democracy"),
 	Quality("Q06. Web browser compatibility") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
