@@ -687,7 +687,7 @@ var m = Model(
 	Design("D11. admin-page - import candidate data") has (
 		Spec("The candidate data file must be in .csv format. The first row contains the candidate names, " +
 			"the second each candidate's personal identity number, the third each candidate's party and " +
-			"the fourth a priority number for each candidate."
+			"the fourth a priority number for each candidate." +
 			"Then follows one row per candidate (in the same order as they are in the first row), " +
 			"with all the electoral areas where he/she candidates."),
 		Example("Fredrik Reinfeldt,Maud Olofsson,Gudrun Schyman<br>" +
