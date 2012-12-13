@@ -413,6 +413,37 @@ var m = Model(
 			Spec("The designers of the user interface shall strive to make it as easy and efficient to use as possible.")
 		),
 
+	Task("T3") has (
+		Label("maintask3"),
+		Gist("Set up election"),
+		Why("Make sure that all prerequisites for running an election, using this system, are fulfilled."),
+		Trigger("Valmyndigheten decides that an election shall be carried out, and assigns an admin to set it up.")
+	),
+	
+	Task("T2") owns (
+		Task("T3.1 Import party/candidate data"),
+		Task("T3.2 Set dates for the election"),
+		Task("T3.3 Confirm")
+	),
+
+		// Subtasks	
+		Task("T3.1 Import party/candidate data") has (
+			Label("subtask3.1"),
+			Gist("The admin uses the admin interface to choose the files to import. These files must contain party and candidate data " +
+				"in the correct format, as specified in the design requirements.")
+		),
+			
+		Task("T3.2 Set time and duration for the election") has (
+			Label("subtask3.2"),
+			Gist("The admin uses the admin interface to set start- and end date for the election.")
+		),
+		
+		Task("T3.3 Confirm") has (
+			Label("subtask3.3"),
+			Gist("The admin uses the admin interface to confirm that the party/candidate data and entered dates are correct.")
+		),
+
+
 	// Function requirements
 	Function("R04. Authentication when voting electronically from home") has (
 		Spec("The system shall authenticate the voter using an existing electronic identification system that the voters feel " +
