@@ -606,6 +606,21 @@ var m = Model(
 	Design("R_. admin-page") has (
 		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
 	),
+
+	Design("R_. vote-page - vote for party") has (
+		Spec("The voting page must have the following design"),
+		Image("vote_party.png")
+	),
+
+	Design("R_. vote-page - vote for candidate") has (
+		Spec("The voting page must have the following design"),
+		Image("vote_candidate.png")
+	),	
+
+	Design("R_. vote-page - confirmation") has (
+		Spec("The voting page must have the following design"),
+		Image("vote_done.png")
+	),
 	
 
 	//Quality requirements
