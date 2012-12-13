@@ -807,7 +807,7 @@ var m = Model(
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
-	Quality("Q02. Maximum testing time") helps Goal(""),
+	Quality("Q02. Maximum testing time") helps Goal("G05. Maintain democracy"),
 	Quality("Q03. Voter interface ease of use") helps Goal("G01. Reduce manual labour"),
 	Quality("Q03. Voter interface ease of use") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
 	Quality("Q04. Administrator interface ease of use") helps Goal("G01. Reduce manual labour"),
