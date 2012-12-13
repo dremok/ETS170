@@ -703,7 +703,8 @@ var m = Model(
 	Function("R27. Import voter data") helps Goal("G01. Reduce manual labour"),
 	Function("R28. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
-
+	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
+	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
 	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
 
 	Design("R_. log out") helps Function("R32. Admin log out")
