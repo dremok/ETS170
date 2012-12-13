@@ -115,10 +115,10 @@ var m = Model(
 	Feature("F02. Input of election data to database") has (
 		Spec("Ability to add parties, candidates, a start time and an end time for the election to the database.")
 	),
-/*	Feature("F03. Send vote to server") has (
-		Spec("Functionality that carries out transmission of vote data from client to server.")
+	Feature("F03. Send vote to server") has (
+		Spec("Functionality that carries out transmission of vote data from client to server."),
+		Deprecated("Changed into a function requirement.")
 	),
-*/
 	Feature("F04. Individual Verifiability") has (
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
@@ -620,26 +620,26 @@ var m = Model(
 		Spec("In case a party does not have any registered candidates, the vote-page shall have a text box where the voter can insert name and other information that distinguishes a person.")
 	),
 
-	Design("D06. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
-	),
-
-	Design("D07. vote-page - vote for party") has (
+	Design("D06. vote-page - vote for party") has (
 		Spec("When the user enters the vote-page the user is presented with the following view."),
 		Image("vote_party.png")
 	),
 
-	Design("D08. vote-page - vote for candidate") has (
+	Design("D07. vote-page - vote for candidate") has (
 		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the following view."),
 		Image("vote_candidate.png")
 	),	
 
-	Design("D09. vote-page - confirmation") has (
+	Design("D08. vote-page - confirmation") has (
 		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the following view."),
 		Image("vote_done.png")
 	),
 
-	Design("D10. log out") has (
+	Design("D09. admin-page") has (
+		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
+	),
+	
+	Design("D_. log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
