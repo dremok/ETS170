@@ -761,5 +761,13 @@ var m = Model(
 	Design("D08. vote-page - vote for candidate") helps Function("R32. Log out"),
 	Design("D08. vote-page - vote for candidate") helps Function("R33. Voting"),
 	Design("D09. vote-page - confirmation") helps Function("R33. Voting"),
-	Design("D10. log out") helps Function("R32. Log out")
+	Design("D10. log out") helps Function("R32. Log out"),
+
+	Quality("Q01. Maximum downtime") helps Goal(""),
+	Quality("Q02. Maximum testing time") helps Goal(""),
+	Quality("Q03. Voter interface ease of use") helps Goal(""),
+	Quality("Q04. Administrator interface ease of use") helps Goal(""),
+	Quality("Q05. Vote count correctness") helps Goal(""),
+	Quality("Q06. Web browser compatibility") helps Goal(""),
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("")
 )
