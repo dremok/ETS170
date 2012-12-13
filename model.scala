@@ -434,7 +434,7 @@ var m = Model(
 		Deprecated("This is not really a function requirement. The requirement is covered in task T2.")
 	),
 	Function("R09. Authentication when voting electronically at a voting place") has (
-		Spec("At voting places with voting machines, the system must have functionality to scan some kind of barcodes or similar frmo the voter's voting card."),
+		Spec("At voting places with voting machines, the system must have functionality to scan some kind of barcodes or similar from the voter's voting card."),
 		Why("To be able to use a voting machine at a voting place, the voter needs to be identified by at least two election inspectors and also scan the personal voting card."),
 		Label("GUI")
 	),
@@ -707,5 +707,16 @@ var m = Model(
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
 	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
 
+	Design("R_. start-page") helps Function("R04. Authentication when voting electronically from home"),
+	Design("R_. start-page") helps Function("R17. Language support"),
+	Design("R_. start-page") helps Function("R18. Change language"),
+	Design("R_. start-page - Change language") helps Function(""),
+	Design("R_. vote-page") helps Function(""),
+	Design("R_. vote-page - Information") helps Function(""),
+	Design("R_. vote-page - Free-text") helps Function(""),
+	Design("R_. admin-page") helps Function(""),
+	Design("R_. vote-page - vote for party") helps Function(""),
+	Design("R_. vote-page - vote for candidate") helps Function(""),
+	Design("R_. vote-page - confirmation") helps Function(""),
 	Design("R_. log out") helps Function("R32. Admin log out")
 )
