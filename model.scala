@@ -712,6 +712,14 @@ var m = Model(
 		Spec("The save button (\"Spara\") on the admin page saves the actions performed on the admin page. This includes: importing of party data, importing of candidate data, importing of paper votes and setting of start and end dates for the election period.")
 	),
 
+	Design("D_. Admin-page - Save party data") has (
+		Spec("Any existing data in the party database it will be erased and replaced by the imported data.")
+	),
+
+	Design("D_. Admin-page - Save candidate data") has (
+		Spec("Any existing data in the candidate database it will be erased and replaced by the imported data.")
+	),
+
 	Design("D_. Tallying procedure") has (
 		Spec("When the voting period is over and paper votes and free-text votes have been put in the database, the system shall prepare the votes for the tallying in the following way:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
