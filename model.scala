@@ -634,7 +634,7 @@ var m = Model(
 
 	//Quality requirements
 	Quality("Q01. Maximum downtime") has (
-		Spec("The system must be available for use _% of the voting process period."),
+		Spec("The system must be available for voting _% of the voting phase."),
 		Why("The electoral authority demands this."),
 		Label("Reliability / Availability")
 	),
