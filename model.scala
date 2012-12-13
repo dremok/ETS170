@@ -656,11 +656,7 @@ var m = Model(
 		Spec("In case a party does not have any registered candidates, the vote-page shall have a text box where the voter can insert name and other information that distinguishes a person.")
 	),
 
-	Design("D06. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personnel")
-	),
-
-	Design("D07. vote-page - vote for party") has (
+	Design("D06. vote-page - vote for party") has (
 		Spec("When the user enters the vote-page the user is presented with the following view."),
 		Image("vote_party.png")
 	),
@@ -698,10 +694,6 @@ var m = Model(
 				"Robertsfors,Umeå,...<br>" +
 				"Simrishamn 9,Simrishamn 8,...")
 	),
-	
-	Design("D12. log out") has (
-		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
-	),
 
 	Design("D_. Admin-page - design") has (
 		Spec("When the admin enters the admin-page the admin is presented with the following view."),
@@ -730,6 +722,10 @@ var m = Model(
 		     "6. The key for decrypting the votes is introduced to the system of tallying computers.<br>" +
 		     "7. The tallying phase is commenced. Human access to the room during this phase is restricted."),
 		Label("Vote count")
+	),
+
+	Design("D_. log out") has (
+		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
 
