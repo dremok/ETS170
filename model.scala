@@ -52,7 +52,7 @@ var m = Model(
 	Stakeholder("S08. Voters with particularly low knowledge of electronic systems") has (
 		Spec("This group includes voters who have little to no computer experience and feel uncomfortable using them."),
 		Prio(1),
-		Comment("Stakeholder's goals: Voting should be done as smoothly as before. Risks/costs: Voting gets too confusing." +
+		Comment("Stakeholder's goals: Voting shall be done as smoothly as before. Risks/costs: Voting gets too confusing." +
 		"<br>This stakeholder has low priority since it is unlikely that an electronic system will be of much help regarding severe examples of this impairment. These voters will probably continue to vote via mail or via representative.")
 	),
 	Stakeholder("S09. Voters who are uninterested in using an electronic voting system") has (
@@ -256,10 +256,10 @@ var m = Model(
 	),
 	// Variants
 	Task("T1") owns (
-		Task("1a Carry out voting via the web interface - the typical case"),
-		Task("1b Carry out voting via the web interface - visually impaired"),
-		Task("1c Carry out voting via the web interface - non-Swedish speaking voter"),
-		Task("1d Carry out voting via the web interface - voter has motor impairments")
+		Task("T1a Carry out voting via the web interface - the typical case"),
+		Task("T1b Carry out voting via the web interface - visually impaired"),
+		Task("T1c Carry out voting via the web interface - non-Swedish speaking voter"),
+		Task("T1d Carry out voting via the web interface - voter has motor impairments")
 	),
 	// Subtasks
 	Task("T1") owns (
@@ -272,8 +272,8 @@ var m = Model(
 		Task("T1.1 Authenticate") has (
 			Label("subtask1.1"),
 			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
-			"electronic identification"),
-			Example("By for example using BankID")
+			"electronic identification."),
+			Example("An example of a suitable identification procedure is BankID.")
 		),
 			
 		Task("T1.2 Choose party and candidate") has (
@@ -289,7 +289,7 @@ var m = Model(
 		Task("T1.4 Receive confirmation") has (
 			Label("subtask1.4"),
 			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
-			Comment("It should be very difficult to fake this confirmation message.")
+			Comment("It must be very difficult to fake this confirmation message.")
 		),
 		
 		Task("T1a Carry out voting via the web interface - the typical case") has (
@@ -314,14 +314,14 @@ var m = Model(
 			Example("The voter chooses to vote through the web interface. From the voting card it is clear enough what is the web " +
 			"adress to the voting web site that no text on the card needs to be understood. As soon as the person enters the web site, " +
 			"there shall be a clear possibility to change language to any language that is spoken by a Swedish citizen. The procedure is " +
-			"then carried out as in 1a.")
+			"then carried out as in T1a.")
 		),
 		
 		Task("T1d Carry out voting via the web interface - voter has motor impairments") has (
 			Label("variant1d"),
 			Gist("A person with motor impairments uses the web interface to vote"),
 			Example("The voter chooses to vote through the web interface. Assuming that the voter has the necessary tools to surf the web " +
-			"without hinder, the voting is carried out with the same ease as with the procedure in 1a for a person without motor impairments.")
+			"without hinder, the voting is carried out with the same ease as with the procedure in T1a for a person without motor impairments.")
 		),
 		
 	Task("T2") has (
@@ -367,7 +367,7 @@ var m = Model(
 		Task("T2.4 Receive confirmation") has (
 			Label("subtask2.4"),
 			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
-			Comment("It should be very difficult to fake this confirmation message.")
+			Comment("It must be very difficult to fake this confirmation message.")
 		),
 
 		// Variants
@@ -376,13 +376,13 @@ var m = Model(
 			Gist("A person without any special needs votes using a machine at a voting place"),
 			Spec("The voter uses a computer which is designed to only operate the web voting interface. The voter shows his/her valid identification " +
 			"to at least two election inspectors and scans some kind of barcode (or similar) on the personal voting card. The voter is assigned a voting booth where a computer is situated. " +
-			"This computer has minimal functionality and can only operate the web interface for voting. The voter shall be able to verify the placed vote, as in Task 1.")
+			"This computer has minimal functionality and can only operate the web interface for voting. The voter shall be able to verify the placed vote, as in Task T1.")
 		),
 		
 		Task("T2b Carry out voting via machine - visually impaired") has (
 			Label("variant2b"),
 			Gist("A person with a visual impairment votes using a machine at a voting place"),
-			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in 1b."),
+			Spec("The public voting machines are equipped with technologies that enable a visually impaired person to use them. This makes voting identical to the case in T1b."),
 			Comment("In case text-to-speech is used, it shall not be possible to hear the output from outside of the booth where the machine is placed."),
 			Example("The voting machines might be placed in sound isolated booths or be equipped with headphones in order to provide text-to-speech functionality.")
 		),
@@ -390,7 +390,7 @@ var m = Model(
 		Task("T2c Carry out voting via machine - non-Swedish speaking voter") has (
 			Label("variant2c"),
 			Gist("A person who doesn't understand Swedish votes using a machine at a voting place"),
-			Spec("This is identical to 1c.")
+			Spec("When the voter enters the booth, it is evident from the user interface how one changes the language. The user changes language and proceeds as in T1a.")
 		),
 
 		Task("T2d Carry out voting via machine - voter has motor impairments") has (
@@ -403,7 +403,7 @@ var m = Model(
 		Task("T2e Carry out voting via machine - voter has cognitive impairments") has (
 			Label("variant2e"),
 			Gist("A person with cognitive impairments votes using a machine at a voting place"),
-			Spec("The designers of the user interface should strive to make it as easy and efficient to use as possible.")
+			Spec("The designers of the user interface shall strive to make it as easy and efficient to use as possible.")
 		),
 
 	// Function requirements
@@ -415,7 +415,7 @@ var m = Model(
 	),
 	Function("R05. Send confirmation to voter") has (
 		Spec("After a vote is placed, the system shall send a personalized confirmation message to the voter. It must be very difficult to decipher this message for anyone but the voter who placed the vote."),
-		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance. They codes could for example be distributed with the voting cards."),
+		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance. The codes could for example be distributed with the voting cards."),
 		Label("Individual verifiability")
 	),
 	Function("R06. GUI information") has (
@@ -496,7 +496,7 @@ var m = Model(
 	//VOTING
 	Function("R19. Vote for an unregistered candidate") has (
 		Spec("The web interface must present a way to vote for a candidate in a party that has no notified candidates."),
-		Why("If a party doesn't notify candidates for the election it should still be possible to vote for a candidate by " +
+		Why("If a party doesn't notify candidates for the election it shall still be possible to vote for a candidate by " +
 			"writing the name and other information that distinguishes the intended person."),
 		Example("It can be done with a text box where the voter can write a name and other information."),
 		Label("Voting")
@@ -646,6 +646,7 @@ var m = Model(
 
 	Quality("Q03. Voter interface ease of use") has (
 		Spec("_ % of randomly selected voters must be able to place a vote within 2 minutes from opening the voting site."),
+		Comment("Customer expects 80%."),
 		Label("Usability")
 	),
 
@@ -661,13 +662,14 @@ var m = Model(
 	),
 
 	Quality("Q06. Web browser compatibility") has (
-		Spec("_ % of voters' default browsers shall be compatible with the system."),
+		Spec("The system shall be compatible with different browsers in such a way that at least _ % of the voters are able to use their default browsers to vote."),
+		Comment("Customer expects 90%."),
 		Label("Interoperability / Portability")
 	),
 	Quality("Q07. Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
-		Spec("The system must work even though _ % of the servers does not work at all."),
-		Example("Anonymity shall still be enforced. <br>Correct result must be obtained.")
+		Spec("The system must work even though _ % of the servers do not work at all."),
+		Example("Anonymity shall still be enforced.<br>Correct result must be obtained.")
 	),
 
 	// Relationships
