@@ -69,6 +69,8 @@ val myTemplate = DocumentTemplate(
 	Section("", Text(""), m => mWithoutLabels(mainTask(2))),
 	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(2))),
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(2))),
+	Section("", Text(""), m => mWithoutLabels(mainTask(3))),
+	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(3))),
 	
 	// Data requirements
 	Chapter("Data Requirements", Text("<b>R03. The server shall handle the following data:</b>"), m => m / hurts),
@@ -87,4 +89,9 @@ val myTemplate = DocumentTemplate(
 	Chapter("Deprecated", Text(""), m => deprecated() - Label)
 )
 
-m.toHtml(myTemplate).save("reqDoc.html")
+object myHtmlGen extends HtmlGenerator {
+  val meta = """<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >"""
+  override def head(title:String) = "<head>\n" + css + meta + "<title>" + title + "</title>\n</head>\n\n"
+}
+
+m.toHtml(myTemplate, myHtmlGen).save("reqDoc.html")
