@@ -288,7 +288,7 @@ var m = Model(
 			
 		Task("T1.4 Receive confirmation") has (
 			Label("subtask1.4"),
-			Gist("The voter is able to verify how he/she voted."),
+			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 		
@@ -331,7 +331,7 @@ var m = Model(
 		Trigger("A voter goes to a place with a voting machine and wants to place a vote."),
 		Frequency("The machine might be used continuously during open hours throughout the entire voting period."),
 		Comment("The voting machine is a computer which is designed to only operate the web voting interface. It is placed in a voting booth. " +
-				"A booth with a machine is assigned to the voter after he/she is authenticated.")
+				"A booth with a machine is automatically assigned to the voter after he/she is authenticated.")
 	),
 	Task("T2") owns (
 		Task("T2a Carry out voting via machine - the typical case"),
@@ -366,7 +366,7 @@ var m = Model(
 		
 		Task("T2.4 Receive confirmation") has (
 			Label("subtask2.4"),
-			Gist("The voter is able to verify how he/she voted."),
+			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
 			Comment("It should be very difficult to fake this confirmation message.")
 		),
 
