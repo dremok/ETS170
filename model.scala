@@ -3,7 +3,7 @@ import reqT._
 var m = Model(
 	Product("Electronic Voting System") has
 		(Gist("An electronic voting system which will complement the manual system used today."),
-		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates after the end of the voting phase. This is also when electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
+		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates after the end of the voting phase. In addition to this, electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
 		Image("ContextDiagram.png")
 	),
 
@@ -682,12 +682,16 @@ var m = Model(
 		     "7. The tallying phase is commenced. Human access to the room during this phase is restricted."),
 		Label("Vote count")
 	),
-	
 
+	Design("D_. Voter eligibility check") has (
+		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access."),
+		Label("")
+	),
+	
 	//Quality requirements
 	Quality("Q01. Maximum downtime") has (
 		Spec("The system must be available for voting _% of the voting phase."),
-		Why("The electoral authority demands this."),
+		Why("Valmyndigheten demands this."),
 		Label("Reliability / Availability")
 	),
 
