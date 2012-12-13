@@ -198,6 +198,11 @@ var m = Model(
 	
 	
 	//Data Dictionary
+	Class("ER Diagram") has (
+		Spec("The ER diagram shows the relations between the entities in the system's data structure. It must be followed."),
+		Image("ETS170 ER diagram.png")
+	),
+
 	Class("Voter") has (
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
