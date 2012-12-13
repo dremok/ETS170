@@ -190,6 +190,11 @@ var m = Model(
 		Spec("Undermining the election process by exploiting the fact the votes are submitted electronically shall be very difficult."),
 		Why("An electronic system introduces new threats to the election process. These must be countered in order to maintain the quality of the process.")
 	),
+	//Even if a user has no internet connection the system may still be available from another computer.
+	Goal("G07. Availability") has (
+		Spec("Make the system available at all time during its supposed uptime."),
+		Why("If the system isn't available people wont be able to vote and the admin wont be able to maintain the system.")
+	),
 	
 	
 	//Data Dictionary
@@ -763,11 +768,14 @@ var m = Model(
 	Design("D09. vote-page - confirmation") helps Function("R33. Voting"),
 	Design("D10. log out") helps Function("R32. Log out"),
 
-	Quality("Q01. Maximum downtime") helps Goal(""),
+	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
 	Quality("Q02. Maximum testing time") helps Goal(""),
 	Quality("Q03. Voter interface ease of use") helps Goal(""),
 	Quality("Q04. Administrator interface ease of use") helps Goal(""),
-	Quality("Q05. Vote count correctness") helps Goal(""),
-	Quality("Q06. Web browser compatibility") helps Goal(""),
-	Quality("Q07. Robustness/Fault Tolerance") helps Goal("")
+	Quality("Q05. Vote count correctness") helps Goal("G04. Maintain the current election turnout"),
+	Quality("Q05. Vote count correctness") helps Goal("G05. Maintain democracy"),
+	Quality("Q06. Web browser compatibility") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
+	Quality("Q06. Web browser compatibility") helps Goal("G07. Availability"),
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G07. Availability"),
+	Quality("Q08. Stress case tolerance") helps Goal("G07. Availability")
 )
