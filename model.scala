@@ -582,9 +582,14 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
-	Function ("R32. Admin log out") has (
+	Function ("R32. Log out") has (
 		Spec("Once loged in, it must be possible to log out from the system"),
 		Label("Authentication")
+	),
+
+	Function("R33. Voting") has (
+		Spec("It must be possible to vote"),
+		Label("Voting")
 	),
 
 		//Design-level requirements
@@ -613,7 +618,7 @@ var m = Model(
 	),
 
 	Design("R_. vote-page - vote for party") has (
-		Spec("When the user enters the votie-page the user is presented with the following view."),
+		Spec("When the user enters the vote-page the user is presented with the following view."),
 		Image("vote_party.png")
 	),
 
@@ -707,18 +712,41 @@ var m = Model(
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
-	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
+	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
+	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 
 	Design("R_. start-page") helps Function("R04. Authentication when voting electronically from home"),
 	Design("R_. start-page") helps Function("R17. Language support"),
 	Design("R_. start-page") helps Function("R18. Change language"),
-	Design("R_. start-page - Change language") helps Function(""),
-	Design("R_. vote-page") helps Function(""),
-	Design("R_. vote-page - Information") helps Function(""),
-	Design("R_. vote-page - Free-text") helps Function(""),
-	Design("R_. admin-page") helps Function(""),
-	Design("R_. vote-page - vote for party") helps Function(""),
-	Design("R_. vote-page - vote for candidate") helps Function(""),
-	Design("R_. vote-page - confirmation") helps Function(""),
-	Design("R_. log out") helps Function("R32. Admin log out")
+	Design("R_. start-page - Change language") helps Function("R17. Language support"),
+	Design("R_. start-page - Change language") helps Function("R18. Change language"),
+	Design("R_. vote-page") helps Function("R06. GUI information"),
+	Design("R_. vote-page") helps Function("R07. Party view"),
+	Design("R_. vote-page") helps Function("R08. Voting machines at a voting place"),
+	Design("R_. vote-page") helps Function("R19. Vote for an unregistered candidate"),
+	Design("R_. vote-page") helps Function("R32. Log out"),
+	Design("R_. vote-page") helps Function("R33. Voting"),
+	Design("R_. vote-page - Information") helps Function("R06. GUI information"),
+	Design("R_. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
+	Design("R_. admin-page") helps Function("R20. Read paper votes"),
+	Design("R_. admin-page") helps Function("R23. Initiate vote count"),
+	Design("R_. admin-page") helps Function("R24. Start voting phase"),
+	Design("R_. admin-page") helps Function("R25. End voting phase"),
+	Design("R_. admin-page") helps Function("R26. Import party data"),
+	Design("R_. admin-page") helps Function("R27. Import voter data"),
+	Design("R_. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
+	Design("R_. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
+	Design("R_. admin-page") helps Function("R30. Input start and end times into database"),
+	Design("R_. admin-page") helps Function("R31. Process free-text candidate votes"),
+	Design("R_. admin-page") helps Function("R32. Log out"),
+	Design("R_. vote-page - vote for party") helps Function("R06. GUI information"),
+	Design("R_. vote-page - vote for party") helps Function("R07. Party view"),
+	Design("R_. vote-page - vote for party") helps Function("R32. Log out"),
+	Design("R_. vote-page - vote for party") helps Function("R33. Voting"),
+	Design("R_. vote-page - vote for candidate") helps Function("R06. GUI information"),
+	Design("R_. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
+	Design("R_. vote-page - vote for candidate") helps Function("R32. Log out"),
+	Design("R_. vote-page - vote for candidate") helps Function("R33. Voting"),
+	Design("R_. vote-page - confirmation") helps Function("R33. Voting"),
+	Design("R_. log out") helps Function("R32. Log out")
 )
