@@ -123,7 +123,7 @@ var m = Model(
 		Spec("Ability for the voter to verify that his/her vote was placed on the intended entities.")
 	),
 	Feature("F05. Counting of electronic votes") has (
-		Spec("Possibility for server to count the votes in the data recieved from clients.")
+		Spec("Possibility for the system to count the votes in the data received from clients.")
 	),
 	Feature("F06. Support for different languages") has (
 		Spec("Support for showing all output to the user in arbitrary languages.")
@@ -149,7 +149,7 @@ var m = Model(
 		Spec("Properties of the system that prevent any vote results from being revealed while the system is in the voting phase.")
 	),
 	Feature("F13. Admin interface") has (
-		Spec("The vote counting part of the system shall have an admin interface.")
+		Spec("The system shall have an admin interface.")
 	),
 	Feature("F14. Support for visually impaired voters") has (
 		Spec("The electronic voting system shall support visually impaired voters.")
@@ -416,7 +416,7 @@ var m = Model(
 		Label("Authentication")
 	),
 	Function("R05. Send confirmation to voter") has (
-		Spec("After a vote is placed, the system shall send a personalized confirmation message to the voter. It must be very difficult to decipher this message for anyone but the voter who placed the vote."),
+		Spec("After a vote is received by the server, the system shall send a personalized confirmation message to the voter. It must be very difficult to decipher this message for anyone but the voter who placed the vote."),
 		Example("One way is to send a text message to the voter's cellphone with a code that translates to the party that was voted on, and these codes are randomly generated for each voter in advance. The codes could for example be distributed with the voting cards."),
 		Label("Individual verifiability")
 	),
@@ -513,13 +513,13 @@ var m = Model(
 	),
 	
 	Function("R21. Assembling and counting of votes") has (
-		Spec("The vote counting system shall be able to assemble the input paper votes and all electronic votes and produce a complete result."),
+		Spec("The system shall be able to assemble the input paper votes and all electronic votes and produce a complete result."),
 		Label("Vote count")
 	),
 
 	Function("R22. Assembling and counting of unregistered candidates") has (
 		Spec("The system must be able to produce a result of votes on unregistered candidates."),
-		Why("When people use the text box to vote on an unregistered candidate the vote has to be counted manually. When the system produces a result the votes on unregistered candidates have to be presented separately."),
+		Why("When people use the text box to vote on an unregistered candidate the vote has to be verified manually. When the the voting closes, the votes on unregistered candidates have to be presented separately."),
 		Label("Vote count")
 	),
 
@@ -621,7 +621,7 @@ var m = Model(
 	),
 
 	Design("D06. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
+		Spec("The page where administrative tasks can be conducted by on-server-site authorized personnel")
 	),
 
 	Design("D07. vote-page - vote for party") has (
@@ -641,6 +641,12 @@ var m = Model(
 
 	Design("D10. log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
+	),
+
+	Design("D_. Tallying procedure") has (
+		Spec("When the voting period is over and paper votes and free-text votes have been put in the database, the system shall prepare the votes for the tallying in the following way:<br>" +
+		     "1. "),
+		Label("Vote count")
 	),
 	
 
