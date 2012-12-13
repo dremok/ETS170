@@ -3,7 +3,7 @@ import reqT._
 var m = Model(
 	Product("Electronic Voting System") has
 		(Gist("An electronic voting system which will complement the manual system used today."),
-		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates. After the end of the voting phase, electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
+		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates after the end of the voting phase. This is also when electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
 		Image("ContextDiagram.png")
 	),
 
@@ -203,9 +203,10 @@ var m = Model(
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters"),
-		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party."),
+		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
 		Example("(1) The pirate party.<br>" +
-			"(2) The \"blank\" party.")
+			"(2) The \"blank\" party.<br>" +
+			"(3) The \"no-vote\" party.")
 	),
 
 	Class("Party Candidate") has (
@@ -224,9 +225,10 @@ var m = Model(
 
 	Class("Vote") has (
 		Gist("A vote can be placed by a voter on a party and candidate"),
-		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp."),
+		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp. At the start of the voting phase, a place-holder vote on the \"no-vote\" party is created for each voter, so that it is impossible to tell who has not voted by looking at the database contents."),
 		Example("(1) A vote on pirate party and \"blank\" candidate.<br>" +
-			"(2) A vote on \"blank\" party and \"blank\" candidate.")
+			"(2) A vote on \"blank\" party and \"blank\" candidate.<br>" +
+			"(2) A place-holder vote on the \"no-vote\" party.")
 	),
 		
 	//CRUD
@@ -470,7 +472,7 @@ var m = Model(
 	Function("R15. Support for unlimited amount of electronic votes placed from home") has (
 		Spec("Each voter must be allowed to vote via the electronic system as many times as desired.<br>" +
 				"Assuming that the voter hasn't placed any overriding votes, only the last electronic vote placed from a personal computer shall be tallied."),
-		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to undo a previous vote at the voter's discretion."),
+		Why("If a voter is pressured to place a vote against his or her will, it shall be possible to override a previous vote at the voter's discretion."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
@@ -577,14 +579,19 @@ var m = Model(
 			"the candidate in the database and replace the free-text vote with a vote on this candidate."),
 		Why("Free-text candididates can not be identified automatically. A human administrator must manually identify the candidates. " +
 			"If this is not possible, the vote is invalid and must be removed. In order to perform the tallying, all candidates that have been voted on must have a proper entry in the database."),
-		Example("The free-text votes might be exported as an Excel file. The new votes (and deletions of votes) might be imported as an Excel file, " +
+		Example("The free-text votes might be exported as an Excel file, and the votes are automatically deleted from the database. The new votes might be imported as an Excel file, " +
 			"possibly with any new candidates automatically created in the database."),
 		Label("Admin functionality")
 	),
 
 	Function ("R32. Admin log out") has (
-		Spec("Once loged in, it must be possible to log out from the system"),
+		Spec("Once logged in, it must be possible to log out from the system"),
 		Label("Authentication")
+	),
+	Function ("R33. Non-voter anonymity") has (
+		Spec("At the start of the voting phase, every voter must automatically have a place-holder vote on the \"no-vote\" party."),
+		Why("It must not be possible to tell from the database contents if a certain person has voted or not. If someone gained access to the database they might theoretically be able to tell if a specific person's vote was present or not, unless every eligible voter always has at least one vote in the database."),
+		Label("Privacy")
 	),
 
 		//Design-level requirements
