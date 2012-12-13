@@ -540,7 +540,7 @@ var m = Model(
 		Deprecated("The voting phase will automatically end according to a time set in the database. See R30.")
 	),
 
-	Function("R26. Import party data") has (
+	Function("R26. Import party/candidate data") has (
 		Spec("The admin interface must have functionality to push party and candidate data to the database."),
 		Example("The party and candidate data may be imported from an Excel file"),
 		Label("Admin functionality")
@@ -636,10 +636,23 @@ var m = Model(
 	),
 
 	Design("D09. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel")
+		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel.")
+	),
+
+	Design("D10. admin-page - import party data") has (
+		Spec("The party data file must be in .csv format. Each party name is seperated by a comma name. All parties must be in one row."),
+		Example("Socialdemokraterna,Moderaterna,Centerpartiet,Piratpartiet,Feministiskt initiativ")
+	),
+
+	Design("D11. admin-page - import candidate data") has (
+		Spec("The candidate data file must be in .csv format with exactly three rows. The first row contains the candidate names, " +
+			"the second each candidate's personal identity number and the third each candidate's party."),
+		Example("Fredrik Reinfeldt,Maud Olofsson,Gudrun Schyman<br>" +
+				"19650804-1099,19520324-1962,19480609-1049<br>" +
+				"Moderaterna,Centerpartiet,Feministiskt initiativ")
 	),
 	
-	Design("D_. log out") has (
+	Design("D12. log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
@@ -731,8 +744,8 @@ var m = Model(
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
 	Design("D01. start-page") helps Function("R17. Language support"),
 	Design("D01. start-page") helps Function("R18. Change language"),
-	Design("D02. start-page -  Change language") helps Function("R17. Language support"),
-	Design("D02. start-page -  Change language") helps Function("R18. Change language"),
+	Design("D02. start-page - Change language") helps Function("R17. Language support"),
+	Design("D02. start-page - Change language") helps Function("R18. Change language"),
 	Design("D03. vote-page") helps Function("R06. GUI information"),
 	Design("D03. vote-page") helps Function("R07. Party view"),
 	Design("D03. vote-page") helps Function("R08. Voting machines at a voting place"),
@@ -741,27 +754,29 @@ var m = Model(
 	Design("D03. vote-page") helps Function("R33. Voting"),
 	Design("D04. vote-page - Information") helps Function("R06. GUI information"),
 	Design("D05. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
-	Design("D06. admin-page") helps Function("R20. Read paper votes"),
-	Design("D06. admin-page") helps Function("R23. Initiate vote count"),
-	Design("D06. admin-page") helps Function("R24. Start voting phase"),
-	Design("D06. admin-page") helps Function("R25. End voting phase"),
-	Design("D06. admin-page") helps Function("R26. Import party data"),
-	Design("D06. admin-page") helps Function("R27. Import voter data"),
-	Design("D06. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
-	Design("D06. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
-	Design("D06. admin-page") helps Function("R30. Input start and end times into database"),
-	Design("D06. admin-page") helps Function("R31. Process free-text candidate votes"),
-	Design("D06. admin-page") helps Function("R32. Log out"),
-	Design("D07. vote-page - vote for party") helps Function("R06. GUI information"),
-	Design("D07. vote-page - vote for party") helps Function("R07. Party view"),
-	Design("D07. vote-page - vote for party") helps Function("R32. Log out"),
-	Design("D07. vote-page - vote for party") helps Function("R33. Voting"),
-	Design("D08. vote-page - vote for candidate") helps Function("R06. GUI information"),
-	Design("D08. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
-	Design("D08. vote-page - vote for candidate") helps Function("R32. Log out"),
-	Design("D08. vote-page - vote for candidate") helps Function("R33. Voting"),
-	Design("D09. vote-page - confirmation") helps Function("R33. Voting"),
-	Design("D10. log out") helps Function("R32. Log out"),
+	Design("D06. vote-page - vote for party") helps Function("R06. GUI information"),
+	Design("D06. vote-page - vote for party") helps Function("R07. Party view"),
+	Design("D06. vote-page - vote for party") helps Function("R32. Log out"),
+	Design("D06. vote-page - vote for party") helps Function("R33. Voting"),
+	Design("D07. vote-page - vote for candidate") helps Function("R06. GUI information"),
+	Design("D07. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
+	Design("D07. vote-page - vote for candidate") helps Function("R32. Log out"),
+	Design("D07. vote-page - vote for candidate") helps Function("R33. Voting"),
+	Design("D08. vote-page - confirmation") helps Function("R33. Voting"),
+
+	Design("D09. admin-page") helps Function("R20. Read paper votes"),
+	Design("D09. admin-page") helps Function("R23. Initiate vote count"),
+	Design("D09. admin-page") helps Function("R24. Start voting phase"),
+	Design("D09. admin-page") helps Function("R25. End voting phase"),
+	Design("D09. admin-page") helps Function("R26. Import party data"),
+	Design("D09. admin-page") helps Function("R27. Import voter data"),
+	Design("D09. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
+	Design("D09. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
+	Design("D09. admin-page") helps Function("R30. Input start and end times into database"),
+	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
+	Design("D09. admin-page") helps Function("R32. Log out"),
+
+	Design("D12. log out") helps Function("R32. Log out"),
 
 	Quality("Q01. Maximum downtime") helps Goal(""),
 	Quality("Q02. Maximum testing time") helps Goal(""),
