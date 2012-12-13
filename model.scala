@@ -681,7 +681,13 @@ var m = Model(
 	Quality("Q07. Robustness/Fault Tolerance") has (
 		//Difficult to verify. Should we specify what parts? And to what extent?
 		Spec("The system must work even though _ % of the servers do not work at all."),
-		Example("Anonymity shall still be enforced.<br>Correct result must be obtained.")
+		Example("Anonymity shall still be enforced.<br>" +
+			"Correct result must be obtained.")
+	),
+	Quality("Q08. Stress case tolerance") has (
+		Spec("The system shall be able to receive _ (number) votes every second. Any votes that can not be received must be queued for later processing."),
+		Why("The worst case scenario is that a vote from every eligible voter arrives during the same second."),
+		Label("Reliability / Availability")
 	),
 
 	// Relationships
