@@ -685,18 +685,18 @@ var m = Model(
 	),
 
 	Design("D11. admin-page - import candidate data") has (
-		Spec("The candidate data file must be in .csv format. The first row contains the candidate names, " +
+		Spec("The candidate data file must be in .csv format.<br>The first row contains the candidate names, " +
 			"the second each candidate's personal identity number, the third each candidate's party and " +
-			"the fourth a priority number for each candidate." +
+			"the fourth a priority number for each candidate which is used to decide their order in the GUI and on the ballots." +
 			"Then follows one row per candidate (in the same order as they are in the first row), " +
 			"with all the electoral areas where he/she candidates."),
 		Example("Fredrik Reinfeldt,Maud Olofsson,Gudrun Schyman<br>" +
 				"19650804-1099,19550809-7887,19480609-1049<br>" +
-				"Moderaterna,Centerpartiet,Feministiskt initiativ" +
+				"Moderaterna,Centerpartiet,Feministiskt initiativ<br>" +
 				"1,2,1<br>" +
-				"Täby Västra,Täby Östra<br>" +
-				"Robertsfors,Umeå<br>" +
-				"Simrishamn 9,Simrishamn 8")
+				"Täby Västra,Täby Östra,...<br>" +
+				"Robertsfors,Umeå,...<br>" +
+				"Simrishamn 9,Simrishamn 8,...")
 	),
 	
 	Design("D12. log out") has (
