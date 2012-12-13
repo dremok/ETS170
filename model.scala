@@ -424,8 +424,8 @@ var m = Model(
 		Deprecated("Moved to design requirements.")
 	),
 	Function("R07. Party view") has (
-		Spec("The order of the parties that are viewed in the GUI shall be randomized. The parties that are in the parliament is placed above all other parties in the list."),
-		Why("No single party must get any special benefits from the way the list is sorted."),
+		Spec("The order of the parties that are viewed in the GUI shall be randomized. The parties currently in parliament are placed above all other parties in the list."),
+		Why("No single party must get any special benefits from the way the list is sorted. However, parties in parliament are so commonly voted on that they must be easy to find in the list."),
 		Label("GUI")
 	),
 	Function("R08. Voting machines at a voting place") has (
