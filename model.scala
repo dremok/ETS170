@@ -661,6 +661,11 @@ var m = Model(
 	Design("D12. log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
+
+	Design("D_. Admin-page - design") has (
+		Spec("When the admin enters the admin-page the admin is presented with the following view."),
+		Image("admin.png")
+	),
 	
 
 	//Quality requirements
@@ -784,6 +789,7 @@ var m = Model(
 
 	Design("D12. log out") helps Function("R32. Log out"),
 
+	//TODO: Q02,Q03, Q04
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
 	Quality("Q02. Maximum testing time") helps Goal(""),
 	Quality("Q03. Voter interface ease of use") helps Goal(""),
