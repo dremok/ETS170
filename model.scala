@@ -678,7 +678,8 @@ var m = Model(
 		     "3. The votes are transferred to an external storage medium.<br>" +
 		     "4. The storage medium is manually transferred to a separate room where the tallying computers reside. These computers have never been connected to the internet in any way.<br>" +
 		     "5. The contents of the storage medium is transferred to the tallying computers.<br>" +
-		     ""),
+		     "6. The key for decrypting the votes is introduced to the system of tallying computers.<br>" +
+		     "7. The tallying phase is commenced. Human access to the room during this phase is restricted."),
 		Label("Vote count")
 	),
 	
