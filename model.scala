@@ -718,9 +718,9 @@ var m = Model(
 	),
 
 	Design("D_. Tallying procedure") has (
-		Spec("When the voting period is over and paper votes and free-text votes have been put in the database, the system shall prepare the votes for the tallying in the following way:<br>" +
+		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers must follow the following procudure:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
-		     "2. Each vote is rendered anonymous by removing the encrypted information about the voter's identity.<br>" +
+		     "2. Each vote is rendered anonymous by throwing away the connection to the voter's identity.<br>" +
 		     "3. The votes are transferred to an external storage medium.<br>" +
 		     "4. The storage medium is manually transferred to a separate room where the tallying computers reside. These computers have never been connected to the internet in any way.<br>" +
 		     "5. The contents of the storage medium is transferred to the tallying computers.<br>" +
