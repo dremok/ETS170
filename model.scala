@@ -852,8 +852,9 @@ var m = Model(
 	Design("D09. admin-page") helps Function("R30. Input start and end times into database"),
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
 	Design("D09. admin-page") helps Function("R32. Admin log out"),
-
 	Design("D12. log out") helps Function("R32. Admin log out"),
+	Design("D_. Tallying procedure") helps Feature("F12. Fairness"),
+
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
