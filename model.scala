@@ -198,6 +198,11 @@ var m = Model(
 	
 	
 	//Data Dictionary
+	Class("ER Diagram") has (
+		Spec("The ER diagram shows the relations between the entities in the system's data structure. It must be followed."),
+		Image("ETS170 ER diagram.png")
+	),
+
 	Class("Voter") has (
 		Gist("Can vote in the election"),
 		Spec("A voter is someone who has voting rights in Sweden. The point of the voter class is to make sure one individual may only have one of its respective votes counted. A voter must at all times have a vote associated with it. The model must be able to hide whether a voter has voted or not as well as which party it has voted upon. A voter must for each votable party have a personal verification code. Every voter must have a means to authenticate him- or herself via the authentication system in use."),
@@ -656,11 +661,7 @@ var m = Model(
 		Spec("In case a party does not have any registered candidates, the vote-page shall have a text box where the voter can insert name and other information that distinguishes a person.")
 	),
 
-	Design("D06. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personnel")
-	),
-
-	Design("D07. vote-page - vote for party") has (
+	Design("D06. vote-page - vote for party") has (
 		Spec("When the user enters the vote-page the user is presented with the following view."),
 		Image("vote_party.png")
 	),
@@ -698,10 +699,6 @@ var m = Model(
 				"Robertsfors,Umeå,...<br>" +
 				"Simrishamn 9,Simrishamn 8,...")
 	),
-	
-	Design("D12. log out") has (
-		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
-	),
 
 	Design("D_. Admin-page - design") has (
 		Spec("When the admin enters the admin-page the admin is presented with the following view."),
@@ -732,6 +729,10 @@ var m = Model(
 		Label("Vote count")
 	),
 
+	Design("D_. log out") has (
+		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
+	),
+	
 	Design("D_. Voter eligibility check") has (
 		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access."),
 		Label("")
