@@ -625,7 +625,7 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
-	Function ("R32. Admin log out") has (
+	Function ("R32. Log out") has (
 		Spec("Once logged in, it must be possible to log out from the system."),
 		Label("Authentication")
 	),
@@ -729,7 +729,7 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Design("D_. log out") has (
+	Design("D_. Log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
@@ -815,7 +815,7 @@ var m = Model(
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
-	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
+	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
 	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
@@ -851,9 +851,9 @@ var m = Model(
 	Design("D09. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
 	Design("D09. admin-page") helps Function("R30. Input start and end times into database"),
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
-	Design("D09. admin-page") helps Function("R32. Admin log out"),
+	Design("D09. admin-page") helps Function("R32. Log out"),
 
-	Design("D12. log out") helps Function("R32. Admin log out"),
+	Design("D12. Log out") helps Function("R32. Log out"),
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
