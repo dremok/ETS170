@@ -498,8 +498,9 @@ var m = Model(
 	),
 	
 	Function("R16. Voting place overrides vote placed from home") has (
-		Spec("Any vote submitted at a public voting place (on paper or from a machine) must override any votes placed from a personal computer by the same voter."),
-		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to provide privacy and be coercion-free. If a voter was coerced into voting against his/her intentions, he/she is the able to override this vote later during the voting period."),
+		Spec("Any vote submitted at a public voting place (on paper or from a machine) must override any votes placed from a personal computer by the same voter. A vote placed via mail is overridden by a paper vote placed at a voting place."),
+		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to provide privacy and be coercion-free. " +
+			"If a voter was coerced into voting against his/her intentions, he/she is the able to override this vote later during the voting period."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
@@ -615,14 +616,9 @@ var m = Model(
 		Label("Privacy")
 	),
 
-	Function("R33. Voting") has (
-		Spec("It must be possible to vote"),
-		Label("Voting")
-	),
-
 		//Design-level requirements
 	Design("D01. start-page") has (
-		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
+		Spec("The web GUI must have a start page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
 	Design("D02. start-page - Change language") has (
 		Spec("The start page of the web interface must present an obvious way (for all voting stakeholders) to change language."),
@@ -630,7 +626,7 @@ var m = Model(
 	),
 
 	Design("D03. vote-page") has (
-		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
+		Spec("The web GUI must have a page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
 	Design("D04. vote-page - Information") has (
@@ -657,7 +653,7 @@ var m = Model(
 	),
 
 	Design("D09. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel.")
+		Spec("The web GUI must have a page where administrative tasks can be conducted by on-server-site authorized personel.")
 	),
 
 	Design("D10. admin-page - import party data") has (
