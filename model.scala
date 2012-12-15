@@ -89,25 +89,6 @@ var m = Model(
 	),
 	
 	// Features
-	Product("Electronic Voting System") owns (
-		Feature("F01. Web interface for voting"),
-		Feature("F02. Input from party/candidate database"),
-		//Feature("F03. Send vote to server"),
-		Feature("F04. Individual Verifiability"),
-		Feature("F05. Counting of electronic votes"),
-		Feature("F06. Support for different languages"),
-		Feature("F07. Input of paper votes"),
-		Feature("F08. Privacy"),
-		Feature("F09. Authentication when voting electronically from home"),
-		Feature("F10. Voter eligibility check"),
-		Feature("F11. Coercion-Resistance & Receipt-Freeness"),
-		Feature("F12. Fairness"),
-		Feature("F13. Admin interface"),
-		Feature("F14. Support for visually impaired voters"),
-		Feature("F15. Support for voters with motor disabilities"),
-		Feature("F16. Support for cognitive disabilities"),
-		Feature("F17. Support for the illiterate & dyslectic")
-	),
 	
 	Feature("F01. Web interface for voting") has (
 		Spec("GUI that allows the user to place a vote.")
@@ -283,24 +264,24 @@ var m = Model(
 		
 		Task("T1.1 Authenticate") has (
 			Label("subtask1.1"),
-			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
+			Spec("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
 			"electronic identification."),
 			Example("An example of a suitable identification procedure is BankID.")
 		),
 			
 		Task("T1.2 Choose party and candidate") has (
 			Label("subtask1.2"),
-			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface.")
+			Spec("The voter chooses the party and candidate that he/she wishes to vote for in the web interface.")
 		),
 			
 		Task("T1.3 Confirm") has (
 			Label("subtask1.3"),
-			Gist("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
+			Spec("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
 		),
 			
 		Task("T1.4 Receive confirmation") has (
 			Label("subtask1.4"),
-			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
+			Spec("The voter is able to verify how he/she voted through a confirmation message from the system."),
 			Comment("It must be very difficult to fake this confirmation message.")
 		),
 		
@@ -363,22 +344,22 @@ var m = Model(
 		// Subtasks	
 		Task("T2.1 Authenticate") has (
 			Label("subtask2.1"),
-			Gist("The voter shows an accepted identification document and scans his or her identification card.")
+			Spec("The voter shows an accepted identification document and scans his or her identification card.")
 		),
 			
 		Task("T2.2 Choose party and candidate") has (
 			Label("subtask2.2"),
-			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface on the machine.")
+			Spec("The voter chooses the party and candidate that he/she wishes to vote for in the web interface on the machine.")
 		),
 		
 		Task("T2.3 Confirm") has (
 			Label("subtask2.3"),
-			Gist("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
+			Spec("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
 		),
 		
 		Task("T2.4 Receive confirmation") has (
 			Label("subtask2.4"),
-			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
+			Spec("The voter is able to verify how he/she voted through a confirmation message from the system."),
 			Comment("It must be very difficult to fake this confirmation message.")
 		),
 
@@ -425,7 +406,7 @@ var m = Model(
 		Trigger("Valmyndigheten decides that an election shall be carried out, and assigns an admin to set it up.")
 	),
 	
-	Task("T2") owns (
+	Task("T3") owns (
 		Task("T3.1 Import party/candidate data"),
 		Task("T3.2 Set dates for the election"),
 		Task("T3.3 Confirm")
@@ -434,18 +415,18 @@ var m = Model(
 		// Subtasks	
 		Task("T3.1 Import party/candidate data") has (
 			Label("subtask3.1"),
-			Gist("The admin uses the admin interface to choose the files to import. These files must contain party and candidate data " +
+			Spec("The admin uses the admin interface to choose the files to import. These files must contain party and candidate data " +
 				"in the correct format, as specified in the design requirements.")
 		),
 			
 		Task("T3.2 Set time and duration for the election") has (
 			Label("subtask3.2"),
-			Gist("The admin uses the admin interface to set start- and end date for the election.")
+			Spec("The admin uses the admin interface to set start- and end date for the election.")
 		),
 		
 		Task("T3.3 Confirm") has (
 			Label("subtask3.3"),
-			Gist("The admin uses the admin interface to confirm that the party/candidate data and entered dates are correct.")
+			Spec("The admin uses the admin interface to confirm that the party/candidate data and entered dates are correct.")
 		),
 
 
@@ -493,8 +474,7 @@ var m = Model(
 
 	Function("R12. Envelope-Voter-Connection") has (
 		Spec("During the voting phase of the system, each encrypted vote must have a connection to its voter."),
-		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one."),
-		Comment("supports F07, F10 and F11")
+		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one.")
 	),
 
 
@@ -857,7 +837,7 @@ var m = Model(
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
 	Design("D09. admin-page") helps Function("R32. Log out"),
 
-	Design("D12. Log out") helps Function("R32. Log out"),
+	Design("D_. Log out") helps Function("R32. Log out"),
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
