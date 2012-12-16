@@ -672,9 +672,9 @@ var m = Model(
 				"19650804-1099,19550809-7887,19480609-1049<br>" +
 				"Moderaterna,Centerpartiet,Feministiskt initiativ<br>" +
 				"1,2,1<br>" +
-				"Täby Västra,Täby Östra,...<br>" +
-				"Robertsfors,Umeå,...<br>" +
-				"Simrishamn 9,Simrishamn 8,...")
+				"Blekinge län, Dalarnas län, Gotlands län, ...<br>" +
+				"Blekinge län, Dalarnas län, Gotlands län, ...<br>" +
+				"Blekinge län, Dalarnas län, Gotlands län, ...")
 	),
 
 	Design("D12. Admin-page - design") has (
@@ -711,7 +711,7 @@ var m = Model(
 	),
 
 	Design("D20. Tallying procedure") has (
-		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers must follow the following procudure:<br>" +
+		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers. In order to maintain security, privacy, etc. of the system they must follow the following procedure:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
 		     "2. Each vote is rendered anonymous by throwing away the connection to the voter's identity.<br>" +
 		     "3. The votes are transferred to an external storage medium.<br>" +
@@ -805,14 +805,13 @@ var m = Model(
 	Function("R23. Initiate vote count") helps Goal("G01. Reduce manual labour"),
 	Function("R24. Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("R25. End voting phase") helps Goal("G01. Reduce manual labour"),
-	Function("R26. Import party data") helps Goal("G01. Reduce manual labour"),
+	Function("R26. Import party/candidate data") helps Goal("G01. Reduce manual labour"),
 	Function("R27. Import voter data") helps Goal("G01. Reduce manual labour"),
 	Function("R28. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
 	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
-	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 	Function("R34. Time out") helps Goal("G05. Maintain democracy"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
@@ -825,24 +824,21 @@ var m = Model(
 	Design("D03. vote-page") helps Function("R08. Voting machines at a voting place"),
 	Design("D03. vote-page") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D03. vote-page") helps Function("R32. Log out"),
-	Design("D03. vote-page") helps Function("R33. Voting"),
 	Design("D04. vote-page - Information") helps Function("R06. GUI information"),
 	Design("D05. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D06. vote-page - vote for party") helps Function("R06. GUI information"),
 	Design("D06. vote-page - vote for party") helps Function("R07. Party view"),
 	Design("D06. vote-page - vote for party") helps Function("R32. Log out"),
-	Design("D06. vote-page - vote for party") helps Function("R33. Voting"),
 	Design("D07. vote-page - vote for candidate") helps Function("R06. GUI information"),
 	Design("D07. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D07. vote-page - vote for candidate") helps Function("R32. Log out"),
-	Design("D07. vote-page - vote for candidate") helps Function("R33. Voting"),
-	Design("D08. vote-page - confirmation") helps Function("R33. Voting"),
-
+	Design("D08. vote-page - confirmation") helps Task("T1.3 Confirm"),
+	Design("D08. vote-page - confirmation") helps Task("T2.3 Confirm"),
 	Design("D09. admin-page") helps Function("R20. Read paper votes"),
 	Design("D09. admin-page") helps Function("R23. Initiate vote count"),
 	Design("D09. admin-page") helps Function("R24. Start voting phase"),
 	Design("D09. admin-page") helps Function("R25. End voting phase"),
-	Design("D09. admin-page") helps Function("R26. Import party data"),
+	Design("D09. admin-page") helps Function("R26. Import party/candidate data"),
 	Design("D09. admin-page") helps Function("R27. Import voter data"),
 	Design("D09. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
 	Design("D09. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
