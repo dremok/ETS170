@@ -850,7 +850,19 @@ var m = Model(
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
 	Design("D09. admin-page") helps Function("R32. Log out"),
 
-	Design("D_. Log out") helps Function("R32. Log out"),
+	Design("D10. admin-page - import party data") helps Function(""),
+	Design("D11. admin-page - import candidate data") helps Function(""),
+	Design("D12. Admin-page - design") helps Function(""),
+	Design("D13. Admin-page - Save") helps Function(""),
+	Design("D14. Admin-page - Save party data") helps Function(""),
+	Design("D15. Admin-page - import party data, candidate data and voter data buttons") helps Function(""),
+	Design("D16. Admin-page - Import votes") helps Function(""),
+	Design("D17. Admin-page - Set dates") helps Function(""),
+	Design("D18. Admin-page - Save candidate data") helps Function(""),
+	Design("D19. Admin-page - Confirm system reset") helps Function(""),
+	Design("D20. Tallying procedure") helps Function(""),
+	Design("D21. Log out") helps Function("R32. Log out"),
+	Design("D22. Voter eligibility check") helps Function(""),
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G05. Maintain democracy"),
