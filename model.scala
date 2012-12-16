@@ -188,7 +188,7 @@ var m = Model(
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters"),
-		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
+		Spec("Each votable party is represented with a party in the system. A party has an optional free-text description/slogan associated with it that would be displayed on the parties vote selctor on e-voting interfaces. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
 		Example("(1) The pirate party.<br>" +
 			"(2) The \"blank\" party.<br>" +
 			"(3) The \"no-vote\" party.")
