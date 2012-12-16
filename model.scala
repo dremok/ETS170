@@ -188,7 +188,7 @@ var m = Model(
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters"),
-		Spec("Each votable party is represented with a party in the system. A party has an optional free-text description/slogan associated with it that would be displayed on the parties vote selctor on e-voting interfaces. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
+		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
 		Example("(1) The pirate party.<br>" +
 			"(2) The \"blank\" party.<br>" +
 			"(3) The \"no-vote\" party.")
@@ -213,8 +213,7 @@ var m = Model(
 		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp. At the start of the voting phase, a place-holder vote on the \"no-vote\" party is created for each voter, so that it is impossible to tell who has not voted by looking at the database contents."),
 		Example("(1) A vote on pirate party and \"blank\" candidate.<br>" +
 			"(2) A vote on \"blank\" party and \"blank\" candidate.<br>" +
-			"(3) A place-holder vote on the \"no-vote\" party.<br>" +
-			"(4) A vote on the \"blank\" party and a free-text candidate.")
+			"(2) A place-holder vote on the \"no-vote\" party.")
 	),
 		
 	//CRUD
@@ -617,12 +616,6 @@ var m = Model(
 		Label("Authentication")
 	),
 
-	Function("R35. System reset") has (
-		Spec("When the system is reset, all data in system must be deleted. After this the system must be in the pre voting phase."),
-		Why("In order to go from post tallying phase to pre voting phase the content in database must be removed."),
-		Label("Admin functionality")
-	),
-
 		//Design-level requirements
 	Design("D01. start-page") has (
 		Spec("The web GUI must have a start page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
@@ -678,34 +671,46 @@ var m = Model(
 				"19650804-1099,19550809-7887,19480609-1049<br>" +
 				"Moderaterna,Centerpartiet,Feministiskt initiativ<br>" +
 				"1,2,1<br>" +
-				"Blekinge län, Dalarnas län, ...<br>" +
-				"Blekinge län, Dalarnas län, ...<br>" +
-				"Blekinge län, Dalarnas län, ...")
+				"Täby Västra,Täby Östra,...<br>" +
+				"Robertsfors,Umeå,...<br>" +
+				"Simrishamn 9,Simrishamn 8,...")
 	),
 
-	Design("D_. Admin-page - design") has (
+	Design("D12. Admin-page - design") has (
 		Spec("When the admin enters the admin-page the admin is presented with the view above. The above mockup represents the GUI for release 0.1. The admin-page must be modifiable and extendable for release 1.0 and 2.0. "),
 		Image("admin.png")
 	),
 
-	Design("D_: Admin-page version 0.1") has (
-
-	),
-
-	Design("D_. Admin-page - Save") has (
+	Design("D13. Admin-page - Save") has (
 		Spec("The save button (\"Spara\") on the admin page saves the actions performed on the admin page. This includes: importing of party data, importing of candidate data, importing of paper votes and setting of start and end dates for the election period.")
 	),
 
-	Design("D_. Admin-page - Save party data") has (
-		Spec("Any existing data in the party database it will be erased and replaced by the imported data.")
+	Design("D14. Admin-page - Save party data") has (
+		Spec("Any existing data in the party database will be erased and replaced by the imported data.")
 	),
 
-	Design("D_. Admin-page - Save candidate data") has (
+	Design("D15. Admin-page - import party data, candidate data and voter data buttons") has (
+		Spec("The buttons for importing party data, candidate data and voter data are only clickable during the prevoting phase.")
+	),
+
+	Design("D16. Admin-page - Import votes") has (
+		Spec("The button for importing votes is only clickable during the tallying phase.")
+	),
+
+	Design("D17. Admin-page - Set dates") has (
+		Spec("Setting the dates is only possible during the prevoting phase.")
+	),
+
+	Design("D18. Admin-page - Save candidate data") has (
 		Spec("Any existing data in the candidate database it will be erased and replaced by the imported data.")
 	),
 
-	Design("D_. Tallying procedure") has (
-		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers. In order to for the system to be able to fulfil requirements on security, privacy etc. they must follow the following procudure:<br>" +
+	Design("D19. Admin-page - Confirm system reset") has (
+		Spec("When the system reset button is pressed the admin has to confirm the action via a confirmation dialog.")
+	),
+
+	Design("D20. Tallying procedure") has (
+		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers must follow the following procudure:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
 		     "2. Each vote is rendered anonymous by throwing away the connection to the voter's identity.<br>" +
 		     "3. The votes are transferred to an external storage medium.<br>" +
@@ -716,12 +721,13 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Design("D_. Log out") has (
+	Design("D21. Log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
-	Design("D_. Voter eligibility check") has (
-		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access.")
+	Design("D22. Voter eligibility check") has (
+		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access."),
+		Label("")
 	),
 	
 	//Quality requirements
@@ -799,13 +805,14 @@ var m = Model(
 	Function("R23. Initiate vote count") helps Goal("G01. Reduce manual labour"),
 	Function("R24. Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("R25. End voting phase") helps Goal("G01. Reduce manual labour"),
-	Function("R26. Import party/candidate data") helps Goal("G01. Reduce manual labour"),
+	Function("R26. Import party data") helps Goal("G01. Reduce manual labour"),
 	Function("R27. Import voter data") helps Goal("G01. Reduce manual labour"),
 	Function("R28. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
 	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
+	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 	Function("R34. Time out") helps Goal("G05. Maintain democracy"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
@@ -818,30 +825,44 @@ var m = Model(
 	Design("D03. vote-page") helps Function("R08. Voting machines at a voting place"),
 	Design("D03. vote-page") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D03. vote-page") helps Function("R32. Log out"),
-	Design("D03. vote-page") helps Task(""),
+	Design("D03. vote-page") helps Function("R33. Voting"),
 	Design("D04. vote-page - Information") helps Function("R06. GUI information"),
 	Design("D05. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D06. vote-page - vote for party") helps Function("R06. GUI information"),
 	Design("D06. vote-page - vote for party") helps Function("R07. Party view"),
 	Design("D06. vote-page - vote for party") helps Function("R32. Log out"),
+	Design("D06. vote-page - vote for party") helps Function("R33. Voting"),
 	Design("D07. vote-page - vote for candidate") helps Function("R06. GUI information"),
 	Design("D07. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D07. vote-page - vote for candidate") helps Function("R32. Log out"),
-	Design("D08. vote-page - confirmation") helps Task("T1.3 Confirm"),
-	Design("D08. vote-page - confirmation") helps Task("T2.3 Confirm"),
+	Design("D07. vote-page - vote for candidate") helps Function("R33. Voting"),
+	Design("D08. vote-page - confirmation") helps Function("R33. Voting"),
+
 	Design("D09. admin-page") helps Function("R20. Read paper votes"),
 	Design("D09. admin-page") helps Function("R23. Initiate vote count"),
 	Design("D09. admin-page") helps Function("R24. Start voting phase"),
 	Design("D09. admin-page") helps Function("R25. End voting phase"),
-	Design("D09. admin-page") helps Function("R26. Import party/candidate data"),
+	Design("D09. admin-page") helps Function("R26. Import party data"),
 	Design("D09. admin-page") helps Function("R27. Import voter data"),
 	Design("D09. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
 	Design("D09. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
 	Design("D09. admin-page") helps Function("R30. Input start and end times into database"),
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
 	Design("D09. admin-page") helps Function("R32. Log out"),
-	Design("D12. log out") helps Function("R32. Log out"),
-	Design("D_. Tallying procedure") helps Feature("F12. Fairness"),
+
+	Design("D10. admin-page - import party data") helps Function(""),
+	Design("D11. admin-page - import candidate data") helps Function(""),
+	Design("D12. Admin-page - design") helps Function(""),
+	Design("D13. Admin-page - Save") helps Function(""),
+	Design("D14. Admin-page - Save party data") helps Function(""),
+	Design("D15. Admin-page - import party data, candidate data and voter data buttons") helps Function(""),
+	Design("D16. Admin-page - Import votes") helps Function(""),
+	Design("D17. Admin-page - Set dates") helps Function(""),
+	Design("D18. Admin-page - Save candidate data") helps Function(""),
+	Design("D19. Admin-page - Confirm system reset") helps Function(""),
+	Design("D20. Tallying procedure") helps Function(""),
+	Design("D21. Log out") helps Function("R32. Log out"),
+	Design("D22. Voter eligibility check") helps Function(""),
 
 	//TODO: Q02
 	Quality("Q01. Maximum downtime") helps Goal("G05. Maintain democracy"),
