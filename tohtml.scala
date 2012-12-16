@@ -60,10 +60,10 @@ val myTemplate = DocumentTemplate(
 	Chapter("System Features", Text("<b>The system consists of the following features. The point of these features is to partition the requirements for better clarity. They are not requirements per se.</b>"), m => m / Feature),
 	
 	// Goals
-	Chapter("Goal requirements", Text("<b>R01. The system shall support the following goals:</b>"), m => m / Goal),
+	Chapter("Goal requirements", Text("<b>R01. The system shall support the following goals. Each goal G01-G06 is a requirement in its own respect.</b>"), m => m / Goal),
 	
 	// Task descriptions
-	Chapter("Tasks to be supported", Text("<b>R02. The system shall support the following tasks:</b>"), m => mWithoutLabels(mainTask(1)) ), 
+	Chapter("Tasks to be supported", Text("<b>R02. The system shall support the following tasks. Each task T01-T03 is a requirement in its own respect.</b>"), m => mWithoutLabels(mainTask(1)) ),
 	Section("Sub-tasks:", Text(""), m => mWithoutLabels(subtasks(1))),
 	Section("Variants:", Text(""), m => mWithoutLabels(variants(1))),
 	Section("", Text(""), m => mWithoutLabels(mainTask(2))),

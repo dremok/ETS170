@@ -3,7 +3,7 @@ import reqT._
 var m = Model(
 	Product("Electronic Voting System") has
 		(Gist("An electronic voting system which will complement the manual system used today."),
-		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates after the end of the voting phase. This is also when electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
+		 Spec("The system shall conform to the context diagram above. It describes the interactions between voters, electoral workers and the voting system. A voter can either submit a vote via the web from home, on an electronic voting machine at a voting place or on paper to an electoral worker. The electoral workers submit relevant information to the system before the election period. Paper votes are submitted to the system using a similar procedure as the parties and candidates after the end of the voting phase. In addition to this, electoral workers need to identify any free-text candidates and register those votes in the system. Finally, the system can calculate the result of the voting."),
 		Image("ContextDiagram.png")
 	),
 
@@ -89,25 +89,6 @@ var m = Model(
 	),
 	
 	// Features
-	Product("Electronic Voting System") owns (
-		Feature("F01. Web interface for voting"),
-		Feature("F02. Input from party/candidate database"),
-		//Feature("F03. Send vote to server"),
-		Feature("F04. Individual Verifiability"),
-		Feature("F05. Counting of electronic votes"),
-		Feature("F06. Support for different languages"),
-		Feature("F07. Input of paper votes"),
-		Feature("F08. Privacy"),
-		Feature("F09. Authentication when voting electronically from home"),
-		Feature("F10. Voter eligibility check"),
-		Feature("F11. Coercion-Resistance & Receipt-Freeness"),
-		Feature("F12. Fairness"),
-		Feature("F13. Admin interface"),
-		Feature("F14. Support for visually impaired voters"),
-		Feature("F15. Support for voters with motor disabilities"),
-		Feature("F16. Support for cognitive disabilities"),
-		Feature("F17. Support for the illiterate & dyslectic")
-	),
 	
 	Feature("F01. Web interface for voting") has (
 		Spec("GUI that allows the user to place a vote.")
@@ -190,12 +171,6 @@ var m = Model(
 		Spec("Undermining the election process by exploiting the fact the votes are submitted electronically shall be very difficult."),
 		Why("An electronic system introduces new threats to the election process. These must be countered in order to maintain the quality of the process.")
 	),
-	//Even if a user has no internet connection the system may still be available from another computer.
-	Goal("G07. Availability") has (
-		Spec("Make the system available at all time during its supposed uptime."),
-		Why("If the system isn't available people wont be able to vote and the admin wont be able to maintain the system.")
-	),
-	
 	
 	//Data Dictionary
 	Class("ER Diagram") has (
@@ -238,20 +213,21 @@ var m = Model(
 		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp. At the start of the voting phase, a place-holder vote on the \"no-vote\" party is created for each voter, so that it is impossible to tell who has not voted by looking at the database contents."),
 		Example("(1) A vote on pirate party and \"blank\" candidate.<br>" +
 			"(2) A vote on \"blank\" party and \"blank\" candidate.<br>" +
-			"(2) A place-holder vote on the \"no-vote\" party.")
+			"(3) A place-holder vote on the \"no-vote\" party.<br>" +
+			"(4) A vote on the \"blank\" party and a free-text candidate.")
 	),
 		
 	//CRUD
 	Class("Voter") has (
-		Comment("It shall be possible to create, read, update and delete voters. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
+		Comment("It shall be possible to create, read and delete voters. CRD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
 	),
 
 	Class("Party") has (
-		Comment("It shall be possible to create, read, update and delete parties. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
+		Comment("It shall be possible to create, read, and delete parties. CRD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
 	),
 
 	Class("Party Candidate") has (
-		Comment("It shall be possible to create, read, update and delete party candidates. CRUD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
+		Comment("It shall be possible to create, read and delete party candidates. CRD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
@@ -283,24 +259,24 @@ var m = Model(
 		
 		Task("T1.1 Authenticate") has (
 			Label("subtask1.1"),
-			Gist("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
+			Spec("The voter enters his/her personal code on the received voting card in the web interface and authenticates him-/herself using " +
 			"electronic identification."),
 			Example("An example of a suitable identification procedure is BankID.")
 		),
 			
 		Task("T1.2 Choose party and candidate") has (
 			Label("subtask1.2"),
-			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface.")
+			Spec("The voter chooses the party and candidate that he/she wishes to vote for in the web interface.")
 		),
 			
 		Task("T1.3 Confirm") has (
 			Label("subtask1.3"),
-			Gist("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
+			Spec("The voter confirms that the chosen party and candidate is indeed the one he/she wants to vote for, using the web interface.")
 		),
 			
 		Task("T1.4 Receive confirmation") has (
 			Label("subtask1.4"),
-			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
+			Spec("The voter is able to verify how he/she voted through a confirmation message from the system."),
 			Comment("It must be very difficult to fake this confirmation message.")
 		),
 		
@@ -363,22 +339,22 @@ var m = Model(
 		// Subtasks	
 		Task("T2.1 Authenticate") has (
 			Label("subtask2.1"),
-			Gist("The voter shows an accepted identification document and scans his or her identification card.")
+			Spec("The voter shows an accepted identification document and scans his or her identification card.")
 		),
 			
 		Task("T2.2 Choose party and candidate") has (
 			Label("subtask2.2"),
-			Gist("The voter chooses the party and candidate that he/she wishes to vote for in the web interface on the machine.")
+			Spec("The voter chooses the party and candidate that he/she wishes to vote for in the web interface on the machine.")
 		),
 		
 		Task("T2.3 Confirm") has (
 			Label("subtask2.3"),
-			Gist("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
+			Spec("The voter confirms that the chosen party is indeed the one he/she wants to vote for, using the web interface on the machine.")
 		),
 		
 		Task("T2.4 Receive confirmation") has (
 			Label("subtask2.4"),
-			Gist("The voter is able to verify how he/she voted through a confirmation message from the system."),
+			Spec("The voter is able to verify how he/she voted through a confirmation message from the system."),
 			Comment("It must be very difficult to fake this confirmation message.")
 		),
 
@@ -425,7 +401,7 @@ var m = Model(
 		Trigger("Valmyndigheten decides that an election shall be carried out, and assigns an admin to set it up.")
 	),
 	
-	Task("T2") owns (
+	Task("T3") owns (
 		Task("T3.1 Import party/candidate data"),
 		Task("T3.2 Set dates for the election"),
 		Task("T3.3 Confirm")
@@ -434,18 +410,18 @@ var m = Model(
 		// Subtasks	
 		Task("T3.1 Import party/candidate data") has (
 			Label("subtask3.1"),
-			Gist("The admin uses the admin interface to choose the files to import. These files must contain party and candidate data " +
+			Spec("The admin uses the admin interface to choose the files to import. These files must contain party and candidate data " +
 				"in the correct format, as specified in the design requirements.")
 		),
 			
 		Task("T3.2 Set time and duration for the election") has (
 			Label("subtask3.2"),
-			Gist("The admin uses the admin interface to set start- and end date for the election.")
+			Spec("The admin uses the admin interface to set start- and end date for the election.")
 		),
 		
 		Task("T3.3 Confirm") has (
 			Label("subtask3.3"),
-			Gist("The admin uses the admin interface to confirm that the party/candidate data and entered dates are correct.")
+			Spec("The admin uses the admin interface to confirm that the party/candidate data and entered dates are correct.")
 		),
 
 
@@ -493,8 +469,7 @@ var m = Model(
 
 	Function("R12. Envelope-Voter-Connection") has (
 		Spec("During the voting phase of the system, each encrypted vote must have a connection to its voter."),
-		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one."),
-		Comment("supports F07, F10 and F11")
+		Why("To allow users to vote multiple times, where the old electronical vote is overridden by the new one.")
 	),
 
 
@@ -518,8 +493,9 @@ var m = Model(
 	),
 	
 	Function("R16. Voting place overrides vote placed from home") has (
-		Spec("Any vote submitted at a public voting place (on paper or from a machine) must override any votes placed from a personal computer by the same voter."),
-		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to provide privacy and be coercion-free. If a voter was coerced into voting against his/her intentions, he/she is the able to override this vote later during the voting period."),
+		Spec("Any vote submitted at a public voting place (on paper or from a machine) must override any votes placed from a personal computer by the same voter. A vote placed via mail is overridden by a paper vote placed at a voting place."),
+		Why("If a voter is unable to use the electronic voting system at home without privacy or coercion, the public voting places provide a means of voting that is guaranteed to provide privacy and be coercion-free. " +
+			"If a voter was coerced into voting against his/her intentions, he/she is the able to override this vote later during the voting period."),
 		Label("Coercion-resistance & Receipt-freeness")
 	),
 	
@@ -625,7 +601,7 @@ var m = Model(
 		Label("Admin functionality")
 	),
 
-	Function ("R32. Admin log out") has (
+	Function ("R32. Log out") has (
 		Spec("Once logged in, it must be possible to log out from the system."),
 		Label("Authentication")
 	),
@@ -635,14 +611,21 @@ var m = Model(
 		Label("Privacy")
 	),
 
-	Function("R33. Voting") has (
-		Spec("It must be possible to vote"),
-		Label("Voting")
+	Function("R34. Time out") has (
+		Spec("When a logged in user has been inactive for more than 5 minutes the user shall be automatically logged out."),
+		Why("If a user forgets to log out someone else may vote in the user's name."),
+		Label("Authentication")
+	),
+
+	Function("R35. System reset") has (
+		Spec("When the system is reset, all data in system must be deleted. After this the system must be in the pre voting phase."),
+		Why("In order to go from post tallying phase to pre voting phase the content in database must be removed."),
+		Label("Admin functionality")
 	),
 
 		//Design-level requirements
 	Design("D01. start-page") has (
-		Spec("The page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
+		Spec("The web GUI must have a start page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
 	),
 	Design("D02. start-page - Change language") has (
 		Spec("The start page of the web interface must present an obvious way (for all voting stakeholders) to change language."),
@@ -650,7 +633,7 @@ var m = Model(
 	),
 
 	Design("D03. vote-page") has (
-		Spec("The page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
+		Spec("The web GUI must have a page where the actual voting is conducted. This is where you select the party and candidate you want to vote for.")
 	),
 
 	Design("D04. vote-page - Information") has (
@@ -662,22 +645,22 @@ var m = Model(
 	),
 
 	Design("D06. vote-page - vote for party") has (
-		Spec("When the user enters the vote-page the user is presented with the following view."),
+		Spec("When the user enters the vote-page the user is presented with the view above."),
 		Image("vote_party.png")
 	),
 
 	Design("D07. vote-page - vote for candidate") has (
-		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the following view."),
+		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the view above."),
 		Image("vote_candidate.png")
 	),	
 
 	Design("D08. vote-page - confirmation") has (
-		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the following view."),
+		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the view above."),
 		Image("vote_done.png")
 	),
 
 	Design("D09. admin-page") has (
-		Spec("The page where administrative tasks can be conducted by on-server-site authorized personel.")
+		Spec("The web GUI must have a page where administrative tasks can be conducted by on-server-site authorized personel.")
 	),
 
 	Design("D10. admin-page - import party data") has (
@@ -695,14 +678,18 @@ var m = Model(
 				"19650804-1099,19550809-7887,19480609-1049<br>" +
 				"Moderaterna,Centerpartiet,Feministiskt initiativ<br>" +
 				"1,2,1<br>" +
-				"Täby Västra,Täby Östra,...<br>" +
-				"Robertsfors,Umeå,...<br>" +
-				"Simrishamn 9,Simrishamn 8,...")
+				"Blekinge län, Dalarnas län, ...<br>" +
+				"Blekinge län, Dalarnas län, ...<br>" +
+				"Blekinge län, Dalarnas län, ...")
 	),
 
 	Design("D_. Admin-page - design") has (
-		Spec("When the admin enters the admin-page the admin is presented with the following view."),
+		Spec("When the admin enters the admin-page the admin is presented with the view above. The above mockup represents the GUI for release 0.1. The admin-page must be modifiable and extendable for release 1.0 and 2.0. "),
 		Image("admin.png")
+	),
+
+	Design("D_: Admin-page version 0.1") has (
+
 	),
 
 	Design("D_. Admin-page - Save") has (
@@ -718,7 +705,7 @@ var m = Model(
 	),
 
 	Design("D_. Tallying procedure") has (
-		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers must follow the following procudure:<br>" +
+		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers. In order to for the system to be able to fulfil requirements on security, privacy etc. they must follow the following procudure:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
 		     "2. Each vote is rendered anonymous by throwing away the connection to the voter's identity.<br>" +
 		     "3. The votes are transferred to an external storage medium.<br>" +
@@ -729,15 +716,18 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Design("D_. log out") has (
+	Design("D_. Log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
-
+	Design("D_. Voter eligibility check") has (
+		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access.")
+	),
+	
 	//Quality requirements
 	Quality("Q01. Maximum downtime") has (
 		Spec("The system must be available for voting _% of the voting phase."),
-		Why("The electoral authority demands this."),
+		Why("Valmyndigheten demands this."),
 		Label("Reliability / Availability")
 	),
 
@@ -809,14 +799,14 @@ var m = Model(
 	Function("R23. Initiate vote count") helps Goal("G01. Reduce manual labour"),
 	Function("R24. Start voting phase") helps Goal("G01. Reduce manual labour"),
 	Function("R25. End voting phase") helps Goal("G01. Reduce manual labour"),
-	Function("R26. Import party data") helps Goal("G01. Reduce manual labour"),
+	Function("R26. Import party/candidate data") helps Goal("G01. Reduce manual labour"),
 	Function("R27. Import voter data") helps Goal("G01. Reduce manual labour"),
 	Function("R28. Admin warnings - Counting of votes") helps Goal("G01. Reduce manual labour"),
 	Function("R29. Admin warnings - Starting and ending a phase") helps Goal("G01. Reduce manual labour"),
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
-	Function("R32. Admin log out") helps Goal("G05. Maintain democracy"),
-	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
+	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
+	Function("R34. Time out") helps Goal("G05. Maintain democracy"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
 	Design("D01. start-page") helps Function("R17. Language support"),
@@ -828,36 +818,34 @@ var m = Model(
 	Design("D03. vote-page") helps Function("R08. Voting machines at a voting place"),
 	Design("D03. vote-page") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D03. vote-page") helps Function("R32. Log out"),
-	Design("D03. vote-page") helps Function("R33. Voting"),
+	Design("D03. vote-page") helps Task(""),
 	Design("D04. vote-page - Information") helps Function("R06. GUI information"),
 	Design("D05. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D06. vote-page - vote for party") helps Function("R06. GUI information"),
 	Design("D06. vote-page - vote for party") helps Function("R07. Party view"),
 	Design("D06. vote-page - vote for party") helps Function("R32. Log out"),
-	Design("D06. vote-page - vote for party") helps Function("R33. Voting"),
 	Design("D07. vote-page - vote for candidate") helps Function("R06. GUI information"),
 	Design("D07. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D07. vote-page - vote for candidate") helps Function("R32. Log out"),
-	Design("D07. vote-page - vote for candidate") helps Function("R33. Voting"),
-	Design("D08. vote-page - confirmation") helps Function("R33. Voting"),
-
+	Design("D08. vote-page - confirmation") helps Task("T1.3 Confirm"),
+	Design("D08. vote-page - confirmation") helps Task("T2.3 Confirm"),
 	Design("D09. admin-page") helps Function("R20. Read paper votes"),
 	Design("D09. admin-page") helps Function("R23. Initiate vote count"),
 	Design("D09. admin-page") helps Function("R24. Start voting phase"),
 	Design("D09. admin-page") helps Function("R25. End voting phase"),
-	Design("D09. admin-page") helps Function("R26. Import party data"),
+	Design("D09. admin-page") helps Function("R26. Import party/candidate data"),
 	Design("D09. admin-page") helps Function("R27. Import voter data"),
 	Design("D09. admin-page") helps Function("R28. Admin warnings - Counting of votes"),
 	Design("D09. admin-page") helps Function("R29. Admin warnings - Starting and ending a phase"),
 	Design("D09. admin-page") helps Function("R30. Input start and end times into database"),
 	Design("D09. admin-page") helps Function("R31. Process free-text candidate votes"),
-	Design("D09. admin-page") helps Function("R32. Admin log out"),
-	Design("D12. log out") helps Function("R32. Admin log out"),
+	Design("D09. admin-page") helps Function("R32. Log out"),
+	Design("D12. log out") helps Function("R32. Log out"),
 	Design("D_. Tallying procedure") helps Feature("F12. Fairness"),
 
-
 	//TODO: Q02
-	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
+	Quality("Q01. Maximum downtime") helps Goal("G05. Maintain democracy"),
+	Quality("Q01. Maximum downtime") helps Goal("G01. Reduce manual labour"),
 	Quality("Q02. Maximum testing time") helps Goal("G05. Maintain democracy"),
 	Quality("Q03. Voter interface ease of use") helps Goal("G01. Reduce manual labour"),
 	Quality("Q03. Voter interface ease of use") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
@@ -865,7 +853,8 @@ var m = Model(
 	Quality("Q05. Vote count correctness") helps Goal("G04. Maintain the current election turnout"),
 	Quality("Q05. Vote count correctness") helps Goal("G05. Maintain democracy"),
 	Quality("Q06. Web browser compatibility") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
-	Quality("Q06. Web browser compatibility") helps Goal("G07. Availability"),
-	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G07. Availability"),
-	Quality("Q08. Stress case tolerance") helps Goal("G07. Availability")
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G05. Maintain democracy"),
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G01. Reduce manual labour"),
+	Quality("Q08. Stress case tolerance") helps Goal("G05. Maintain democracy"),
+	Quality("Q08. Stress case tolerance") helps Goal("G01. Reduce manual labour")
 )
