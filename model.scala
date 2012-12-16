@@ -171,12 +171,6 @@ var m = Model(
 		Spec("Undermining the election process by exploiting the fact the votes are submitted electronically shall be very difficult."),
 		Why("An electronic system introduces new threats to the election process. These must be countered in order to maintain the quality of the process.")
 	),
-	//Even if a user has no internet connection the system may still be available from another computer.
-	Goal("G07. Availability") has (
-		Spec("Make the system available at all time during its supposed uptime."),
-		Why("If the system isn't available people wont be able to vote and the admin wont be able to maintain the system.")
-	),
-	
 	
 	//Data Dictionary
 	Class("ER Diagram") has (
@@ -224,15 +218,15 @@ var m = Model(
 		
 	//CRUD
 	Class("Voter") has (
-		Comment("It shall be possible to create, read, update and delete voters. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
+		Comment("It shall be possible to create, read and delete voters. CRD is only applied during the pre-election phase; during the other phases it is only possible to read voters.")
 	),
 
 	Class("Party") has (
-		Comment("It shall be possible to create, read, update and delete parties. CRUD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
+		Comment("It shall be possible to create, read, and delete parties. CRD is only applied during the pre-election phase; during the other phases it is only possible to read parties.")
 	),
 
 	Class("Party Candidate") has (
-		Comment("It shall be possible to create, read, update and delete party candidates. CRUD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
+		Comment("It shall be possible to create, read and delete party candidates. CRD is only applied during the pre-election phase and pre-tallying phase; during the other phases it is only possible to read party candidates.")
 	),
 
 	Class("Vote") has (
@@ -616,6 +610,12 @@ var m = Model(
 		Label("Privacy")
 	),
 
+	Function("R34. Time out") has (
+		Spec("When a logged in user has been inactive for more than 5 minutes the user shall be automatically logged out."),
+		Why("If a user forgets to log out someone else may vote in the user's name."),
+		Label("Authentication")
+	),
+
 		//Design-level requirements
 	Design("D01. start-page") has (
 		Spec("The web GUI must have a start page which is first shown when pointing a browser toward the voting interface. From here you can change language and authenticate.")
@@ -638,17 +638,17 @@ var m = Model(
 	),
 
 	Design("D06. vote-page - vote for party") has (
-		Spec("When the user enters the vote-page the user is presented with the following view."),
+		Spec("When the user enters the vote-page the user is presented with the view above."),
 		Image("vote_party.png")
 	),
 
 	Design("D07. vote-page - vote for candidate") has (
-		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the following view."),
+		Spec("When the user clicks on a party on the vote-page the candidates must be shown as shown in the view above."),
 		Image("vote_candidate.png")
 	),	
 
 	Design("D08. vote-page - confirmation") has (
-		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the following view."),
+		Spec("When the user clicks on \"Rösta!\" a confirmation overlay must be shown as shown in the view above."),
 		Image("vote_done.png")
 	),
 
@@ -677,8 +677,12 @@ var m = Model(
 	),
 
 	Design("D_. Admin-page - design") has (
-		Spec("When the admin enters the admin-page the admin is presented with the following view."),
+		Spec("When the admin enters the admin-page the admin is presented with the view above. The above mockup represents the GUI for release 0.1. The admin-page must be modifiable and extendable for release 1.0 and 2.0. "),
 		Image("admin.png")
+	),
+
+	Design("D_: Admin-page version 0.1") has (
+
 	),
 
 	Design("D_. Admin-page - Save") has (
@@ -797,6 +801,7 @@ var m = Model(
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
 	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
 	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
+	Function("R34. Time out") helps Goal("G05. Maintain democracy"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
 	Design("D01. start-page") helps Function("R17. Language support"),
@@ -836,7 +841,8 @@ var m = Model(
 	Design("D_. Log out") helps Function("R32. Log out"),
 
 	//TODO: Q02
-	Quality("Q01. Maximum downtime") helps Goal("G07. Availability"),
+	Quality("Q01. Maximum downtime") helps Goal("G05. Maintain democracy"),
+	Quality("Q01. Maximum downtime") helps Goal("G01. Reduce manual labour"),
 	Quality("Q02. Maximum testing time") helps Goal("G05. Maintain democracy"),
 	Quality("Q03. Voter interface ease of use") helps Goal("G01. Reduce manual labour"),
 	Quality("Q03. Voter interface ease of use") helps Goal("G03. Facilitate voting for people who have difficulties using the current manual voting system"),
@@ -844,7 +850,8 @@ var m = Model(
 	Quality("Q05. Vote count correctness") helps Goal("G04. Maintain the current election turnout"),
 	Quality("Q05. Vote count correctness") helps Goal("G05. Maintain democracy"),
 	Quality("Q06. Web browser compatibility") helps Goal("G02. Facilitate voting for people who have difficulties getting to a voting place"),
-	Quality("Q06. Web browser compatibility") helps Goal("G07. Availability"),
-	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G07. Availability"),
-	Quality("Q08. Stress case tolerance") helps Goal("G07. Availability")
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G05. Maintain democracy"),
+	Quality("Q07. Robustness/Fault Tolerance") helps Goal("G01. Reduce manual labour"),
+	Quality("Q08. Stress case tolerance") helps Goal("G05. Maintain democracy"),
+	Quality("Q08. Stress case tolerance") helps Goal("G01. Reduce manual labour")
 )
