@@ -188,7 +188,7 @@ var m = Model(
 
 	Class("Party") has (
 		Gist("A party which can receive a vote from the voters"),
-		Spec("Each votable party is represented with a party in the system. A party has an optional free-text description/slogan associated with it that would be displayed on the parties vote selctor on e-voting interfaces. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
+		Spec("Each votable party is represented with a party in the system. A blank vote counts as being placed on the \"blank\" party. There is also a \"no-vote\" party that is used to hide who has not voted at all."),
 		Example("(1) The pirate party.<br>" +
 			"(2) The \"blank\" party.<br>" +
 			"(3) The \"no-vote\" party.")
@@ -676,44 +676,40 @@ var m = Model(
 				"Simrishamn 9,Simrishamn 8,...")
 	),
 
-	Design("D_. Admin-page - design") has (
+	Design("D12. Admin-page - design") has (
 		Spec("When the admin enters the admin-page the admin is presented with the view above. The above mockup represents the GUI for release 0.1. The admin-page must be modifiable and extendable for release 1.0 and 2.0. "),
 		Image("admin.png")
 	),
 
-	Design("D_: Admin-page version 0.1") has (
-
-	),
-
-	Design("D_. Admin-page - Save") has (
+	Design("D13. Admin-page - Save") has (
 		Spec("The save button (\"Spara\") on the admin page saves the actions performed on the admin page. This includes: importing of party data, importing of candidate data, importing of paper votes and setting of start and end dates for the election period.")
 	),
 
-	Design("D_. Admin-page - Save party data") has (
+	Design("D14. Admin-page - Save party data") has (
 		Spec("Any existing data in the party database will be erased and replaced by the imported data.")
 	),
 
-	Design("D_. Admin-page - import party data, candidate data and voter data buttons") has (
+	Design("D15. Admin-page - import party data, candidate data and voter data buttons") has (
 		Spec("The buttons for importing party data, candidate data and voter data are only clickable during the prevoting phase.")
 	),
 
-	Design("D_. Admin-page - Import votes") has (
+	Design("D16. Admin-page - Import votes") has (
 		Spec("The button for importing votes is only clickable during the tallying phase.")
 	),
 
-	Design("D_. Admin-page - Set dates") has (
+	Design("D17. Admin-page - Set dates") has (
 		Spec("Setting the dates is only possible during the prevoting phase.")
 	),
 
-	Design("D_. Admin-page - Save candidate data") has (
+	Design("D18. Admin-page - Save candidate data") has (
 		Spec("Any existing data in the candidate database it will be erased and replaced by the imported data.")
 	),
 
-	Design("D_. Admin-page - Confirm system reset") has (
+	Design("D19. Admin-page - Confirm system reset") has (
 		Spec("When the system reset button is pressed the admin has to confirm the action via a confirmation dialog.")
 	),
 
-	Design("D_. Tallying procedure") has (
+	Design("D20. Tallying procedure") has (
 		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers must follow the following procudure:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
 		     "2. Each vote is rendered anonymous by throwing away the connection to the voter's identity.<br>" +
@@ -725,11 +721,11 @@ var m = Model(
 		Label("Vote count")
 	),
 
-	Design("D_. Log out") has (
+	Design("D21. Log out") has (
 		Spec("By clicking on a log out button (\"Logga ut\") a logged in user must be logged out.")
 	),
 	
-	Design("D_. Voter eligibility check") has (
+	Design("D22. Voter eligibility check") has (
 		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access."),
 		Label("")
 	),
