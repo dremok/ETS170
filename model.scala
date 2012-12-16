@@ -715,7 +715,7 @@ var m = Model(
 	),
 	
 	Design("D_. Voter eligibility check") has (
-		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access."),
+		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access.")
 	),
 	
 	//Quality requirements
