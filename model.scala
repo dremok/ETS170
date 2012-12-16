@@ -213,7 +213,8 @@ var m = Model(
 		Spec("A Vote is placed by a voter on a party and a party candidate. The vote is masked in such a way that there is no way for an outsider to determine which candidate and party the vote was placed on, nor who placed the vote, while still being connected to its voter. The party candidate which is being voted upon must be a party candidate from the party being voted on. Each vote also has a time-stamp. At the start of the voting phase, a place-holder vote on the \"no-vote\" party is created for each voter, so that it is impossible to tell who has not voted by looking at the database contents."),
 		Example("(1) A vote on pirate party and \"blank\" candidate.<br>" +
 			"(2) A vote on \"blank\" party and \"blank\" candidate.<br>" +
-			"(2) A place-holder vote on the \"no-vote\" party.")
+			"(3) A place-holder vote on the \"no-vote\" party.<br>" +
+			"(4) A vote on the \"blank\" party and a free-text candidate.")
 	),
 		
 	//CRUD
@@ -671,9 +672,9 @@ var m = Model(
 				"19650804-1099,19550809-7887,19480609-1049<br>" +
 				"Moderaterna,Centerpartiet,Feministiskt initiativ<br>" +
 				"1,2,1<br>" +
-				"Täby Västra,Täby Östra,...<br>" +
-				"Robertsfors,Umeå,...<br>" +
-				"Simrishamn 9,Simrishamn 8,...")
+				"Blekinge län, Dalarnas län, ...<br>" +
+				"Blekinge län, Dalarnas län, ...<br>" +
+				"Blekinge län, Dalarnas län, ...")
 	),
 
 	Design("D_. Admin-page - design") has (
@@ -698,7 +699,7 @@ var m = Model(
 	),
 
 	Design("D_. Tallying procedure") has (
-		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers must follow the following procudure:<br>" +
+		Spec("When the voting period is over and paper votes and free-text votes have been merged into the database, the tallying phase should be prepared by the electoral workers. In order to for the system to be able to fulfil requirements on security, privacy etc. they must follow the following procudure:<br>" +
 		     "1. All of the database's direct and indirect connections to the internet are closed.<br>" +
 		     "2. Each vote is rendered anonymous by throwing away the connection to the voter's identity.<br>" +
 		     "3. The votes are transferred to an external storage medium.<br>" +
@@ -715,7 +716,6 @@ var m = Model(
 	
 	Design("D_. Voter eligibility check") has (
 		Spec("A voter voting from home authenticates him- or herself via BankID. If the authentication is successful, the voter is looked up in the voter database. If the voter is eligible to vote, the voting GUI will appear. Otherwise, the voter will be denied access."),
-		Label("")
 	),
 	
 	//Quality requirements
@@ -800,7 +800,6 @@ var m = Model(
 	Function("R30. Input start and end times into database") helps Goal("G01. Reduce manual labour"),
 	Function("R31. Process free-text candidate votes") helps Goal("G05. Maintain democracy"),
 	Function("R32. Log out") helps Goal("G05. Maintain democracy"),
-	Function("R33. Voting") helps Goal("G01. Reduce manual labour"),
 	Function("R34. Time out") helps Goal("G05. Maintain democracy"),
 
 	Design("D01. start-page") helps Function("R04. Authentication when voting electronically from home"),
@@ -813,19 +812,17 @@ var m = Model(
 	Design("D03. vote-page") helps Function("R08. Voting machines at a voting place"),
 	Design("D03. vote-page") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D03. vote-page") helps Function("R32. Log out"),
-	Design("D03. vote-page") helps Function("R33. Voting"),
+	Design("D03. vote-page") helps Task(""),
 	Design("D04. vote-page - Information") helps Function("R06. GUI information"),
 	Design("D05. vote-page - Free-text") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D06. vote-page - vote for party") helps Function("R06. GUI information"),
 	Design("D06. vote-page - vote for party") helps Function("R07. Party view"),
 	Design("D06. vote-page - vote for party") helps Function("R32. Log out"),
-	Design("D06. vote-page - vote for party") helps Function("R33. Voting"),
 	Design("D07. vote-page - vote for candidate") helps Function("R06. GUI information"),
 	Design("D07. vote-page - vote for candidate") helps Function("R19. Vote for an unregistered candidate"),
 	Design("D07. vote-page - vote for candidate") helps Function("R32. Log out"),
-	Design("D07. vote-page - vote for candidate") helps Function("R33. Voting"),
-	Design("D08. vote-page - confirmation") helps Function("R33. Voting"),
-
+	Design("D08. vote-page - confirmation") helps Task("T1.3 Confirm"),
+	Design("D08. vote-page - confirmation") helps Task("T2.3 Confirm"),
 	Design("D09. admin-page") helps Function("R20. Read paper votes"),
 	Design("D09. admin-page") helps Function("R23. Initiate vote count"),
 	Design("D09. admin-page") helps Function("R24. Start voting phase"),
